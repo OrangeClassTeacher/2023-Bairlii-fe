@@ -1,14 +1,16 @@
 import React, { ReactNode } from "react";
-import Navbar from "./Navbar";
+import { Navbar } from "./Navbar";
+import { Meta } from "./Meta";
 interface MyProps {
   children?: ReactNode;
 }
 
-export const Layout = ({ children }: MyProps): JSX.Element => (
+export const Layout = ({ children }: any): JSX.Element => (
   <>
-    <div className="max-w-5xl">
-      <Navbar />
-      <div>{children}</div>
-    </div>
+
+    <Meta />
+    <Navbar />
+    <div>{children}</div>
+
   </>
 );

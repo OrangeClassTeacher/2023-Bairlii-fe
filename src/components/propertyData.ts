@@ -1,9 +1,8 @@
 interface IProperties {
+    _id: string;
     userID: string;
-    rating: string;
-    comments: string[];
     photos: string[];
-    panaromaPhoto: string[];
+    panaromaPhoto: string;
     roomNumber: number;
     area: number;
     locationCoordinate: {
@@ -13,7 +12,7 @@ interface IProperties {
     locationName: string;
 }
 
-const Properties = [
+const Properties: Array<IProperties> = [
     {
         _id: "pro001",
         userID: "000a1",
@@ -186,7 +185,7 @@ const Properties = [
         locationName: "aa buu med tegj bgd bichne",
     },
     {
-        _id: "pro0010",
+        _id: "pro010",
         userID: "000a2",
         photos: [
             "https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cm9vbSUyMGluc2lkZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
