@@ -1,14 +1,14 @@
-"use client";
+
 import img from "../../public/images/logo.png";
 
 const Avatar = () => {
   return (
     <img
       className="rounded-full"
-      height="30"
-      width="30"
+      height="60"
+      width="60"
       alt="Avatar"
-      src="../../public/images/logo.png"
+      src="/images/DevZoid.png"
     />
   );
 };

@@ -6,7 +6,7 @@ interface MyProps {
 
 export const Layout = ({ children }: MyProps): JSX.Element => (
   <>
-    <div className="max-w-5xl mx-auto pt-6">
+    <div className="max-w-5xl">
       <Navbar />
       <div>{children}</div>
     </div>

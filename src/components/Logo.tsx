@@ -1,9 +1,4 @@
-"use client";
-interface img {
-  src: string | undefined;
-}
-
-import img from "../../public/images/logo.png";
+import logoImage from "../../public/images/logo.png";
 import { useRouter } from "next/navigation";
 
 const logo = (): JSX.Element => {
@@ -15,7 +10,7 @@ const logo = (): JSX.Element => {
       className="hidden md:block cursor-pointer"
       height="100"
       width="100"
-      src="http://d1cs08zudd3ykv.cloudfront.net/dev/img/arrow-up.svg"
+      src="images/DevZoid.png"
     />
   );
 };
