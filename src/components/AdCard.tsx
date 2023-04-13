@@ -1,5 +1,6 @@
 import React from 'react'
 import Properties from './propertyData';
+import Slider from './Slider';
 
 interface IAdvertisements {
     _id: string;
@@ -46,8 +47,8 @@ const AdCard = ({ item, key }: adCardProps) => {
 
     return (
         <>
-            <div className="flex w-48 flex-wrap">
-                <img src={data.propertyDetail.photos[0]} />
+            <div className="flex w-48 flex-wrap h-60">
+                <Slider images={data.propertyDetail.photos} className="h-3/6" />
                 <span>Area: {data.propertyDetail.area}.m.k</span>
                 <span>Room Number: {data.propertyDetail.roomNumber}</span>
                 <span>{data.propertyDetail.locationName}</span>
