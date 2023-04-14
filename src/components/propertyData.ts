@@ -49,7 +49,7 @@ const Properties: Array<IProperties> = [
             lang: 47.91905946666347,
             long: 106.84854683468191,
         },
-        locationName: "aa buu med tegj bgd bichne",
+        locationName: "bairlal number 1",
     },
     {
         _id: "pro003",
@@ -68,7 +68,7 @@ const Properties: Array<IProperties> = [
             lang: 47.93159774067078,
             long: 106.87017616796697,
         },
-        locationName: "aa buu med tegj bgd bichne",
+        locationName: "bairlal number 1",
     },
     {
         _id: "pro004",
@@ -87,7 +87,7 @@ const Properties: Array<IProperties> = [
             lang: 47.92791709465624,
             long: 106.876355977477,
         },
-        locationName: "aa buu med tegj bgd bichne",
+        locationName: "bairlal number 1",
     },
     {
         _id: "pro005",
@@ -106,7 +106,7 @@ const Properties: Array<IProperties> = [
             lang: 47.92389106860957,
             long: 106.93987071945989,
         },
-        locationName: "aa buu med tegj bgd bichne",
+        locationName: "bairlal number 1",
     },
     {
         _id: "pro006",
@@ -125,7 +125,7 @@ const Properties: Array<IProperties> = [
             lang: 47.916758516393024,
             long: 106.95120037022828,
         },
-        locationName: "aa buu med tegj bgd bichne",
+        locationName: "bairlal number 1",
     },
     {
         _id: "pro007",
@@ -144,7 +144,7 @@ const Properties: Array<IProperties> = [
             lang: 47.91353704144508,
             long: 106.90296352377504,
         },
-        locationName: "aa buu med tegj bgd bichne",
+        locationName: "bairlal number 1",
     },
     {
         _id: "pro008",
@@ -163,7 +163,7 @@ const Properties: Array<IProperties> = [
             lang: 47.92883726119054,
             long: 106.92854106869153,
         },
-        locationName: "aa buu med tegj bgd bichne",
+        locationName: "bairlal number 1",
     },
     {
         _id: "pro009",
@@ -182,7 +182,7 @@ const Properties: Array<IProperties> = [
             lang: 47.90018879427191,
             long: 106.89644039151447,
         },
-        locationName: "aa buu med tegj bgd bichne",
+        locationName: "bairlal number 1",
     },
     {
         _id: "pro010",
@@ -201,7 +201,7 @@ const Properties: Array<IProperties> = [
             lang: 47.89800211533527,
             long: 106.91068828566259,
         },
-        locationName: "aa buu med tegj bgd bichne",
+        locationName: "bairlal number 1",
     },
 ];
 
