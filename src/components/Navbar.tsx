@@ -4,7 +4,7 @@ import Menu from "../components/Menu";
 import { Search } from "../components/Search";
 import Categories from "./Categories";
 
-const Navbar = (): JSX.Element => {
+export const Navbar = () => {
   return (
     <div className="w-full bg-white z-10 shadow-sm">
       <div className="">
@@ -20,4 +20,3 @@ const Navbar = (): JSX.Element => {
     </div>
   );
 };
-export default Navbar;
