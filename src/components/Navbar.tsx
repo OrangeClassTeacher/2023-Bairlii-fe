@@ -4,6 +4,8 @@ import Menu from "../components/Menu";
 import { Search } from "../components/Search";
 import Categories from "./Categories";
 
+
+
 export const Navbar = () => {
   return (
     <div className="w-full bg-white z-10 shadow-sm">
