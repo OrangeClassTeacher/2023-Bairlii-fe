@@ -7,7 +7,10 @@ export const SearchBox = () => {
 
   const Bairlii = [{ name: "Belgium", continent: "Europe" }];
 
-  const handleChange = (e): any => {
+  const handleChange = (e: {
+    preventDefault: () => void;
+    target: { value: React.SetStateAction<string> };
+  }): any => {
     e.preventDefault();
     setSearchInput(e.target.value);
   };
