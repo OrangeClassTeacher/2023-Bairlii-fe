@@ -1,4 +1,3 @@
-import logoImage from "../../public/images/logo.png";
 import { useRouter } from "next/navigation";
 
 const logo = (): JSX.Element => {

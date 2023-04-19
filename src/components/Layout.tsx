@@ -1,12 +1,11 @@
 import React, { ReactNode } from "react";
 import Navbar from "./Navbar";
 import Modal from "./modals/Modal";
-import { TIMEOUT } from "dns";
 interface MyProps {
   children?: ReactNode;
 }
 
-export const Layout = ({ children }: MyProps): JSX.Element => (
+export const Layout = ({ children }: any): JSX.Element => (
   <>
     <div className="max-w-5xl">
       {/* <Navbar /> */}
