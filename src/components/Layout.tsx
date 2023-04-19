@@ -9,7 +9,7 @@ export const Layout = ({ children }: any): JSX.Element => (
   <>
     <div className="max-w-5xl">
       {/* <Navbar /> */}
-      <Modal actionLabel="Submit" title="Hello World" isOpen />
+      {/* <Modal actionLabel="Submit" title="Hello World" isOpen /> */}
       <div>{children}</div>
     </div>
   </>
