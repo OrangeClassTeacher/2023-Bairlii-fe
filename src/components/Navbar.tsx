@@ -26,3 +26,5 @@ const Navbar = (): JSX.Element => {
     </div>
   );
 };
+
+export default Navbar;
