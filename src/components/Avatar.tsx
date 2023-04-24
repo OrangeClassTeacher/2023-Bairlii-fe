@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Avatar = () => {
   return (
-    <Link href="/register">
+    <Link href="/login">
       <img
         className="rounded-full"
         height="60"
