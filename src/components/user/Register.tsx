@@ -86,23 +86,29 @@ function Register(): any {
                   Шинээр бүртгүүлэх
                 </p>
               </div>
-              <div className="grid grid-cols-2 gap-5">
-                <input
-                  onChange={onChangeFN}
-                  type="text"
-                  placeholder="Нэр..."
-                  className="border border-gray-400 py-1 px-2"
-                />
+              <div className="mt-10 grid grid-cols-2 gap-5">
+                <div>
+                  <label>Нэр</label>
 
-                <input
-                  onChange={onChangeLN}
-                  type="text"
-                  placeholder="Овог..."
-                  className="border border-gray-400 py-1 px-2"
-                />
+                  <input
+                    onChange={onChangeFN}
+                    type="text"
+                    placeholder="Нэр..."
+                    className="border border-gray-400 py-1 px-2"
+                  />
+                </div>
+                <div>
+                  <label>Овог</label>
+                  <input
+                    onChange={onChangeLN}
+                    type="text"
+                    placeholder="Овог..."
+                    className="border border-gray-400 py-1 px-2"
+                  />
+                </div>
               </div>
-
               <div className="mt-5">
+                <label>Имэйл</label>
                 <input
                   onChange={onChangeEmail}
                   type="text"
@@ -110,50 +116,69 @@ function Register(): any {
                   className="border border-gray-400 py-1 px-2 w-full"
                 />
               </div>
-              <div className="mt-5 grid grid-cols-2 gap-5  ">
-                <input
-                  onChange={onChangeDistrict}
-                  type="text"
-                  placeholder="Дүүрэг..."
-                  className="border border-gray-400 py-1 px-1"
-                />
-                <input
-                  onChange={onChangeSubDistrict}
-                  type="text"
-                  placeholder="Хороо..."
-                  className="border border-gray-400 py-1 px-1"
-                />
+              <div className="mt-5 grid grid-cols-2 gap-5">
+                <div>
+                  <label>Дүүрэг</label>
+                  <input
+                    onChange={onChangeDistrict}
+                    type="text"
+                    placeholder="Дүүрэг..."
+                    className="border border-gray-400 py-1 px-2"
+                  />
+                </div>
+                <div>
+                  <label>Хороо</label>
+                  <input
+                    onChange={onChangeSubDistrict}
+                    type="text"
+                    placeholder="Хороо..."
+                    className="border border-gray-400 py-1 px-2"
+                  />
+                </div>
               </div>
               <div className="mt-5 grid grid-cols-2 gap-5">
-                <input
-                  onChange={onChangeBlock}
-                  type="text"
-                  placeholder="Гудамж..."
-                  className="border border-gray-400 py-1 px-2"
-                />
-                <input
-                  onChange={onChangeStreet}
-                  type="text"
-                  placeholder="Байр..."
-                  className="border border-gray-400 py-1 px-2"
-                />
+                <div>
+                  <label>Гудамж</label>
+                  <input
+                    onChange={onChangeBlock}
+                    type="text"
+                    placeholder="Гудамж..."
+                    className="border border-gray-400 py-1 px-2"
+                  />
+                </div>
+                <div>
+                  <label>Байр</label>
+                  <input
+                    onChange={onChangeStreet}
+                    type="text"
+                    placeholder="Байр..."
+                    className="border border-gray-400 py-1 px-2"
+                  />
+                </div>
               </div>
               <div className="mt-5 grid grid-cols-2 gap-5">
-                <input
-                  onChange={onChangePassword}
-                  type="password"
-                  placeholder="Нууц үг..."
-                  className="border border-gray-400 py-1 px-2"
-                />
-                <input
-                  onChange={onChangePhone}
-                  type="number"
-                  placeholder="Утасны дугаар..."
-                  className="border border-gray-400 py-1 px-2"
-                />
+                <div>
+                  <label>Нууц үг</label>
+                  <input
+                    onChange={onChangePassword}
+                    type="password"
+                    placeholder="Нууц үг..."
+                    className="border border-gray-400 py-1 px-2"
+                  />
+                </div>
+                <div>
+                  <label>Утасны дугаар</label>
+                  <input
+                    onChange={onChangePhone}
+                    type="number"
+                    placeholder="Утасны дугаар..."
+                    className="border border-gray-400 py-1 px-2"
+                  />
+                </div>
               </div>
 
               <div className="mt-5 mb-5">
+                <label>Профайл зураг</label>
                 <input
                   onChange={onChangeProPic}
                   type="text"
