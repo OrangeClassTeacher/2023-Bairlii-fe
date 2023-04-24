@@ -1,7 +1,73 @@
-import Login from "./Login";
 import Link from "next/link";
+import { useState } from "react";
+import axios from "axios";
 
-const Register = (): JSX.Element => {
+function Register(): any {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [district, setDistrict] = useState("");
+  const [subDistrict, setSubDistrict] = useState("");
+  const [street, setStreet] = useState("");
+  const [password, setPassword] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [profilePicture, setProfilePicture] = useState("");
+  const [block, setBlock] = useState("");
+
+  const onChangeFN = (e: any) => {
+    setFirstName(e.target.value);
+  };
+  const onChangeLN = (e: any) => {
+    setLastName(e.target.value);
+  };
+  const onChangeEmail = (e: any) => {
+    setEmail(e.target.value);
+  };
+  const onChangeDistrict = (e: any) => {
+    setDistrict(e.target.value);
+  };
+  const onChangeSubDistrict = (e: any) => {
+    setSubDistrict(e.target.value);
+  };
+  const onChangeStreet = (e: any) => {
+    setStreet(e.target.value);
+  };
+  const onChangeBlock = (e: any) => {
+    setBlock(e.target.value);
+  };
+  const onChangePassword = (e: any) => {
+    setPassword(e.target.value);
+  };
+  const onChangePhone = (e: any) => {
+    setPhoneNumber(e.target.value);
+  };
+  const onChangeProPic = (e: any) => {
+    setProfilePicture(e.target.value);
+  };
+
+  const onSubmit = () => {
+    axios
+      .post(`http://localhost:9000/api/users`, {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        address: {
+          district: district,
+          subDistrict: subDistrict,
+          street: street,
+        },
+        password: password,
+        phoneNumber: phoneNumber,
+        profilePicture: profilePicture,
+      })
+      .then((response: any) => {
+        console.log(response);
+
+        alert("Таны бүртгэл амжилттай үүслээ");
+      })
+      .catch((error: any) => console.log("error", error));
+  };
+
   return (
     <section className="h-screen">
       <div className="h-full">
@@ -16,66 +82,84 @@ const Register = (): JSX.Element => {
           <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
             <form>
               <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
-                <p className="mx-4 mb-0 text-center font-semibold dark:text-white">
+                <p className="mx-4 mb-0 text-center font-semibold text-2xl dark:text-white">
                   Шинээр бүртгүүлэх
                 </p>
               </div>
-              <div className="relative mb-6" data-te-input-wrapper-init>
+              <div className="grid grid-cols-2 gap-5">
                 <input
+                  onChange={onChangeFN}
                   type="text"
-                  className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                  id="exampleFormControlInput2"
-                  placeholder="Email address"
+                  placeholder="Нэр..."
+                  className="border border-gray-400 py-1 px-2"
                 />
-                <label
-                  form="exampleFormControlInput2"
-                  className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-                >
-                  Нэр...
-                </label>
-              </div>
-              <div className="relative mb-6" data-te-input-wrapper-init>
+
                 <input
+                  onChange={onChangeLN}
                   type="text"
-                  className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                  id="exampleFormControlInput2"
-                  placeholder="Email address"
+                  placeholder="Овог..."
+                  className="border border-gray-400 py-1 px-2"
                 />
-                <label
-                  form="exampleFormControlInput2"
-                  className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-                >
-                  Имэйл...
-                </label>
               </div>
 
-              <div className="relative mb-6" data-te-input-wrapper-init>
+              <div className="mt-5">
                 <input
-                  type="password"
-                  className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                  id="exampleFormControlInput22"
-                  placeholder="Password"
+                  onChange={onChangeEmail}
+                  type="text"
+                  placeholder="Имэйл..."
+                  className="border border-gray-400 py-1 px-2 w-full"
                 />
-                <label
-                  form="exampleFormControlInput22"
-                  className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-                >
-                  Нууц үг...
-                </label>
               </div>
-              <div className="relative mb-6" data-te-input-wrapper-init>
+              <div className="mt-5 grid grid-cols-2 gap-5  ">
                 <input
-                  type="password"
-                  className="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                  id="exampleFormControlInput22"
-                  placeholder="Password"
+                  onChange={onChangeDistrict}
+                  type="text"
+                  placeholder="Дүүрэг..."
+                  className="border border-gray-400 py-1 px-1"
                 />
-                <label
-                  form="exampleFormControlInput22"
-                  className="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-                >
-                  Нууц үг давтах...
-                </label>
+                <input
+                  onChange={onChangeSubDistrict}
+                  type="text"
+                  placeholder="Хороо..."
+                  className="border border-gray-400 py-1 px-1"
+                />
+              </div>
+              <div className="mt-5 grid grid-cols-2 gap-5">
+                <input
+                  onChange={onChangeBlock}
+                  type="text"
+                  placeholder="Гудамж..."
+                  className="border border-gray-400 py-1 px-2"
+                />
+                <input
+                  onChange={onChangeStreet}
+                  type="text"
+                  placeholder="Байр..."
+                  className="border border-gray-400 py-1 px-2"
+                />
+              </div>
+              <div className="mt-5 grid grid-cols-2 gap-5">
+                <input
+                  onChange={onChangePassword}
+                  type="password"
+                  placeholder="Нууц үг..."
+                  className="border border-gray-400 py-1 px-2"
+                />
+                <input
+                  onChange={onChangePhone}
+                  type="number"
+                  placeholder="Утасны дугаар..."
+                  className="border border-gray-400 py-1 px-2"
+                />
+              </div>
+
+              <div className="mt-5 mb-5">
+                <input
+                  onChange={onChangeProPic}
+                  type="text"
+                  placeholder="Профайл зураг..."
+                  className="border border-gray-400 py-1 px-2 w-full"
+                />
               </div>
               <div className="mb-6 flex items-center justify-between">
                 <div className="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
@@ -95,7 +179,7 @@ const Register = (): JSX.Element => {
                 <a href="#!">Нүүц үг мартсан?</a>
               </div>
               <div className="text-center lg:text-left">
-                <Link href="/register/login">
+                <Link href="/login">
                   <button
                     type="button"
                     className="inline-block rounded bg-primary px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
@@ -106,6 +190,7 @@ const Register = (): JSX.Element => {
                   </button>
                 </Link>
                 <button
+                  onClick={onSubmit}
                   type="button"
                   className="inline-block rounded bg-primary px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
                   data-te-ripple-init
@@ -120,6 +205,6 @@ const Register = (): JSX.Element => {
       </div>
     </section>
   );
-};
+}
 
 export default Register;
