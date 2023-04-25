@@ -1,30 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { AdDetailSmallSlider } from "@/components/adDetailComp/adDetailSmallSlider";
 import axios from "axios";
+import { AdDetailSmallSlider } from "@/components/adDetailComp/AdDetailSmallSlider";
 
 const AdDetail = () => {
-  const { query } = useRouter();
+    const { query } = useRouter();
+    const [images, setImages] = useState([])
 
-  function getData() {
-    axios
-      .get("http://localhost:9000/api/advertisement")
-      .then((res) => {
-        setAds(res.data.result);
-        console.log(res.data.result);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
+    useEffect(() => {
+        getData()
+    }, [])
 
-  return (
-    <div>
-      <div>{query.id}</div>
-      <div>{query.detail}</div>
-      <AdDetailSmallSlider images={} />
-    </div>
-  );
+    function getData() {
+        axios
+            .get(`http://localhost:9000/api/properties/${query.detail}`)
+            .then((res) => {
+                setImages(res.data.result.photos);
+                console.log(res.data.result.photos);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+
+    return (
+        <div>
+            <AdDetailSmallSlider images={images} />
+        </div>
+    );
 };
 
 export default AdDetail;

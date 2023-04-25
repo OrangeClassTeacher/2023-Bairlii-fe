@@ -16,8 +16,6 @@ const Ads = (): JSX.Element => {
       .get("http://localhost:9000/api/advertisement")
       .then((res) => {
         setAds(res.data.result)
-        console.log(res.data.result);
-
       })
       .catch((err) => {
         console.log(err);

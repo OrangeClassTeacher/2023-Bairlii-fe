@@ -5,8 +5,6 @@ import Link from "next/link";
 
 
 const AdCard = ({ item, key }: any) => {
-    console.log(item);
-
     return (
         <div className="flex flex-wrap flex-col max-w-[25%] min-w-[300px] h-96 ">
             <Slider images={item.propertyID.photos} className="" />
