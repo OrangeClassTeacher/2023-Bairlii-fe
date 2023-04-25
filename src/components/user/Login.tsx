@@ -1,11 +1,12 @@
 import Link from "next/link";
-import Image from "next/image";
+import { useRouter } from "next/router";
 import axios from "axios";
 import { useState } from "react";
 
 function Login(): any {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+  const route = useRouter();
 
   const onChangeEmail = (e: any) => {
     setLoginEmail(e.target.value);
@@ -18,15 +19,15 @@ function Login(): any {
 
   const onSubmit = () => {
     console.log("email", loginEmail, "pass", loginPassword);
-
     axios
       .post(`http://localhost:9000/api/userlogin`, {
         email: loginEmail,
         password: loginPassword,
       })
-      .then((response: any) => {
-        console.log(response);
-
+      .then(async (response: any) => {
+        localStorage.setItem("token", await response.data.token);
+        route.push("/");
+        console.log(route.push("/"));
         alert("Та амжилттай нэвтэрлээ");
       })
       .catch((error: any) => console.log("error", error));
