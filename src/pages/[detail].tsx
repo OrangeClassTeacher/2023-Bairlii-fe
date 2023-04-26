@@ -39,7 +39,6 @@ const AdDetail = () => {
       <div>
         <AdDetailSmallSlider images={adData} />
         <Description data={adData} />
-        <GoogleMapComp data={adData} />
       </div>
     );
   }

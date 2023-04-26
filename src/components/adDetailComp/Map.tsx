@@ -1,5 +1,5 @@
 import React from "react";
-import { GoogleMap, Marker } from "@react-google-maps/api";
+import { GoogleMap, MarkerF } from "@react-google-maps/api";
 
 export const Map = ({ data }: any) => {
   console.log(data);
@@ -14,7 +14,7 @@ export const Map = ({ data }: any) => {
         }}
         mapContainerClassName="map-container"
       >
-        <Marker
+        <MarkerF
           position={{
             lat: data?.propertyID?.locationCoordinate?.lang,
             lng: data?.propertyID?.locationCoordinate?.long,
