@@ -2,64 +2,124 @@ import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
 
+interface IUsers {
+  firstName: string;
+  lastName: string;
+  email: string;
+  address: {
+    district: string;
+    subdistrict: number;
+    street: string;
+    block: number;
+    fence: number;
+  };
+  password: string;
+  profilePicture: string;
+  phoneNumber: number;
+  ratingAsRenter: string;
+  ratingAsLandlord: string;
+}
+
 function Register(): any {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [district, setDistrict] = useState("");
-  const [subDistrict, setSubDistrict] = useState("");
-  const [street, setStreet] = useState("");
-  const [password, setPassword] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [profilePicture, setProfilePicture] = useState("");
-  const [block, setBlock] = useState("");
+  const myUserObj = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    address: {
+      district: "",
+      subdistrict: 0,
+      street: "",
+      block: 0,
+      fence: 0,
+    },
+    password: "",
+    profilePicture: "",
+    phoneNumber: 0,
+    ratingAsRenter: "",
+    ratingAsLandlord: "",
+  };
+  const [loading, setLoading] = useState<Boolean>(false);
+
+  const [newUser, setNewUser] = useState<IUsers>(myUserObj);
 
   const onChangeFN = (e: any) => {
-    setFirstName(e.target.value);
+    setNewUser({ ...newUser, firstName: e.target.value });
   };
   const onChangeLN = (e: any) => {
-    setLastName(e.target.value);
+    setNewUser({ ...newUser, lastName: e.target.value });
   };
   const onChangeEmail = (e: any) => {
-    setEmail(e.target.value);
+    setNewUser({ ...newUser, email: e.target.value });
   };
   const onChangeDistrict = (e: any) => {
-    setDistrict(e.target.value);
+    setNewUser({
+      ...newUser,
+      address: { ...newUser.address, district: e.target.value },
+    });
   };
   const onChangeSubDistrict = (e: any) => {
-    setSubDistrict(e.target.value);
+    setNewUser({
+      ...newUser,
+      address: { ...newUser.address, subdistrict: e.target.value },
+    });
   };
   const onChangeStreet = (e: any) => {
-    setStreet(e.target.value);
+    setNewUser({
+      ...newUser,
+      address: { ...newUser.address, street: e.target.value },
+    });
   };
   const onChangeBlock = (e: any) => {
-    setBlock(e.target.value);
+    setNewUser({
+      ...newUser,
+      address: { ...newUser.address, block: e.target.value },
+    });
   };
   const onChangePassword = (e: any) => {
-    setPassword(e.target.value);
+    setNewUser({ ...newUser, password: e.target.value });
   };
   const onChangePhone = (e: any) => {
-    setPhoneNumber(e.target.value);
+    setNewUser({ ...newUser, phoneNumber: e.target.value });
   };
-  const onChangeProPic = (e: any) => {
-    setProfilePicture(e.target.value);
+
+  const sendFile = async (fieldName: any, files: any) => {
+    setLoading(true);
+    console.log(files);
+
+    const url = `http://api.cloudinary.com/v1_1/dnowpv9qs/upload`;
+    const newArr = [];
+    for (let i = 0; i < files.length; i++) {
+      console.log(files[i]);
+      newArr.push(files[i]);
+    }
+    console.log(newArr);
+
+    const promise = await Promise.all(
+      newArr.map((file) => {
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("api_key", "775479378444756");
+        formData.append("upload_preset", "jnoyojr2");
+
+        return axios.post(url, formData);
+      })
+    );
+    console.log(promise);
+    const arr: any = [];
+
+    promise.map((response) => {
+      arr.push(response.data.secure_url);
+    });
+    if (fieldName == "images") {
+      console.log(arr);
+      setNewUser({ ...newUser, profilePicture: arr[0] });
+    }
+    setLoading(false);
   };
 
   const onSubmit = () => {
     axios
-      .post(`http://localhost:9000/api/users`, {
-        firstName: firstName,
-        lastName: lastName,
-        email: email,
-        address: {
-          district: district,
-          subDistrict: subDistrict,
-          street: street,
-        },
-        password: password,
-        phoneNumber: phoneNumber,
-        profilePicture: profilePicture,
-      })
+      .post(`http://localhost:9000/api/users`, newUser)
       .then((response: any) => {
         console.log(response);
 
@@ -93,7 +153,6 @@ function Register(): any {
                   <input
                     onChange={onChangeFN}
                     type="text"
-                    placeholder="Нэр..."
                     className="border border-gray-400 py-1 px-2"
                   />
                 </div>
@@ -102,7 +161,6 @@ function Register(): any {
                   <input
                     onChange={onChangeLN}
                     type="text"
-                    placeholder="Овог..."
                     className="border border-gray-400 py-1 px-2"
                   />
                 </div>
@@ -112,7 +170,6 @@ function Register(): any {
                 <input
                   onChange={onChangeEmail}
                   type="text"
-                  placeholder="Имэйл..."
                   className="border border-gray-400 py-1 px-2 w-full"
                 />
               </div>
@@ -120,19 +177,17 @@ function Register(): any {
                 <div>
                   <label>Дүүрэг</label>
                   <input
-                    onChange={onChangeDistrict}
                     type="text"
-                    placeholder="Дүүрэг..."
-                    className="border border-gray-400 py-1 px-2"
+                    onChange={onChangeDistrict}
+                    className="border border-gray-400 py-1 px-2 w-full"
                   />
                 </div>
                 <div>
                   <label>Хороо</label>
                   <input
-                    onChange={onChangeSubDistrict}
                     type="text"
-                    placeholder="Хороо..."
-                    className="border border-gray-400 py-1 px-2"
+                    onChange={onChangeSubDistrict}
+                    className="border border-gray-400 py-1 px-2 w-full"
                   />
                 </div>
               </div>
@@ -140,18 +195,15 @@ function Register(): any {
                 <div>
                   <label>Гудамж</label>
                   <input
-                    onChange={onChangeBlock}
-                    type="text"
-                    placeholder="Гудамж..."
+                    onChange={onChangeStreet}
                     className="border border-gray-400 py-1 px-2"
                   />
                 </div>
                 <div>
                   <label>Байр</label>
                   <input
-                    onChange={onChangeStreet}
-                    type="text"
-                    placeholder="Байр..."
+                    onChange={onChangeBlock}
+                    type="number"
                     className="border border-gray-400 py-1 px-2"
                   />
                 </div>
@@ -162,7 +214,6 @@ function Register(): any {
                   <input
                     onChange={onChangePassword}
                     type="password"
-                    placeholder="Нууц үг..."
                     className="border border-gray-400 py-1 px-2"
                   />
                 </div>
@@ -171,7 +222,6 @@ function Register(): any {
                   <input
                     onChange={onChangePhone}
                     type="number"
-                    placeholder="Утасны дугаар..."
                     className="border border-gray-400 py-1 px-2"
                   />
                 </div>
@@ -180,11 +230,13 @@ function Register(): any {
               <div className="mt-5 mb-5">
                 <label>Профайл зураг</label>
                 <input
-                  onChange={onChangeProPic}
-                  type="text"
-                  placeholder="Профайл зураг..."
+                  onChange={(e) => {
+                    sendFile("images", e.target.files);
+                  }}
+                  type="file"
                   className="border border-gray-400 py-1 px-2 w-full"
                 />
+                <span> {loading && "Uploading..."}</span>
               </div>
               <div className="mb-6 flex items-center justify-between">
                 <div className="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
