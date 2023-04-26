@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import { AdDetailSmallSlider } from "@/components/adDetailComp/AdDetailSmallSlider";
 import { Description } from "@/components/adDetailComp/Description";
-import { log } from "console";
+import { GoogleMapComp } from "@/components/adDetailComp/GoogleMap";
 
 const AdDetail = () => {
   const route = useRouter();
@@ -23,15 +23,11 @@ const AdDetail = () => {
       .get(`http://localhost:9000/api/advertisement/${id}`)
       .then((res) => {
         setAdData(res.data.result);
-        console.log(res.data);
-        console.log(1);
       })
       .catch((err) => {
         console.log(err);
-        console.log(2);
       })
       .finally(() => {
-        console.log(3);
         setLoading(false);
       });
   }
@@ -43,6 +39,7 @@ const AdDetail = () => {
       <div>
         <AdDetailSmallSlider images={adData} />
         <Description data={adData} />
+        <GoogleMapComp data={adData} />
       </div>
     );
   }
