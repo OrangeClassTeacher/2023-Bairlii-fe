@@ -147,16 +147,15 @@ function Register(): any {
                 </p>
               </div>
               <div className="mt-10 grid grid-cols-2 gap-5">
-                <div>
+                <div className="flex flex-col">
                   <label>Нэр</label>
-
                   <input
                     onChange={onChangeFN}
                     type="text"
                     className="border border-gray-400 py-1 px-2"
                   />
                 </div>
-                <div>
+                <div className="flex flex-col">
                   <label>Овог</label>
                   <input
                     onChange={onChangeLN}
@@ -176,30 +175,40 @@ function Register(): any {
               <div className="mt-5 grid grid-cols-2 gap-5">
                 <div>
                   <label>Дүүрэг</label>
-                  <input
-                    type="text"
-                    onChange={onChangeDistrict}
-                    className="border border-gray-400 py-1 px-2 w-full"
-                  />
+                  <select className="border border-gray-400 py-1 px-2 w-full">
+                    <option value="volvo"></option>
+                    <option value="saab">Баянзүрх дүүрэг</option>
+                    <option value="opel">Баянгол дүүрэг</option>
+                    <option value="audi">Сүхбаатар дүүрэг</option>
+                    <option value="saab">Чингэлтэй дүүрэг</option>
+                    <option value="opel">Налайх дүүрэг</option>
+                    <option value="audi">Хан-Уул дүүрэг</option>
+                    <option value="audi">Сонгинохайрхан дүүрэг</option>
+                  </select>
                 </div>
                 <div>
                   <label>Хороо</label>
-                  <input
-                    type="text"
-                    onChange={onChangeSubDistrict}
-                    className="border border-gray-400 py-1 px-2 w-full"
-                  />
+                  <select className="border border-gray-400 py-1 px-2 w-full">
+                    <option value="volvo"></option>
+                    <option value="saab">1-р хороо</option>
+                    <option value="opel">2-р хороо</option>
+                    <option value="audi">3-р хороо</option>
+                    <option value="saab">4-р хороо</option>
+                    <option value="opel">5-р хороо</option>
+                    <option value="audi">6-р хороо</option>
+                    <option value="audi">7-р хороо</option>
+                  </select>
                 </div>
               </div>
               <div className="mt-5 grid grid-cols-2 gap-5">
-                <div>
+                <div className="flex flex-col">
                   <label>Гудамж</label>
                   <input
                     onChange={onChangeStreet}
                     className="border border-gray-400 py-1 px-2"
                   />
                 </div>
-                <div>
+                <div className="flex flex-col">
                   <label>Байр</label>
                   <input
                     onChange={onChangeBlock}
@@ -209,7 +218,7 @@ function Register(): any {
                 </div>
               </div>
               <div className="mt-5 grid grid-cols-2 gap-5">
-                <div>
+                <div className="flex flex-col">
                   <label>Нууц үг</label>
                   <input
                     onChange={onChangePassword}
@@ -217,7 +226,7 @@ function Register(): any {
                     className="border border-gray-400 py-1 px-2"
                   />
                 </div>
-                <div>
+                <div className="flex flex-col">
                   <label>Утасны дугаар</label>
                   <input
                     onChange={onChangePhone}
