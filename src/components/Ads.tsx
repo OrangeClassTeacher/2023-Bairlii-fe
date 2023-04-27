@@ -2,26 +2,22 @@ import React, { useEffect, useState } from "react";
 import AdCard from "./AdCard";
 import axios from "axios";
 
-
 const Ads = (): JSX.Element => {
-
   const [ads, setAds] = useState<Array<any>>([]);
 
   useEffect(() => {
-    getData()
-  }, [])
+    getData();
+  }, []);
 
   function getData() {
     axios
       .get("http://localhost:9000/api/advertisement")
       .then((res) => {
-        setAds(res.data.result)
-        console.log(res.data.result);
-
+        setAds(res.data.result);
       })
       .catch((err) => {
         console.log(err);
-      })
+      });
   }
 
   return (
@@ -29,7 +25,7 @@ const Ads = (): JSX.Element => {
       {ads.map((item, index): any => {
         return (
           <>
-            <AdCard key={index} item={item} />
+            <AdCard item={item} />
           </>
         );
       })}
