@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@photo-sphere-viewer/core": "^5.1.5",
     "@react-google-maps/api": "^2.18.1",
     "@react-icons/all-files": "^4.1.0",
     "@types/node": "18.15.11",
@@ -24,6 +25,7 @@
     "leaflet": "^1.9.3",
     "next": "^13.3.0",
     "npm": "^9.6.4",
+    "photo-sphere-viewer": "^4.8.1",
     "query-string": "^8.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

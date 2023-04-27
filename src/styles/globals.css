@@ -9,6 +9,7 @@ body,
 }
 
 .map-container {
-  height: 100vh;
+  height: 95vh;
   width: 100%;
+  border-radius: 10px;
 }
