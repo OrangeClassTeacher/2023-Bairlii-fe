@@ -1,5 +1,6 @@
 // 'use client'
 
+import useAllModal from "@/hooks/useAllModal";
 import React, { useCallback, useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import Button from "../Button";
@@ -32,6 +33,7 @@ const Modal: React.FC<ModalProps> = ({
   secondaryActionLabel,
 }) => {
   const [showModal, setShowModal] = useState(isOpen);
+  const rentModal = useAllModal();
 
   useEffect(() => {
     setShowModal(isOpen);
@@ -48,7 +50,8 @@ const Modal: React.FC<ModalProps> = ({
   //   }, [disabled, onClose]);
 
   const handleClose = () => {
-    setShowModal(!isOpen);
+    // setShowModal(!isOpen);
+    rentModal.onClose();
   };
 
   const handleSubmit = useCallback(() => {
@@ -74,7 +77,7 @@ const Modal: React.FC<ModalProps> = ({
       <div
         onClick={(e) => e.stopPropagation()}
         className={`justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-neutral-800/70 
-        ${showModal ? "" : "hidden"} `}
+        ${showModal ? "block" : "hidden"}`}
       >
         <div className="relative w-full md:w-4/6 lg:w-3/6 xl:w-2/5 my-6 mx-auto h-full lg:h-auto md:h-auto">
           <div
