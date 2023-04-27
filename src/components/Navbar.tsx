@@ -5,8 +5,19 @@ import Logo from "../components/Logo";
 import Menu from "../components/Menu";
 import { Search } from "../components/Search";
 import Categories from "./Categories";
+import { useState, useEffect } from "react";
+import NewUser from "../components/user/newUser";
 
 const Navbar = (): JSX.Element => {
+  const [localUser, setLocalUser] = useState<string | null>();
+
+  useEffect(() => {
+    if (typeof window !== undefined) {
+      let localStorageValue: string | null = localStorage.getItem("token");
+      setLocalUser(localStorageValue);
+    }
+  }, []);
+
   const router = useRouter();
   return (
     <div className="w-full bg-white z-10 shadow-sm">
@@ -18,7 +29,7 @@ const Navbar = (): JSX.Element => {
             <button type="button" onClick={() => router.push("/addlist")}>
               addlist
             </button>
-            <Menu />
+            {localUser ? <NewUser /> : <Menu />}
           </div>
         </Container>
       </div>

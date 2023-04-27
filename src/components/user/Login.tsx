@@ -26,6 +26,7 @@ function Login(): any {
       })
       .then(async (response: any) => {
         localStorage.setItem("token", await response.data.token);
+        console.log(localStorage.getItem("token"));
         route.push("/");
         console.log(route.push("/"));
         alert("Та амжилттай нэвтэрлээ");
