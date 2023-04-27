@@ -12,6 +12,15 @@ import RentModal from "./modals/RentModal";
 import useAllModal from "@/hooks/useAllModal";
 
 const Navbar = (): JSX.Element => {
+  const [localUser, setLocalUser] = useState<string | null>();
+
+  useEffect(() => {
+    if (typeof window !== undefined) {
+      let localStorageValue: string | null = localStorage.getItem("token");
+      setLocalUser(localStorageValue);
+    }
+  }, []);
+
   const router = useRouter();
   const rentModal = useAllModal();
   console.log({ rentModal });
@@ -29,7 +38,7 @@ const Navbar = (): JSX.Element => {
             >
               AdList
             </button>
-            <Menu />
+            {localUser ? <NewUser /> : <Menu />}
           </div>
         </Container>
       </div>

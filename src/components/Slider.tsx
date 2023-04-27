@@ -3,7 +3,6 @@ import { AiFillCaretRight } from "react-icons/ai";
 
 const Slider = ({ images }: any) => {
   let [imageIndex, setImageIndex] = useState(0);
-  console.log(images);
 
   function increaseImageIndex() {
     if (imageIndex == images.length - 1) {

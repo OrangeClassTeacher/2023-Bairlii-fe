@@ -1,25 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AdCard from "./AdCard";
-import AdsData from "./adData";
-
-interface IAdvertisements {
-  _id: string;
-  userID: string;
-  propertyID: string;
-  price: number;
-  rentingDuration: number;
-  paymentContition: string;
-  adDuration: number;
-}
+import axios from "axios";
 
 const Ads = (): JSX.Element => {
-  const adsData: Array<IAdvertisements> = AdsData;
+  const [ads, setAds] = useState<Array<any>>([]);
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  function getData() {
+    axios
+      .get("http://localhost:9000/api/advertisement")
+      .then((res) => {
+        setAds(res.data.result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   return (
     <div className="flex flex-wrap gap-6">
-      {adsData.map((item, index): any => {
+      {ads.map((item, index): any => {
         return (
           <>
-            <AdCard key={index} item={item} />
+            <AdCard item={item} />
           </>
         );
       })}

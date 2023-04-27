@@ -1,14 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
-  images: {
-    domains: [
-      "avatars.githubusercontent.com",
-      "lh3.googleusercontent.com",
-      "res.cloudinary.com",
-    ],
+  reactStrictMode: true,
+  env: {
+    GOOGLE_MAP_API: process.env.GOOGLE_MAP_API,
   },
 };
 

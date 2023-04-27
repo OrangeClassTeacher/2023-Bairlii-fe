@@ -1,8 +1,9 @@
+import Login from "@/components/user/Login";
 
-import Register from "@/components/user/Register";
-
-
-
-export default function Login(): JSX.Element {
-  return <Register/>;
+export default function Login1(): JSX.Element {
+  return (
+    <div>
+      <Login />
+    </div>
+  );
 }

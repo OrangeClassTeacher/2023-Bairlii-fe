@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@photo-sphere-viewer/core": "^5.1.5",
+    "@react-google-maps/api": "^2.18.1",
     "@react-icons/all-files": "^4.1.0",
     "@types/node": "18.15.11",
     "@types/react": "18.0.33",
@@ -17,6 +19,7 @@
     "axios": "^1.3.6",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
+    "google-map-react": "^2.2.0",
     "install": "^0.13.0",
     "latlng": "^1.0.0",
     "leaflet": "^1.9.3",
@@ -24,6 +27,7 @@
     "next": "^13.3.0",
     "next-cloudinary": "^4.4.0",
     "npm": "^9.6.4",
+    "photo-sphere-viewer": "^4.8.1",
     "query-string": "^8.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
