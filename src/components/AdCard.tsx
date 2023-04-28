@@ -3,7 +3,9 @@ import Properties from "./propertyData";
 import Slider from "./Slider";
 import Link from "next/link";
 
-const AdCard = ({ item, key }: any) => {
+const AdCard = ({ item }: any) => {
+  const date = new Date(item.createdAt)
+
   return (
     <div className="flex flex-wrap flex-col max-w-[25%] min-w-[300px] h-96 ">
       <Slider images={item.propertyID.photos} className="" />
@@ -15,12 +17,12 @@ const AdCard = ({ item, key }: any) => {
         <span>Room Number: {item.propertyID.roomNumber}</span>
         <span>Location:{item.propertyID.locationName}</span>
         <span>Price: {item.price}</span>
+        <span>From: {date.getFullYear()} {date.getMonth() + 1} {date.getDate()}</span>
         <Link
           href={{
-            pathname: `/[id]/[detail]`,
+            pathname: `/[detail]`,
             query: {
-              id: item._id,
-              detail: item.propertyID._id,
+              detail: item._id,
             },
           }}
         >

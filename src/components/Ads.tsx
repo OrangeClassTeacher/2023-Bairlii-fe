@@ -25,7 +25,7 @@ const Ads = (): JSX.Element => {
       {ads.map((item, index): any => {
         return (
           <>
-            <AdCard key={index} item={item} />
+            <AdCard item={item} />
           </>
         );
       })}
