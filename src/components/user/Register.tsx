@@ -8,7 +8,7 @@ interface IUsers {
   email: string;
   address: {
     district: string;
-    subdistrict: number;
+    subdistrict: string;
     street: string;
     block: number;
     fence: number;
@@ -27,7 +27,7 @@ function Register(): any {
     email: "",
     address: {
       district: "",
-      subdistrict: 0,
+      subdistrict: "",
       street: "",
       block: 0,
       fence: 0,
@@ -118,6 +118,8 @@ function Register(): any {
   };
 
   const onSubmit = () => {
+    console.log(newUser);
+
     axios
       .post(`http://localhost:9000/api/users`, newUser)
       .then((response: any) => {
@@ -175,9 +177,12 @@ function Register(): any {
               <div className="mt-5 grid grid-cols-2 gap-5">
                 <div>
                   <label>Дүүрэг</label>
-                  <select className="border border-gray-400 py-1 px-2 w-full">
+                  <select
+                    onChange={onChangeDistrict}
+                    className="border border-gray-400 py-1 px-2 w-full"
+                  >
                     <option value="volvo"></option>
-                    <option value="saab">Баянзүрх дүүрэг</option>
+                    <option value="Баянзүрх дүүрэг">Баянзүрх дүүрэг</option>
                     <option value="opel">Баянгол дүүрэг</option>
                     <option value="audi">Сүхбаатар дүүрэг</option>
                     <option value="saab">Чингэлтэй дүүрэг</option>
@@ -188,7 +193,10 @@ function Register(): any {
                 </div>
                 <div>
                   <label>Хороо</label>
-                  <select className="border border-gray-400 py-1 px-2 w-full">
+                  <select
+                    onChange={onChangeSubDistrict}
+                    className="border border-gray-400 py-1 px-2 w-full"
+                  >
                     <option value="volvo"></option>
                     <option value="saab">1-р хороо</option>
                     <option value="opel">2-р хороо</option>
