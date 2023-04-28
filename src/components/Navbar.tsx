@@ -1,7 +1,7 @@
 import useRentModal from "@/hooks/useAllModal";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container } from "../components/Container";
 import Logo from "../components/Logo";
 import Menu from "../components/Menu";
@@ -10,6 +10,7 @@ import Categories from "./Categories";
 import Modal from "./modals/Modal";
 import RentModal from "./modals/RentModal";
 import useAllModal from "@/hooks/useAllModal";
+import NewUser from "./user/newUser";
 
 const Navbar = (): JSX.Element => {
   const [localUser, setLocalUser] = useState<string | null>();

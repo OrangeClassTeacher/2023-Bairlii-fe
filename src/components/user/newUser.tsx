@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
-import { Dropdown } from "flowbite-react";
 import { useRouter } from "next/router";
-import Image from "next/image";
 
-const newUser = (): JSX.Element => {
+const NewUser = (): JSX.Element => {
   const [localUser, setLocalUser] = useState<string | null>();
   const router = useRouter;
 
@@ -114,4 +112,4 @@ const newUser = (): JSX.Element => {
     </div>
   );
 };
-export default newUser;
+export default NewUser;
