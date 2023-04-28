@@ -66,7 +66,7 @@ function Login(): any {
                 <label>Нууц үг</label>
                 <input
                   onChange={onChangeLoginPass}
-                  type="text"
+                  type="password"
                   placeholder="Нууц үг..."
                   className="border border-gray-400 py-1 px-2 w-full"
                 />
