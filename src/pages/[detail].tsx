@@ -4,7 +4,9 @@ import axios from "axios";
 import { AdDetailSmallSlider } from "@/components/adDetailComp/AdDetailSmallSlider";
 import { Description } from "@/components/adDetailComp/Description";
 import { GoogleMapComp } from "@/components/adDetailComp/GoogleMap";
-import { AdComment } from "@/components/adDetailComp/adComment";
+import { AdComment } from "@/components/adDetailComp/AdComment";
+import LandlordInfo from "@/components/adDetailComp/LandlordInfo";
+
 
 const AdDetail = () => {
   const route = useRouter();
@@ -34,10 +36,11 @@ const AdDetail = () => {
     return <div>Loading</div>;
   } else {
     return (
-      <div>
+      <div className="flex flex-col">
         <AdDetailSmallSlider images={adData} />
         <Description data={adData} />
         <AdComment data={adData} />
+        <LandlordInfo data={adData} />
       </div>
     );
   }
