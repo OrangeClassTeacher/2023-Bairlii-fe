@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.14",
     "@photo-sphere-viewer/core": "^5.1.5",
     "@react-google-maps/api": "^2.18.1",
     "@react-icons/all-files": "^4.1.0",
@@ -21,9 +22,9 @@
     "eslint-config-next": "13.3.0",
     "flowbite": "^1.6.5",
     "flowbite-react": "^0.4.4",
+    "google-map-react": "^2.2.0",
     "install": "^0.13.0",
     "jsonwebtoken": "^9.0.0",
-    "google-map-react": "^2.2.0",
     "latlng": "^1.0.0",
     "leaflet": "^1.9.3",
     "leaflet-map": "^0.2.1",
