@@ -24,7 +24,6 @@ const Navbar = (): JSX.Element => {
 
   const router = useRouter();
   const rentModal = useAllModal();
-  console.log({ rentModal });
 
   // const [openModal, setModal] = useState(false);
   return (

@@ -2,16 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-html, 
+html,
 body,
 :root {
   height: 100%;
 }
 
-
 .leaflet-bottom,
 .leaflet-control,
 .leaflet-pane,
-.leaflet-top{
+.leaflet-top {
   z-index: 0 !important;
+}
+
+.map-container {
+  height: 95vh;
+  width: 100%;
+  border-radius: 10px;
 }
