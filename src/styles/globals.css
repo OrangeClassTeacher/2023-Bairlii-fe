@@ -15,3 +15,9 @@ body,
 .leaflet-top{
   z-index: 0 !important;
 }
+
+.map-container {
+  height: 95vh;
+  width: 100%;
+  border-radius: 10px;
+}
