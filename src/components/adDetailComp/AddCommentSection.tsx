@@ -1,45 +1,14 @@
 import React, { useEffect, useState } from "react";
-import jwt from "jsonwebtoken";
-import axios from "axios";
+
 
 export const AddCommentSection = ({
   propertyId,
-  setNewComment,
-  newComment,
+  setCommentBody,
+  decoded,
+  postComment,
+  commentBody
 }: any) => {
-  const [decoded, setDecoded] = useState<object | string>();
-  const [commentBody, setCommentBody] = useState<object>({
-    propertyID: "",
-    userID: "",
-    comment: [],
-  });
-  const [token, setToken] = useState<string>();
 
-  useEffect(() => {
-    let localStorageValue: string = localStorage.getItem("token") || "";
-    setDecoded(jwt.decode(localStorageValue) || "");
-    if (localStorageValue.length > 1) {
-      setToken(localStorageValue);
-    }
-  }, []);
-
-  function postComment(e: any) {
-    e.preventDefault();
-    axios
-      .post("http://localhost:9000/api/procomment", commentBody, {
-        headers: {
-          "x-access-token": token,
-        },
-      })
-      .then((res) => {
-        console.log(res);
-        setNewComment(!newComment);
-        commentBody.comment[0] = "";
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
 
   function handleCommentBody(data: any) {
     setCommentBody({
@@ -59,7 +28,7 @@ export const AddCommentSection = ({
             placeholder="comment"
             className="w-full bg-gray-100 rounded border border-gray-400 leading-normal resize-none h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"
             onChange={(e) => handleCommentBody(e.target.value)}
-            value={commentBody.comment[0]}
+            value={commentBody?.comment[0]}
           ></textarea>
         </div>
         <div className="flex justify-end px-4" onClick={(e) => postComment(e)}>
