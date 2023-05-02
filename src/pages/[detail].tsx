@@ -4,12 +4,14 @@ import axios from "axios";
 import { AdDetailSmallSlider } from "@/components/adDetailComp/AdDetailSmallSlider";
 import { Description } from "@/components/adDetailComp/Description";
 import { GoogleMapComp } from "@/components/adDetailComp/GoogleMap";
+import { AdComment } from "@/components/adDetailComp/AdComment";
+import LandlordInfo from "@/components/adDetailComp/LandlordInfo";
+
 
 const AdDetail = () => {
   const route = useRouter();
   const id = route.query.detail;
-
-  const [adData, setAdData] = useState();
+  const [adData, setAdData] = useState<Array<any>>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -17,8 +19,6 @@ const AdDetail = () => {
   }, [id]);
 
   function getAdData() {
-    console.log(id);
-
     axios
       .get(`http://localhost:9000/api/advertisement/${id}`)
       .then((res) => {
@@ -36,9 +36,11 @@ const AdDetail = () => {
     return <div>Loading</div>;
   } else {
     return (
-      <div>
+      <div className="flex flex-col">
         <AdDetailSmallSlider images={adData} />
         <Description data={adData} />
+        <AdComment data={adData} />
+        <LandlordInfo data={adData} />
       </div>
     );
   }
