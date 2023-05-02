@@ -3,7 +3,6 @@ import { BsHouses } from "react-icons/bs";
 import { TbUserCheck } from "react-icons/tb";
 
 const LandlordInfo = ({ data }: any) => {
-  console.log(data?.userID);
   const userData = data?.userID;
 
   return (

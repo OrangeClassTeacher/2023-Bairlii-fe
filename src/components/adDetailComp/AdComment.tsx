@@ -1,15 +1,16 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { CommentCard } from "./CommentCard";
+import { AddCommentSection } from "./AddCommentSection";
 
 export const AdComment = ({ data }: any) => {
-  console.log(data);
   const [commentData, setCommentData] = useState<Array<any>>([]);
   const [loading, setLoading] = useState(true);
+  const [newComment, setNewComment] = useState(true);
 
   useEffect(() => {
     getCommentData(data?.propertyID?._id);
-  }, [data]);
+  }, [data, newComment]);
 
   function getCommentData(id: any) {
     if (id) {
@@ -17,30 +18,41 @@ export const AdComment = ({ data }: any) => {
       axios
         .get(`http://localhost:9000/api/procomments/${id}`)
         .then((res) => {
-          setCommentData(res.data.result)
-          console.log(res.data.result)
+          setCommentData(res.data.result);
         })
         .catch((err) => {
-          console.log(err)
-        }).finally(() => {
-          setLoading(false)
+          console.log(err);
+        })
+        .finally(() => {
+          setLoading(false);
         });
     }
   }
 
-  console.log(commentData);
-
-
   if (loading) {
-    return <CommentCard />
+    return (
+      <AddCommentSection
+        propertyId={data?.propertyID?._id}
+        setNewComment={setNewComment}
+        newComment={newComment}
+      />
+    );
   } else {
-    return (<div className="mt-8" >
-      {commentData?.map((e): any => {
-        return (
-          <div >
-            <CommentCard data={e} />
-          </div>)
-      })}
-    </div>)
-  };
-}
+    return (
+      <div>
+        <AddCommentSection
+          propertyId={data?.propertyID?._id}
+          setNewComment={setNewComment}
+          newComment={newComment}
+        />
+        {commentData?.map((e, index): any => {
+          return (
+            <div key={index}>
+              <CommentCard data={e} />
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
+};

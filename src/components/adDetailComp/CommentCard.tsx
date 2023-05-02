@@ -2,33 +2,35 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 
 export const CommentCard = ({ data }: any) => {
-  console.log(data);
-  const date = new Date(data?.createdAt).toLocaleDateString('en-us', { weekday: "long", year: "numeric", month: "short", day: "numeric" })
+  const date = new Date(data?.createdAt).toLocaleDateString("en-us", {
+    weekday: "long",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
   const [commentedUser, setCommentedUser] = useState<any>();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getUserData()
-  }, [])
+    getUserData();
+  }, []);
 
   function getUserData() {
     axios
       .get(`http://localhost:9000/api/user/${data?.userID}`)
       .then((res) => {
         setCommentedUser(res.data.result);
-        console.log(res.data.result)
       })
-      .catch((err) => { console.log(err) })
-      .finally(() => { setLoading(false) });
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }
 
-
   if (loading) {
-    return (
-      <div>
-        Loading ...
-      </div>
-    )
+    return <div>Loading ...</div>;
   } else {
     return (
       <div className="flex justify-center relative w-full ">
@@ -52,9 +54,7 @@ export const CommentCard = ({ data }: any) => {
               <p className="text-gray-400 text-sm">{date}</p>
             </div>
           </div>
-          <p className="-mt-4 text-gray-500">
-            {data?.comment[0]}
-          </p>
+          <p className="-mt-4 text-gray-500">{data?.comment[0]}</p>
         </div>
       </div>
     );
