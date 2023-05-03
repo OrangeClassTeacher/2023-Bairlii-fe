@@ -10,6 +10,12 @@ import PanoramaViewer from "./Panaroma";
 
 export const Description = ({ data }: any) => {
   const date = new Date(data?.createdAt);
+  const date1 = new Date(data?.createdAt).toLocaleDateString("en-us", {
+    weekday: "long",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
   const [mapModal, setMapModal] = useState(false);
   const [modalSelected, setModalSelected] = useState("");
   const selectedStyle = "text-emerald-600 border-emerald-600";
@@ -104,9 +110,7 @@ export const Description = ({ data }: any) => {
           </span>
           rooms
         </div>
-        <span>
-          From: {date.getFullYear()} {date.getMonth() + 1} {date.getDate()}
-        </span>
+        <span>From: {date1}</span>
       </div>
     </div>
   );
