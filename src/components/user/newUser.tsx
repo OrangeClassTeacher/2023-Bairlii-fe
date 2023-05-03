@@ -7,12 +7,16 @@ import useAllModal from "@/hooks/useAllModal";
 
 const NewUser = (): JSX.Element => {
   const [decoded, setDecoded] = useState<object | string>();
+  const [loading, setLoading] = useState<boolean>(true);
   const router = useRouter;
   const rentModal = useAllModal();
 
   useEffect(() => {
     let localStorageValue: string = localStorage.getItem("token") || "";
     setDecoded(jwt.decode(localStorageValue) || "");
+
+    setLoading(false);
+    const secretToken: string | null = process.env.TOKEN_KEY || "";
   }, []);
 
   console.log(decoded);
@@ -49,8 +53,7 @@ const NewUser = (): JSX.Element => {
           />
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
-
 export default NewUser;

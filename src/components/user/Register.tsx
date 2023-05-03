@@ -5,131 +5,28 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 
-interface IUsers {
-  firstName: string;
-  lastName: string;
-  email: string;
-  address: {
-    district: string;
-    subdistrict: string;
-    street: string;
-    block: number;
-    fence: number;
-  };
-  password: string;
-  profilePicture: string;
-  phoneNumber: number;
-}
-
 function Register() {
-  console.log("onchange2");
-  const myUserObj = Yup.object().shape({
-    firstName: Yup.string().required("Нэр оруулна уу") || "",
-    lastName: Yup.string().required("Овог оруулна уу") || "",
-    email: Yup.string()
-      .required("Имэйл хаягаа оруулна уу")
-      .email("Имэйл буруу байна"),
-    address: Yup.object().shape({
-      district: Yup.string().required("Дүүрэг сонгоно уу"),
-      subdistrict: Yup.string().required("Хороо сонгоно уу"),
-      street: Yup.string().required("Гудамжын нэрээ оруулна уу"),
-      block: Yup.string().required("Байрны дугаараа оруулна уу"),
-      fence: Yup.number().required("Хашааны дугаараа оруулна уу"),
-    }),
-    password: Yup.string()
-      .min(6, "Нууц үгээ оруулна уу")
-      .max(10, "Хамгийн уртдаа 10 тэмдэгт байна")
-      .required("Нууц үгээ оруулна уу"),
-
-    profilePicture: Yup.string().required("Зурагаа оруулна уу"),
-    phoneNumber: Yup.string()
-      .min(8, "Утасны дугаар 8 оронтой байх ёстой")
-      .max(8, "Утасны дугаар 8 оронтой байх ёстой")
-      .required("Утасны дугаараа оруулна уу"),
-  });
-  const formOptions = { resolver: yupResolver(myUserObj) };
-
-  const { register, handleSubmit, reset, formState } = useForm(formOptions);
-  const { errors } = formState;
-
-  function onSubmit1(data: any) {
-    console.log({ formState });
-
-    alert("SUCCESS!! :-)\n\n" + JSON.stringify(data, null, 4));
-    return false;
-  }
-  const [loading, setLoading] = useState<Boolean>(false);
-  const [newUser, setNewUser] = useState<IUsers>(myUserObj);
-
-  const userInit: IUsers = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    address: {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
       district: "",
       subdistrict: "",
       street: "",
-      block: 0,
-      fence: 0,
-    },
-    password: "",
-    profilePicture: "",
-    phoneNumber: 0,
-  };
+      block: "",
+      password: "",
+      phoneNumber: "",
+    }
+  });
 
-  const lala = {
-    hello: "hello",
-  };
-
-  const onChangeFN = (e: any) => {
-    setNewUser({ ...newUser, firstName: e.target.value });
-    register("firstName");
-    console.log("onchange1");
-  };
-  const onChangeLN = (e: any) => {
-    setNewUser({ ...newUser, lastName: e.target.value });
-    register("lastName");
-  };
-  const onChangeEmail = (e: any) => {
-    setNewUser({ ...newUser, email: e.target.value });
-    register("email");
-  };
-  const onChangeDistrict = (e: any) => {
-    setNewUser({
-      ...newUser,
-      address: { ...newUser.address, district: e.target.value },
-    });
-    register("address.district");
-  };
-  const onChangeSubDistrict = (e: any) => {
-    setNewUser({
-      ...newUser,
-      address: { ...newUser.address, subdistrict: e.target.value },
-    });
-    register("address.subdistrict");
-  };
-  const onChangeStreet = (e: any) => {
-    setNewUser({
-      ...newUser,
-      address: { ...newUser.address, street: e.target.value },
-    });
-    register("address.street");
-  };
-  const onChangeBlock = (e: any) => {
-    setNewUser({
-      ...newUser,
-      address: { ...newUser.address, block: e.target.value },
-    });
-    register("address.block");
-  };
-  const onChangePassword = (e: any) => {
-    setNewUser({ ...newUser, password: e.target.value });
-  };
-  register("password");
-  const onChangePhone = (e: any) => {
-    setNewUser({ ...newUser, phoneNumber: e.target.value });
-  };
-  register("phoneNumber");
+  const [loading, setLoading] = useState<Boolean>(false);
+  const [profile, setProfile] = useState<object>({ profilePicture: [] })
 
   const sendFile = async (fieldName: any, files: any) => {
     setLoading(true);
@@ -161,19 +58,34 @@ function Register() {
     });
     if (fieldName == "images") {
       console.log(arr);
-      setNewUser({ ...newUser, profilePicture: arr[0] });
+      setProfile({ ...profile, profilePicture: arr[0] });
     }
     setLoading(false);
   };
 
-  const onSubmit = () => {
+  const onSubmit = (data: any) => {
+    const reqBody = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      address: {
+        district: data.district,
+        subdistrict: +data.subdistrict,
+        street: data.street,
+        block: +data.block,
+      },
+      password: data.password,
+      phoneNumber: data.phoneNumber,
+      ...profile
+    }
+
+    console.log(reqBody);
+
     axios
-      .post(`http://localhost:9000/api/users`, newUser)
+      .post(`http://localhost:9000/api/users`, reqBody)
       .then((response: any) => {
         console.log(response);
-
         alert("Таны бүртгэл амжилттай үүслээ");
-        setNewUser(userInit);
       })
       .catch((error: any) => console.log("error", error));
   };
@@ -189,7 +101,7 @@ function Register() {
           />
         </div>
         <form
-          onSubmit={handleSubmit(onSubmit1)}
+          onSubmit={handleSubmit(onSubmit)}
           className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12"
         >
           <div>
@@ -203,128 +115,169 @@ function Register() {
                 <label>Нэр</label>
                 <input
                   className="border border-gray-400 py-1 px-2 w-full"
-                  //  onChange={onChangeFN}
                   type="text"
-                  {...register("firstName")}
+                  {...register("firstName", {
+                    required: true,
+                    maxLength: 40,
+                  })}
                 />
-                <div className="invalid-feedback text-red-500 text-xs">
-                  {errors.firstName?.message}
-                </div>
+
+                {errors.firstName && (
+                  <div className="invalid-feedback text-red-500 text-xs">
+                    First Name required
+                  </div>
+                )}
               </div>
               <div className="flex flex-col">
                 <label>Овог</label>
                 <input
                   className="border border-gray-400 py-1 px-2 w-full"
-                  onChange={onChangeLN}
+                  {...register("lastName", {
+                    required: true,
+                    maxLength: 40,
+                  })}
                   type="text"
                 />
-                <div className="invalid-feedback text-red-500 text-xs">
-                  {errors.lastName?.message}
-                </div>
+                {errors.lastName && (
+                  <div className="invalid-feedback text-red-500 text-xs">
+                    Last Name required
+                  </div>
+                )}
               </div>
             </form>
             <div className="mt-5">
               <label>Имэйл</label>
               <input
-                id="border border-gray-400 py-1 px-2 w-full"
-                onChange={onChangeEmail}
+                {...register("email", {
+                  required: true,
+                  pattern: /^\S+@\S+$/i,
+                })}
                 type="text"
                 className="border border-gray-400 py-1 px-2 w-full"
               />
-              <div className="invalid-feedback text-red-500 text-xs">
-                {errors.email?.message}
-              </div>
+              {errors.email && (
+                <div className="invalid-feedback text-red-500 text-xs">
+                  E-Mail required
+                </div>
+              )}
             </div>
             <div className="mt-5 grid grid-cols-2 gap-5">
               <div>
                 <label>Дүүрэг</label>
                 <select
-                  onChange={onChangeDistrict}
+                  {...register("district", {
+                    required: true,
+                    value: "Баянзүрх дүүрэг" || "Баянгол дүүрэг" || "Сүхбаатар дүүрэг" || "Чингэлтэй дүүрэг" || "Налайх дүүрэг" || "Хан-Уул дүүрэг" || "Хан-Уул дүүрэг" || "Сонгинохайрхан дүүрэг"
+                  })}
                   className="border border-gray-400 py-1 px-2 w-full"
                 >
                   <option value=""></option>
-                  <option value="Баянзүрх дүүрэг">Баянзүрх дүүрэг</option>
-                  <option value="Баянгол дүүрэг">Баянгол дүүрэг</option>
-                  <option value="Сүхбаатар дүүрэг">Сүхбаатар дүүрэг</option>
-                  <option value="Чингэлтэй дүүрэг">Чингэлтэй дүүрэг</option>
-                  <option value="Налайх дүүрэг">Налайх дүүрэг</option>
-                  <option value="Хан-Уул дүүрэг">Хан-Уул дүүрэг</option>
+                  <option value="Баянзүрх дүүрэг">
+                    Баянзүрх дүүрэг
+                  </option>
+                  <option value="Баянгол дүүрэг">
+                    Баянгол дүүрэг
+                  </option>
+                  <option value="Сүхбаатар дүүрэг">
+                    Сүхбаатар дүүрэг
+                  </option>
+                  <option value="Чингэлтэй дүүрэг">
+                    Чингэлтэй дүүрэг
+                  </option>
+                  <option value="Налайх дүүрэг">
+                    Налайх дүүрэг
+                  </option>
+                  <option value="Хан-Уул дүүрэг">
+                    Хан-Уул дүүрэг
+                  </option>
                   <option value="Сонгинохайрхан дүүрэг">
                     Сонгинохайрхан дүүрэг
                   </option>
                 </select>
-                <div className="invalid-feedback text-red-500 text-xs">
-                  {errors.address?.district?.message}
-                </div>
+                {errors.district && <div className="invalid-feedback text-red-500 text-xs">
+                  Address required
+                </div>}
+
               </div>
               <div>
                 <label>Хороо</label>
                 <select
-                  onChange={onChangeSubDistrict}
+                  {...register("subdistrict", {
+                    required: true,
+                    value: "1" || "2" || "3" || "4" || "5" || "6" || "7"
+                  })}
                   className="border border-gray-400 py-1 px-2 w-full"
                 >
                   <option value=""></option>
-                  <option value="horoo">1-р хороо</option>
-                  <option value="horoo">2-р хороо</option>
-                  <option value="horoo">3-р хороо</option>
-                  <option value="horoo">4-р хороо</option>
-                  <option value="horoo">5-р хороо</option>
-                  <option value="horoo">6-р хороо</option>
-                  <option value="horoo">7-р хороо</option>
+                  <option value="1">1-р хороо</option>
+                  <option value="2">2-р хороо</option>
+                  <option value="3">3-р хороо</option>
+                  <option value="4">4-р хороо</option>
+                  <option value="5">5-р хороо</option>
+                  <option value="6">6-р хороо</option>
+                  <option value="7">7-р хороо</option>
                 </select>
-                <div className="invalid-feedback text-red-500 text-xs">
-                  {errors.address?.subdistrict?.message}
-                </div>
+                {errors.subdistrict && <div className="invalid-feedback text-red-500 text-xs">
+                  Address required
+                </div>}
               </div>
             </div>
             <div className="mt-5 grid grid-cols-2 gap-5">
               <div className="flex flex-col">
                 <label>Гудамж</label>
                 <input
-                  onChange={onChangeStreet}
+                  {...register("street", {
+                    required: true,
+                    maxLength: 40,
+                  })}
                   className="border border-gray-400 py-1 px-2"
                 />
-                <div className="invalid-feedback text-red-500 text-xs">
-                  {errors.address?.street?.message}
-                </div>
+                {errors.street && <div className="invalid-feedback text-red-500 text-xs">
+                  Address required
+                </div>}
               </div>
               <div className="flex flex-col">
                 <label>Байр</label>
                 <input
-                  onChange={onChangeBlock}
+                  {...register("block", { required: true })}
                   type="number"
                   className="border border-gray-400 py-1 px-2"
                 />
-                <div className="invalid-feedback text-red-500 text-xs">
-                  {errors.address?.block?.message}
-                </div>
+                {errors.block && <div className="invalid-feedback text-red-500 text-xs">
+                  Address required
+                </div>}
               </div>
             </div>
             <div className="mt-5 grid grid-cols-2 gap-5">
               <div className="flex flex-col">
                 <label>Нууц үг</label>
                 <input
-                  onChange={onChangePassword}
+                  {...register("password", {
+                    required: true,
+                    minLength: 4,
+                  })}
                   type="password"
                   className="border border-gray-400 py-1 px-2"
                 />
-                <div className="invalid-feedback text-red-500 text-xs">
-                  {errors.password?.message}
-                </div>
+                {errors.password && <div className="invalid-feedback text-red-500 text-xs">
+                  Password required
+                </div>}
               </div>
               <div className="flex flex-col">
                 <label>Утасны дугаар</label>
                 <input
-                  onChange={onChangePhone}
+                  {...register("phoneNumber", {
+                    required: true,
+                    minLength: 8,
+                  })}
                   type="number"
                   className="border border-gray-400 py-1 px-2"
                 />
-                <div className="invalid-feedback text-red-500 text-xs">
-                  {errors.phoneNumber?.message}
-                </div>
+                {errors.phoneNumber && <div className="invalid-feedback text-red-500 text-xs">
+                  Password required
+                </div>}
               </div>
             </div>
-
             <div className="mt-5 mb-5">
               <label>Профайл зураг</label>
               <input
@@ -334,9 +287,6 @@ function Register() {
                 type="file"
                 className="border border-gray-400 py-1 px-2 w-full"
               />
-              <div className="invalid-feedback text-red-500 text-xs">
-                {errors.profilePicture?.message}
-              </div>
               <span> {loading && "Uploading..."}</span>
             </div>
 
@@ -352,7 +302,7 @@ function Register() {
                 </button>
               </Link>
               <button
-                onClick={onSubmit}
+                // onClick={onSubmit}
                 type="submit"
                 className="inline-block rounded bg-primary px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
                 data-te-ripple-init
