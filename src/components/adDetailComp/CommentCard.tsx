@@ -33,7 +33,7 @@ export const CommentCard = ({ data }: any) => {
     return <div>Loading ...</div>;
   } else {
     return (
-      <div className="flex justify-center relative w-full ">
+      <div className="flex justify-center relative w-full">
         <div className="relative gap-4 p-4 mb-8 border rounded-lg bg-white shadow-lg w-full">
           <div className="relative flex gap-4">
             <img
