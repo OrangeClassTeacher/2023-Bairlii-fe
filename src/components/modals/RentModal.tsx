@@ -1,7 +1,7 @@
 import Modal from "./Modal";
 import useAllModal from "@/hooks/useAllModal";
 import { SubmitHandler, FieldValues, useForm } from "react-hook-form";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Heading from "../Heading";
 import { categories } from "../Categories";
 import CategoryInput from "../inputs.tsx/CategoryInput";
@@ -12,7 +12,10 @@ import ImageUpload from "../inputs.tsx/ImageUpload";
 import Input from "../inputs.tsx/Input";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import Router, { useRouter } from "next/navigation";
+import jwt from "jsonwebtoken";
+import { useRouter } from "next/navigation";
+import Panorama from "../inputs.tsx/Panorama";
+
 // import { TbCodeAsterix } from "react-icons/tb";
 
 enum STEPS {
@@ -21,7 +24,8 @@ enum STEPS {
   INFO = 2,
   IMAGERS = 3,
   DESCRIPTION = 4,
-  PRICE = 5,
+  AREA = 5,
+  PANORAMA = 6,
 }
 
 const RentModal = () => {
@@ -42,13 +46,14 @@ const RentModal = () => {
     defaultValues: {
       category: "",
       location: null,
-      guestCount: 1,
-      roomCount: 1,
-      bathroomCount: 1,
+      guestCount: 0,
+      roomCount: 0,
+      bathroomCount: 0,
       imageSrc: "",
-      price: 1,
-      title: "",
       description: "",
+      area: 0,
+      userID: "",
+      panoramaPhoto: "",
     },
   });
 
@@ -58,6 +63,7 @@ const RentModal = () => {
   const bathroomCount = watch("bathroomCount");
   const roomCount = watch("roomCount");
   const imageSrc = watch("imageSrc");
+  const panoramaPhoto = watch("PanoramaPhoto");
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -70,44 +76,70 @@ const RentModal = () => {
   const onBack = () => {
     setStep((value) => value - 1);
   };
-  const onNext = () => {
+
+  const [decoded, setDecoded] = useState<object | string>();
+  const [token, setToken] = useState<string>();
+
+  console.log(decoded);
+
+  useEffect(() => {
+    let localStorageValue: string = localStorage.getItem("token") || "";
+    setDecoded(jwt.decode(localStorageValue) || "");
+    if (localStorageValue.length > 1) {
+      setToken(localStorageValue);
+    }
+  }, []);
+
+  // function handleData(e: any) {
+  //   setPropertiesData({0
+  //     ...propertiesData,
+  //     userID: decoded?.user?._id,
+  //     comment: [e],
+  //   });
+  // }
+
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setStep((value) => value + 1);
+    // console.log(data);
+    if (step === 2) {
+      console.log(decoded?.user?._id);
+      setCustomValue("userID", decoded?.user?._id);
+    }
+
+    if (step >= 6) {
+      console.log(step);
+
+      axios
+        .post("http://localhost:9000/api/properties", data, {
+          headers: { "x-access-token": token },
+        })
+        .then((res) => {
+          console.log(res);
+
+          toast.success("Listing Created!");
+          router.refresh();
+          reset();
+          setStep(STEPS.CATEGORY);
+          rentModal.onClose();
+        })
+        .catch(() => {
+          toast.error("Something went wrong.");
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }
   };
 
-  // const onSubmit: SubmitHandler<FieldValues> = (data) => {
-  //   console.log(data);
-
-  //   if (step === STEPS.PRICE) {
-  //     return onNext();
-  //   }
-  //   setIsLoading(true);
-
-  //   axios
-  //     .post("http://localhost:9000/api/properties", data)
-  //     .then(() => {
-  //       toast.success("Listing Created!");
-  //       router.refresh();
-  //       reset();
-  //       setStep(STEPS.CATEGORY);
-  //       rentModal.onClose();
-  //     })
-  //     .catch(() => {
-  //       toast.error("Something went wrong.");
-  //     })
-  //     .finally(() => {
-  //       setIsLoading(false);
-  //     });
-  // };
-
   const actionLabel = useMemo(() => {
-    if (step === STEPS.PRICE) {
+    if (step === STEPS.LOCATION) {
       return "Create";
     }
     return "Next";
   }, [step]);
 
   const secondaryActionLabel = useMemo(() => {
-    if (step === STEPS.PRICE) {
+    if (step === STEPS.DESCRIPTION) {
       return undefined;
     }
     return "Back";
@@ -188,6 +220,7 @@ const RentModal = () => {
       </div>
     );
   }
+
   if (step === STEPS.IMAGERS) {
     bodyContent = (
       <div>
@@ -202,6 +235,7 @@ const RentModal = () => {
       </div>
     );
   }
+
   if (step === STEPS.DESCRIPTION) {
     bodyContent = (
       <div>
@@ -209,15 +243,6 @@ const RentModal = () => {
           title="How would you describe your place?"
           subtitle="Short and sweet works best!"
         />
-        <Input
-          id="title"
-          label="Title"
-          disabled={isLoading}
-          register={register}
-          errors={errors}
-          required
-        />
-        <hr />
         <Input
           id="description"
           label="Description"
@@ -230,16 +255,16 @@ const RentModal = () => {
     );
   }
 
-  if (step === STEPS.PRICE) {
+  if (step === STEPS.AREA) {
     bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading
-          title="Now, set your price"
-          subtitle="How much do you charge per night"
+          title="Area"
+          subtitle="What is the floor area of ​​your apartment?"
         />
         <Input
-          id="price"
-          label="Price"
+          id="area"
+          label="Area"
           formatPrice
           type="number"
           disabled={isLoading}
@@ -251,11 +276,26 @@ const RentModal = () => {
     );
   }
 
+  if (step === STEPS.PANORAMA) {
+    bodyContent = (
+      <div>
+        <Heading
+          title="Add a 360(Panorama photo) photo of your place"
+          subtitle="Show your guests a more beautiful look!"
+        />
+        <Panorama
+          value={panoramaPhoto}
+          onChange={(value) => setCustomValue("PanoramaPhoto", value)}
+        />
+      </div>
+    );
+  }
+
   return (
     <Modal
       isOpen={rentModal.isOpen}
       onClose={rentModal.onClose}
-      onSubmit={handleSubmit(onNext)}
+      onSubmit={handleSubmit(onSubmit)}
       actionLabel={actionLabel}
       secondaryActionLabel={secondaryActionLabel}
       secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
