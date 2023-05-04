@@ -4,6 +4,7 @@ import axios from "axios";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as Yup from "yup";
+import { useRouter } from "next/router";
 
 function Register() {
   const {
@@ -27,6 +28,7 @@ function Register() {
 
   const [loading, setLoading] = useState<Boolean>(false);
   const [profile, setProfile] = useState<object>({ profilePicture: [] })
+  const route = useRouter();
 
   const sendFile = async (fieldName: any, files: any) => {
     setLoading(true);
@@ -59,9 +61,12 @@ function Register() {
     if (fieldName == "images") {
       console.log(arr);
       setProfile({ ...profile, profilePicture: arr[0] });
+
     }
     setLoading(false);
   };
+  console.log(errors);
+
 
   const onSubmit = (data: any) => {
     console.log(data);
@@ -87,6 +92,7 @@ function Register() {
       .post(`http://localhost:9000/api/users`, reqBody)
       .then((response: any) => {
         console.log(response);
+        route.push("/login");
         alert("Таны бүртгэл амжилттай үүслээ");
       })
       .catch((error: any) => console.log("error", error));
@@ -271,6 +277,7 @@ function Register() {
                   {...register("phoneNumber", {
                     required: true,
                     minLength: 8,
+                    maxLength: 8
                   })}
                   type="number"
                   className="border border-gray-400 py-1 px-2"
