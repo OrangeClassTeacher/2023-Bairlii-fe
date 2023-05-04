@@ -9,7 +9,6 @@ import { AdDetailSmallSlider } from "./AdDetailSmallSlider";
 import PanoramaViewer from "./Panaroma";
 
 export const Description = ({ data }: any) => {
-  const date = new Date(data?.createdAt);
   const date1 = new Date(data?.createdAt).toLocaleDateString("en-us", {
     weekday: "long",
     year: "numeric",
@@ -28,7 +27,7 @@ export const Description = ({ data }: any) => {
   return (
     <div>
       <div
-        className={`flex fixed top-0 w-full h-full bg-gray-900 p-6 text-white text-xl z-10 ${mapModal ? "block" : "hidden"
+        className={`flex fixed top-0 rigt-0 w-full h-full bg-gray-900 p-6 text-white text-xl z-10 ${mapModal ? "block" : "hidden"
           }`}
       >
         <ImCross
@@ -73,7 +72,7 @@ export const Description = ({ data }: any) => {
           )}
         </div>
       </div>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center shadow-lg bg-white rounded-lg border p-4 mx-auto my-10">
         <div className="flex items-center gap-4">
           <div className="font-semibold text-2xl items-center">
             {data?.propertyID?.locationName}

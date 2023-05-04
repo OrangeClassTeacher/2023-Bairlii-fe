@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/effect-cube";
 import "swiper/css/pagination";
 
-import { EffectCube, Pagination } from "swiper";
+import { Autoplay, EffectCube, Pagination } from "swiper";
 
 export default function SwiperSlider({ data }: any) {
   console.log(data?.propertyID?.photos[0]);
@@ -22,9 +22,13 @@ export default function SwiperSlider({ data }: any) {
             shadowOffset: 20,
             shadowScale: 0.94,
           }}
+          autoplay={{
+            delay: 3500,
+            disableOnInteraction: false,
+          }}
           loop={true}
           pagination={true}
-          modules={[EffectCube, Pagination]}
+          modules={[Autoplay, EffectCube, Pagination]}
           className="mySwiper"
         >
           {data?.propertyID?.photos?.map((item: string, index: number) => {
