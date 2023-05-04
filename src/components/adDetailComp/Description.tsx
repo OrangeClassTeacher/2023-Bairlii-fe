@@ -7,6 +7,7 @@ import { TfiGallery, TfiMapAlt } from "react-icons/tfi";
 import { GoogleMapComp } from "./GoogleMap";
 import { AdDetailSmallSlider } from "./AdDetailSmallSlider";
 import PanoramaViewer from "./Panaroma";
+import SwiperForModal from "../SwiperForModal";
 
 export const Description = ({ data }: any) => {
   const date1 = new Date(data?.createdAt).toLocaleDateString("en-us", {
@@ -24,10 +25,12 @@ export const Description = ({ data }: any) => {
     setModalSelected("MAP");
   }
 
+  const modalCSS1 = "flex fixed top-0 w-full h-full bg-gray-900 p-6 text-white text-xl z-10 inset-0 "
+
   return (
-    <div>
+    <div className="flex flex-col justify-between w-full">
       <div
-        className={`flex fixed top-0 rigt-0 w-full h-full bg-gray-900 p-6 text-white text-xl z-10 ${mapModal ? "block" : "hidden"
+        className={`${modalCSS1} ${mapModal ? "block" : "hidden"
           }`}
       >
         <ImCross
@@ -62,7 +65,7 @@ export const Description = ({ data }: any) => {
         </div>
         <div className="w-full ">
           {modalSelected == "PHOTOS" ? (
-            <AdDetailSmallSlider images={data} />
+            <SwiperForModal data={data} />
           ) : modalSelected == "MAP" ? (
             <GoogleMapComp data={data} />
           ) : modalSelected == "PANO" ? (
@@ -72,7 +75,7 @@ export const Description = ({ data }: any) => {
           )}
         </div>
       </div>
-      <div className="flex justify-between items-center shadow-lg bg-white rounded-lg border p-4 mx-auto my-10">
+      <div className="flex justify-between items-center shadow-lg bg-white rounded-lg border p-4 mx-auto my-10 w-full">
         <div className="flex items-center gap-4">
           <div className="font-semibold text-2xl items-center">
             {data?.propertyID?.locationName}

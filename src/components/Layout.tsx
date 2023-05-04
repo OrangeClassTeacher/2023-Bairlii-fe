@@ -9,11 +9,11 @@ interface MyProps {
 
 export const Layout = ({ children }: any): JSX.Element => (
   <>
-    <div className="flex flex-col justify-center w-full">
+    <div className="flex flex-col justify-center w-full ">
       <Navbar />
       {/* <Modal actionLabel="Submit" title="Hello World" isOpen /> */}
       <RentModal />
-      <div className="w-full flex justify-center">{children}</div>
+      <div className="flex flex-col justify-center w-full">{children}</div>
     </div>
   </>
 );
