@@ -21,7 +21,7 @@ const Ads = (): JSX.Element => {
   }
 
   return (
-    <div className="flex flex-wrap gap-6">
+    <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-5xl w-full">
       {ads.map((item, index): any => {
         return (
           <>

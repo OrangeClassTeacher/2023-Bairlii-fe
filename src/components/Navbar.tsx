@@ -27,21 +27,19 @@ const Navbar = (): JSX.Element => {
 
   // const [openModal, setModal] = useState(false);
   return (
-    <div className="w-full bg-white z-10 shadow-sm">
-      <div className="">
-        <Container>
-          <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
-            <Logo />
-            <Search handleChange={undefined} />
-            {/* <button
+    <div className="bg-white z-10 shadow-sm flex flex-col w-full">
+      <Container>
+        <div className="flex flex-row items-center justify-between gap-3 md:gap-0 max-w-5xl w-full">
+          <Logo />
+          <Search handleChange={undefined} />
+          {/* <button
               onClick={rentModal.isOpen ? rentModal.onClose : rentModal.onOpen}
             >
               AdList
             </button> */}
-            {localUser ? <NewUser /> : <Menu />}
-          </div>
-        </Container>
-      </div>
+          {localUser ? <NewUser /> : <Menu />}
+        </div>
+      </Container>
       <Categories />
     </div>
   );
