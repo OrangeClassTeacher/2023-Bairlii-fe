@@ -64,6 +64,8 @@ function Register() {
   };
 
   const onSubmit = (data: any) => {
+    console.log(data);
+
     const reqBody = {
       firstName: data.firstName,
       lastName: data.lastName,
@@ -110,7 +112,7 @@ function Register() {
                 Шинээр бүртгүүлэх
               </p>
             </div>
-            <form className="mt-10 grid grid-cols-2 gap-5">
+            <div className="mt-10 grid grid-cols-2 gap-5">
               <div className="flex flex-col">
                 <label>Нэр</label>
                 <input
@@ -144,7 +146,7 @@ function Register() {
                   </div>
                 )}
               </div>
-            </form>
+            </div>
             <div className="mt-5">
               <label>Имэйл</label>
               <input
