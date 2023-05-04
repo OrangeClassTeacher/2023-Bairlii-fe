@@ -1,9 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import * as Yup from "yup";
 import { useRouter } from "next/router";
 
 function Register() {

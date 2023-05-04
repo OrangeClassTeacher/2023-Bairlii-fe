@@ -7,7 +7,6 @@ import { GoogleMapComp } from "@/components/adDetailComp/GoogleMap";
 import { AdComment } from "@/components/adDetailComp/AdComment";
 import LandlordInfo from "@/components/adDetailComp/LandlordInfo";
 
-
 const AdDetail = () => {
   const route = useRouter();
   const id = route.query.detail;
@@ -36,7 +35,7 @@ const AdDetail = () => {
     return <div>Loading</div>;
   } else {
     return (
-      <div className="flex flex-col">
+      <div className="flex flex-col max-w-5xl w-full mt-7">
         <AdDetailSmallSlider images={adData} />
         <Description data={adData} />
         <AdComment data={adData} />
