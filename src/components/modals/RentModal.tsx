@@ -1,28 +1,28 @@
-import Modal from "./Modal";
-import useAllModal from "@/hooks/useAllModal";
-import { SubmitHandler, FieldValues, useForm } from "react-hook-form";
-import { useEffect, useMemo, useState } from "react";
-import Heading from "../Heading";
-import { categories } from "../Categories";
-import CategoryInput from "../inputs.tsx/CategoryInput";
-import Counter from "../inputs.tsx/Counter";
-import ImageUpload from "../inputs.tsx/ImageUpload";
-import Input from "../inputs.tsx/Input";
 import axios from "axios";
-import { toast } from "react-hot-toast";
 import jwt from "jsonwebtoken";
+import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import Panorama from "../inputs.tsx/Panorama";
+import useAllModal from "@/hooks/useAllModal";
+import { useEffect, useMemo, useState } from "react";
+import { SubmitHandler, FieldValues, useForm } from "react-hook-form";
 import MapProperties from "../PropertiesMap/MapProperties";
+import CategoryInput from "../inputs.tsx/CategoryInput";
+import ImageUpload from "../inputs.tsx/ImageUpload";
+import Panorama from "../inputs.tsx/Panorama";
+import Counter from "../inputs.tsx/Counter";
+import { categories } from "../Categories";
+import Input from "../inputs.tsx/Input";
+import Heading from "../Heading";
+import Modal from "./Modal";
 
 enum STEPS {
   CATEGORY = 0,
-  LOCATION = 1,
-  INFO = 2,
-  IMAGERS = 3,
-  DESCRIPTION = 4,
-  AREA = 5,
-  PANORAMA = 6,
+  INFO = 1,
+  AREA = 2,
+  LOCATION = 3,
+  IMAGERS = 4,
+  PANORAMA = 5,
+  DESCRIPTION = 6,
 }
 
 const RentModal = () => {
@@ -81,8 +81,6 @@ const RentModal = () => {
   const [decoded, setDecoded] = useState<object | string>();
   const [token, setToken] = useState<string>();
 
-  console.log(decoded);
-
   useEffect(() => {
     let localStorageValue: string = localStorage.getItem("token") || "";
     setDecoded(jwt.decode(localStorageValue) || "");
@@ -95,20 +93,15 @@ const RentModal = () => {
     setStep((value) => value + 1);
     console.log(data);
     if (step === 2) {
-      console.log(decoded?.user?._id);
       setCustomValue("userID", decoded?.user?._id);
     }
 
     if (step >= 6) {
-      console.log(step);
-
       axios
         .post("http://localhost:9000/api/properties", data, {
           headers: { "x-access-token": token },
         })
         .then((res) => {
-          console.log(res);
-
           toast.success("Listing Created!");
           // router.refresh();
           reset();
@@ -121,6 +114,7 @@ const RentModal = () => {
         .finally(() => {
           setIsLoading(false);
         });
+      alert("Та амжилттай хадгаллаа");
     }
   };
 
@@ -141,8 +135,8 @@ const RentModal = () => {
   let bodyContent = (
     <div className="flex flex-col gap-8">
       <Heading
-        title="asdfasfdasf asd fasd as d adasdf"
-        subtitle="fdf sdfaff dfds"
+        title="Таны байр аль дүүрэгт байрлалтай вэ?"
+        subtitle="Дүүрэг сонгоно уу."
       />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[50vh] overflow-y-auto">
         {categories.map((item) => (
@@ -163,8 +157,8 @@ const RentModal = () => {
     bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading
-          title="Where is your place located?"
-          subtitle="Help guests find you!"
+          title="Танай газар хаана байрладаг вэ?"
+          subtitle="Та газрын зураг дээр дарна уу."
         />
         <MapProperties setValue={setCustomValue} />
       </div>
@@ -174,26 +168,26 @@ const RentModal = () => {
     bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading
-          title="Share some basics about your palace"
-          subtitle="What amenities do you have?"
+          title="Байрныхаа талаар хуваалцах"
+          subtitle="Байрны мэдээлэл, тохь тух"
         />
         <Counter
-          title="Guests"
-          subtitle="How many guests do you allow?"
+          title="Хүний тоо"
+          subtitle="Таны байрыг хэдэн хүн түрээслэх боломжтой вэ?"
           value={guestCount}
           onChange={(value) => setCustomValue("guestCount", value)}
         />
         <hr />
         <Counter
-          title="Rooms"
-          subtitle="How many rooms do you have?"
+          title="Өрөө"
+          subtitle="Таны байр хэдэн өрөөтэй вэ?"
           value={roomCount}
           onChange={(value) => setCustomValue("roomCount", value)}
         />
         <hr />
         <Counter
-          title="Bathrooms"
-          subtitle="How many bathrooms do you have?"
+          title="Угаалгын өрөө"
+          subtitle="Таны байр хэдэн угаалгын өрөөтэй вэ?"
           value={bathroomCount}
           onChange={(value) => setCustomValue("bathroomCount", value)}
         />
@@ -205,8 +199,8 @@ const RentModal = () => {
     bodyContent = (
       <div>
         <Heading
-          title="Add a photo of your place"
-          subtitle="Show guests what your looks like!"
+          title="Та байрныхаа үндсэн зургийг оруулна уу."
+          subtitle="Та 5-аас 10н зураг оруулна уу."
         />
         <ImageUpload
           value={photos}
@@ -219,10 +213,7 @@ const RentModal = () => {
   if (step === STEPS.DESCRIPTION) {
     bodyContent = (
       <div>
-        <Heading
-          title="How would you describe your place?"
-          subtitle="Short and sweet works best!"
-        />
+        <Heading title="Та байраа хэрхэн тодорхойлох вэ?" subtitle="" />
         <Input
           id="description"
           label="Description"
@@ -239,8 +230,8 @@ const RentModal = () => {
     bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading
-          title="Area"
-          subtitle="What is the floor area of ​​your apartment?"
+          title="Талбайн хэмжээ"
+          subtitle="Та байрныхаа талбайн хэмжээг оруулна уу."
         />
         <Input
           id="area"
@@ -260,8 +251,8 @@ const RentModal = () => {
     bodyContent = (
       <div>
         <Heading
-          title="Add a 360(Panorama photo) photo of your place"
-          subtitle="Show your guests a more beautiful look!"
+          title="Та байрныхаа 360 зураг болон 180аар авсан зургийг оруулна уу."
+          subtitle="Энэ нь хэрэглэгчидэд үнэхээр сайхан харагдах болно."
         />
         <Panorama
           value={panoramaPhoto}
