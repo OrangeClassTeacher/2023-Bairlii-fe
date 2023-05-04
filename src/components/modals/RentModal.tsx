@@ -5,8 +5,6 @@ import { useEffect, useMemo, useState } from "react";
 import Heading from "../Heading";
 import { categories } from "../Categories";
 import CategoryInput from "../inputs.tsx/CategoryInput";
-import CountrySelect, { CountrySelectValue } from "../inputs.tsx/CountrySelect";
-import Map from "../Map";
 import Counter from "../inputs.tsx/Counter";
 import ImageUpload from "../inputs.tsx/ImageUpload";
 import Input from "../inputs.tsx/Input";
@@ -15,8 +13,7 @@ import { toast } from "react-hot-toast";
 import jwt from "jsonwebtoken";
 import { useRouter } from "next/navigation";
 import Panorama from "../inputs.tsx/Panorama";
-
-// import { TbCodeAsterix } from "react-icons/tb";
+import MapProperties from "../PropertiesMap/MapProperties";
 
 enum STEPS {
   CATEGORY = 0,
@@ -49,21 +46,25 @@ const RentModal = () => {
       guestCount: 0,
       roomCount: 0,
       bathroomCount: 0,
-      imageSrc: "",
+      photos: "",
       description: "",
       area: 0,
       userID: "",
       panoramaPhoto: "",
+      coordinates: {
+        lat: 0,
+        lng: 0,
+      },
     },
   });
 
   const category = watch("category");
-  const location = watch("location");
   const guestCount = watch("guestCount");
   const bathroomCount = watch("bathroomCount");
   const roomCount = watch("roomCount");
-  const imageSrc = watch("imageSrc");
+  const photos = watch("photos");
   const panoramaPhoto = watch("PanoramaPhoto");
+  const coordinates = watch("coordinates");
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -90,17 +91,9 @@ const RentModal = () => {
     }
   }, []);
 
-  // function handleData(e: any) {
-  //   setPropertiesData({0
-  //     ...propertiesData,
-  //     userID: decoded?.user?._id,
-  //     comment: [e],
-  //   });
-  // }
-
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setStep((value) => value + 1);
-    // console.log(data);
+    console.log(data);
     if (step === 2) {
       console.log(decoded?.user?._id);
       setCustomValue("userID", decoded?.user?._id);
@@ -117,7 +110,7 @@ const RentModal = () => {
           console.log(res);
 
           toast.success("Listing Created!");
-          router.refresh();
+          // router.refresh();
           reset();
           setStep(STEPS.CATEGORY);
           rentModal.onClose();
@@ -144,15 +137,6 @@ const RentModal = () => {
     }
     return "Back";
   }, [step]);
-
-  // const location = watch("location");
-  // const Map = useMemo(
-  //   () =>
-  //     dynamic(() => import("../Map"), {
-  //       ssr: false,
-  //     }),
-  //   [location]
-  // );
 
   let bodyContent = (
     <div className="flex flex-col gap-8">
@@ -182,11 +166,7 @@ const RentModal = () => {
           title="Where is your place located?"
           subtitle="Help guests find you!"
         />
-        <CountrySelect
-          value={location}
-          onChange={(value) => setCustomValue("location", value)}
-        />
-        {/* <Map center={location?.latlng} /> */}
+        <MapProperties setValue={setCustomValue} />
       </div>
     );
   }
@@ -229,8 +209,8 @@ const RentModal = () => {
           subtitle="Show guests what your looks like!"
         />
         <ImageUpload
-          value={imageSrc}
-          onChange={(value) => setCustomValue("imageSrc", value)}
+          value={photos}
+          onChange={(value) => setCustomValue("photos", value)}
         />
       </div>
     );
