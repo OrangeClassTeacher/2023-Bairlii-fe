@@ -15,7 +15,6 @@ export const AdComment = ({ data }: any) => {
   });
   const [token, setToken] = useState<string>();
 
-
   useEffect(() => {
     getCommentData(data?.propertyID?._id);
   }, [data]);
@@ -37,8 +36,6 @@ export const AdComment = ({ data }: any) => {
     }
   }
 
-
-
   useEffect(() => {
     let localStorageValue: string = localStorage.getItem("token") || "";
     setDecoded(jwt.decode(localStorageValue) || "");
@@ -49,20 +46,24 @@ export const AdComment = ({ data }: any) => {
 
   function postComment(e: any) {
     e.preventDefault();
-    axios
-      .post("http://localhost:9000/api/procomment", commentBody, {
-        headers: {
-          "x-access-token": token,
-        },
-      })
-      .then((res) => {
-        console.log(res);
-        commentBody.comment[0] = "";
-        getCommentData(data?.propertyID?._id)
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (commentBody?.comment[0]) {
+      axios
+        .post("http://localhost:9000/api/procomment", commentBody, {
+          headers: {
+            "x-access-token": token,
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          commentBody.comment[0] = "";
+          getCommentData(data?.propertyID?._id);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      alert("Write comment");
+    }
   }
 
   if (loading) {

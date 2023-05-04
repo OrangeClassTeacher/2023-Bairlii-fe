@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import axios from "axios";
+import { useForm } from "react-hook-form";
 
 interface IUsers {
   firstName: string;
@@ -38,6 +39,7 @@ function Register(): any {
     ratingAsRenter: "",
     ratingAsLandlord: "",
   };
+
   const [loading, setLoading] = useState<Boolean>(false);
 
   const [newUser, setNewUser] = useState<IUsers>(myUserObj);
