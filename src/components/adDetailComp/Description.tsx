@@ -110,6 +110,9 @@ export const Description = ({ data }: any) => {
         </div>
         <span>From: {date1}</span>
       </div>
+      <div>
+        Rating
+      </div>
     </div>
   );
 };
