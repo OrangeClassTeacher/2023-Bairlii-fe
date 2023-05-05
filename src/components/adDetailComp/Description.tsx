@@ -8,6 +8,7 @@ import { GoogleMapComp } from "./GoogleMap";
 import { AdDetailSmallSlider } from "./AdDetailSmallSlider";
 import PanoramaViewer from "./Panaroma";
 import SwiperForModal from "../SwiperForModal";
+import RatingStars from "./star";
 
 export const Description = ({ data }: any) => {
   const date1 = new Date(data?.createdAt).toLocaleDateString("en-us", {
@@ -109,9 +110,6 @@ export const Description = ({ data }: any) => {
           rooms
         </div>
         <span>From: {date1}</span>
-      </div>
-      <div>
-        Rating
       </div>
     </div>
   );
