@@ -5,6 +5,7 @@ import { Description } from "@/components/adDetailComp/Description";
 import { AdComment } from "@/components/adDetailComp/AdComment";
 import LandlordInfo from "@/components/adDetailComp/LandlordInfo";
 import SwiperForDetail from "@/components/SwiperForDetail";
+import RatingStars from "@/components/adDetailComp/star";
 
 const AdDetail = () => {
   const route = useRouter();
@@ -37,6 +38,7 @@ const AdDetail = () => {
       <div className="max-w-5xl w-full mt-7 mx-auto">
         <SwiperForDetail data={adData} />
         <Description data={adData} />
+        <RatingStars data={adData} />
         <AdComment data={adData} />
         <LandlordInfo data={adData} />
       </div>

@@ -10,6 +10,7 @@ const logo = (): JSX.Element => {
       height="100"
       width="100"
       src="images/DevZoid.png"
+      onClick={() => window.location.href = "/"}
     />
   );
 };
