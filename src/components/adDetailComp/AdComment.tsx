@@ -15,7 +15,6 @@ export const AdComment = ({ data }: any) => {
   });
   const [token, setToken] = useState<string>();
 
-
   useEffect(() => {
     getCommentData(data?.propertyID?._id);
   }, [data]);
@@ -37,8 +36,6 @@ export const AdComment = ({ data }: any) => {
     }
   }
 
-
-
   useEffect(() => {
     let localStorageValue: string = localStorage.getItem("token") || "";
     setDecoded(jwt.decode(localStorageValue) || "");
@@ -49,31 +46,51 @@ export const AdComment = ({ data }: any) => {
 
   function postComment(e: any) {
     e.preventDefault();
-    axios
-      .post("http://localhost:9000/api/procomment", commentBody, {
-        headers: {
-          "x-access-token": token,
-        },
-      })
-      .then((res) => {
-        console.log(res);
-        commentBody.comment[0] = "";
-        getCommentData(data?.propertyID?._id)
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (commentBody?.comment[0]) {
+      axios
+        .post("http://localhost:9000/api/procomment", commentBody, {
+          headers: {
+            "x-access-token": token,
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          commentBody.comment[0] = "";
+          getCommentData(data?.propertyID?._id);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      alert("Write comment");
+    }
   }
 
   if (loading) {
     return (
-      <AddCommentSection
-        propertyId={data?.propertyID?._id}
-        setCommentBody={setCommentBody}
-        decoded={decoded}
-        postComment={postComment}
-        commentBody={commentBody}
-      />
+      <>
+        <AddCommentSection
+          propertyId={data?.propertyID?._id}
+          setCommentBody={setCommentBody}
+          decoded={decoded}
+          postComment={postComment}
+          commentBody={commentBody}
+        />
+        <div className="py-4 rounded shadow-md w-60 sm:w-80 animate-pulse dark:bg-gray-900">
+          <div className="flex p-4 space-x-4 sm:px-8">
+            <div className="flex-shrink-0 w-16 h-16 rounded-full dark:bg-gray-700"></div>
+            <div className="flex-1 py-2 space-y-4">
+              <div className="w-full h-3 rounded dark:bg-gray-700"></div>
+              <div className="w-5/6 h-3 rounded dark:bg-gray-700"></div>
+            </div>
+          </div>
+          <div className="p-4 space-y-4 sm:px-8">
+            <div className="w-full h-4 rounded dark:bg-gray-700"></div>
+            <div className="w-full h-4 rounded dark:bg-gray-700"></div>
+            <div className="w-3/4 h-4 rounded dark:bg-gray-700"></div>
+          </div>
+        </div>
+      </>
     );
   } else {
     return (
