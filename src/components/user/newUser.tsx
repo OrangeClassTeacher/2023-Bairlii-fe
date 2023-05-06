@@ -6,7 +6,7 @@ import Link from "next/link";
 import useAllModal from "@/hooks/useAllModal";
 
 const NewUser = (): JSX.Element => {
-  const [decoded, setDecoded] = useState<object | string>();
+  const [decoded, setDecoded] = useState<object | string | any>();
   const [loading, setLoading] = useState<boolean>(true);
   const router = useRouter;
   const rentModal = useAllModal();
@@ -36,8 +36,10 @@ const NewUser = (): JSX.Element => {
         >
           Your Home
         </div>
-        <Dropdown label={decoded?.user?.lastName}>
-          <Dropdown.Item>Хэрэглэгчийн хуудас</Dropdown.Item>
+        <Dropdown label={decoded.user.lastName}>
+          <Link href={"/test"}>
+            <Dropdown.Item>Хэрэглэгчийн хуудас</Dropdown.Item>
+          </Link>
           <Link href="/userEdit">
             <Dropdown.Item>Засварлах</Dropdown.Item>
           </Link>
