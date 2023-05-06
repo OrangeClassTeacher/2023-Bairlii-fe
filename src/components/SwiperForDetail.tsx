@@ -18,13 +18,15 @@ export default function SwiperForDetail({ data }: any) {
                 grabCursor={true}
                 centeredSlides={true}
                 slidesPerView={3}
+                initialSlide={2}
                 coverflowEffect={{
                     rotate: 44,
                     stretch: 1,
                     depth: 100,
-                    modifier: 3,
+                    modifier: 1,
                     slideShadows: true,
                 }}
+
                 pagination={true}
                 navigation={true}
                 modules={[EffectCoverflow, Pagination]}
