@@ -78,8 +78,10 @@ const RentModal = () => {
     setStep((value) => value - 1);
   };
 
-  const [decoded, setDecoded] = useState<object | string>();
+  const [decoded, setDecoded] = useState<object | string | any>();
   const [token, setToken] = useState<string>();
+
+  // console.log(decoded);
 
   useEffect(() => {
     let localStorageValue: string = localStorage.getItem("token") || "";
