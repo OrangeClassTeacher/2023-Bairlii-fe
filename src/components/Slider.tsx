@@ -13,7 +13,7 @@ const Slider = ({ images }: any) => {
   }
 
   return (
-    <div className="relative flex align-middle  h-48 w-full">
+    <div className="relative flex align-middle h-48 w-full">
       <div className="sliderImgContainer z-10 w-full h-full">
         <img
           src={images[imageIndex]}
