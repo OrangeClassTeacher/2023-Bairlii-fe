@@ -21,11 +21,11 @@ function Register() {
       block: "",
       password: "",
       phoneNumber: "",
-    }
+    },
   });
 
   const [loading, setLoading] = useState<Boolean>(false);
-  const [profile, setProfile] = useState<object>({ profilePicture: [] })
+  const [profile, setProfile] = useState<object>({ profilePicture: [] });
   const route = useRouter();
 
   const sendFile = async (fieldName: any, files: any) => {
@@ -59,12 +59,10 @@ function Register() {
     if (fieldName == "images") {
       console.log(arr);
       setProfile({ ...profile, profilePicture: arr[0] });
-
     }
     setLoading(false);
   };
   console.log(errors);
-
 
   const onSubmit = (data: any) => {
     console.log(data);
@@ -81,8 +79,8 @@ function Register() {
       },
       password: data.password,
       phoneNumber: data.phoneNumber,
-      ...profile
-    }
+      ...profile,
+    };
 
     console.log(reqBody);
 
@@ -173,44 +171,41 @@ function Register() {
                 <select
                   {...register("district", {
                     required: true,
-                    value: "Баянзүрх дүүрэг" || "Баянгол дүүрэг" || "Сүхбаатар дүүрэг" || "Чингэлтэй дүүрэг" || "Налайх дүүрэг" || "Хан-Уул дүүрэг" || "Хан-Уул дүүрэг" || "Сонгинохайрхан дүүрэг"
+                    value:
+                      "Баянзүрх дүүрэг" ||
+                      "Баянгол дүүрэг" ||
+                      "Сүхбаатар дүүрэг" ||
+                      "Чингэлтэй дүүрэг" ||
+                      "Налайх дүүрэг" ||
+                      "Хан-Уул дүүрэг" ||
+                      "Хан-Уул дүүрэг" ||
+                      "Сонгинохайрхан дүүрэг",
                   })}
                   className="border border-gray-400 py-1 px-2 w-full"
                 >
                   <option value=""></option>
-                  <option value="Баянзүрх дүүрэг">
-                    Баянзүрх дүүрэг
-                  </option>
-                  <option value="Баянгол дүүрэг">
-                    Баянгол дүүрэг
-                  </option>
-                  <option value="Сүхбаатар дүүрэг">
-                    Сүхбаатар дүүрэг
-                  </option>
-                  <option value="Чингэлтэй дүүрэг">
-                    Чингэлтэй дүүрэг
-                  </option>
-                  <option value="Налайх дүүрэг">
-                    Налайх дүүрэг
-                  </option>
-                  <option value="Хан-Уул дүүрэг">
-                    Хан-Уул дүүрэг
-                  </option>
+                  <option value="Баянзүрх дүүрэг">Баянзүрх дүүрэг</option>
+                  <option value="Баянгол дүүрэг">Баянгол дүүрэг</option>
+                  <option value="Сүхбаатар дүүрэг">Сүхбаатар дүүрэг</option>
+                  <option value="Чингэлтэй дүүрэг">Чингэлтэй дүүрэг</option>
+                  <option value="Налайх дүүрэг">Налайх дүүрэг</option>
+                  <option value="Хан-Уул дүүрэг">Хан-Уул дүүрэг</option>
                   <option value="Сонгинохайрхан дүүрэг">
                     Сонгинохайрхан дүүрэг
                   </option>
                 </select>
-                {errors.district && <div className="invalid-feedback text-red-500 text-xs">
-                  Address required
-                </div>}
-
+                {errors.district && (
+                  <div className="invalid-feedback text-red-500 text-xs">
+                    Address required
+                  </div>
+                )}
               </div>
               <div>
                 <label>Хороо</label>
                 <select
                   {...register("subdistrict", {
                     required: true,
-                    value: "1" || "2" || "3" || "4" || "5" || "6" || "7"
+                    value: "1" || "2" || "3" || "4" || "5" || "6" || "7",
                   })}
                   className="border border-gray-400 py-1 px-2 w-full"
                 >
@@ -223,9 +218,11 @@ function Register() {
                   <option value="6">6-р хороо</option>
                   <option value="7">7-р хороо</option>
                 </select>
-                {errors.subdistrict && <div className="invalid-feedback text-red-500 text-xs">
-                  Address required
-                </div>}
+                {errors.subdistrict && (
+                  <div className="invalid-feedback text-red-500 text-xs">
+                    Address required
+                  </div>
+                )}
               </div>
             </div>
             <div className="mt-5 grid grid-cols-2 gap-5">
@@ -238,9 +235,11 @@ function Register() {
                   })}
                   className="border border-gray-400 py-1 px-2"
                 />
-                {errors.street && <div className="invalid-feedback text-red-500 text-xs">
-                  Address required
-                </div>}
+                {errors.street && (
+                  <div className="invalid-feedback text-red-500 text-xs">
+                    Address required
+                  </div>
+                )}
               </div>
               <div className="flex flex-col">
                 <label>Байр</label>
@@ -249,9 +248,11 @@ function Register() {
                   type="number"
                   className="border border-gray-400 py-1 px-2"
                 />
-                {errors.block && <div className="invalid-feedback text-red-500 text-xs">
-                  Address required
-                </div>}
+                {errors.block && (
+                  <div className="invalid-feedback text-red-500 text-xs">
+                    Address required
+                  </div>
+                )}
               </div>
             </div>
             <div className="mt-5 grid grid-cols-2 gap-5">
@@ -265,9 +266,11 @@ function Register() {
                   type="password"
                   className="border border-gray-400 py-1 px-2"
                 />
-                {errors.password && <div className="invalid-feedback text-red-500 text-xs">
-                  Password required
-                </div>}
+                {errors.password && (
+                  <div className="invalid-feedback text-red-500 text-xs">
+                    Password required
+                  </div>
+                )}
               </div>
               <div className="flex flex-col">
                 <label>Утасны дугаар</label>
@@ -275,14 +278,16 @@ function Register() {
                   {...register("phoneNumber", {
                     required: true,
                     minLength: 8,
-                    maxLength: 8
+                    maxLength: 8,
                   })}
                   type="number"
                   className="border border-gray-400 py-1 px-2"
                 />
-                {errors.phoneNumber && <div className="invalid-feedback text-red-500 text-xs">
-                  Password required
-                </div>}
+                {errors.phoneNumber && (
+                  <div className="invalid-feedback text-red-500 text-xs">
+                    Password required
+                  </div>
+                )}
               </div>
             </div>
             <div className="mt-5 mb-5">

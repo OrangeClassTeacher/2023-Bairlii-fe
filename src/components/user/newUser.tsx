@@ -4,22 +4,25 @@ import { Dropdown } from "flowbite-react";
 import jwt from "jsonwebtoken";
 import Link from "next/link";
 import useAllModal from "@/hooks/useAllModal";
+import { LoginContext } from "../../Context/UserContext";
+import { useContext } from "react";
+import { log } from "console";
 
 const NewUser = (): JSX.Element => {
-  const [decoded, setDecoded] = useState<object | string>();
+  const [decoded, setDecoded] = useState<object | string | any>();
   const [loading, setLoading] = useState<boolean>(true);
   const router = useRouter;
   const rentModal = useAllModal();
+  const { userEdit1 } = useContext(LoginContext);
 
   useEffect(() => {
     let localStorageValue: string = localStorage.getItem("token") || "";
     setDecoded(jwt.decode(localStorageValue) || "");
+    console.log(".......data", userEdit1);
 
     setLoading(false);
     const secretToken: string | null = process.env.TOKEN_KEY || "";
   }, []);
-
-  console.log(decoded);
 
   const SignOut = () => {
     localStorage.removeItem("token");
@@ -36,21 +39,16 @@ const NewUser = (): JSX.Element => {
         >
           Your Home
         </div>
-        <Dropdown label={decoded?.user?.lastName}>
-          <Dropdown.Item>
-            {" "}
-            <Link
-              href={{
-                pathname: `/user/[userId]`,
-                query: {
-                  userId: decoded?.user?._id,
-                },
-              }}
-            >
-              Хэрэглэгчийн хуудас
-            </Link>
-          </Dropdown.Item>
-
+        <Dropdown
+          label={
+            userEdit1.result
+              ? userEdit1.result?.firstName
+              : decoded.user.firstName
+          }
+        >
+          <Link href={"/test"}>
+            <Dropdown.Item>Хэрэглэгчийн хуудас</Dropdown.Item>
+          </Link>
           <Link href="/userEdit">
             <Dropdown.Item>Засварлах</Dropdown.Item>
           </Link>
@@ -61,7 +59,7 @@ const NewUser = (): JSX.Element => {
             className="rounded-full"
             height="60"
             width="60"
-            alt="Avatar"
+            alt="log"
             src="/images/log.jpg"
           />
         </div>
