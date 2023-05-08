@@ -32,11 +32,6 @@ const Navbar = (): JSX.Element => {
         <div className="flex flex-row items-center justify-between gap-3 md:gap-0 max-w-5xl w-full">
           <Logo />
           <Search handleChange={undefined} />
-          {/* <button
-              onClick={rentModal.isOpen ? rentModal.onClose : rentModal.onOpen}
-            >
-              AdList
-            </button> */}
           {localUser ? <NewUser /> : <Menu />}
         </div>
       </Container>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 
 interface MapPropertiesProps {
   value: number;
@@ -56,7 +56,7 @@ const MapProperties: React.FC<MapPropertiesProps> = ({ setValue }) => {
         center={{ lat: 47.92123, lng: 106.918556 }}
         mapContainerStyle={{ height: "400px" }}
       >
-        <Marker
+        <MarkerF
           position={{ lat: +saveCoordinates.x, lng: +saveCoordinates.y }}
         />
       </GoogleMap>
