@@ -1,38 +1,25 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { LoginContext } from "../../Context/UserContext";
 
 function Login(): any {
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
+  const { Login, setLoginEmail, setLoginPassword } = useContext(LoginContext);
+
   const route = useRouter();
 
   const onChangeEmail = (e: any) => {
     setLoginEmail(e.target.value);
-    console.log(e.target.value);
   };
   const onChangeLoginPass = (e: any) => {
     setLoginPassword(e.target.value);
-    console.log(e.target.value);
   };
 
   const onSubmit = () => {
-    console.log("email", loginEmail, "pass", loginPassword);
-    axios
-      .post(`http://localhost:9000/api/userlogin`, {
-        email: loginEmail,
-        password: loginPassword,
-      })
-      .then(async (response: any) => {
-        localStorage.setItem("token", await response.data.token);
-        console.log(localStorage.getItem("token"));
-        route.push("/");
-        console.log(route.push("/"));
-        alert("Та амжилттай нэвтэрлээ");
-      })
-      .catch((error: any) => console.log("error", error));
+    Login();
   };
+
   return (
     <section className="h-screen">
       <div className="h-full">
@@ -46,8 +33,8 @@ function Login(): any {
           </div>
           <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
             <div className="relative w-[380px] h-[420px]  rounded-lg overflow-hidden">
-              <div className="absolute w-[380px] h-[420px] bg-gradient-to-r from-lime-600 via-lime-600 to-transparent -top-[50%] -left-[50%] animate-spin-slow origin-bottom-right"></div>
-              <div className="absolute w-[380px] h-[420px] bg-gradient-to-r from-lime-600 via-lime-600 to-transparent -top-[50%] -left-[50%] animate-spin-delay origin-bottom-right"></div>
+              <div className="absolute w-[380px] h-[420px] bg-gradient-to-r from-blue-600 via-blue-600 to-transparent -top-[50%] -left-[50%] animate-spin-slow origin-bottom-right"></div>
+              <div className="absolute w-[380px] h-[420px] bg-gradient-to-r from-blue-600 via-blue-600 to-transparent -top-[50%] -left-[50%] animate-spin-delay origin-bottom-right"></div>
               <div className="absolute inset-1 bg-blue-200 rounded-lg z-10 p-5">
                 <form>
                   <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
@@ -62,7 +49,6 @@ function Login(): any {
                     <input
                       onChange={onChangeEmail}
                       type="text"
-                      placeholder="Имэйл..."
                       className="border border-gray-400 py-1 px-2 w-full"
                     />
                   </div>
@@ -71,7 +57,6 @@ function Login(): any {
                     <input
                       onChange={onChangeLoginPass}
                       type="password"
-                      placeholder="Нууц үг..."
                       className="border border-gray-400 py-1 px-2 w-full"
                     />
                   </div>

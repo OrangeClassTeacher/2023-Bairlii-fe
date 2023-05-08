@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Modal from "./modals/Modal";
 import RentModal from "./modals/RentModal";
 import useRentModal from "@/hooks/useAllModal";
+
 interface MyProps {
   children?: ReactNode;
 }
