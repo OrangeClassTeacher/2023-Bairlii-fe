@@ -1,6 +1,7 @@
 import React from "react";
 import { GoogleMap, MarkerF, InfoWindow, InfoWindowF } from "@react-google-maps/api";
 import { useState } from "react";
+import AdCard from "../AdCard";
 
 export const MapForHome = ({ data }: any) => {
   const [selected, setSelected] = useState<any>({});
@@ -44,7 +45,9 @@ export const MapForHome = ({ data }: any) => {
               // clickable={true}
               onCloseClick={() => setSelected({})}
             >
-              <p>{selected.propertyID.locationName}</p>
+              <div className="w-[300px]">
+                <AdCard item={selected} />
+              </div>
             </InfoWindowF>
           )
         }
