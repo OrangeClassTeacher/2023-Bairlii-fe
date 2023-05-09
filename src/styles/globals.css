@@ -20,3 +20,8 @@ body,
     width: 100%;
     border-radius: 10px;
 }
+
+.map-container-for-home {
+    height: 85vh;
+    width: 100%;
+}
