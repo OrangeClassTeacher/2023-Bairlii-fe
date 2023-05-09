@@ -5,7 +5,6 @@ import jwt from "jsonwebtoken";
 import Link from "next/link";
 import { LoginContext } from "../../Context/UserContext";
 import { useContext } from "react";
-import { log } from "console";
 
 const NewUser = (): JSX.Element => {
   const [decoded, setDecoded] = useState<object | string | any>();
@@ -15,7 +14,7 @@ const NewUser = (): JSX.Element => {
   useEffect(() => {
     let localStorageValue: string = localStorage.getItem("token") || "";
     setDecoded(jwt.decode(localStorageValue) || "");
-    console.log(".......data", userEdit1);
+    // console.log(".......data", userEdit1);
 
     setLoading(false);
     const secretToken: string | null = process.env.TOKEN_KEY || "";
