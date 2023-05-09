@@ -1,6 +1,5 @@
 import RentModal from "@/components/modals/RentModal";
 import useAllModal from "@/hooks/useAllModal";
-import { Data } from "@react-google-maps/api";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -9,13 +8,16 @@ function UserPage() {
   const route = useRouter();
   const userID = route.query.userId;
   const [propertiesData, setPropertiesData] = useState<Array<any>>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getPropertiesData();
   }, [userID]);
 
+  console.log(propertiesData);
+
   function getPropertiesData() {
+    setLoading(true);
     axios
       .get(`http://localhost:9000/api/propertiesbyuser/${userID}`)
       .then((res) => {
@@ -28,11 +30,13 @@ function UserPage() {
         setLoading(false);
       });
   }
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const rentModal = useAllModal();
 
+  console.log(userID);
+
   if (loading) {
-    return <div>Loading</div>;
+    return <div>Loading...</div>;
   } else {
     return (
       <div className="flex w-full justify-center">
