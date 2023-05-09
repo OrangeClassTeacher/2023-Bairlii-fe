@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import axios from "axios";
 import { useState, useContext } from "react";
 import { LoginContext } from "../../Context/UserContext";
 
@@ -76,7 +75,11 @@ function Login(): any {
                         Намайг сана
                       </label>
                     </div>
-                    <a href="#!">Нүүц үг мартсан?</a>
+                    <Link href={"/login/forgetPass"}>
+                      <span>
+                        <a href="#!">Нүүц үг мартсан?</a>
+                      </span>
+                    </Link>
                   </div>
                   <div className="text-center lg:text-left">
                     <button
