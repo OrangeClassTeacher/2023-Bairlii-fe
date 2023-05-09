@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import AdCard from "./AdCard";
 import axios from "axios";
+import { BsMap } from "react-icons/bs";
 
-const Ads = (): JSX.Element => {
+const Ads = ({ setSelected }: any): JSX.Element => {
   const [ads, setAds] = useState<Array<any>>([]);
   let pages = [];
   const [pageNumb, setPageNumb] = useState<number>(1);
@@ -12,8 +13,6 @@ const Ads = (): JSX.Element => {
   const skeletonArr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   useEffect(() => {
-    console.log({ loading });
-
     getData();
   }, [curPageNumb]);
 
@@ -75,7 +74,7 @@ const Ads = (): JSX.Element => {
             {ads.map((item, index): any => {
               return (
                 <>
-                  <AdCard item={item} />
+                  <AdCard item={item} key={index} />
                 </>
               );
             })}
@@ -118,6 +117,9 @@ const Ads = (): JSX.Element => {
           </div>
         </div>
       )}
+      <span className="flex items-center gap-2 bg-slate-600 p-2 rounded-xl text-white fixed bottom-20 z-30 border-2 border-slate-600 cursor-pointer" onClick={() => setSelected("Maps")}>
+        Show map <BsMap />
+      </span>
     </div>
   );
 };

@@ -4,11 +4,11 @@ import Slider from "./Slider";
 import Link from "next/link";
 import SwiperSlider from "./SwiperForCard";
 
-const AdCard = ({ item }: any) => {
+const AdCard = ({ item, key }: any) => {
   const date = new Date(item.createdAt);
 
   return (
-    <div className="flex flex-wrap flex-col max-w-[25%] min-w-[300px]  ">
+    <div className="flex flex-wrap flex-col max-w-[25%] min-w-[300px]" key={key}>
       {/* <Slider images={item.propertyID.photos} className="" /> */}
       <SwiperSlider data={item} />
       <div className="rounded-2xl bg-slate-300/90 flex flex-col w-[85%] p-6 -mt-2 ml-2 z-20">
