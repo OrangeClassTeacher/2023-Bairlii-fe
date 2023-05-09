@@ -13,8 +13,6 @@ const Ads = ({ setSelected }: any): JSX.Element => {
   const skeletonArr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   useEffect(() => {
-    console.log({ loading });
-
     getData();
   }, [curPageNumb]);
 
@@ -76,7 +74,7 @@ const Ads = ({ setSelected }: any): JSX.Element => {
             {ads.map((item, index): any => {
               return (
                 <>
-                  <AdCard item={item} />
+                  <AdCard item={item} key={index} />
                 </>
               );
             })}

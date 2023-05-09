@@ -1,9 +1,17 @@
 import React from "react";
-import { GoogleMap, MarkerF } from "@react-google-maps/api";
+import { GoogleMap, MarkerF, InfoWindow, InfoWindowF } from "@react-google-maps/api";
+import { useState } from "react";
 
-export const MapForHome = () => {
+export const MapForHome = ({ data }: any) => {
+  const [selected, setSelected] = useState<any>({});
+
+  const onSelect = (item: any) => {
+    setSelected(item);
+  }
+
+
   return (
-    <div className="w-full h-[90vh]">
+    <div className="w-full h-full">
       <GoogleMap
         zoom={14}
         center={{
@@ -12,12 +20,34 @@ export const MapForHome = () => {
         }}
         mapContainerClassName="map-container-for-home"
       >
-        {/* <MarkerF
-        position={{
-          lat: data?.propertyID?.locationCoordinate?.lang,
-          lng: data?.propertyID?.locationCoordinate?.long,
-        }}
-      /> */}
+        {
+          data.map((item: any, index: any) => {
+            return <MarkerF
+              position={{
+                lat: item?.propertyID?.locationCoordinate?.lang,
+                lng: item?.propertyID?.locationCoordinate?.long,
+              }}
+              key={index}
+              onClick={() => onSelect(item)}
+            />
+          })
+        }
+        {
+          selected?.propertyID
+          &&
+          (
+            <InfoWindowF
+              position={{
+                lat: selected?.propertyID?.locationCoordinate?.lang,
+                lng: selected?.propertyID?.locationCoordinate?.long,
+              }}
+              // clickable={true}
+              onCloseClick={() => setSelected({})}
+            >
+              <p>{selected.propertyID.locationName}</p>
+            </InfoWindowF>
+          )
+        }
       </GoogleMap>
     </div>
   );
