@@ -2,7 +2,7 @@
 import AddProFooter from "@/components/AddProperty/AddProFooter";
 import AddProHeader from "@/components/AddProperty/AddProHeader";
 import { Container } from "@/components/Container";
-import Menu from "@/components/Menu";
+import Menu from "@/components/Navbar/Menu";
 import React from "react";
 
 export default function addlist() {

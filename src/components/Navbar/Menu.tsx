@@ -1,8 +1,9 @@
 import { AiOutlineMenu } from "react-icons/ai";
-import Avatar from "../components/Avatar";
+import Avatar from "./Avatar";
 import { useCallback, useState } from "react";
-import RentModal from "./modals/RentModal";
+import RentModal from "../modals/RentModal";
 import useAllModal from "@/hooks/useAllModal";
+import NewUser from "../user/newUser";
 
 const Menu = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,6 +21,7 @@ const Menu = (): JSX.Element => {
         >
           Your Home
         </div>
+
         <div
           onClick={toggleOpen}
           className="p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition"

@@ -32,12 +32,12 @@ const NewUser = (): JSX.Element => {
   } else {
     return (
       <div className="flex items-center">
-        <div
+        {/* <div
           className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer"
           onClick={rentModal.isOpen ? rentModal.onClose : rentModal.onOpen}
         >
           Your Home
-        </div>
+        </div> */}
         <Dropdown
           label={
             userEdit1.result
@@ -45,9 +45,7 @@ const NewUser = (): JSX.Element => {
               : decoded.user.firstName
           }
         >
-          <Link href={"/test"}>
-            <Dropdown.Item>Хэрэглэгчийн хуудас</Dropdown.Item>
-          </Link>
+          <Dropdown.Item>Хэрэглэгчийн хуудас</Dropdown.Item>
           <Link href="/userEdit">
             <Dropdown.Item>Засварлах</Dropdown.Item>
           </Link>
