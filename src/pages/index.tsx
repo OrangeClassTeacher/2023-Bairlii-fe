@@ -1,9 +1,17 @@
 import Ads from "@/components/AddProperty/Ads";
+import { useState } from "react";
 
 export default function Home() {
+  const [selected, setSelected] = useState<string>("Ads");
   return (
-    <div className="flex max-w-5 w-full justify-center">
-      <Ads />
+    <div className="flex w-full justify-center">
+      {selected === "Ads" ? (
+        <Ads setSelected={setSelected} />
+      ) : selected === "Maps" ? (
+        <Maps setSelected={setSelected} />
+      ) : (
+        <>404 not found</>
+      )}
     </div>
   );
 }

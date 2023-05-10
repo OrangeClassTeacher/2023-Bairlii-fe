@@ -6,6 +6,7 @@ import { AdComment } from "@/components/adDetailComp/AdComment";
 import LandlordInfo from "@/components/adDetailComp/LandlordInfo";
 import SwiperForDetail from "@/components/adDetailComp/SwiperForDetail";
 import RatingStars from "@/components/adDetailComp/star";
+import { log } from "console";
 
 const AdDetail = () => {
   const route = useRouter();
@@ -22,6 +23,8 @@ const AdDetail = () => {
       .get(`http://localhost:9000/api/advertisement/${id}`)
       .then((res) => {
         setAdData(res.data.result);
+        console.log(res.data.result);
+
       })
       .catch((err) => {
         console.log(err);
@@ -31,19 +34,18 @@ const AdDetail = () => {
       });
   }
 
-  if (loading) {
-    return <div>Loading</div>;
-  } else {
-    return (
-      <div className="max-w-5xl w-full mt-7 mx-auto">
-        <SwiperForDetail data={adData} />
-        <Description data={adData} />
-        <RatingStars data={adData} />
-        <AdComment data={adData} />
-        <LandlordInfo data={adData} />
-      </div>
-    );
-  }
+  if (loading) return <div>Loading</div>;
+
+  return (
+    <div className="max-w-5xl w-full mt-7 mx-auto">
+      <SwiperForDetail data={adData} />
+      <Description data={adData} />
+      <RatingStars data={adData} />
+      <AdComment data={adData} />
+      <LandlordInfo data={adData} />
+    </div>
+  );
+
 };
 
 export default AdDetail;

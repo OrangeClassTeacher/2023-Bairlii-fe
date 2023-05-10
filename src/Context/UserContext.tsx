@@ -74,41 +74,14 @@ export const LoginProvider = ({ children }: LoginProviderProps) => {
           email: email,
         })
         .then(async (response: any) => {
+          alert("Имэйл хаяг зөв байна");
+          console.log(response);
           route.push("/login/resetPass");
-          toast.success("🦄 Имэйл хаяг зөв байна", {
-            position: "bottom-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
         })
         .catch((err) => {
-          toast.error("🦄 Нэвтрэх нэр, нууц үг буруу байна", {
-            position: "bottom-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
+          alert("Бүртгэлгүй имэйл байна");
         });
-    } else
-      toast.error("🦄 Имэйл хаягаа зөв оруулна уу", {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+    } else alert("Имэйл хаягаа зөв оруулна уу!!!");
   };
 
   const ResetPass = () => {
