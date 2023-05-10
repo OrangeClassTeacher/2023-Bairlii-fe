@@ -6,16 +6,16 @@ interface LoginProviderProps {
   children: React.ReactNode;
 }
 export const LoginContext = createContext({
-  setUserEdit1: (userEdit1: "") => {},
+  setUserEdit1: (userEdit1: "") => { },
   userEdit1: "",
-  Login: () => {},
-  setLoginEmail: (loginEmail: "") => {},
-  setLoginPassword: (loginPassword: "") => {},
-  ForgetPass: () => {},
-  setEmail: (email: "") => {},
-  ResetPass: () => {},
-  setResetPassword: (ResetPassword: "") => {},
-  setResetPassword1: (ResetPassword1: "") => {},
+  Login: () => { },
+  setLoginEmail: (loginEmail: "") => { },
+  setLoginPassword: (loginPassword: "") => { },
+  ForgetPass: () => { },
+  setEmail: (email: "") => { },
+  ResetPass: () => { },
+  setResetPassword: (ResetPassword: "") => { },
+  setResetPassword1: (ResetPassword1: "") => { },
 });
 export const LoginProvider = ({ children }: LoginProviderProps) => {
   const [decoded, setDecoded] = useState<object | string | any>();
@@ -46,20 +46,22 @@ export const LoginProvider = ({ children }: LoginProviderProps) => {
 
   const ForgetPass = () => {
     const usernameRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/i;
-    if (usernameRegex.test(email)) {
-      axios
-        .post(`http://localhost:9000/api/user/forgotPassword`, {
-          email: email,
-        })
-        .then(async (response: any) => {
-          alert("Имэйл хаяг зөв байна");
-          console.log(response);
-          route.push("/login/resetPass");
-        })
-        .catch((err) => {
-          alert("Бүртгэлгүй имэйл байна");
-        });
-    } else alert("Имэйл хаягаа зөв оруулна уу!!!");
+    if (!usernameRegex.test(email)) {
+      alert("Имэйл хаягаа зөв оруулна уу!!!");
+    }
+    axios
+      .post(`http://localhost:9000/api/user/forgotPassword`, {
+        email: email,
+      })
+      .then(async (response: any) => {
+        alert("Имэйл хаяг зөв байна");
+        console.log(response);
+        route.push("/login/resetPass");
+      })
+      .catch((err) => {
+        alert("Бүртгэлгүй имэйл байна");
+      });
+
   };
 
   const ResetPass = () => {
