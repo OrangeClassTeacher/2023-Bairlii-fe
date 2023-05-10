@@ -7,7 +7,7 @@ import { TfiGallery, TfiMapAlt } from "react-icons/tfi";
 import { GoogleMapComp } from "./GoogleMap";
 import { AdDetailSmallSlider } from "./AdDetailSmallSlider";
 import PanoramaViewer from "./Panaroma";
-import SwiperForModal from "../SwiperForModal";
+import SwiperForModal from "./SwiperForModal";
 import RatingStars from "./star";
 
 export const Description = ({ data }: any) => {
@@ -26,38 +26,39 @@ export const Description = ({ data }: any) => {
     setModalSelected("MAP");
   }
 
-  const modalCSS1 = "flex fixed top-0 w-full h-full bg-gray-900 p-6 text-white text-xl z-10 inset-0 "
+  const modalCSS1 =
+    "flex fixed top-0 w-full h-full bg-gray-900 p-6 text-white text-xl z-10 inset-0 ";
 
   return (
     <div className="flex flex-col justify-between w-full">
-      <div
-        className={`${modalCSS1} ${mapModal ? "block" : "hidden"
-          }`}
-      >
+      <div className={`${modalCSS1} ${mapModal ? "block" : "hidden"}`}>
         <ImCross
           className="fixed right-20 top-20 text-3xl z-10 drop-shadow-xl font-black"
           onClick={() => modalHandler()}
         />
         <div className="pr-6">
           <button
-            className={`flex flex-col justify-center items-center w-24 h-20 border-2 border-white mb-2.5 p-1 rounded-lg ${modalSelected == "PHOTOS" ? selectedStyle : ""
-              }`}
+            className={`flex flex-col justify-center items-center w-24 h-20 border-2 border-white mb-2.5 p-1 rounded-lg ${
+              modalSelected == "PHOTOS" ? selectedStyle : ""
+            }`}
             onClick={() => setModalSelected("PHOTOS")}
           >
             <TfiGallery />
             PHOTOS
           </button>
           <button
-            className={`flex flex-col justify-center items-center w-24 h-20 border-2 border-white mb-2.5 p-1 rounded-lg ${modalSelected == "MAP" ? selectedStyle : ""
-              }`}
+            className={`flex flex-col justify-center items-center w-24 h-20 border-2 border-white mb-2.5 p-1 rounded-lg ${
+              modalSelected == "MAP" ? selectedStyle : ""
+            }`}
             onClick={() => setModalSelected("MAP")}
           >
             <TfiMapAlt />
             MAP
           </button>
           <button
-            className={`flex flex-col justify-center items-center w-24 h-20 border-2 border-white mb-2.5 p-1 rounded-lg ${modalSelected == "PANO" ? selectedStyle : ""
-              }`}
+            className={`flex flex-col justify-center items-center w-24 h-20 border-2 border-white mb-2.5 p-1 rounded-lg ${
+              modalSelected == "PANO" ? selectedStyle : ""
+            }`}
             onClick={() => setModalSelected("PANO")}
           >
             <MdPanoramaPhotosphere />

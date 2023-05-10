@@ -4,7 +4,7 @@ import axios from "axios";
 import { Description } from "@/components/adDetailComp/Description";
 import { AdComment } from "@/components/adDetailComp/AdComment";
 import LandlordInfo from "@/components/adDetailComp/LandlordInfo";
-import SwiperForDetail from "@/components/SwiperForDetail";
+import SwiperForDetail from "@/components/adDetailComp/SwiperForDetail";
 import RatingStars from "@/components/adDetailComp/star";
 
 const AdDetail = () => {

@@ -1,4 +1,4 @@
-import Ads from "@/components/Ads";
+import Ads from "@/components/AddProperty/Ads";
 
 export default function Home() {
   return (

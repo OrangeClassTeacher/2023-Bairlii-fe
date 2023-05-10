@@ -2,17 +2,20 @@ import useRentModal from "@/hooks/useAllModal";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { Container } from "../components/Container";
-import Logo from "../components/Logo";
-import Menu from "../components/Menu";
-import { Search } from "../components/Search";
-import Categories from "./Categories";
-import Modal from "./modals/Modal";
-import RentModal from "./modals/RentModal";
+import { Container } from "../Container";
+import Logo from "./Logo";
+import Menu from "./Menu";
+import { Search } from "./Search";
+import Categories from "../CategoryFilter/Categories";
+import Modal from "../modals/Modal";
+import RentModal from "../modals/RentModal";
 import useAllModal from "@/hooks/useAllModal";
-import NewUser from "./user/newUser";
+import NewUser from "../user/newUser";
+import { LoginContext } from "../../Context/UserContext";
+import { useContext } from "react";
 
 const Navbar = (): JSX.Element => {
+  const { Login } = useContext(LoginContext);
   const [localUser, setLocalUser] = useState<string | null>();
 
   useEffect(() => {
@@ -20,7 +23,7 @@ const Navbar = (): JSX.Element => {
       let localStorageValue: string | null = localStorage.getItem("token");
       setLocalUser(localStorageValue);
     }
-  }, []);
+  }, [Login]);
 
   const router = useRouter();
   const rentModal = useAllModal();
