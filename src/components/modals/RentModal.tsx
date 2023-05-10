@@ -10,9 +10,9 @@ import CategoryInput from "../inputs.tsx/CategoryInput";
 import ImageUpload from "../inputs.tsx/ImageUpload";
 import Panorama from "../inputs.tsx/Panorama";
 import Counter from "../inputs.tsx/Counter";
-import { categories } from "../Categories";
+import { categories } from "../CategoryFilter/Categories";
 import Input from "../inputs.tsx/Input";
-import Heading from "../Heading";
+import Heading from "../Navbar/Heading";
 import Modal from "./Modal";
 
 enum STEPS {

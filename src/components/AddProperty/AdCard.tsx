@@ -1,8 +1,8 @@
 import React from "react";
 import Properties from "./propertyData";
-import Slider from "./Slider";
+import Slider from "../adDetailComp/Slider";
 import Link from "next/link";
-import SwiperSlider from "./SwiperForCard";
+import SwiperSlider from "../SwiperForCard";
 
 const AdCard = ({ item, key }: any) => {
   const date = new Date(item.createdAt);

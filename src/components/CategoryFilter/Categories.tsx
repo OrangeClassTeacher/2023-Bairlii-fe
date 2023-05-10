@@ -1,9 +1,15 @@
 import { usePathname, useSearchParams } from "next/navigation";
-import { FcDepartment, FcNews, FcOrganization, FcHome, FcFactory, FcNeutralTrading, FcPlanner } from "react-icons/fc";
-
-
 import CategoryBox from "./CategoryBox";
-import { Container } from "./Container";
+import { Container } from "../Container";
+import {
+  FcDepartment,
+  FcNews,
+  FcOrganization,
+  FcHome,
+  FcFactory,
+  FcNeutralTrading,
+  FcPlanner,
+} from "react-icons/fc";
 
 export const categories = [
   {
@@ -42,7 +48,6 @@ export const categories = [
     description: "This property is close to the beach!",
   },
   {
-
     label: "1 өрөө",
     icon: FcHome,
     description: "This property is close to the beach!",

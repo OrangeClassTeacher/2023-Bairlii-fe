@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../Logo";
+import Logo from "../Navbar/Logo";
 
 export default function AddProHeader() {
   return (
