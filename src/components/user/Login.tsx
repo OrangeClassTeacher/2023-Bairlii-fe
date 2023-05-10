@@ -2,10 +2,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState, useContext } from "react";
 import { LoginContext } from "../../Context/UserContext";
+import { BiShow, BiHide } from "react-icons/bi";
 
 function Login(): any {
   const { Login, setLoginEmail, setLoginPassword } = useContext(LoginContext);
-
+  const [passwordType, setPasswordType] = useState("password");
   const route = useRouter();
 
   const onChangeEmail = (e: any) => {
@@ -17,6 +18,15 @@ function Login(): any {
 
   const onSubmit = () => {
     Login();
+  };
+
+  const togglePassword = (e: any) => {
+    e.preventDefault()
+    if (passwordType === "password") {
+      setPasswordType("text");
+      return;
+    }
+    setPasswordType("password");
   };
 
   return (
@@ -48,16 +58,28 @@ function Login(): any {
                     <input
                       onChange={onChangeEmail}
                       type="text"
-                      className="border border-gray-400 py-1 px-2 w-full"
+                      className="border border-gray-400  py-1 w-full "
+                      id="loginEmail"
                     />
                   </div>
                   <div className="mt-5">
                     <label>Нууц үг</label>
-                    <input
-                      onChange={onChangeLoginPass}
-                      type="password"
-                      className="border border-gray-400 py-1 px-2 w-full"
-                    />
+                    <div className="border border-gray-400 w-full bg-white flex justify-between">
+                      <input
+                        onChange={onChangeLoginPass}
+                        type={passwordType}
+                        className="border-0 py-1 w-[90%]"
+                        id="loginPassword"
+                      />
+                      <button onClick={togglePassword} className="pr-4"
+                      >
+                        {passwordType === "password" ? (
+                          <BiShow />
+                        ) : (
+                          <BiHide />
+                        )}
+                      </button>
+                    </div>
                   </div>
 
                   <div className="mt-8 mb-6 flex items-center justify-between">
