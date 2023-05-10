@@ -25,3 +25,9 @@ body,
     height: 85vh;
     width: 100%;
 }
+
+#loginPassword,
+#loginEmail {
+    outline: none;
+    box-shadow: none;
+}

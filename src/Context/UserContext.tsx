@@ -1,6 +1,7 @@
 import React, { useState, createContext } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 
 interface LoginProviderProps {
   children: React.ReactNode;
@@ -16,8 +17,11 @@ export const LoginContext = createContext({
   ResetPass: () => {},
   setResetPassword: (ResetPassword: "") => {},
   setResetPassword1: (ResetPassword1: "") => {},
+  setLocalUser: (localUser: "") => {},
+  setDecoded: (decoded: "") => {},
 });
 export const LoginProvider = ({ children }: LoginProviderProps) => {
+  const [localUser, setLocalUser] = useState<string | null>();
   const [decoded, setDecoded] = useState<object | string | any>();
   const [userEdit1, setUserEdit1] = useState("");
   const [loginEmail, setLoginEmail] = useState("");
@@ -29,19 +33,37 @@ export const LoginProvider = ({ children }: LoginProviderProps) => {
   const route = useRouter();
   const Login = () => {
     axios
-      .post(`http://localhost:9000/api/userlogin`, {
+      .post(`http://localhost:9000/api/user/login`, {
         email: loginEmail,
         password: loginPassword,
       })
       .then(async (response: any) => {
         localStorage.setItem("token", await response.data.token);
         console.log(localStorage.getItem("token"));
-        console.log(response);
-
-        alert("Та амжилттай нэвтэрлээ");
         route.push("/");
+        toast.success("🦄Та амжилттай нэвтэрлээ", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       })
-      .catch((error: any) => console.log("error", error));
+      .catch((error: any) => {
+        toast.error("🦄 Нэвтрэх нэр, нууц үг буруу байна", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      });
   };
 
   const ForgetPass = () => {
@@ -74,12 +96,29 @@ export const LoginProvider = ({ children }: LoginProviderProps) => {
             ResetPassword1: ResetPassword1,
           })
           .then(async (response: any) => {
-            console.log(response);
-            alert("Нууц үг амжилттай солигдлоо");
             route.push("/login");
+            toast.success("🦄 Нууц үг амжилттай солигдлоо", {
+              position: "bottom-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
           })
           .catch((err) => {
-            alert(err);
+            toast.error("🦄🦄  нууц үг таарахгүй байна", {
+              position: "bottom-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
           });
       } else {
         alert("бүртгэлтэй имэйл биш байна");
@@ -101,6 +140,8 @@ export const LoginProvider = ({ children }: LoginProviderProps) => {
         ResetPass,
         setResetPassword,
         setResetPassword1,
+        setLocalUser,
+        setDecoded,
       }}
     >
       {children}

@@ -1,12 +1,17 @@
-import Ads from "@/components/Ads";
-import { Maps } from "@/components/homePageComponents/googleMaps";
+import Ads from "@/components/AddProperty/Ads";
 import { useState } from "react";
 
 export default function Home() {
   const [selected, setSelected] = useState<string>("Ads");
   return (
     <div className="flex w-full justify-center">
-      {selected === "Ads" ? <Ads setSelected={setSelected} /> : selected === "Maps" ? <Maps setSelected={setSelected}/>: <>404 not found</>}
+      {selected === "Ads" ? (
+        <Ads setSelected={setSelected} />
+      ) : selected === "Maps" ? (
+        <Maps setSelected={setSelected} />
+      ) : (
+        <>404 not found</>
+      )}
     </div>
   );
 }

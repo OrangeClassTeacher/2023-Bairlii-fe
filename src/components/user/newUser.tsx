@@ -3,15 +3,12 @@ import { useRouter } from "next/router";
 import { Dropdown } from "flowbite-react";
 import jwt from "jsonwebtoken";
 import Link from "next/link";
-import useAllModal from "@/hooks/useAllModal";
 import { LoginContext } from "../../Context/UserContext";
 import { useContext } from "react";
 
 const NewUser = (): JSX.Element => {
   const [decoded, setDecoded] = useState<object | string | any>();
   const [loading, setLoading] = useState<boolean>(true);
-  const router = useRouter;
-  const rentModal = useAllModal();
   const { userEdit1 } = useContext(LoginContext);
 
   useEffect(() => {
@@ -32,12 +29,6 @@ const NewUser = (): JSX.Element => {
   } else {
     return (
       <div className="flex items-center">
-        <div
-          className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer"
-          onClick={rentModal.isOpen ? rentModal.onClose : rentModal.onOpen}
-        >
-          Your Home
-        </div>
         <Dropdown
           label={
             userEdit1.result
@@ -45,7 +36,14 @@ const NewUser = (): JSX.Element => {
               : decoded.user.firstName
           }
         >
-          <Link href={"/test"}>
+          <Link
+            href={{
+              pathname: `/user/[userId]`,
+              query: {
+                userId: decoded?.user?._id,
+              },
+            }}
+          >
             <Dropdown.Item>Хэрэглэгчийн хуудас</Dropdown.Item>
           </Link>
           <Link href="/userEdit">
