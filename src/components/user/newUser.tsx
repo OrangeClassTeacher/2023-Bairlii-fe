@@ -36,7 +36,16 @@ const NewUser = (): JSX.Element => {
               : decoded.user.firstName
           }
         >
-          <Dropdown.Item>Хэрэглэгчийн хуудас</Dropdown.Item>
+          <Link
+            href={{
+              pathname: `/user/[userId]`,
+              query: {
+                userId: decoded?.user?._id,
+              },
+            }}
+          >
+            <Dropdown.Item>Хэрэглэгчийн хуудас</Dropdown.Item>
+          </Link>
           <Link href="/userEdit">
             <Dropdown.Item>Засварлах</Dropdown.Item>
           </Link>

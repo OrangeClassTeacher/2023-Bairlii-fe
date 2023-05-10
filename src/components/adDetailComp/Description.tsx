@@ -20,7 +20,7 @@ export const Description = ({ data }: any) => {
   const [mapModal, setMapModal] = useState(false);
   const [modalSelected, setModalSelected] = useState("");
   const selectedStyle = "text-emerald-600 border-emerald-600";
-  const { price } = data;
+  // const { price } = data;
 
   function modalHandler() {
     setMapModal(!mapModal);

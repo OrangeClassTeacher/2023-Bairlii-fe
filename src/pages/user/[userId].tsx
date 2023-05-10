@@ -6,24 +6,24 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 function UserPage() {
   const route = useRouter();
-  const { userId } = route.query;
+  const userID = route.query.userId;
   const [propertiesData, setPropertiesData] = useState<Array<any>>([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getPropertiesData();
-  }, [userId]);
+  }, [userID]);
 
   //console.log(propertiesData);
 
   function getPropertiesData() {
     setLoading(true);
 
-    console.log({ userId });
+    console.log(userID);
 
-    if (userId) {
+    if (userID) {
       axios
-        .get(`http://localhost:9000/api/propertiesbyuser/${userId}`)
+        .get(`http://localhost:9000/api/propertiesbyuser/${userID}`)
         .then((res) => {
           console.log(res.data.result);
           setPropertiesData(res.data.result);
@@ -53,7 +53,7 @@ function UserPage() {
           >
             <p>Зар оруулах</p>
           </div>
-          <div className="flex gap-6 justify-center max-w-5xl w-full mt-7 ">
+          <div className="flex gap-3 flex-wrap justify-center max-w-5xl w-full mt-7 ">
             {propertiesData.map(
               (
                 {
@@ -121,7 +121,7 @@ function UserPage() {
                           </p>
                         </div>
                       </div>
-                      <div className="pt-2">
+                      <div className="pt-2 w-50">
                         <p className="ps-2 pr-2 bg-slate-300 rounded-2xl">
                           {description}
                         </p>
@@ -141,6 +141,10 @@ function UserPage() {
                             <p className="p-2">Zasah</p>
                           </button>
                         </Link>
+                        <button className="bg-yellow-300 rounded-2xl">
+                          {" "}
+                          <p className="p-2">Delete</p>
+                        </button>
                         <button className="bg-lime-300 rounded-2xl">
                           <p className="p-2">Zar ilgeeh</p>
                         </button>

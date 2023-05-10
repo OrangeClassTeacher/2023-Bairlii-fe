@@ -81,8 +81,6 @@ const RentModal = () => {
   const [decoded, setDecoded] = useState<object | string | any>();
   const [token, setToken] = useState<string>();
 
-  // console.log(decoded);
-
   useEffect(() => {
     let localStorageValue: string = localStorage.getItem("token") || "";
     setDecoded(jwt.decode(localStorageValue) || "");
@@ -105,7 +103,7 @@ const RentModal = () => {
         })
         .then((res) => {
           toast.success("Listing Created!");
-          // router.refresh();
+          router.refresh();
           reset();
           setStep(STEPS.CATEGORY);
           rentModal.onClose();
