@@ -6,41 +6,47 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 function UserPage() {
   const route = useRouter();
-  const userID = route.query.userId;
+  const { userId } = route.query;
   const [propertiesData, setPropertiesData] = useState<Array<any>>([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getPropertiesData();
-  }, [userID]);
+  }, [userId]);
 
-  console.log(propertiesData);
+  //console.log(propertiesData);
 
   function getPropertiesData() {
     setLoading(true);
-    axios
-      .get(`http://localhost:9000/api/propertiesbyuser/${userID}`)
-      .then((res) => {
-        setPropertiesData(res.data.result);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+
+    console.log({ userId });
+
+    if (userId) {
+      axios
+        .get(`http://localhost:9000/api/propertiesbyuser/${userId}`)
+        .then((res) => {
+          console.log(res.data.result);
+          setPropertiesData(res.data.result);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }
   }
   const [isOpen, setIsOpen] = useState(true);
   const rentModal = useAllModal();
 
-  console.log(userID);
+  // console.log(userID);
 
   if (loading) {
     return <div>Loading...</div>;
   } else {
     return (
       <div className="flex w-full justify-center">
-        <div>
+        <div className="">
           <div
             className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer"
             onClick={RentModal.isOpen ? rentModal.onClose : rentModal.onOpen}
