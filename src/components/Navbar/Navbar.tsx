@@ -32,13 +32,18 @@ const Navbar = (): JSX.Element => {
   return (
     <div className="bg-white z-10 shadow-sm flex flex-col w-full">
       <Container>
-        <div className="flex flex-row items-center justify-between gap-3 md:gap-0 max-w-5xl w-full">
+        <div className="flex flex-row items-center justify-between gap-3 md:gap-0 max-w-7xl w-full">
           <Logo />
           <Search handleChange={undefined} />
           {localUser ? <NewUser /> : <Menu />}
         </div>
       </Container>
-      <Categories />
+      <Container>
+        <div className="flex flex-row items-center justify-between gap-3 md:gap-0 max-w-7xl w-full">
+          {" "}
+          <Categories />
+        </div>
+      </Container>
     </div>
   );
 };
