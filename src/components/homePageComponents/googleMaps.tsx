@@ -35,7 +35,7 @@ export const Maps = ({ setSelected }: any) => {
   return (
     <>
       <MapForHome data={ads} />
-      <span className="flex items-center gap-2 bg-slate-600 p-2 rounded-xl text-white fixed bottom-20 z-30 border-2 border-slate-600 cursor-pointer" onClick={() => setSelected("Ads")}>
+      <span className="flex items-center gap-2 bg-black p-2 rounded-xl text-white fixed bottom-20 z-30 border-2 border-slate-600 cursor-pointer" onClick={() => setSelected("Ads")}>
         Show list <BsListUl />
       </span>
     </>

@@ -117,7 +117,7 @@ const Ads = ({ setSelected }: any): JSX.Element => {
           </div>
         </div>
       )}
-      <span className="flex items-center gap-2 bg-slate-600 p-2 rounded-xl text-white fixed bottom-20 z-30 border-2 border-slate-600 cursor-pointer" onClick={() => setSelected("Maps")}>
+      <span className="flex items-center gap-2 bg-black p-2 rounded-xl text-white fixed bottom-20 z-30 border-2 border-slate-600 cursor-pointer" onClick={() => setSelected("Maps")}>
         Show map <BsMap />
       </span>
     </div>
