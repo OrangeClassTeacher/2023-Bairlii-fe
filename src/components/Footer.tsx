@@ -13,7 +13,7 @@ const Footer = (): JSX.Element => {
     guraw: "Guraaw",
   };
   return (
-    <div className=" z-10 shadow-sm flex flex-col w-full bg-neutral-100  shadow-inner">
+    <div className=" z-10 shadow-sm flex flex-col w-full bg-neutral-100  shadow-inner fixed bottom-0">
       <Container>
         <div className="flex flex-row items-center justify-between gap-3 md:gap-0 max-w-7xl w-full">
           <div>

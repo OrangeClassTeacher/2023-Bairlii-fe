@@ -1,4 +1,5 @@
 import Ads from "@/components/AddProperty/Ads";
+import { Maps } from "@/components/homePageComponents/googleMaps";
 import { useState } from "react";
 
 export default function Home() {
