@@ -8,6 +8,8 @@ export const Maps = ({ setSelected }: any) => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.GOOGLE_MAP_API as string,
   });
+
+
   const [loading, setLoading] = useState<boolean>(false);
   const [ads, setAds] = useState<Array<any>>([]);
 
