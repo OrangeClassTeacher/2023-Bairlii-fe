@@ -25,7 +25,7 @@ export const AdComment = ({ data }: any) => {
       axios
         .get(`http://localhost:9000/api/procomments/${id}`)
         .then((res) => {
-          setCommentData(res.data.result);
+          setCommentData(res.data.result.reverse());
         })
         .catch((err) => {
           console.log(err);
