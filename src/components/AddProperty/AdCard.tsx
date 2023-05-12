@@ -9,11 +9,13 @@ const AdCard = ({ item, key }: any) => {
 
   return (
     <div
-      className="flex flex-wrap flex-col max-w-[25%] min-w-[300px]"
+      className="flex flex-wrap flex-col max-w-[10px] min-w-[300px]"
       key={key}
     >
       {/* <Slider images={item.propertyID.photos} className="" /> */}
       <SwiperSlider data={item} />
+      <div></div>
+
       <div className="rounded-2xl bg-slate-300/90 flex flex-col w-[85%] p-6 -mt-2 ml-2 z-20">
         <span className="flex">
           Area:
