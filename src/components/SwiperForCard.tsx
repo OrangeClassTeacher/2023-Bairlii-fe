@@ -8,7 +8,6 @@ import "swiper/css/pagination";
 import { Autoplay, EffectCube, Pagination } from "swiper";
 
 export default function SwiperSlider({ data }: any) {
-
   if (data) {
     return (
       <div className="h-48 w-full">

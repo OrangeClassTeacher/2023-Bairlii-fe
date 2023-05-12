@@ -41,9 +41,9 @@ const Ads = ({ setSelected }: any): JSX.Element => {
   }
 
   return (
-    <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-5xl w-full">
+    <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-7xl w-full">
       {loading ? (
-        <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-5xl w-full">
+        <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-7xl w-full">
           {skeletonArr.map((item, index) => {
             return (
               <div
@@ -70,7 +70,7 @@ const Ads = ({ setSelected }: any): JSX.Element => {
         </div>
       ) : (
         <div>
-          <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-5xl w-full">
+          <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-7xl w-full">
             {ads.map((item, index): JSX.Element => {
               return (
                 <>
@@ -117,7 +117,10 @@ const Ads = ({ setSelected }: any): JSX.Element => {
           </div>
         </div>
       )}
-      <span className="flex items-center gap-2 bg-slate-600 p-2 rounded-xl text-white fixed bottom-20 z-30 border-2 border-slate-600 cursor-pointer" onClick={() => setSelected("Maps")}>
+      <span
+        className="flex items-center gap-2 bg-slate-600 p-2 rounded-xl text-white fixed bottom-28 z-30 border-2 border-slate-600 cursor-pointer"
+        onClick={() => setSelected("Maps")}
+      >
         Show map <BsMap />
       </span>
     </div>
