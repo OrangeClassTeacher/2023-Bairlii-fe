@@ -9,6 +9,8 @@ function UserPage() {
   const userID = route.query.userId;
   const [propertiesData, setPropertiesData] = useState<Array<any>>([]);
   const [loading, setLoading] = useState(false);
+  const rentModal = useAllModal();
+
 
   useEffect(() => {
     getPropertiesData();
@@ -18,14 +20,10 @@ function UserPage() {
 
   function getPropertiesData() {
     setLoading(true);
-
-    console.log(userID);
-
     if (userID) {
       axios
         .get(`http://localhost:9000/api/propertiesbyuser/${userID}`)
         .then((res) => {
-          console.log(res.data.result);
           setPropertiesData(res.data.result);
         })
         .catch((err) => {
@@ -36,8 +34,15 @@ function UserPage() {
         });
     }
   }
-  const [isOpen, setIsOpen] = useState(true);
-  const rentModal = useAllModal();
+
+  function deleteProperties(id: string) {
+    axios.delete(`http://localhost:9000/api/properties/${id}`).then((res) => {
+      alert("amjilttai ustgalaa")
+      getPropertiesData();
+    }).catch((err) => {
+      console.log(err);
+    })
+  }
 
   // console.log(userID);
 
@@ -143,7 +148,7 @@ function UserPage() {
                         </Link>
                         <button className="bg-yellow-300 rounded-2xl">
                           {" "}
-                          <p className="p-2">Delete</p>
+                          <p className="p-2" onClick={() => deleteProperties(_id)}>Delete</p>
                         </button>
                         <button className="bg-lime-300 rounded-2xl">
                           <p className="p-2">Zar ilgeeh</p>
