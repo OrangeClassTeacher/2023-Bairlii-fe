@@ -11,12 +11,13 @@ const MapComponentForPropertyEdit = ({ setCoordinates, coordinates, propertyData
     const [saveCoordinates, setSaveCoordinates] = useState({ x: "", y: "" });
     const [choose, setChoose] = useState(false);
 
-    console.log(propertyData);
-
 
     useEffect(() => {
         setSaveCoordinates({ x: propertyData?.coordinates?.lat, y: propertyData?.coordinates?.lng });
+        setCoordinates({ lat: propertyData?.coordinates?.lat, lng: propertyData?.coordinates?.lng })
     }, [propertyData])
+
+    console.log(saveCoordinates);
 
 
     if (!isLoaded) return <div>Loading ... </div>;
