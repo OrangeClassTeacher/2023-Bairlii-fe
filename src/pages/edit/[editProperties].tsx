@@ -62,19 +62,19 @@ function EditProperties() {
   });
 
   useEffect(() => {
-    editPro();
+    editProperty();
     let localStorageValue: string = localStorage.getItem("token") || "";
     setDecoded(jwt.decode(localStorageValue) || "");
     setToken(localStorageValue)
   }, [editingPropertyId]);
 
-  function editPro() {
+  function editProperty() {
     setLoading(true)
     axios
       .get(`http://localhost:9000/api/properties/${editingPropertyId}`)
       .then((res) => {
         setPropertyData(res.data.result);
-        console.log(res.data.result);
+        console.log();
       })
       .catch((err) => {
         console.log(err);
@@ -93,7 +93,9 @@ function EditProperties() {
       })
       .then((res) => {
         setPropertyData(res.data.result);
-        editPro();
+        alert("Editted successfully")
+        editProperty();
+        route.push(`http://localhost:3000/user/${res.data.result.userID}`)
       })
       .catch((err) => {
         console.log(err);
