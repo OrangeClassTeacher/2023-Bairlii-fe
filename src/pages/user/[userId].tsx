@@ -58,7 +58,7 @@ function UserPage() {
           >
             <p>Зар оруулах</p>
           </div>
-          <div className="flex gap-5 flex-wrap justify-center max-w-7xl w-full mt-7 h-[100vh]">
+          <div className="flex gap-5 flex-wrap justify-center max-w-7xl w-full mt-7 ">
             {propertiesData.map(
               (
                 {

@@ -10,7 +10,7 @@ const Ads = ({ setSelected }: any): JSX.Element => {
   const [curPageNumb, setCurPageNumb] = useState<number>(1);
   const [reqBody, setReqBody] = useState<object>({ pageNumber: 1 });
   const [loading, setLoading] = useState<boolean>(false);
-  const skeletonArr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const skeletonArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   useEffect(() => {
     getData();
@@ -22,7 +22,7 @@ const Ads = ({ setSelected }: any): JSX.Element => {
       .post("http://localhost:9000/api/advertisements", reqBody)
       .then((res) => {
         setAds(res.data.result);
-        setPageNumb(Math.ceil(res.data.rowCount / 9));
+        setPageNumb(Math.ceil(res.data.rowCount / 12));
         setLoading(false);
       })
       .catch((err) => {
@@ -41,9 +41,9 @@ const Ads = ({ setSelected }: any): JSX.Element => {
   }
 
   return (
-    <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-5xl w-full">
+    <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-7xl w-full">
       {loading ? (
-        <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-5xl w-full">
+        <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-7xl w-full">
           {skeletonArr.map((item, index) => {
             return (
               <div
@@ -70,7 +70,7 @@ const Ads = ({ setSelected }: any): JSX.Element => {
         </div>
       ) : (
         <div>
-          <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-5xl w-full">
+          <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-7xl w-full">
             {ads.map((item, index): JSX.Element => {
               return (
                 <>
@@ -117,7 +117,10 @@ const Ads = ({ setSelected }: any): JSX.Element => {
           </div>
         </div>
       )}
-      <span className="flex items-center gap-2 bg-black p-2 rounded-xl text-white fixed bottom-20 z-30 border-2 border-slate-600 cursor-pointer" onClick={() => setSelected("Maps")}>
+      <span
+        className="flex items-center gap-2 bg-black p-2 rounded-xl text-white fixed bottom-24 z-30 border-2 border-slate-600 cursor-pointer"
+        onClick={() => setSelected("Maps")}
+      >
         Show map <BsMap />
       </span>
     </div>
