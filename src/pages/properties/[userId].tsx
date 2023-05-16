@@ -38,8 +38,10 @@ function UserPage() {
 
   function deleteProperties(id: string) {
     axios.delete(`http://localhost:9000/api/properties/${id}`).then((res) => {
-      alert("amjilttai ustgalaa")
-      getPropertiesData();
+      if (res.data.status) {
+        alert("amjilttai ustgalaa")
+        getPropertiesData()
+      }
     }).catch((err) => {
       console.log(err);
     })
@@ -74,3 +76,4 @@ function UserPage() {
 }
 
 export default UserPage;
+
