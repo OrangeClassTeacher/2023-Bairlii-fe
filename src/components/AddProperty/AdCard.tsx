@@ -5,7 +5,7 @@ import Link from "next/link";
 import SwiperSlider from "../SwiperForCard";
 
 const AdCard = ({ item, key }: any) => {
-  const date = new Date(item.createdAt);
+  const date = new Date(item?.createdAt);
 
   return (
     <div
