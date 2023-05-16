@@ -38,13 +38,23 @@ const NewUser = (): JSX.Element => {
         >
           <Link
             href={{
-              pathname: `/user/[userId]`,
+              pathname: `/properties/[userId]`,
               query: {
                 userId: decoded?.user?._id,
               },
             }}
           >
-            <Dropdown.Item>Хэрэглэгчийн хуудас</Dropdown.Item>
+            <Dropdown.Item>My Properties</Dropdown.Item>
+          </Link>
+          <Link
+            href={{
+              pathname: `/advertisements/[userId]`,
+              query: {
+                userId: decoded?.user?._id,
+              },
+            }}
+          >
+            <Dropdown.Item>My Advertisements</Dropdown.Item>
           </Link>
           <Link href="/userEdit">
             <Dropdown.Item>Засварлах</Dropdown.Item>
