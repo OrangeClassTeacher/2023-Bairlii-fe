@@ -82,6 +82,11 @@ function UserPage() {
     return (
       <div className="flex w-full justify-center containerblur">
         <div className="">
+          <button
+            onClick={rentModal.isOpen ? rentModal.onClose : rentModal.onOpen}
+          >
+            AdList
+          </button>
           <div className="flex gap-5 flex-wrap justify-center max-w-7xl w-full mt-7 ">
             {propertiesData?.map((propertyData, i) => {
               return (
