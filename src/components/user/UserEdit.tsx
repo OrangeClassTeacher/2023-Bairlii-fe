@@ -38,8 +38,6 @@ function UserEdit(): JSX.Element {
   });
 
   const [decoded, setDecoded] = useState<object | string | any>();
-  const [test, setTest] = useState("");
-  const [profile, setProfile] = useState<object>({ profilePicture: [] });
 
   const { setUserEdit1 } = useContext(LoginContext);
   // console.log(setUserEdit1);
@@ -98,7 +96,6 @@ function UserEdit(): JSX.Element {
 
       [name]: value,
     }));
-    setTest(value);
   };
   // console.log(userEdit);
   // console.log(test);

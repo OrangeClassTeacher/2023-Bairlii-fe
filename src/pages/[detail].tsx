@@ -26,9 +26,6 @@ const AdDetail = () => {
         console.log(res.data.result);
 
       })
-      .catch((err) => {
-        console.log(err);
-      })
       .finally(() => {
         setLoading(false);
       });

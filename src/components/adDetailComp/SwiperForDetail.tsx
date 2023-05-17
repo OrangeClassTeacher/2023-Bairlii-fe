@@ -39,7 +39,7 @@ export default function SwiperForDetail({ data }: any) {
                   <img
                     src={item}
                     alt="haha"
-                    className="object-fill w-full h-full rounded-lg drop-shadow-lg"
+                    className="object-cover w-full h-full rounded-lg drop-shadow-lg"
                   />
                 </div>
               </SwiperSlide>

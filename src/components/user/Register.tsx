@@ -30,7 +30,6 @@ function Register() {
 
   const sendFile = async (fieldName: any, files: any) => {
     setLoading(true);
-    console.log(files);
 
     const url = `http://api.cloudinary.com/v1_1/dnowpv9qs/upload`;
     const newArr = [];
@@ -50,14 +49,12 @@ function Register() {
         return axios.post(url, formData);
       })
     );
-    console.log(promise);
     const arr: any = [];
 
     promise.map((response) => {
       arr.push(response.data.secure_url);
     });
     if (fieldName == "images") {
-      console.log(arr);
       setProfile({ ...profile, profilePicture: arr[0] });
     }
     setLoading(false);
@@ -65,8 +62,6 @@ function Register() {
   console.log(errors);
 
   const onSubmit = (data: any) => {
-    console.log(data);
-
     const reqBody = {
       firstName: data.firstName,
       lastName: data.lastName,
@@ -81,8 +76,6 @@ function Register() {
       phoneNumber: data.phoneNumber,
       ...profile,
     };
-
-    console.log(reqBody);
 
     axios
       .post(`http://localhost:9000/api/users`, reqBody)

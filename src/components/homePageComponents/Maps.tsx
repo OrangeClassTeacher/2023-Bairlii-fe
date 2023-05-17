@@ -1,7 +1,7 @@
 import React from "react";
 import { GoogleMap, MarkerF, InfoWindow, InfoWindowF } from "@react-google-maps/api";
 import { useState } from "react";
-import AdCard from "../AdCard";
+import AdCard from "../AddProperty/AdCard";
 
 export const MapForHome = ({ data }: any) => {
   const [selected, setSelected] = useState<any>({});
@@ -9,7 +9,6 @@ export const MapForHome = ({ data }: any) => {
   const onSelect = (item: any) => {
     setSelected(item);
   }
-
 
   return (
     <div className="w-full h-full">
