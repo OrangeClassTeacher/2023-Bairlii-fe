@@ -34,14 +34,15 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
       delete updatedQuery.category;
     }
 
-    axios
-      .post(`http://localhost:9000/api/advertisement/filter/price`)
-      .then(async (response: any) => {
-        console.log(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const url = qs.stringifyUrl(
+      {
+        url: "/",
+        query: updatedQuery,
+      },
+      { skipNull: true }
+    );
+
+    router.push(url);
   }, [label, router, params]);
 
   return (
