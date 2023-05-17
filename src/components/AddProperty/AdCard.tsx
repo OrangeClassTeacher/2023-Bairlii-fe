@@ -19,15 +19,15 @@ const AdCard = ({ item, key }: any) => {
             <div className="front">
               <p className="flex justify-between w-2xl text-gray-900  leading-8  ">
                 <p className="text-gray-900 font-bold text-xl">Талбай:</p>
-                {item.propertyID.area}.m.k
+                {item?.propertyID?.area}.m.k
               </p>
               <p className="flex justify-between w-2xl text-gray-900  leading-8">
                 <p className="text-gray-900 font-bold text-xl">Өрөөний тоо: </p>
-                {item.propertyID.roomNumber}
+                {item?.propertyID?.roomNumber}
               </p>
               <p className="flex justify-between w-2xl text-gray-900  leading-8">
                 <p className="text-gray-900 font-bold text-xl">Байршил:</p>
-                {item.propertyID.locationName}
+                {item?.propertyID?.locationName}
               </p>
             </div>
             <div className="back">
