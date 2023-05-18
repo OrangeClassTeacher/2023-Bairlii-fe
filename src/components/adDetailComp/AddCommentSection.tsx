@@ -18,7 +18,6 @@ export const AddCommentSection = ({
       comment: [data],
     });
   }
-  console.log(commentBody);
 
   return (
     <div>

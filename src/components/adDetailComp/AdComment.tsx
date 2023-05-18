@@ -21,7 +21,6 @@ export const AdComment = ({ data }: any) => {
 
   function getCommentData(id: any) {
     if (id) {
-      console.log("aaa");
       axios
         .get(`http://localhost:9000/api/procomments/${id}`)
         .then((res) => {

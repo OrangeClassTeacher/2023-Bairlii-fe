@@ -2,6 +2,12 @@ import React, { useEffect, useState } from "react";
 import AdCard from "./AdCard";
 import axios from "axios";
 import { BsMap } from "react-icons/bs";
+import { useSearchParams } from "next/navigation";
+import queryString from "query-string";
+
+// interface ICurrentQuery {
+//   category: string | undefined
+// }
 
 const Ads = ({ setSelected }: any): JSX.Element => {
   const [ads, setAds] = useState<Array<any>>([]);
@@ -11,17 +17,25 @@ const Ads = ({ setSelected }: any): JSX.Element => {
   const [reqBody, setReqBody] = useState<object>({ pageNumber: 1 });
   const [loading, setLoading] = useState<boolean>(false);
   const skeletonArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const params = useSearchParams();
+  let currentQuery: any;
 
   useEffect(() => {
+    if (params) {
+      currentQuery = queryString.parse(params.toString());
+    }
     getData();
-  }, [curPageNumb]);
+  }, [curPageNumb, params]);
+
+
+
 
   function getData() {
     setLoading(true);
     axios
-      .post("http://localhost:9000/api/advertisements", reqBody)
+      .post("http://localhost:9000/api/advertisements", { ...reqBody, ...currentQuery })
       .then((res) => {
-        setAds(res.data.result);
+        setAds(res.data.result.reverse());
         setPageNumb(Math.ceil(res.data.rowCount / 12));
         setLoading(false);
       })
@@ -29,6 +43,8 @@ const Ads = ({ setSelected }: any): JSX.Element => {
         console.log(err);
       });
   }
+
+
 
   if (pageNumb) {
     for (
@@ -39,6 +55,8 @@ const Ads = ({ setSelected }: any): JSX.Element => {
       pages.push(i);
     }
   }
+
+
 
   return (
     <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-7xl w-full">
@@ -71,7 +89,7 @@ const Ads = ({ setSelected }: any): JSX.Element => {
       ) : (
         <div>
           <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-7xl w-full">
-            {ads.map((item, index): JSX.Element => {
+            {ads?.map((item, index): JSX.Element => {
               return (
                 <>
                   <AdCard item={item} key={index} />
