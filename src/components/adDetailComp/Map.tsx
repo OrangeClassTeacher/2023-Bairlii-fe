@@ -9,15 +9,15 @@ export const Map = ({ data }: any) => {
       <GoogleMap
         zoom={14}
         center={{
-          lat: data?.propertyID?.locationCoordinate?.lang,
-          lng: data?.propertyID?.locationCoordinate?.long,
+          lat: data?.propertyID?.coordinates?.lat,
+          lng: data?.propertyID?.coordinates?.lng,
         }}
         mapContainerClassName="map-container"
       >
         <MarkerF
           position={{
-            lat: data?.propertyID?.locationCoordinate?.lang,
-            lng: data?.propertyID?.locationCoordinate?.long,
+            lat: data?.propertyID?.coordinates?.lat,
+            lng: data?.propertyID?.coordinates?.lng,
           }}
         />
       </GoogleMap>

@@ -3,7 +3,12 @@ import Link from "next/link";
 import SwiperSlider from "../SwiperForCard";
 
 const AdCard = ({ item, key }: any) => {
-  const date = new Date(item?.createdAt);
+  const date1 = new Date(item?.createdAt).toLocaleDateString("en-us", {
+    weekday: "long",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
 
   return (
     <div
@@ -21,7 +26,7 @@ const AdCard = ({ item, key }: any) => {
               </p>
               <p className="flex justify-between w-2xl text-gray-900  leading-8">
                 <p className="text-gray-900 font-bold text-xl">Room Count: </p>
-                {item?.propertyID?.roomNumber}
+                {item?.propertyID?.roomCount}
               </p>
               <p className="flex justify-between w-2xl text-gray-900  leading-8">
                 <p className="text-gray-900 font-bold text-xl">Location:</p>
@@ -35,7 +40,7 @@ const AdCard = ({ item, key }: any) => {
               </p>
               <p className="flex justify-between w-2xl text-gray-900  leading-8">
                 <p className="text-gray-900 font-bold text-xl">Form:</p>{" "}
-                {date.getFullYear()} {date.getMonth() + 1} {date.getDate()}
+                {date1}
               </p>
               <p className="flex justify-between w-2xl  text-yellow-900 underline leading-8 ms-40 mt-3">
                 <Link
