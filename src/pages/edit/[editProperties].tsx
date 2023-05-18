@@ -177,7 +177,7 @@ function EditProperties() {
     );
   } else {
     return (
-      <div className=" flex gap-5 flex-wrap justify-center ">
+      <div className=" flex gap-5 flex-wrap justify-center mb-20">
         <div className=" max-w-7xl w-full mt-7 ">
           <div className="flex justify-between">
             <div className="w-2/5">
@@ -191,7 +191,7 @@ function EditProperties() {
                     value={propertyData?.guestCount}
                     onChange={handleChange}
                     name="guestCount"
-                    placeholder="Хүний тоо"
+                    placeholder="Guest Count"
                     className="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   />
                 </div>
@@ -203,7 +203,7 @@ function EditProperties() {
                     type="number"
                     value={propertyData?.area}
                     onChange={handleChange}
-                    placeholder="Талбай"
+                    placeholder="Area"
                     name="area"
                     className=" input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   />
@@ -218,8 +218,8 @@ function EditProperties() {
                     type="number"
                     value={propertyData?.roomCount}
                     onChange={handleChange}
-                    name="Өрөө"
-                    placeholder="Өрөө"
+                    name="Room Count"
+                    placeholder="Room Count"
                     className="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   />
                 </div>
@@ -232,7 +232,7 @@ function EditProperties() {
                     value={propertyData?.bathroomCount}
                     onChange={handleChange}
                     name="bathroomCount"
-                    placeholder="Угаалгын өрөө"
+                    placeholder="Bathroom Count"
                     className="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   />
                 </div>
@@ -247,7 +247,7 @@ function EditProperties() {
                     value={propertyData?.locationName}
                     onChange={handleChange}
                     name="locationName"
-                    placeholder="Байршил"
+                    placeholder="Location"
                     className="bairshil input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   />
                 </div>
@@ -261,7 +261,7 @@ function EditProperties() {
                   value={propertyData?.description}
                   onChange={handleChange}
                   name="description"
-                  placeholder="Тайлбар"
+                  placeholder="Desccription"
                   className="tailbar input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
               </div>
