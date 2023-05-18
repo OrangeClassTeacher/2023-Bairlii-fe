@@ -23,8 +23,6 @@ const AdDetail = () => {
       .get(`http://localhost:9000/api/advertisement/${id}`)
       .then((res) => {
         setAdData(res.data.result);
-        console.log(res.data.result);
-
       })
       .finally(() => {
         setLoading(false);

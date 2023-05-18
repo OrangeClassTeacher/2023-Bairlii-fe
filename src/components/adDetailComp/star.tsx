@@ -8,23 +8,17 @@ const RatingStars = ({ data }: any) => {
     const [loading, setLoading] = useState(true);
     const [decoded, setDecoded] = useState<object | string>();
 
-    console.log(rating);
-
     useEffect(() => {
         let localStorageValue: string = localStorage.getItem("token") || "";
         setDecoded(jwt.decode(localStorageValue) || "");
         getUserData();
     }, [data]);
 
-    console.log(decoded);
-
-
     function getUserData() {
         axios
             .get(`http://localhost:9000/api/prorating/${data?.propertyID?._id}`)
             .then((res) => {
                 setRating(res.data);
-                console.log(res.data);
             })
             .catch((err) => {
                 console.log(err);
@@ -44,7 +38,6 @@ const RatingStars = ({ data }: any) => {
             axios
                 .put("http://localhost:9000/api/prorating", reqBody)
                 .then((res) => {
-                    console.log(res);
                     getUserData()
                 })
                 .catch((err) => {

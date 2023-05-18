@@ -10,6 +10,8 @@ import {
   FcNeutralTrading,
   FcPlanner,
 } from "react-icons/fc";
+import RoomsNumbers from "./RoomsNumbers";
+import Sort from "./Sort";
 
 export const categories = [
   {
@@ -48,6 +50,14 @@ export const categories = [
     description: "This property is close to the beach!",
   },
   {
+    label: "Хажуу өрөө",
+    icon: FcNews,
+    description: "This property is close to the beach!",
+  }
+];
+
+export const room = [
+  {
     label: "1 өрөө",
     icon: FcHome,
     description: "This property is close to the beach!",
@@ -67,11 +77,9 @@ export const categories = [
     icon: FcHome,
     description: "This property is close to the beach!",
   },
-  {
-    label: "Хажуу өрөө",
-    icon: FcNews,
-    description: "This property is close to the beach!",
-  },
+];
+
+export const sorts = [
   {
     label: "Үнээр шүүх",
     icon: FcNews,
@@ -92,6 +100,8 @@ export const categories = [
 const Categories = () => {
   const params = useSearchParams();
   const category = params?.get("category");
+  const rooms = params?.get("rooms");
+  const sort = params?.get("sort");
   const pathname = usePathname();
   const isMainPage = pathname === "/";
 
@@ -117,6 +127,22 @@ const Categories = () => {
             label={item.label}
             icon={item.icon}
             selected={category === item.label}
+          />
+        ))}
+        {room.map((item) => (
+          <RoomsNumbers
+            key={item.label}
+            label={item.label}
+            icon={item.icon}
+            selected={rooms === item.label}
+          />
+        ))}
+        {sorts.map((item) => (
+          <Sort
+            key={item.label}
+            label={item.label}
+            icon={item.icon}
+            selected={sort === item.label}
           />
         ))}
       </div>
