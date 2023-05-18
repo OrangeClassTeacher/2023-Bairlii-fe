@@ -65,11 +65,11 @@ function EditProperties() {
     editProperty();
     let localStorageValue: string = localStorage.getItem("token") || "";
     setDecoded(jwt.decode(localStorageValue) || "");
-    setToken(localStorageValue)
+    setToken(localStorageValue);
   }, [editingPropertyId]);
 
   function editProperty() {
-    setLoading(true)
+    setLoading(true);
     axios
       .get(`http://localhost:9000/api/properties/${editingPropertyId}`)
       .then((res) => {
@@ -85,7 +85,7 @@ function EditProperties() {
   }
 
   const onSave = () => {
-    let reqBody = { ...propertyData, coordinates: coordinate }
+    let reqBody = { ...propertyData, coordinates: coordinate };
 
     axios
       .put(`http://localhost:9000/api/properties`, reqBody, {
@@ -93,20 +93,20 @@ function EditProperties() {
       })
       .then((res) => {
         setPropertyData(res.data.result);
-        alert("Editted successfully")
+        alert("Editted successfully");
         editProperty();
-        route.push(`http://localhost:3000/user/${res.data.result.userID}`)
+        route.push(`http://localhost:3000/user/${res.data.result.userID}`);
       })
       .catch((err) => {
         console.log(err);
-      })
+      });
   };
 
   const removePhoto = (index: number) => {
     const { photos } = propertyData;
-    photos.splice(index, 1)
-    setPropertyData({ ...propertyData, photos })
-  }
+    photos.splice(index, 1);
+    setPropertyData({ ...propertyData, photos });
+  };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -142,104 +142,186 @@ function EditProperties() {
       arr.push(response.data.secure_url);
     });
 
-    const { photos } = propertyData
+    const { photos } = propertyData;
     setPropertyData({ ...propertyData, photos: [...photos, ...arr] });
 
     setUploading(false);
   };
 
   if (loading) {
-    return <div>Loading</div>;
+    return (
+      <div className="flex justify-center h-full pt-52">
+        <div
+          aria-label="Orange and tan hamster running in a metal wheel"
+          role="img"
+          className="wheel-and-hamster"
+        >
+          <div className="wheel"></div>
+          <div className="hamster">
+            <div className="hamster__body">
+              <div className="hamster__head">
+                <div className="hamster__ear"></div>
+                <div className="hamster__eye"></div>
+                <div className="hamster__nose"></div>
+              </div>
+              <div className="hamster__limb hamster__limb--fr"></div>
+              <div className="hamster__limb hamster__limb--fl"></div>
+              <div className="hamster__limb hamster__limb--br"></div>
+              <div className="hamster__limb hamster__limb--bl"></div>
+              <div className="hamster__tail"></div>
+            </div>
+          </div>
+          <div className="spoke"></div>
+        </div>
+      </div>
+    );
   } else {
     return (
-      <div className="flex w-full justify-center">
-        <div>
-          <div className="flex gap-6 justify-center max-w-5xl w-full mt-7 ">
-            <div>
-              <div>
+      <div className=" flex gap-5 flex-wrap justify-center ">
+        <div className=" max-w-7xl w-full mt-7 ">
+          <div className="flex justify-between">
+            <div className="w-2/5">
+              <div className="flex justify-between w-full">
+                <div className="input-container">
+                  <label className="block text-gray-700 text-sm font-bold mb-2">
+                    Guest Count
+                  </label>
+                  <input
+                    type="number"
+                    value={propertyData?.guestCount}
+                    onChange={handleChange}
+                    name="guestCount"
+                    placeholder="Хүний тоо"
+                    className="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  />
+                </div>
+                <div className="input-container">
+                  <label className="block text-gray-700 text-sm font-bold mb-2">
+                    Area
+                  </label>
+                  <input
+                    type="number"
+                    value={propertyData?.area}
+                    onChange={handleChange}
+                    placeholder="Талбай"
+                    name="area"
+                    className=" input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  />
+                </div>
+              </div>
+              <div className="flex justify-between">
+                <div className="input-container">
+                  <label className="block text-gray-700 text-sm font-bold mb-2">
+                    Room Count
+                  </label>
+                  <input
+                    type="number"
+                    value={propertyData?.roomCount}
+                    onChange={handleChange}
+                    name="Өрөө"
+                    placeholder="Өрөө"
+                    className="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  />
+                </div>
+                <div className="input-container">
+                  <label className="block text-gray-700 text-sm font-bold mb-2">
+                    Bathroom Count
+                  </label>
+                  <input
+                    type="number"
+                    value={propertyData?.bathroomCount}
+                    onChange={handleChange}
+                    name="bathroomCount"
+                    placeholder="Угаалгын өрөө"
+                    className="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  />
+                </div>
+              </div>
+              <div className="flex justify-between">
+                <div className="input-container">
+                  <label className="block text-gray-700 text-sm font-bold mb-2">
+                    Location
+                  </label>
+                  <input
+                    type="text"
+                    value={propertyData?.locationName}
+                    onChange={handleChange}
+                    name="locationName"
+                    placeholder="Байршил"
+                    className="bairshil input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  />
+                </div>
+              </div>
+              <div className="input-container">
                 <label className="block text-gray-700 text-sm font-bold mb-2">
-                  Description
+                  Desccription
                 </label>
                 <input
                   type="text"
                   value={propertyData?.description}
                   onChange={handleChange}
                   name="description"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  placeholder="Тайлбар"
+                  className="tailbar input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
               </div>
+            </div>
+            <div className="w-6/12">
               <div>
-                <label className="block text-gray-700 text-sm font-bold mb-2">
-                  Guest Count
-                </label>
-                <input
-                  type="text"
-                  value={propertyData?.guestCount}
-                  onChange={handleChange}
-                  name="guestCount"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                <MapComponentForPropertyEdit
+                  setCoordinates={setCoordinate}
+                  coordinates={coordinate}
+                  propertyData={propertyData}
                 />
               </div>
-              <div>
-                <label className="block text-gray-700 text-sm font-bold mb-2">
-                  Room Count
-                </label>
-                <input
-                  type="text"
-                  value={propertyData?.roomCount}
-                  onChange={handleChange}
-                  name="roomCount"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 text-sm font-bold mb-2">
-                  Bathroom Count
-                </label>
-                <input
-                  type="text"
-                  value={propertyData?.bathroomCount}
-                  onChange={handleChange}
-                  name="bathroomCount"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 text-sm font-bold mb-2">
-                  Area
-                </label>
-                <input
-                  type="text"
-                  value={propertyData?.area}
-                  onChange={handleChange}
-                  name="area"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 text-sm font-bold mb-2">
-                  Location Name
-                </label>
-                <input
-                  type="text"
-                  value={propertyData?.locationName}
-                  onChange={handleChange}
-                  name="locationName"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                />
-              </div>
-              <div>
-                <MapComponentForPropertyEdit setCoordinates={setCoordinate} coordinates={coordinate} propertyData={propertyData} />
-              </div>
-              <div>
-                {uploading ? <div>Uploading</div> : propertyData?.photos?.map((photo, index): JSX.Element => {
-                  return (
-                    <div className="relative w-[200px] h-[200px]" key={index}>
-                      <AiOutlineCloseCircle className="absolute right-2 top-2 cursor-pointer text-white drop-shadow-lg" onClick={() => removePhoto(index)} />
-                      <img src={photo} width={200} height={200} alt="image" />
+            </div>
+          </div>
+          <div className="pt-10">
+            <div className="flex flex-wrap gap-3">
+              {uploading ? (
+                <div className="flex justify-center     ">
+                  <div
+                    aria-label="Orange and tan hamster running in a metal wheel"
+                    role="img"
+                    className="wheel-and-hamster"
+                  >
+                    <div className="wheel"></div>
+                    <div className="hamster">
+                      <div className="hamster__body">
+                        <div className="hamster__head">
+                          <div className="hamster__ear"></div>
+                          <div className="hamster__eye"></div>
+                          <div className="hamster__nose"></div>
+                        </div>
+                        <div className="hamster__limb hamster__limb--fr"></div>
+                        <div className="hamster__limb hamster__limb--fl"></div>
+                        <div className="hamster__limb hamster__limb--br"></div>
+                        <div className="hamster__limb hamster__limb--bl"></div>
+                        <div className="hamster__tail"></div>
+                      </div>
                     </div>
-                  )
-                })}
+                    <div className="spoke"></div>
+                  </div>
+                </div>
+              ) : (
+                propertyData?.photos?.map((photo, index): JSX.Element => {
+                  return (
+                    <div
+                      className="relative flex w-[200px] h-[200px]"
+                      key={index}
+                    >
+                      <AiOutlineCloseCircle
+                        className="absolute left-2 top-2 cursor-pointer text-gray-900  text-xl drop-shadow-lg"
+                        onClick={() => removePhoto(index)}
+                      />
+                      <img src={photo} width={300} height={150} alt="image" />
+                    </div>
+                  );
+                })
+              )}
+            </div>
+            <div>
+              <div className="pt-5">
                 <input
                   type="file"
                   multiple
@@ -249,12 +331,15 @@ function EditProperties() {
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
               </div>
-              <div className="pt-3">
-                <button className=" bg-lime-200 rounded-2xl" onClick={onSave}>
-                  <p className="p-2">Hadgalah</p>
-                </button>
-              </div>
             </div>
+          </div>
+          <div className="pt-3">
+            <button
+              className=" bg-gray-800 text-gray-200 rounded-md"
+              onClick={onSave}
+            >
+              <p className="p-2">Save</p>
+            </button>
           </div>
         </div>
       </div>
