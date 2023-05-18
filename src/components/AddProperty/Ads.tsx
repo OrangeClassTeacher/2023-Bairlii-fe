@@ -27,13 +27,13 @@ const Ads = ({ setSelected }: any): JSX.Element => {
     getData();
   }, [curPageNumb, params]);
 
-
-
-
   function getData() {
     setLoading(true);
     axios
-      .post("http://localhost:9000/api/advertisements", { ...reqBody, ...currentQuery })
+      .post("http://localhost:9000/api/advertisements", {
+        ...reqBody,
+        ...currentQuery,
+      })
       .then((res) => {
         setAds(res.data.result.reverse());
         setPageNumb(Math.ceil(res.data.rowCount / 12));
@@ -44,8 +44,6 @@ const Ads = ({ setSelected }: any): JSX.Element => {
       });
   }
 
-
-
   if (pageNumb) {
     for (
       let i: number = curPageNumb - 10;
@@ -55,8 +53,6 @@ const Ads = ({ setSelected }: any): JSX.Element => {
       pages.push(i);
     }
   }
-
-
 
   return (
     <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-7xl w-full">
@@ -88,7 +84,7 @@ const Ads = ({ setSelected }: any): JSX.Element => {
         </div>
       ) : (
         <div>
-          <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-7xl w-full">
+          <div className="flex flex-wrap gap-6 justife-between mt-7 max-w-7xl w-full">
             {ads?.map((item, index): JSX.Element => {
               return (
                 <>
