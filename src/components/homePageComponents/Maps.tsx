@@ -9,6 +9,8 @@ export const MapForHome = ({ data }: any) => {
   const onSelect = (item: any) => {
     setSelected(item);
   }
+  console.log(data);
+
 
   return (
     <div className="w-full h-full">
@@ -24,8 +26,8 @@ export const MapForHome = ({ data }: any) => {
           data.map((item: any, index: any) => {
             return <MarkerF
               position={{
-                lat: item?.propertyID?.locationCoordinate?.lang,
-                lng: item?.propertyID?.locationCoordinate?.long,
+                lat: item?.propertyID?.coordinates?.lat,
+                lng: item?.propertyID?.coordinates?.lng,
               }}
               key={index}
               onClick={() => onSelect(item)}
@@ -38,8 +40,8 @@ export const MapForHome = ({ data }: any) => {
           (
             <InfoWindowF
               position={{
-                lat: selected?.propertyID?.locationCoordinate?.lang,
-                lng: selected?.propertyID?.locationCoordinate?.long,
+                lat: selected?.propertyID?.coordinates?.lat,
+                lng: selected?.propertyID?.coordinates?.lng,
               }}
               // clickable={true}
               onCloseClick={() => setSelected({})}

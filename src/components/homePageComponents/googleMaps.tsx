@@ -27,7 +27,7 @@ export const Maps = ({ setSelected }: any) => {
   function getData() {
     setLoading(true);
     axios
-      .get("http://localhost:9000/api/advertisements")
+      .post("http://localhost:9000/api/advertisementsformap", { ...currentQuery })
       .then((res) => {
         setAds(res.data.result);
         setLoading(false);
@@ -36,9 +36,9 @@ export const Maps = ({ setSelected }: any) => {
         console.log(err);
       });
   }
-  console.log(isLoaded);
+
   console.log(ads);
-  console.log(loading);
+
 
   if (!isLoaded || !ads || loading) return <div>Loading ... </div>;
   return (
