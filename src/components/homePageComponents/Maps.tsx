@@ -13,7 +13,7 @@ export const MapForHome = ({ data }: any) => {
   return (
     <div className="w-full h-full">
       <GoogleMap
-        zoom={14}
+        zoom={12}
         center={{
           lat: 47.91491313549779,
           lng: 106.90851741242646,

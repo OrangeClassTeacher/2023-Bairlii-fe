@@ -3,6 +3,8 @@ import { BsListUl } from 'react-icons/bs'
 import { useLoadScript } from "@react-google-maps/api";
 import { MapForHome } from "./Maps";
 import axios from 'axios';
+import { useSearchParams } from 'next/navigation';
+import queryString from 'query-string';
 
 export const Maps = ({ setSelected }: any) => {
   const { isLoaded } = useLoadScript({
@@ -12,10 +14,15 @@ export const Maps = ({ setSelected }: any) => {
 
   const [loading, setLoading] = useState<boolean>(false);
   const [ads, setAds] = useState<Array<any>>([]);
+  let currentQuery: any;
+  const params = useSearchParams();
 
   useEffect(() => {
+    if (params) {
+      currentQuery = queryString.parse(params.toString());
+    }
     getData();
-  }, []);
+  }, [params]);
 
   function getData() {
     setLoading(true);
