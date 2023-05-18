@@ -1,8 +1,7 @@
-
-import AdCardForUser from '@/components/AddProperty/AdCardForUser';
-import axios from 'axios';
-import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react'
+import AdCardForUser from "@/components/AddProperty/AdCardForUser";
+import axios from "axios";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 
 function UserAdvertisements() {
   const route = useRouter();
@@ -24,22 +23,28 @@ function UserAdvertisements() {
       })
       .catch((err) => {
         console.log(err);
-      }).finally(() => { setLoading(false); });
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }
 
   function deleteAdvertisement(id: string) {
-    axios.delete(`http://localhost:9000/api/advertisement/${id}`).then((res) => {
-      if (res.data.status) {
-        alert("amjilttai ustgalaa")
-        getData()
-      }
-    }).catch((err) => {
-      console.log(err);
-    })
+    axios
+      .delete(`http://localhost:9000/api/advertisement/${id}`)
+      .then((res) => {
+        if (res.data.status) {
+          alert("amjilttai ustgalaa");
+          getData();
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   return (
-    <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-7xl w-full">
+    <div className="flex justify-center">
       {loading ? (
         <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-7xl w-full">
           {skeletonArr.map((item, index) => {
@@ -67,11 +72,15 @@ function UserAdvertisements() {
           })}
         </div>
       ) : (
-        <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-7xl w-full">
+        <div className="flex flex-wrap gap-6  mt-7 max-w-7xl w-full mb-20">
           {ads?.map((item, index): JSX.Element => {
             return (
               <>
-                <AdCardForUser item={item} key={index} deleteAdvertisement={deleteAdvertisement} />
+                <AdCardForUser
+                  item={item}
+                  key={index}
+                  deleteAdvertisement={deleteAdvertisement}
+                />
               </>
             );
           })}
@@ -81,4 +90,4 @@ function UserAdvertisements() {
   );
 }
 
-export default UserAdvertisements
+export default UserAdvertisements;

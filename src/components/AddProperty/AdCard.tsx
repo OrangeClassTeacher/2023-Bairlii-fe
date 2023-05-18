@@ -1,6 +1,4 @@
 import React from "react";
-import Properties from "./propertyData";
-import Slider from "../adDetailComp/Slider";
 import Link from "next/link";
 import SwiperSlider from "../SwiperForCard";
 
@@ -23,25 +21,25 @@ const AdCard = ({ item, key }: any) => {
           <div className="content">
             <div className="front">
               <p className="flex justify-between w-2xl text-gray-900  leading-8  ">
-                <p className="text-gray-900 font-bold text-xl">Талбай:</p>
+                <p className="text-gray-900 font-bold text-xl">Area:</p>
                 {item?.propertyID?.area}.m.k
               </p>
               <p className="flex justify-between w-2xl text-gray-900  leading-8">
-                <p className="text-gray-900 font-bold text-xl">Өрөөний тоо: </p>
+                <p className="text-gray-900 font-bold text-xl">Room Count: </p>
                 {item?.propertyID?.roomCount}
               </p>
               <p className="flex justify-between w-2xl text-gray-900  leading-8">
-                <p className="text-gray-900 font-bold text-xl">Байршил:</p>
+                <p className="text-gray-900 font-bold text-xl">Location:</p>
                 {item?.propertyID?.locationName}
               </p>
             </div>
             <div className="back">
               <p className="flex justify-between w-2xl text-gray-900  leading-8">
-                <p className="text-gray-900 font-bold text-xl">Үнэ:</p>{" "}
-                ${item.price}
+                <p className="text-gray-900 font-bold text-xl">Price:</p>{" "}
+                {item.price}
               </p>
               <p className="flex justify-between w-2xl text-gray-900  leading-8">
-                <p className="text-gray-900 font-bold text-xl">Он сар:</p>
+                <p className="text-gray-900 font-bold text-xl">Form:</p>{" "}
                 {date1}
               </p>
               <p className="flex justify-between w-2xl  text-yellow-900 underline leading-8 ms-40 mt-3">
@@ -53,7 +51,7 @@ const AdCard = ({ item, key }: any) => {
                     },
                   }}
                 >
-                  Дэлгэрэнгүй...
+                  See more...
                 </Link>
               </p>
             </div>
