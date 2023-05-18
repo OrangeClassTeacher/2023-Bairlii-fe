@@ -36,7 +36,7 @@ const AdCard = ({ item, key }: any) => {
             <div className="back">
               <p className="flex justify-between w-2xl text-gray-900  leading-8">
                 <p className="text-gray-900 font-bold text-xl">Price:</p>{" "}
-                {item.price}
+                ${item.price}
               </p>
               <p className="flex justify-between w-2xl text-gray-900  leading-8">
                 <p className="text-gray-900 font-bold text-xl">Form:</p>{" "}
