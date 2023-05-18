@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken";
 import Link from "next/link";
 import { LoginContext } from "../../Context/UserContext";
 import { useContext } from "react";
+import Utils from "@/utils/Utils";
 
 export interface IEdit {
   firstName: string;
@@ -54,7 +55,7 @@ function UserEdit(): JSX.Element {
     console.log("xaxaxaxa", userID, userEdit);
 
     axios
-      .put(`http://localhost:9000/api/user/${userID}`, userEdit)
+      .put(`${Utils.API_URL}/user/${userID}`, userEdit)
       .then((response: any) => {
         console.log("............", response);
         alert("Таны бүртгэл амжилттай ХАДГАЛАГДЛАА");

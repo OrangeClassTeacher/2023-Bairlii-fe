@@ -6,6 +6,7 @@ import { FaPlus } from "react-icons/fa";
 
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Utils from "@/utils/Utils";
 function UserPage() {
   const route = useRouter();
   const userID = route.query.userId;
@@ -38,7 +39,7 @@ function UserPage() {
 
   function deleteProperties(id: string) {
     axios
-      .delete(`http://localhost:9000/api/properties/${id}`)
+      .delete(`${Utils.API_URL}/properties/${id}`)
       .then((res) => {
         if (res.data.status) {
           alert("amjilttai ustgalaa");

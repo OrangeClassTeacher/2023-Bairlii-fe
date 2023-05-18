@@ -1,4 +1,5 @@
 import AdCardForUser from "@/components/AddProperty/AdCardForUser";
+import Utils from "@/utils/Utils";
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -17,7 +18,7 @@ function UserAdvertisements() {
   function getData() {
     setLoading(true);
     axios
-      .get(`http://localhost:9000/api/advertisements/${userID}`)
+      .get(`${Utils.API_URL}/advertisements/${userID}`)
       .then((res) => {
         setAds(res.data.result);
       })
@@ -31,7 +32,7 @@ function UserAdvertisements() {
 
   function deleteAdvertisement(id: string) {
     axios
-      .delete(`http://localhost:9000/api/advertisement/${id}`)
+      .delete(`${Utils.API_URL}/advertisement/${id}`)
       .then((res) => {
         if (res.data.status) {
           alert("amjilttai ustgalaa");

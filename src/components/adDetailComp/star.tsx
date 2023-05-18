@@ -16,7 +16,7 @@ const RatingStars = ({ data }: any) => {
 
     function getUserData() {
         axios
-            .get(`http://localhost:9000/api/prorating/${data?.propertyID?._id}`)
+            .get(`${Utils.API_URL}/prorating/${data?.propertyID?._id}`)
             .then((res) => {
                 setRating(res.data);
             })

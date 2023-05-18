@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import jwt from "jsonwebtoken";
 import MapComponentForPropertyEdit from "@/components/PropertiesMap/MapComponentForPropertyEdit";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import Utils from "@/utils/Utils";
 
 export interface IProperty {
   _id: string;
@@ -71,7 +72,7 @@ function EditProperties() {
   function editProperty() {
     setLoading(true);
     axios
-      .get(`http://localhost:9000/api/properties/${editingPropertyId}`)
+      .get(`${Utils.API_URL}/properties/${editingPropertyId}`)
       .then((res) => {
         setPropertyData(res.data.result);
         console.log();
@@ -88,7 +89,7 @@ function EditProperties() {
     let reqBody = { ...propertyData, coordinates: coordinate };
 
     axios
-      .put(`http://localhost:9000/api/properties`, reqBody, {
+      .put(`${Utils.API_URL}/properties`, reqBody, {
         headers: { "x-access-token": token },
       })
       .then((res) => {
