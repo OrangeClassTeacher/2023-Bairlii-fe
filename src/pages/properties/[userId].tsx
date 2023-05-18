@@ -6,6 +6,7 @@ import { FaPlus } from "react-icons/fa";
 
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Utils from "@/utils/Utils";
 function UserPage() {
   const route = useRouter();
   const userID = route.query.userId;
@@ -38,7 +39,7 @@ function UserPage() {
 
   function deleteProperties(id: string) {
     axios
-      .delete(`http://localhost:9000/api/properties/${id}`)
+      .delete(`${Utils.API_URL}/properties/${id}`)
       .then((res) => {
         if (res.data.status) {
           alert("amjilttai ustgalaa");
@@ -83,7 +84,7 @@ function UserPage() {
     return (
       <div className="flex w-full justify-center containerblur mb-20">
         <div className="">
-          <div className="flex gap-5 flex-wrap justify-center max-w-7xl w-full mt-7 ">
+          <div className="flex gap-5 flex-wrap justify-between max-w-7xl w-full mt-7 ">
             <div className="cards ">
               <div className="card-inner  p-2 rounded-md">
                 <img

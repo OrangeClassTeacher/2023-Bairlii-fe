@@ -3,17 +3,29 @@ import React, { useEffect, useState } from "react";
 import { CommentCard } from "./CommentCard";
 import { AddCommentSection } from "./AddCommentSection";
 import jwt from "jsonwebtoken";
+import Utils from "@/utils/Utils";
+
+interface iComment {
+  propertyID: string,
+  userID: string,
+  comment: string[] | undefined[],
+}
 
 export const AdComment = ({ data }: any) => {
   const [commentData, setCommentData] = useState<Array<any>>([]);
   const [loading, setLoading] = useState(true);
   const [decoded, setDecoded] = useState<object | string>();
-  const [commentBody, setCommentBody] = useState<object>({
+  const [commentBody, setCommentBody] = useState<iComment>({
     propertyID: "",
     userID: "",
     comment: [],
   });
   const [token, setToken] = useState<string>();
+  const commentBodyInit = {
+    propertyID: "",
+    userID: "",
+    comment: [""],
+  }
 
   useEffect(() => {
     getCommentData(data?.propertyID?._id);
@@ -22,7 +34,7 @@ export const AdComment = ({ data }: any) => {
   function getCommentData(id: any) {
     if (id) {
       axios
-        .get(`http://localhost:9000/api/procomments/${id}`)
+        .get(`${Utils.API_URL}/api/procomments/${id}`)
         .then((res) => {
           setCommentData(res.data.result.reverse());
         })
@@ -47,14 +59,14 @@ export const AdComment = ({ data }: any) => {
     e.preventDefault();
     if (commentBody?.comment[0]) {
       axios
-        .post("http://localhost:9000/api/procomment", commentBody, {
+        .post(`${Utils.API_URL}/procomment`, commentBody, {
           headers: {
             "x-access-token": token,
           },
         })
         .then((res) => {
           console.log(res);
-          commentBody.comment[0] = "";
+          setCommentBody(commentBodyInit);
           getCommentData(data?.propertyID?._id);
         })
         .catch((err) => {

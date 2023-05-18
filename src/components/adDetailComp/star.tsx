@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import jwt from "jsonwebtoken";
+import Utils from "@/utils/Utils";
 
 const RatingStars = ({ data }: any) => {
     const [rating, setRating] = useState<any>();
@@ -16,7 +17,7 @@ const RatingStars = ({ data }: any) => {
 
     function getUserData() {
         axios
-            .get(`http://localhost:9000/api/prorating/${data?.propertyID?._id}`)
+            .get(`${Utils.API_URL}/prorating/${data?.propertyID?._id}`)
             .then((res) => {
                 setRating(res.data);
             })
@@ -36,7 +37,7 @@ const RatingStars = ({ data }: any) => {
         }
         if (reqBody && decoded) {
             axios
-                .put("http://localhost:9000/api/prorating", reqBody)
+                .put(`${Utils.API_URL}/prorating`, reqBody)
                 .then((res) => {
                     getUserData()
                 })

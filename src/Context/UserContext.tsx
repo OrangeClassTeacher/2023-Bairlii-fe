@@ -2,23 +2,24 @@ import React, { useState, createContext } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
+import Utils from "@/utils/Utils";
 
 interface LoginProviderProps {
   children: React.ReactNode;
 }
 export const LoginContext = createContext({
-  setUserEdit1: (userEdit1: "") => {},
+  setUserEdit1: (userEdit1: "") => { },
   userEdit1: "",
-  Login: () => {},
-  setLoginEmail: (loginEmail: "") => {},
-  setLoginPassword: (loginPassword: "") => {},
-  ForgetPass: () => {},
-  setEmail: (email: "") => {},
-  ResetPass: () => {},
-  setResetPassword: (ResetPassword: "") => {},
-  setResetPassword1: (ResetPassword1: "") => {},
-  setLocalUser: (localUser: "") => {},
-  setDecoded: (decoded: "") => {},
+  Login: () => { },
+  setLoginEmail: (loginEmail: "") => { },
+  setLoginPassword: (loginPassword: "") => { },
+  ForgetPass: () => { },
+  setEmail: (email: "") => { },
+  ResetPass: () => { },
+  setResetPassword: (ResetPassword: "") => { },
+  setResetPassword1: (ResetPassword1: "") => { },
+  setLocalUser: (localUser: "") => { },
+  setDecoded: (decoded: "") => { },
 });
 export const LoginProvider = ({ children }: LoginProviderProps) => {
   const [localUser, setLocalUser] = useState<string | null>();
@@ -33,7 +34,7 @@ export const LoginProvider = ({ children }: LoginProviderProps) => {
   const route = useRouter();
   const Login = () => {
     axios
-      .post(`http://localhost:9000/api/user/login`, {
+      .post(`${Utils.API_URL}/user/login`, {
         email: loginEmail,
         password: loginPassword,
       })
@@ -90,7 +91,7 @@ export const LoginProvider = ({ children }: LoginProviderProps) => {
     if (ResetPassword == ResetPassword1) {
       if (usernameRegex.test(email)) {
         axios
-          .post(`http://localhost:9000/api/user/resetPassword`, {
+          .post(`${Utils.API_URL}/user/resetPassword`, {
             email: email,
             password: ResetPassword,
             ResetPassword1: ResetPassword1,

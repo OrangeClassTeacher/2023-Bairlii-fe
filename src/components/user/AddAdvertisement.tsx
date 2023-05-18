@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import jwt from "jsonwebtoken";
 import { Tooltip } from "flowbite";
 import type { TooltipOptions, TooltipInterface } from "flowbite";
+import Utils from '@/utils/Utils';
 
 
 const AddAdvertisement = ({ setAddingAdvertisement, _id, setAdvertisementId }: any) => {
@@ -36,7 +37,7 @@ const AddAdvertisement = ({ setAddingAdvertisement, _id, setAdvertisementId }: a
         };
 
         axios
-            .post(`http://localhost:9000/api/advertisement`, reqBody, {
+            .post(`${Utils.API_URL}/advertisement`, reqBody, {
                 headers: { "x-access-token": token },
             })
             .then((response: any) => {
