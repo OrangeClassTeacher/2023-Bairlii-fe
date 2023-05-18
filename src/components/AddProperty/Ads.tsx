@@ -79,7 +79,7 @@ const Ads = ({ setSelected }: any): JSX.Element => {
               );
             })}
           </div>
-          <div className="flex gap-2 justify-center flex-wrap my-4">
+          <div className="flex gap-2 justify-center flex-wrap my-4 mb-16">
             {pages &&
               pages?.map((e, index) => {
                 if (e > 0) {
@@ -92,7 +92,7 @@ const Ads = ({ setSelected }: any): JSX.Element => {
                           setReqBody({ pageNumber: e });
                         }}
                         key={index}
-                        className="border-2	border-black rounded-2xl w-10 text-center bg-slate-600 text-white cursor-pointer"
+                        className="border-2	border-black rounded-2xl w-10 text-center bg-slate-600 text-white cursor-pointer "
                       >
                         {e}
                       </div>

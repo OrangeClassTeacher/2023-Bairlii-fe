@@ -184,7 +184,7 @@ function EditProperties() {
               <div className="flex justify-between w-full">
                 <div className="input-container">
                   <label className="block text-gray-700 text-sm font-bold mb-2">
-                    Хүний тоо
+                    Guest Count
                   </label>
                   <input
                     type="number"
@@ -197,7 +197,7 @@ function EditProperties() {
                 </div>
                 <div className="input-container">
                   <label className="block text-gray-700 text-sm font-bold mb-2">
-                    Талбай
+                    Area
                   </label>
                   <input
                     type="number"
@@ -212,7 +212,7 @@ function EditProperties() {
               <div className="flex justify-between">
                 <div className="input-container">
                   <label className="block text-gray-700 text-sm font-bold mb-2">
-                    Өрөө
+                    Room Count
                   </label>
                   <input
                     type="number"
@@ -225,7 +225,7 @@ function EditProperties() {
                 </div>
                 <div className="input-container">
                   <label className="block text-gray-700 text-sm font-bold mb-2">
-                    Угаалгын өрөө
+                    Bathroom Count
                   </label>
                   <input
                     type="number"
@@ -240,7 +240,7 @@ function EditProperties() {
               <div className="flex justify-between">
                 <div className="input-container">
                   <label className="block text-gray-700 text-sm font-bold mb-2">
-                    Байршил
+                    Location
                   </label>
                   <input
                     type="text"
@@ -254,7 +254,7 @@ function EditProperties() {
               </div>
               <div className="input-container">
                 <label className="block text-gray-700 text-sm font-bold mb-2">
-                  Тайлбар
+                  Desccription
                 </label>
                 <input
                   type="text"
@@ -338,7 +338,7 @@ function EditProperties() {
               className=" bg-gray-800 text-gray-200 rounded-md"
               onClick={onSave}
             >
-              <p className="p-2">Hadgalah</p>
+              <p className="p-2">Save</p>
             </button>
           </div>
         </div>
