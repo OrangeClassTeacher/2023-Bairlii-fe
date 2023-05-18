@@ -5,6 +5,7 @@ import { MapForHome } from "./Maps";
 import axios from 'axios';
 import { useSearchParams } from 'next/navigation';
 import queryString from 'query-string';
+import Utils from '@/utils/Utils';
 
 export const Maps = ({ setSelected }: any) => {
   const { isLoaded } = useLoadScript({
@@ -27,7 +28,7 @@ export const Maps = ({ setSelected }: any) => {
   function getData() {
     setLoading(true);
     axios
-      .post("http://localhost:9000/api/advertisementsformap", { ...currentQuery })
+      .post(`${Utils.API_URL}/advertisementsformap`, { ...currentQuery })
       .then((res) => {
         setAds(res.data.result);
         setLoading(false);

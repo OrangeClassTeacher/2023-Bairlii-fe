@@ -4,6 +4,7 @@ import axios from "axios";
 import { BsMap } from "react-icons/bs";
 import { useSearchParams } from "next/navigation";
 import queryString from "query-string";
+import Utils from "@/utils/Utils";
 
 // interface ICurrentQuery {
 //   category: string | undefined
@@ -30,7 +31,7 @@ const Ads = ({ setSelected }: any): JSX.Element => {
   function getData() {
     setLoading(true);
     axios
-      .post("http://localhost:9000/api/advertisements", {
+      .post(`${Utils.API_URL}/advertisements`, {
         ...reqBody,
         ...currentQuery,
       })

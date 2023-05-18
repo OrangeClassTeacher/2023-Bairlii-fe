@@ -7,6 +7,7 @@ import LandlordInfo from "@/components/adDetailComp/LandlordInfo";
 import SwiperForDetail from "@/components/adDetailComp/SwiperForDetail";
 import RatingStars from "@/components/adDetailComp/star";
 import { log } from "console";
+import Utils from "@/utils/Utils";
 
 const AdDetail = () => {
   const route = useRouter();
@@ -20,7 +21,7 @@ const AdDetail = () => {
 
   function getAdData() {
     axios
-      .get(`http://localhost:9000/api/advertisement/${id}`)
+      .get(`${Utils.API_URL}/advertisement/${id}`)
       .then((res) => {
         setAdData(res.data.result);
       })
