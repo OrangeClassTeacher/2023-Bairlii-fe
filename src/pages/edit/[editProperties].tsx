@@ -5,6 +5,7 @@ import MapComponentForPropertyEdit from "@/components/PropertiesMap/MapComponent
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import Utils from "@/utils/Utils";
 import Image from "next/image";
+import Loading from "@/components/loading/Loading";
 
 export interface IProperty {
   _id: string;
@@ -148,32 +149,7 @@ function EditProperties(): JSX.Element {
   };
 
   if (loading) {
-    return (
-      <div className="flex justify-center h-full pt-52">
-        <div
-          aria-label="Orange and tan hamster running in a metal wheel"
-          role="img"
-          className="wheel-and-hamster"
-        >
-          <div className="wheel" />
-          <div className="hamster">
-            <div className="hamster__body">
-              <div className="hamster__head">
-                <div className="hamster__ear" />
-                <div className="hamster__eye" />
-                <div className="hamster__nose" />
-              </div>
-              <div className="hamster__limb hamster__limb--fr" />
-              <div className="hamster__limb hamster__limb--fl" />
-              <div className="hamster__limb hamster__limb--br" />
-              <div className="hamster__limb hamster__limb--bl" />
-              <div className="hamster__tail" />
-            </div>
-          </div>
-          <div className="spoke" />
-        </div>
-      </div>
-    );
+    return <Loading />;
   } else {
     return (
       <div className=" flex gap-5 flex-wrap justify-center mb-20">
@@ -278,43 +254,22 @@ function EditProperties(): JSX.Element {
           <div className="pt-10">
             <div className="flex flex-wrap gap-3">
               {uploading ? (
-                <div className="flex justify-center     ">
-                  <div
-                    aria-label="Orange and tan hamster running in a metal wheel"
-                    role="img"
-                    className="wheel-and-hamster"
-                  >
-                    <div className="wheel" />
-                    <div className="hamster">
-                      <div className="hamster__body">
-                        <div className="hamster__head">
-                          <div className="hamster__ear" />
-                          <div className="hamster__eye" />
-                          <div className="hamster__nose" />
-                        </div>
-                        <div className="hamster__limb hamster__limb--fr" />
-                        <div className="hamster__limb hamster__limb--fl" />
-                        <div className="hamster__limb hamster__limb--br" />
-                        <div className="hamster__limb hamster__limb--bl" />
-                        <div className="hamster__tail" />
-                      </div>
-                    </div>
-                    <div className="spoke" />
-                  </div>
-                </div>
+                <Loading />
               ) : (
-                propertyData?.photos?.map((photo, index): JSX.Element => (
-                  <div
-                    className="relative flex w-[200px] h-[200px]"
-                    key={index}
-                  >
-                    <AiOutlineCloseCircle
-                      className="absolute left-2 top-2 cursor-pointer text-gray-900  text-xl drop-shadow-lg"
-                      onClick={(): void => removePhoto(index)}
-                    />
-                    <Image src={photo} width={300} height={150} alt="image" />
-                  </div>
-                ))
+                propertyData?.photos?.map(
+                  (photo, index): JSX.Element => (
+                    <div
+                      className="relative flex w-[200px] h-[200px]"
+                      key={index}
+                    >
+                      <AiOutlineCloseCircle
+                        className="absolute left-2 top-2 cursor-pointer text-gray-900  text-xl drop-shadow-lg"
+                        onClick={(): void => removePhoto(index)}
+                      />
+                      <Image src={photo} width={300} height={150} alt="image" />
+                    </div>
+                  )
+                )
               )}
             </div>
             <div>
