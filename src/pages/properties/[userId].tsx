@@ -18,8 +18,6 @@ function UserPage() {
     getPropertiesData();
   }, [userID]);
 
-  //console.log(propertiesData);
-
   function getPropertiesData() {
     setLoading(true);
     if (userID) {
@@ -50,8 +48,6 @@ function UserPage() {
         console.log(err);
       });
   }
-
-  // console.log(userID);
 
   if (loading) {
     return (

@@ -55,6 +55,7 @@ const RentModal = () => {
         lat: 0,
         lng: 0,
       },
+      locationName: "",
     },
   });
 
@@ -156,9 +157,14 @@ const RentModal = () => {
   if (step === STEPS.LOCATION) {
     bodyContent = (
       <div className="flex flex-col gap-8">
-        <Heading
-          title="Танай газар хаана байрладаг вэ?"
-          subtitle="Та газрын зураг дээр дарна уу."
+        <Heading title="Танай газар хаана байрладаг вэ?" />
+        <Input
+          id="locationName"
+          label="Location Name"
+          disabled={isLoading}
+          register={register}
+          errors={errors}
+          required
         />
         <MapProperties setValue={setCustomValue} />
       </div>

@@ -27,10 +27,8 @@ const NewUser = (): JSX.Element => {
     return <div>loading ...</div>;
   } else {
     return (
-      <div className="flex items-center">
-        <Dropdown
-          label={decoded.user.firstName}
-        >
+      <div className="flex items-center ">
+        <Dropdown className="" label={decoded.user.firstName}>
           <Link
             href={{
               pathname: `/properties/[userId]`,
@@ -56,15 +54,6 @@ const NewUser = (): JSX.Element => {
           </Link>
           <Dropdown.Item onClick={SignOut}>Гарах</Dropdown.Item>
         </Dropdown>
-        <div>
-          <img
-            className="rounded-full"
-            height="60"
-            width="60"
-            alt="log"
-            src="/images/log.jpg"
-          />
-        </div>
       </div>
     );
   }

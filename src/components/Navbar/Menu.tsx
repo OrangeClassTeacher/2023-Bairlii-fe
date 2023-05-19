@@ -14,15 +14,14 @@ const Menu = (): JSX.Element => {
   return (
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
-        <div
+        <button
           onClick={toggleOpen}
-          className="p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition"
+          className="userbutton p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition"
         >
-          <AiOutlineMenu />
-          <div>
+          <div className="ps-4 pe-4">
             <Avatar />
           </div>
-        </div>
+        </button>
       </div>
     </div>
   );

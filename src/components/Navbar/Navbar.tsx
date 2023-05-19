@@ -34,7 +34,6 @@ const Navbar = (): JSX.Element => {
       <Container>
         <div className="flex flex-row items-center justify-between gap-3 md:gap-0 max-w-7xl w-full">
           <Logo />
-          {/* <Search handleChange={undefined} /> */}
           {localUser ? <NewUser /> : <Menu />}
         </div>
       </Container>
