@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useState, useContext } from "react";
 import { LoginContext } from "../../Context/UserContext";
 import { BiShow, BiHide } from "react-icons/bi";
+import Image from "next/image";
 
 function Login(): JSX.Element {
   const { Login, setLoginEmail, setLoginPassword } = useContext(LoginContext);
@@ -34,7 +35,7 @@ function Login(): JSX.Element {
       <div className="h-full">
         <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
           <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
-            <img
+            <Image
               src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
               className="w-full"
               alt="Sample image"
@@ -71,13 +72,8 @@ function Login(): JSX.Element {
                         className="border-0 py-1 w-[90%]"
                         id="loginPassword"
                       />
-                      <button onClick={togglePassword} className="pr-4"
-                      >
-                        {passwordType === "password" ? (
-                          <BiShow />
-                        ) : (
-                          <BiHide />
-                        )}
+                      <button onClick={togglePassword} className="pr-4">
+                        {passwordType === "password" ? <BiShow /> : <BiHide />}
                       </button>
                     </div>
                   </div>

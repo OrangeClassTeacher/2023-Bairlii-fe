@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { AiFillCaretRight } from "react-icons/ai";
+import Image from "next/image";
 
 const Slider = ({ images }: any): JSX.Element => {
   let [imageIndex, setImageIndex] = useState(0);
@@ -15,7 +16,7 @@ const Slider = ({ images }: any): JSX.Element => {
   return (
     <div className="relative flex align-middle h-48 w-full">
       <div className="sliderImgContainer z-10 w-full h-full">
-        <img
+        <Image
           src={images[imageIndex]}
           alt=""
           className="object-fill w-full h-full rounded-2xl"

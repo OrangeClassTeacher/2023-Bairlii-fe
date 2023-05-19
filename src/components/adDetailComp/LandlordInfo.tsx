@@ -1,6 +1,7 @@
 import React from "react";
 import { BsHouses } from "react-icons/bs";
 import { TbUserCheck } from "react-icons/tb";
+import Image from "next/image";
 
 const LandlordInfo = ({ data }: any): JSX.Element => {
   const userData = data?.userID;
@@ -8,7 +9,7 @@ const LandlordInfo = ({ data }: any): JSX.Element => {
   return (
     <div className="flex justify-around">
       <div>
-        <img
+        <Image
           src={userData?.profilePicture}
           alt="propic"
           className="rounded-[22px]"

@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 import Link from "next/link";
 import { LoginContext } from "../../Context/UserContext";
 import { useContext } from "react";
+import Image from "next/image";
 
 const NewUser = (): JSX.Element => {
   const [decoded, setDecoded] = useState<object | string | any>();
@@ -28,9 +29,7 @@ const NewUser = (): JSX.Element => {
   } else {
     return (
       <div className="flex items-center">
-        <Dropdown
-          label={decoded.user.firstName}
-        >
+        <Dropdown label={decoded.user.firstName}>
           <Link
             href={{
               pathname: `/properties/[userId]`,
@@ -57,7 +56,7 @@ const NewUser = (): JSX.Element => {
           <Dropdown.Item onClick={SignOut}>Log Out</Dropdown.Item>
         </Dropdown>
         <div>
-          <img
+          <Image
             className="rounded-full"
             height="60"
             width="60"

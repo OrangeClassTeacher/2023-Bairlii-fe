@@ -36,7 +36,7 @@ export default function SwiperForDetail({ data }: any): JSX.Element {
             <div key={index}>
               <SwiperSlide>
                 <div className="h-96">
-                  <img
+                  <Image
                     src={item}
                     alt="haha"
                     className="object-cover w-full h-full rounded-lg drop-shadow-lg"

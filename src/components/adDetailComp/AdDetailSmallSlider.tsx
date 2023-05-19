@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { TiArrowRightOutline, TiArrowLeftOutline } from "react-icons/ti";
+import Image from "next/image";
 
 export const AdDetailSmallSlider = ({ images }: any): JSX.Element => {
   const [imageIndex, setImageIndex] = useState(0);
@@ -23,7 +24,7 @@ export const AdDetailSmallSlider = ({ images }: any): JSX.Element => {
   return (
     <div className="flex flex-col gap-y-5">
       <div className="w-full relative h-[600px] ">
-        <img
+        <Image
           src={images?.propertyID?.photos[imageIndex]}
           alt="picture"
           className="object-fill w-full h-full rounded-2xl"
@@ -38,22 +39,22 @@ export const AdDetailSmallSlider = ({ images }: any): JSX.Element => {
         />
       </div>
       <div className="flex h-40  rounded-2xl overflow-hidden">
-        <img
+        <Image
           src={images?.propertyID?.photos[0]}
           alt="picture"
           className="w-[20%]"
         />
-        <img
+        <Image
           src={images?.propertyID?.photos[1]}
           alt="picture"
           className="w-[20%]"
         />
-        <img
+        <Image
           src={images?.propertyID?.photos[2]}
           alt="picture"
           className="w-[20%]"
         />
-        <img
+        <Image
           src={images?.propertyID?.photos[3]}
           alt="picture"
           className="w-[20%]"

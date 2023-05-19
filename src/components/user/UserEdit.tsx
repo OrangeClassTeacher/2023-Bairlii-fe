@@ -6,6 +6,7 @@ import Link from "next/link";
 import { LoginContext } from "../../Context/UserContext";
 import { useContext } from "react";
 import Utils from "@/utils/Utils";
+import Image from "next/image";
 
 export interface IEdit {
   firstName: string;
@@ -105,7 +106,7 @@ function UserEdit(): JSX.Element {
       <div className="h-full max-w-7xl">
         <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
           <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-7/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
-            <img
+            <Image
               src="/images/DevZoid.png"
               className="w-full"
               alt="Sample image"

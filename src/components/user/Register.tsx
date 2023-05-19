@@ -4,6 +4,7 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
+import Image from "next/image";
 
 function Register(): JSX.Element {
   const {
@@ -113,7 +114,7 @@ function Register(): JSX.Element {
       <div className="h-full max-w-7xl">
         <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
           <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
-            <img
+            <Image
               src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
               className="w-full"
               alt="Sample image"
@@ -198,7 +199,7 @@ function Register(): JSX.Element {
                     })}
                     className="border border-gray-400 py-1 px-2 w-full"
                   >
-                    <option value=""></option>
+                    <option value="" />
                     <option value="Баянзүрх дүүрэг">Баянзүрх дүүрэг</option>
                     <option value="Баянгол дүүрэг">Баянгол дүүрэг</option>
                     <option value="Сүхбаатар дүүрэг">Сүхбаатар дүүрэг</option>
@@ -224,7 +225,7 @@ function Register(): JSX.Element {
                     })}
                     className="border border-gray-400 py-1 px-2 w-full"
                   >
-                    <option value=""></option>
+                    <option value="" />
                     <option value="1">1-р хороо</option>
                     <option value="2">2-р хороо</option>
                     <option value="3">3-р хороо</option>
