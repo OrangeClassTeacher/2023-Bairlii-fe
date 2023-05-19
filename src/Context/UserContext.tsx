@@ -8,12 +8,11 @@ interface LoginProviderProps {
   children: React.ReactNode;
 }
 interface LoginContextProps {
-  userEdit1: string;
+  userEdit1: string | object;
   Login: () => void;
   setLoginEmail: string | null | object;
   setLoginPassword: string | null | object;
-  setEmail: string | null | object;
-  ForgetPass: () => void;
+  setEmail: string | object;
   ResetPass: () => void;
   setResetPassword: string | null | object;
   setResetPassword1: string | null | object;
@@ -26,11 +25,11 @@ export const LoginProvider = ({ children }: LoginProviderProps) => {
   const [localUser, setLocalUser] = useState<string | null>();
   const [decoded, setDecoded] = useState<object | string | any>();
   const [userEdit1, setUserEdit1] = useState("");
-  const [loginEmail, setLoginEmail] = useState<string | null | object>();
+  const [loginEmail, setLoginEmail] = useState<string | object>();
   const [loginPassword, setLoginPassword] = useState("");
   const [ResetPassword, setResetPassword] = useState("");
   const [ResetPassword1, setResetPassword1] = useState("");
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState();
 
 
   const route = useRouter();
@@ -69,67 +68,9 @@ export const LoginProvider = ({ children }: LoginProviderProps) => {
       });
   };
 
-  const ForgetPass = () => {
-    const usernameRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/i;
-    if (usernameRegex.test(email)) {
-      axios
-        .post(`http://localhost:9000/api/user/forgotPassword`, {
-          email: email,
-        })
-        .then(async (response: any) => {
-          alert("Имэйл хаяг зөв байна");
-          console.log(response);
-          route.push("/login/resetPass");
-        })
-        .catch((err) => {
-          alert("Бүртгэлгүй имэйл байна");
-        });
-    } else alert("Имэйл хаягаа зөв оруулна уу!!!");
-  };
 
-  const ResetPass = () => {
-    const usernameRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/i;
-    console.log(ResetPassword, ResetPassword1, email);
-    if (ResetPassword == ResetPassword1) {
-      if (usernameRegex.test(email)) {
-        axios
-          .post(`${Utils.API_URL}/user/resetPassword`, {
-            email: email,
-            password: ResetPassword,
-            ResetPassword1: ResetPassword1,
-          })
-          .then(async (response: any) => {
-            route.push("/login");
-            toast.success("🦄 Нууц үг амжилттай солигдлоо", {
-              position: "bottom-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-            });
-          })
-          .catch((err) => {
-            toast.error("🦄🦄  нууц үг таарахгүй байна", {
-              position: "bottom-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-            });
-          });
-      } else {
-        alert("бүртгэлтэй имэйл биш байна");
-      }
-    } else {
-      alert("2 нууц үг таарахгүй байна");
-    }
-  };
+
+
   return (
     <LoginContext.Provider
       value={{
@@ -138,8 +79,6 @@ export const LoginProvider = ({ children }: LoginProviderProps) => {
         setLoginEmail,
         setLoginPassword,
         setEmail,
-        ForgetPass,
-        ResetPass,
         setResetPassword,
         setResetPassword1,
         setLocalUser,

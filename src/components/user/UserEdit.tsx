@@ -41,7 +41,7 @@ function UserEdit(): JSX.Element {
 
   const [decoded, setDecoded] = useState<object | string | any>();
 
-  const { setUserEdit1 } = useContext(LoginContext);
+  // const { setUserEdit1 } = useContext(LoginContext);
   // console.log(setUserEdit1);
 
   useEffect(() => {
@@ -60,7 +60,7 @@ function UserEdit(): JSX.Element {
       .then((response: any) => {
         console.log("............", response);
         alert("Таны бүртгэл амжилттай ХАДГАЛАГДЛАА");
-        setUserEdit1(response.data);
+        setDecoded(response.data);
         route.push("/");
       })
       .catch((error: any) => console.log("error", error));

@@ -1,12 +1,17 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState, useContext } from "react";
+import axios from "axios";
 import { LoginContext } from "../../Context/UserContext";
 import { BiShow, BiHide } from "react-icons/bi";
 import Image from "next/image";
+import { toast } from "react-toastify";
+import Utils from "@/utils/Utils";
 
 function Login(): JSX.Element {
-  const { Login, setLoginEmail, setLoginPassword } = useContext(LoginContext);
+  // const { Login, setLoginEmail, setLoginPassword } = useContext(LoginContext);
+  const [loginEmail, setLoginEmail] = useState<string | object>();
+  const [loginPassword, setLoginPassword] = useState("");
   const [passwordType, setPasswordType] = useState("password");
   const route = useRouter();
 
@@ -15,6 +20,40 @@ function Login(): JSX.Element {
   };
   const onChangeLoginPass = (e: any): void => {
     setLoginPassword(e.target.value);
+  };
+  const Login = () => {
+    axios
+      .post(`${Utils.API_URL}/user/login`, {
+        email: loginEmail,
+        password: loginPassword,
+      })
+      .then(async (response: any) => {
+        localStorage.setItem("token", await response.data.token);
+        console.log(localStorage.getItem("token"));
+        route.push("/");
+        toast.success("🦄Та амжилттай нэвтэрлээ", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      })
+      .catch((error: any) => {
+        toast.error("🦄 Нэвтрэх нэр, нууц үг буруу байна", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      });
   };
 
   const onSubmit = (): void => {
