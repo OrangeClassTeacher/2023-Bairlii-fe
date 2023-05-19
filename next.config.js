@@ -10,6 +10,7 @@ const nextConfig = {
       "res.cloudinary.com",
       "images.unsplash.com",
       "files.realpython.com",
+      "tecdn.b-cdn.net",
     ],
   },
   reactStrictMode: true,
