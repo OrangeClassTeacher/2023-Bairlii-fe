@@ -6,10 +6,10 @@ const Avatar = (): JSX.Element => {
     <Link href="/login">
       <Image
         className="rounded-full"
-        height="60"
-        width="60"
+        height={60}
+        width={60}
         alt="Avatar"
-        src="/images/DevZoid.png"
+        src="/DevZoid.png"
       />
     </Link>
   );

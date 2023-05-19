@@ -8,18 +8,17 @@ interface LoginProviderProps {
   children: React.ReactNode;
 }
 export const LoginContext = createContext({
-  setUserEdit1: (userEdit1: "") => { },
-  userEdit1: "",
-  Login: () => { },
-  setLoginEmail: (loginEmail: "") => { },
-  setLoginPassword: (loginPassword: "") => { },
-  ForgetPass: () => { },
-  setEmail: (email: "") => { },
-  ResetPass: () => { },
-  setResetPassword: (ResetPassword: "") => { },
-  setResetPassword1: (ResetPassword1: "") => { },
-  setLocalUser: (localUser: "") => { },
-  setDecoded: (decoded: "") => { },
+  setUserEdit1: (userEdit1: "") => {},
+  Login: () => {},
+  setLoginEmail: (loginEmail: "") => {},
+  setLoginPassword: (loginPassword: "") => {},
+  ForgetPass: () => {},
+  setEmail: (email: "") => {},
+  ResetPass: () => {},
+  setResetPassword: (ResetPassword: "") => {},
+  setResetPassword1: (ResetPassword1: "") => {},
+  setLocalUser: (localUser: "") => {},
+  setDecoded: (decoded: "") => {},
 });
 export const LoginProvider = ({ children }: LoginProviderProps) => {
   const [localUser, setLocalUser] = useState<string | null>();
@@ -132,7 +131,6 @@ export const LoginProvider = ({ children }: LoginProviderProps) => {
     <LoginContext.Provider
       value={{
         setUserEdit1,
-        userEdit1,
         Login,
         setLoginEmail,
         setLoginPassword,
