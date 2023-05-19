@@ -97,7 +97,7 @@ export const sorts = [
   },
 ];
 
-const Categories = () => {
+const Categories = (): JSX.Element | null => {
   const params = useSearchParams();
   const category = params?.get("category");
   const rooms = params?.get("rooms");

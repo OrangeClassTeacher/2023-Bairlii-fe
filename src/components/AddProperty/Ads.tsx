@@ -28,7 +28,7 @@ const Ads = ({ setSelected }: any): JSX.Element => {
     getData();
   }, [curPageNumb, params]);
 
-  function getData() {
+  function getData(): void {
     setLoading(true);
     axios
       .post(`${Utils.API_URL}/advertisements`, {
@@ -134,7 +134,7 @@ const Ads = ({ setSelected }: any): JSX.Element => {
       )}
       <span
         className="flex items-center gap-2 bg-black p-2 rounded-xl text-white fixed bottom-24 z-30 border-2 border-slate-600 cursor-pointer"
-        onClick={() => setSelected("Maps")}
+        onClick={(): void => setSelected("Maps")}
       >
         Show map <BsMap />
       </span>

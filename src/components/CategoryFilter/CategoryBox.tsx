@@ -14,7 +14,7 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
   icon: Icon,
   label,
   selected,
-}) => {
+}): JSX.Element => {
   const router = useRouter();
   const params = useSearchParams();
 
@@ -77,68 +77,4 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
 
 export default CategoryBox;
 
-// interface FilteredData {
-//   filteredPricelow: number;
-//   filteredPriceHigh: number;
-//   filteredAreaLow: number;
-//   filteredAreaHigh: number;
-//   roomFilterLow: number;
-//   roomFilterHigh: number;
-// }
 
-// const handleCategoryClick = async (value: number) => {
-//   const filteredData: FilteredData = {
-//     filteredPricelow: 0,
-//     filteredPriceHigh: 0,
-//     filteredAreaLow: 0,
-//     filteredAreaHigh: 0,
-//     roomFilterLow: 0,
-//     roomFilterHigh: 0,
-//   };
-
-//   try {
-//     const response = await axios.post(
-//       http://localhost:9000/api/advertisement/filter/price/${value},
-//       {
-//         filteredData,
-//       }
-//     );
-//     console.log(filteredData);
-
-//     console.log(response.data);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-// interface CategoryBoxProps {
-//   icon: React.ComponentType;
-//   label: string;
-//   selected?: boolean;
-//   value: number;
-// }
-
-// const CategoryBox: React.FC<CategoryBoxProps> = ({
-//   icon: Icon,
-//   label,
-//   selected,
-//   value,
-// }) => {
-//   const handleClick = () => {
-//     handleCategoryClick(value);
-//   };
-
-//   return (
-//     <div
-//       onClick={handleClick}
-//       className={`rounded-xl border-2 p-4 flex gap-3 hover:border-black transition cursor-pointer ${
-//         selected ? "border-black" : "border-neutral-200"
-//       }`}
-//     >
-//       <Icon size={30} />
-//       <div className="font-semibold">{label}</div>
-//     </div>
-//   );
-// };
-
-// export default CategoryBox;

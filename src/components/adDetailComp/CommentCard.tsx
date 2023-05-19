@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 
-export const CommentCard = ({ data }: any) => {
+export const CommentCard = ({ data }: any): JSX.Element => {
   const date = new Date(data?.createdAt).toLocaleDateString("en-us", {
     weekday: "long",
     year: "numeric",

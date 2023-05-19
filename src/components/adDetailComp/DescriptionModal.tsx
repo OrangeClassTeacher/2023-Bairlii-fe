@@ -6,7 +6,7 @@ import { GoogleMapComp } from "./GoogleMap";
 import { AdDetailSmallSlider } from "./AdDetailSmallSlider";
 import PanoramaViewer from "./Panaroma";
 
-const DescriptionModal = ({ data, modalHandler, setModalSelected, modalSelected, mapModal }: any) => {
+const DescriptionModal = ({ data, modalHandler, setModalSelected, modalSelected, mapModal }: any): JSX.Element => {
     const selectedStyle = "text-emerald-600 border-emerald-600";
 
     return (
@@ -16,13 +16,13 @@ const DescriptionModal = ({ data, modalHandler, setModalSelected, modalSelected,
         >
             <ImCross
                 className="fixed right-20 top-20 text-3xl z-10 drop-shadow-xl font-black"
-                onClick={() => modalHandler()}
+                onClick={(): void => modalHandler()}
             />
             <div className="pr-6">
                 <button
                     className={`flex flex-col justify-center items-center w-24 h-20 border-2 border-white mb-2.5 p-1 rounded-lg ${modalSelected == "PHOTOS" ? selectedStyle : ""
                         }`}
-                    onClick={() => setModalSelected("PHOTOS")}
+                    onClick={(): void => setModalSelected("PHOTOS")}
                 >
                     <TfiGallery />
                     PHOTOS
@@ -30,7 +30,7 @@ const DescriptionModal = ({ data, modalHandler, setModalSelected, modalSelected,
                 <button
                     className={`flex flex-col justify-center items-center w-24 h-20 border-2 border-white mb-2.5 p-1 rounded-lg ${modalSelected == "MAP" ? selectedStyle : ""
                         }`}
-                    onClick={() => setModalSelected("MAP")}
+                    onClick={(): void => setModalSelected("MAP")}
                 >
                     <TfiMapAlt />
                     MAP
@@ -38,7 +38,7 @@ const DescriptionModal = ({ data, modalHandler, setModalSelected, modalSelected,
                 <button
                     className={`flex flex-col justify-center items-center w-24 h-20 border-2 border-white mb-2.5 p-1 rounded-lg ${modalSelected == "PANO" ? selectedStyle : ""
                         }`}
-                    onClick={() => setModalSelected("PANO")}
+                    onClick={(): void => setModalSelected("PANO")}
                 >
                     <MdPanoramaPhotosphere />
                     360°

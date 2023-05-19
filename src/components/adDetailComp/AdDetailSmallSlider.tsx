@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { TiArrowRightOutline, TiArrowLeftOutline } from "react-icons/ti";
 
-export const AdDetailSmallSlider = ({ images }: any) => {
-  let [imageIndex, setImageIndex] = useState(0);
+export const AdDetailSmallSlider = ({ images }: any): JSX.Element => {
+  const [imageIndex, setImageIndex] = useState(0);
 
-  function increaseImageIndex() {
+  function increaseImageIndex(): void {
     if (imageIndex == images?.propertyID?.photos.length - 1) {
       setImageIndex(0);
     } else {
@@ -12,7 +12,7 @@ export const AdDetailSmallSlider = ({ images }: any) => {
     }
   }
 
-  function decreaseImageIndex() {
+  function decreaseImageIndex(): void {
     if (imageIndex == 0) {
       setImageIndex(images?.propertyID?.photos.length - 1);
     } else {
@@ -30,11 +30,11 @@ export const AdDetailSmallSlider = ({ images }: any) => {
         />
         <TiArrowLeftOutline
           className="absolute left-px top-1/2 text-4xl cursor-pointer"
-          onClick={() => increaseImageIndex()}
+          onClick={(): void => increaseImageIndex()}
         />
         <TiArrowRightOutline
           className="absolute right-px top-1/2 text-4xl cursor-pointer"
-          onClick={() => decreaseImageIndex()}
+          onClick={(): void => decreaseImageIndex()}
         />
       </div>
       <div className="flex h-40  rounded-2xl overflow-hidden">

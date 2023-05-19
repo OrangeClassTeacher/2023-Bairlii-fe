@@ -1,14 +1,10 @@
-import useRentModal from "@/hooks/useAllModal";
-import Link from "next/link";
+
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Container } from "../Container";
 import Logo from "./Logo";
 import Menu from "./Menu";
-import { Search } from "./Search";
 import Categories from "../CategoryFilter/Categories";
-import Modal from "../modals/Modal";
-import RentModal from "../modals/RentModal";
 import useAllModal from "@/hooks/useAllModal";
 import NewUser from "../user/newUser";
 import { LoginContext } from "../../Context/UserContext";
@@ -25,10 +21,6 @@ const Navbar = (): JSX.Element => {
     }
   }, [Login]);
 
-  const router = useRouter();
-  const rentModal = useAllModal();
-
-  // const [openModal, setModal] = useState(false);
   return (
     <div className="bg-white z-10 shadow-sm flex flex-col w-full">
       <Container>

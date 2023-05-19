@@ -3,7 +3,7 @@ import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 import { ICoordinates } from "@/pages/edit/[editProperties]";
 
 
-const MapComponentForPropertyEdit = ({ setCoordinates, coordinates, propertyData }: { setCoordinates: any, coordinates: ICoordinates, propertyData: any }) => {
+const MapComponentForPropertyEdit = ({ setCoordinates, coordinates, propertyData }: { setCoordinates: any, coordinates: ICoordinates, propertyData: any }): JSX.Element => {
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: process.env.GOOGLE_MAP_API as string,
     });
@@ -17,9 +17,6 @@ const MapComponentForPropertyEdit = ({ setCoordinates, coordinates, propertyData
         setCoordinates({ lat: propertyData?.coordinates?.lat, lng: propertyData?.coordinates?.lng })
     }, [propertyData])
 
-    console.log(saveCoordinates);
-
-
     if (!isLoaded) return <div>Loading ... </div>;
     return (
         <div>
@@ -28,7 +25,7 @@ const MapComponentForPropertyEdit = ({ setCoordinates, coordinates, propertyData
                 <input
                     placeholder="x"
                     value={saveCoordinates.x}
-                    onFocus={() => {
+                    onFocus={(): void => {
                         setCursorType("crosshair");
                         setChoose(false);
                     }}
@@ -38,7 +35,7 @@ const MapComponentForPropertyEdit = ({ setCoordinates, coordinates, propertyData
                 <input
                     placeholder="y"
                     value={saveCoordinates.y}
-                    onFocus={() => {
+                    onFocus={(): void => {
                         setCursorType("crosshair");
                         setChoose(false);
                     }}
@@ -48,7 +45,7 @@ const MapComponentForPropertyEdit = ({ setCoordinates, coordinates, propertyData
 
             <GoogleMap
                 options={{ draggableCursor: cursorType, scrollwheel: true }}
-                onClick={(e) => {
+                onClick={(e): void => {
                     if (!choose) {
                         setCoordinates({
                             lat: e.latLng?.lat(),

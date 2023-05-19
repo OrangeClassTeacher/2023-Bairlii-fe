@@ -13,11 +13,9 @@ interface PanoramaProps {
   value: string;
 }
 
-const Panorama: React.FC<PanoramaProps> = ({ onChange, value }) => {
+const Panorama: React.FC<PanoramaProps> = ({ onChange, value }): JSX.Element => {
   const handleUpload = useCallback(
-    (result: any) => {
-      console.log(result);
-
+    (result: any): void => {
       onChange(result.info.secure_url);
     },
     [onChange]
@@ -28,7 +26,7 @@ const Panorama: React.FC<PanoramaProps> = ({ onChange, value }) => {
       uploadPreset="c1f4yejr"
       options={{ maxFiles: 1 }}
     >
-      {({ open }) => {
+      {({ open }): JSX.Element => {
         return (
           <div
             onClick={() => open?.(true)}

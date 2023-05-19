@@ -5,7 +5,7 @@ import { Container } from "@/components/Container";
 import Menu from "@/components/Navbar/Menu";
 import React from "react";
 
-export default function addlist() {
+export default function addlist(): JSX.Element {
   return (
     <div>
       <header>

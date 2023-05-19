@@ -4,7 +4,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
-function UserAdvertisements() {
+function UserAdvertisements(): JSX.Element {
   const route = useRouter();
   const userID = route.query.userId;
   const [loading, setLoading] = useState<boolean>(false);
@@ -15,7 +15,7 @@ function UserAdvertisements() {
     getData();
   }, [userID]);
 
-  function getData() {
+  function getData(): void {
     setLoading(true);
     axios
       .get(`${Utils.API_URL}/advertisements/${userID}`)
@@ -30,7 +30,7 @@ function UserAdvertisements() {
       });
   }
 
-  function deleteAdvertisement(id: string) {
+  function deleteAdvertisement(id: string): void {
     axios
       .delete(`${Utils.API_URL}/advertisement/${id}`)
       .then((res) => {

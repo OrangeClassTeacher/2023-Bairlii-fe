@@ -2,12 +2,10 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import jwt from "jsonwebtoken";
-import { Tooltip } from "flowbite";
-import type { TooltipOptions, TooltipInterface } from "flowbite";
 import Utils from '@/utils/Utils';
 
 
-const AddAdvertisement = ({ setAddingAdvertisement, _id, setAdvertisementId }: any) => {
+const AddAdvertisement = ({ setAddingAdvertisement, _id, setAdvertisementId }: any): JSX.Element => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm({
         defaultValues: {
             price: 100000,
@@ -26,7 +24,7 @@ const AddAdvertisement = ({ setAddingAdvertisement, _id, setAdvertisementId }: a
         setToken(localStorageValue);
     }, []);
 
-    const createAdvertisement = (data: any) => {
+    const createAdvertisement = (data: any): void => {
         const reqBody = {
             userID: decoded?.user?._id,
             propertyID: _id,
@@ -95,14 +93,14 @@ const AddAdvertisement = ({ setAddingAdvertisement, _id, setAdvertisementId }: a
                         Save
                     </button>
                     <button
-                        onClick={() => reset()}
+                        onClick={(): void => reset()}
                         className="middle none center mr-4 rounded-lg bg-blue-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85]"
                         type="button"
                     >
                         Reset
                     </button>
                     <button
-                        onClick={() => setAddingAdvertisement(false)}
+                        onClick={(): void => setAddingAdvertisement(false)}
                         className="middle none center mr-4 rounded-lg bg-blue-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85]"
                         type="button"
                     >

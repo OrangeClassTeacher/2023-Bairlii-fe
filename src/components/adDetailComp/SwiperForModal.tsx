@@ -1,17 +1,15 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-creative";
-import styles from "../styles/modalSwiper.module.css"
-
 
 // import required modules
 import { Navigation, EffectCreative } from "swiper";
 
-export default function SwiperForModal({ data }: any) {
+export default function SwiperForModal({ data }: any): JSX.Element {
     return (
         <>
             <Swiper
