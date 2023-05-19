@@ -6,10 +6,10 @@ const logo = (): JSX.Element => {
   return (
     <Image
       alt="logo"
-      className="hidden md:block cursor-pointer"
-      height={1000}
-      width={1000}
-      src="/DevZoid.png"
+      className="hidden md:block cursor-pointer -ms-10"
+      height={60}
+      width={230}
+      src="/images/DevZoid.png"
       onClick={() => (window.location.href = "/")}
     />
   );
