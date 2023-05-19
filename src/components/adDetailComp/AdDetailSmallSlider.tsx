@@ -25,6 +25,8 @@ export const AdDetailSmallSlider = ({ images }: any): JSX.Element => {
     <div className="flex flex-col gap-y-5">
       <div className="w-full relative h-[600px] ">
         <Image
+          height={100}
+          width={100}
           src={images?.propertyID?.photos[imageIndex]}
           alt="picture"
           className="object-fill w-full h-full rounded-2xl"
@@ -40,21 +42,29 @@ export const AdDetailSmallSlider = ({ images }: any): JSX.Element => {
       </div>
       <div className="flex h-40  rounded-2xl overflow-hidden">
         <Image
+          height={100}
+          width={100}
           src={images?.propertyID?.photos[0]}
           alt="picture"
           className="w-[20%]"
         />
         <Image
+          height={100}
+          width={100}
           src={images?.propertyID?.photos[1]}
           alt="picture"
           className="w-[20%]"
         />
         <Image
+          height={100}
+          width={100}
           src={images?.propertyID?.photos[2]}
           alt="picture"
           className="w-[20%]"
         />
         <Image
+          height={1000}
+          width={1000}
           src={images?.propertyID?.photos[3]}
           alt="picture"
           className="w-[20%]"

@@ -86,6 +86,8 @@ function UserPage(): JSX.Element {
             <div className="cards ">
               <div className="card-inner  p-2 rounded-md">
                 <Image
+                  height={1000}
+                  width={1000}
                   className="rounded-md h-40 w-[270px] object-cover"
                   src="https://files.realpython.com/media/How-to-Use-the-Python-append-Method_Watermarked.4e39826bc6f5.jpg"
                   alt=""

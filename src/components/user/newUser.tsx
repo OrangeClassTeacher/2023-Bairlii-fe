@@ -2,9 +2,6 @@ import { useState, useEffect } from "react";
 import { Dropdown } from "flowbite-react";
 import jwt from "jsonwebtoken";
 import Link from "next/link";
-import { LoginContext } from "../../Context/UserContext";
-import { useContext } from "react";
-import Image from "next/image";
 
 const NewUser = (): JSX.Element => {
   const [decoded, setDecoded] = useState<object | string | any>();
@@ -54,18 +51,6 @@ const NewUser = (): JSX.Element => {
           </Link>
           <Dropdown.Item onClick={SignOut}>Log Out</Dropdown.Item>
         </Dropdown>
-<<<<<<< HEAD
-=======
-        <div>
-          <Image
-            className="rounded-full"
-            height="60"
-            width="60"
-            alt="log"
-            src="/images/log.jpg"
-          />
-        </div>
->>>>>>> 7450ec9c961453788af07d0e7fcca743e27afcff
       </div>
     );
   }

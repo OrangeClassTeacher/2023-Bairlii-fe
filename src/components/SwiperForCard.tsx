@@ -36,6 +36,8 @@ export default function SwiperSlider({ data }: any): any {
                 <SwiperSlide>
                   <div className="h-48 w-full">
                     <Image
+                      height={1000}
+                      width={1000}
                       src={item}
                       alt="haha"
                       className="rounded-md object-cover w-full h-full"

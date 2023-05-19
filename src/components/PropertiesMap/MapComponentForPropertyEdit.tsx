@@ -18,16 +18,10 @@ const MapComponentForPropertyEdit = ({
   const [saveCoordinates, setSaveCoordinates] = useState<any>({ x: "", y: "" });
   const [choose, setChoose] = useState(false);
 
-<<<<<<< HEAD
   useEffect(() => {
     setSaveCoordinates({
       x: propertyData?.coordinates?.lat,
       y: propertyData?.coordinates?.lng,
-=======
-const MapComponentForPropertyEdit = ({ setCoordinates, coordinates, propertyData }: { setCoordinates: any, coordinates: ICoordinates, propertyData: any }): JSX.Element => {
-    const { isLoaded } = useLoadScript({
-        googleMapsApiKey: process.env.GOOGLE_MAP_API as string,
->>>>>>> 7450ec9c961453788af07d0e7fcca743e27afcff
     });
     setCoordinates({
       lat: propertyData?.coordinates?.lat,

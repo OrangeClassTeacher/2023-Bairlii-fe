@@ -17,6 +17,8 @@ const Slider = ({ images }: any): JSX.Element => {
     <div className="relative flex align-middle h-48 w-full">
       <div className="sliderImgContainer z-10 w-full h-full">
         <Image
+          height={1000}
+          width={1000}
           src={images[imageIndex]}
           alt=""
           className="object-fill w-full h-full rounded-2xl"

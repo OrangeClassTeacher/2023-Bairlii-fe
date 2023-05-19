@@ -9,8 +9,7 @@ declare global {
 }
 
 interface ImageUploadProps {
-  onChange: (value: string)
-    => void;
+  onChange: (value: string) => void;
   value: string;
 }
 
@@ -38,6 +37,8 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value }) => {
             {value && (
               <div className="absolute inset-0 w-full h-full">
                 <Image
+                  height={1000}
+                  width={1000}
                   alt="Upload"
                   fill
                   style={{ objectFit: "cover" }}
