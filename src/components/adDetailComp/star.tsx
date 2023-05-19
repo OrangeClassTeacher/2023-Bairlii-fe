@@ -10,7 +10,7 @@ const RatingStars = ({ data }: any): JSX.Element => {
     const [decoded, setDecoded] = useState<any>();
 
     useEffect(() => {
-        let localStorageValue: string = localStorage.getItem("token") || "";
+        const localStorageValue: string = localStorage.getItem("token") || "";
         setDecoded(jwt.decode(localStorageValue) || "");
         getUserData();
     }, [data]);

@@ -1,4 +1,3 @@
-import RentModal from "@/components/modals/RentModal";
 import UserPropertyCard from "@/components/user/UserPropertyCard";
 import useAllModal from "@/hooks/useAllModal";
 import axios from "axios";
@@ -8,7 +7,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Utils from "@/utils/Utils";
-function UserPage() {
+function UserPage(): JSX.Element {
   const route = useRouter();
   const userID = route.query.userId;
   const [propertiesData, setPropertiesData] = useState<Array<any>>([]);
@@ -21,7 +20,7 @@ function UserPage() {
 
   //console.log(propertiesData);
 
-  function getPropertiesData() {
+  function getPropertiesData(): void {
     setLoading(true);
     if (userID) {
       axios
@@ -38,7 +37,7 @@ function UserPage() {
     }
   }
 
-  function deleteProperties(id: string) {
+  function deleteProperties(id: string): void {
     axios
       .delete(`${Utils.API_URL}/properties/${id}`)
       .then((res) => {
@@ -106,20 +105,20 @@ function UserPage() {
                 </p>
               </div>
             </div>
-            {propertiesData?.map((propertyData, i) => {
-              return (
-                <div key={i}>
-                  <div className="">
-                    <div className="blob">
-                      <UserPropertyCard
-                        propertyData={propertyData}
-                        deleteProperties={deleteProperties}
-                      />
-                    </div>
+            {propertiesData?.map((propertyData, i) =>
+            (
+              <div key={i}>
+                <div className="">
+                  <div className="blob">
+                    <UserPropertyCard
+                      propertyData={propertyData}
+                      deleteProperties={deleteProperties}
+                    />
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            )
+            )}
           </div>
         </div>
       </div>

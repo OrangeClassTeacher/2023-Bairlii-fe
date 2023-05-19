@@ -12,7 +12,7 @@ import Utils from "@/utils/Utils";
 
 const Ads = ({ setSelected }: any): JSX.Element => {
   const [ads, setAds] = useState<Array<any>>([]);
-  let pages = [];
+  const pages = [];
   const [pageNumb, setPageNumb] = useState<number>(1);
   const [curPageNumb, setCurPageNumb] = useState<number>(1);
   const [reqBody, setReqBody] = useState<object>({ pageNumber: 1 });

@@ -3,7 +3,7 @@ import { AiFillCaretRight } from "react-icons/ai";
 import Image from "next/image";
 
 const Slider = ({ images }: any): JSX.Element => {
-  let [imageIndex, setImageIndex] = useState(0);
+  const [imageIndex, setImageIndex] = useState(0);
 
   function increaseImageIndex(): void {
     if (imageIndex == images.length - 1) {

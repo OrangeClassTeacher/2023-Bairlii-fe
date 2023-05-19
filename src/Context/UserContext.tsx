@@ -7,29 +7,31 @@ import Utils from "@/utils/Utils";
 interface LoginProviderProps {
   children: React.ReactNode;
 }
-export const LoginContext = createContext({
-  setUserEdit1: (userEdit1: "") => { },
-  userEdit1: "",
-  Login: () => { },
-  setLoginEmail: (loginEmail: "") => { },
-  setLoginPassword: (loginPassword: "") => { },
-  ForgetPass: () => { },
-  setEmail: (email: "") => { },
-  ResetPass: () => { },
-  setResetPassword: (ResetPassword: "") => { },
-  setResetPassword1: (ResetPassword1: "") => { },
-  setLocalUser: (localUser: "") => { },
-  setDecoded: (decoded: "") => { },
-});
+interface LoginContextProps {
+  userEdit1: string;
+  Login: () => void;
+  setLoginEmail: string | null | object;
+  setLoginPassword: string | null | object;
+  setEmail: string | null | object;
+  ForgetPass: () => void;
+  ResetPass: () => void;
+  setResetPassword: string | null | object;
+  setResetPassword1: string | null | object;
+  setLocalUser: string | null | object;
+  setDecoded: any;
+}
+
+export const LoginContext = createContext<LoginContextProps>({} as LoginContextProps);
 export const LoginProvider = ({ children }: LoginProviderProps) => {
   const [localUser, setLocalUser] = useState<string | null>();
   const [decoded, setDecoded] = useState<object | string | any>();
   const [userEdit1, setUserEdit1] = useState("");
-  const [loginEmail, setLoginEmail] = useState("");
+  const [loginEmail, setLoginEmail] = useState<string | null | object>();
   const [loginPassword, setLoginPassword] = useState("");
   const [ResetPassword, setResetPassword] = useState("");
   const [ResetPassword1, setResetPassword1] = useState("");
   const [email, setEmail] = useState("");
+
 
   const route = useRouter();
   const Login = () => {
@@ -131,7 +133,6 @@ export const LoginProvider = ({ children }: LoginProviderProps) => {
   return (
     <LoginContext.Provider
       value={{
-        setUserEdit1,
         userEdit1,
         Login,
         setLoginEmail,

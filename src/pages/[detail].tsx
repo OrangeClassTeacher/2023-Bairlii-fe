@@ -6,10 +6,9 @@ import { AdComment } from "@/components/adDetailComp/AdComment";
 import LandlordInfo from "@/components/adDetailComp/LandlordInfo";
 import SwiperForDetail from "@/components/adDetailComp/SwiperForDetail";
 import RatingStars from "@/components/adDetailComp/star";
-import { log } from "console";
 import Utils from "@/utils/Utils";
 
-const AdDetail = () => {
+const AdDetail = (): JSX.Element => {
   const route = useRouter();
   const id = route.query.detail;
   const [adData, setAdData] = useState<Array<any>>([]);
@@ -19,7 +18,7 @@ const AdDetail = () => {
     getAdData();
   }, [id]);
 
-  function getAdData() {
+  function getAdData(): void {
     axios
       .get(`${Utils.API_URL}/advertisement/${id}`)
       .then((res) => {

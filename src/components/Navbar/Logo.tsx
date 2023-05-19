@@ -9,7 +9,7 @@ const logo = (): JSX.Element => {
       className="hidden md:block cursor-pointer"
       height="100"
       width="100"
-      src="images/DevZoid.png"
+      src="/DevZoid.png"
       onClick={() => (window.location.href = "/")}
     />
   );
