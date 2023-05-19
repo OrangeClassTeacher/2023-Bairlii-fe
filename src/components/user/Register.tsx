@@ -26,7 +26,7 @@ function Register(): JSX.Element {
     },
   });
 
-  const [loading, setLoading] = useState<Boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const [profile, setProfile] = useState<object>({ profilePicture: [] });
   const route = useRouter();
 
@@ -63,7 +63,7 @@ function Register(): JSX.Element {
   };
   console.log(errors);
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: any): void => {
     const reqBody = {
       firstName: data.firstName,
       lastName: data.lastName,
@@ -95,7 +95,7 @@ function Register(): JSX.Element {
           theme: "light",
         });
       })
-      .catch((error: any) => {
+      .catch(() => {
         toast.error("🦄 Бүртгэл амжилтгүй боллоо", {
           position: "bottom-right",
           autoClose: 5000,
@@ -311,7 +311,7 @@ function Register(): JSX.Element {
               <div className="mt-5 mb-5">
                 <label>Профайл зураг</label>
                 <input
-                  onChange={(e) => {
+                  onChange={(e): void => {
                     sendFile("images", e.target.files);
                   }}
                   type="file"
@@ -341,7 +341,7 @@ function Register(): JSX.Element {
                   Бүртгүүлэх
                 </button>
                 <button
-                  onClick={() => reset()}
+                  onClick={(): void => reset()}
                   type="button"
                   className="inline-block rounded bg-primary px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
                   data-te-ripple-init

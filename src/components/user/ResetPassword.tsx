@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { LoginContext } from "../../Context/UserContext";
 import Image from "next/image";
 import { toast } from "react-toastify";
 import Utils from "@/utils/Utils";
@@ -11,7 +10,6 @@ function ResetPassword(): JSX.Element {
   //   useContext(LoginContext);
   const [ResetPassword, setResetPassword] = useState("");
   const [ResetPassword1, setResetPassword1] = useState("");
-  const [email, setEmail] = useState();
 
   const route = useRouter();
 
@@ -22,43 +20,42 @@ function ResetPassword(): JSX.Element {
     setResetPassword1(e.target.value);
   };
   const ResetPass = () => {
-    console.log(ResetPassword, ResetPassword1, email);
     if (ResetPassword == ResetPassword1) {
-      if ((email)) {
-        axios
-          .post(`${Utils.API_URL}/user/resetPassword`, {
-            email: email,
-            password: ResetPassword,
-            ResetPassword1: ResetPassword1,
-          })
-          .then(async (response: any) => {
-            route.push("/login");
-            toast.success("🦄 Нууц үг амжилттай солигдлоо", {
-              position: "bottom-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-            });
-          })
-          .catch((err) => {
-            toast.error("🦄🦄  нууц үг таарахгүй байна", {
-              position: "bottom-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-            });
+
+      axios
+        .post(`${Utils.API_URL}/user/resetPassword`, {
+          // email: query geer mail ee damjuulaad avchii egchee,
+          password: ResetPassword,
+          ResetPassword1: ResetPassword1,
+        })
+        .then(() => {
+          //энд response оо шалгаад  хариугаа буцаана
+          // alert("бүртгэлтэй имэйл биш байна");
+
+          route.push("/login");
+          toast.success("🦄 Нууц үг амжилттай солигдлоо", {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
           });
-      } else {
-        alert("бүртгэлтэй имэйл биш байна");
-      }
+        })
+        .catch(() => {
+          toast.error("🦄🦄  нууц үг таарахгүй байна", {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        });
     } else {
       alert("2 нууц үг таарахгүй байна");
     }

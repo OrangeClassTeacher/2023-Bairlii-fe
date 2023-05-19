@@ -35,10 +35,10 @@ const RatingStars = ({ data }: any): JSX.Element => {
             rating: rating,
             userID: decoded?.user?._id
         }
-        if (reqBody && decoded) {
+        if (decoded) {
             axios
                 .put(`${Utils.API_URL}/prorating`, reqBody)
-                .then((res) => {
+                .then(() => {
                     getUserData()
                 })
                 .catch((err) => {

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 
@@ -30,23 +30,21 @@ export default function SwiperSlider({ data }: any): any {
           modules={[Autoplay, EffectCube, Pagination]}
           className="mySwiper  "
         >
-          {data?.propertyID?.photos?.map((item: string, index: number) => {
-            return (
-              <div key={index}>
-                <SwiperSlide>
-                  <div className="h-48 w-full">
-                    <Image
-                      height={1000}
-                      width={1000}
-                      src={item}
-                      alt="haha"
-                      className="rounded-md object-cover w-full h-full"
-                    />
-                  </div>
-                </SwiperSlide>
-              </div>
-            );
-          })}
+          {data?.propertyID?.photos?.map((item: string, index: number) => (
+            <div key={index}>
+              <SwiperSlide>
+                <div className="h-48 w-full">
+                  <Image
+                    height={1000}
+                    width={1000}
+                    src={item}
+                    alt="haha"
+                    className="rounded-md object-cover w-full h-full"
+                  />
+                </div>
+              </SwiperSlide>
+            </div>
+          ))}
         </Swiper>
       </div>
     );

@@ -8,32 +8,18 @@ interface LoginProviderProps {
   children: React.ReactNode;
 }
 interface LoginContextProps {
-  userEdit1: string | object;
   Login: () => void;
-  setLoginEmail: string | null | object;
-  setLoginPassword: string | null | object;
-  setEmail: string | object;
-  ResetPass: () => void;
-  setResetPassword: string | null | object;
-  setResetPassword1: string | null | object;
-  setLocalUser: string | null | object;
-  setDecoded: any;
 }
 
 export const LoginContext = createContext<LoginContextProps>({} as LoginContextProps);
 export const LoginProvider = ({ children }: LoginProviderProps) => {
-  const [localUser, setLocalUser] = useState<string | null>();
-  const [decoded, setDecoded] = useState<object | string | any>();
-  const [userEdit1, setUserEdit1] = useState("");
   const [loginEmail, setLoginEmail] = useState<string | object>();
   const [loginPassword, setLoginPassword] = useState("");
-  const [ResetPassword, setResetPassword] = useState("");
-  const [ResetPassword1, setResetPassword1] = useState("");
-  const [email, setEmail] = useState();
+
 
 
   const route = useRouter();
-  const Login = () => {
+  const Login = (): void => {
     axios
       .post(`${Utils.API_URL}/user/login`, {
         email: loginEmail,
@@ -54,7 +40,7 @@ export const LoginProvider = ({ children }: LoginProviderProps) => {
           theme: "light",
         });
       })
-      .catch((error: any) => {
+      .catch(() => {
         toast.error("🦄 Нэвтрэх нэр, нууц үг буруу байна", {
           position: "bottom-right",
           autoClose: 5000,
@@ -74,15 +60,7 @@ export const LoginProvider = ({ children }: LoginProviderProps) => {
   return (
     <LoginContext.Provider
       value={{
-        userEdit1,
         Login,
-        setLoginEmail,
-        setLoginPassword,
-        setEmail,
-        setResetPassword,
-        setResetPassword1,
-        setLocalUser,
-        setDecoded,
       }}
     >
       {children}

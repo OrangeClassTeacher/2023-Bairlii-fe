@@ -13,7 +13,6 @@ const NewUser = (): JSX.Element => {
     // console.log(".......data", userEdit1);
 
     setLoading(false);
-    const secretToken: string | null = process.env.TOKEN_KEY || "";
   }, []);
 
   const SignOut = (): void => {

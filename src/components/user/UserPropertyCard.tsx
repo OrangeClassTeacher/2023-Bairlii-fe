@@ -117,7 +117,7 @@ const UserPropertyCard = ({ propertyData, deleteProperties }: any): JSX.Element 
                 </button>
               </Link>
               <button className="bg-gray-700  rounded-md text-white">
-                <p className="p-2" onClick={() => deleteProperties(_id)}>
+                <p className="p-2" onClick={(): void => deleteProperties(_id)}>
                   Delete
                 </p>
               </button>
@@ -135,7 +135,7 @@ const UserPropertyCard = ({ propertyData, deleteProperties }: any): JSX.Element 
               ) : (
                 <button
                   className="bg-gray-700  text-white rounded-md"
-                  onClick={() => setAddingAdvertisement(true)}
+                  onClick={(): void => setAddingAdvertisement(true)}
                 >
                   <p className="p-2">Send</p>
                 </button>

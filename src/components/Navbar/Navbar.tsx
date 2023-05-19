@@ -1,11 +1,9 @@
-
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Container } from "../Container";
 import Logo from "./Logo";
 import Menu from "./Menu";
 import Categories from "../CategoryFilter/Categories";
-import useAllModal from "@/hooks/useAllModal";
+
 import NewUser from "../user/newUser";
 import { LoginContext } from "../../Context/UserContext";
 import { useContext } from "react";

@@ -19,7 +19,7 @@ const AddAdvertisement = ({ setAddingAdvertisement, _id, setAdvertisementId }: a
     const [token, setToken] = useState<string | null>();
 
     useEffect(() => {
-        let localStorageValue: string = localStorage.getItem("token") || "";
+        const localStorageValue: string = localStorage.getItem("token") || "";
         setDecoded(jwt.decode(localStorageValue) || "");
         setToken(localStorageValue);
     }, []);

@@ -26,8 +26,7 @@ export default function SwiperForModal({ data }: any): JSX.Element {
         modules={[Navigation, EffectCreative]}
         className="mySwiper"
       >
-        {data?.propertyID?.photos?.map((item: string, index: number) => {
-          return (
+        {data?.propertyID?.photos?.map((item: string, index: number) => (
             <div key={index}>
               <SwiperSlide>
                 <div className="h-[900px]">
@@ -39,8 +38,7 @@ export default function SwiperForModal({ data }: any): JSX.Element {
                 </div>
               </SwiperSlide>
             </div>
-          );
-        })}
+          ))}
       </Swiper>
     </>
   );

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useState } from "react";
-import { LoginContext } from "../../Context/UserContext";
 import Image from "next/image";
 import axios from "axios";
 import { useRouter } from "next/router";
@@ -13,21 +12,18 @@ function ForgetPassword(): JSX.Element {
   const onChangeEmail = (e: any): void => {
     setEmail(e.target.value);
   };
-  const ForgetPass = () => {
-    if ((email)) {
-      axios
-        .post(`http://localhost:9000/api/user/forgotPassword`, {
-          email: email,
-        })
-        .then(async (response: any) => {
-          alert("Имэйл хаяг зөв байна");
-          console.log(response);
-          route.push("/login/resetPass");
-        })
-        .catch((err) => {
-          alert("Бүртгэлгүй имэйл байна");
-        });
-    } else alert("Имэйл хаягаа зөв оруулна уу!!!");
+  const ForgetPass = (): void => {
+    axios
+      .post(`http://localhost:9000/api/user/forgotPassword`, {
+        email: email,
+      })
+      .then((response: any) => {
+        alert("Имэйл хаяг зөв байна");
+        route.push("/login/resetPass");
+      })
+      .catch(() => {
+        alert("Бүртгэлгүй имэйл байна");
+      });
   };
 
   const onSubmit = (): void => {

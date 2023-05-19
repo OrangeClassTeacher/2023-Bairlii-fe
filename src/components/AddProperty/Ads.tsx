@@ -59,50 +59,46 @@ const Ads = ({ setSelected }: any): JSX.Element => {
     <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-7xl w-full">
       {loading ? (
         <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-7xl w-full">
-          {skeletonArr.map((item, index) => {
-            return (
-              <div
-                key={index}
-                className="flex flex-wrap flex-col max-w-[25%] min-w-[300px]"
-              >
-                <div className="mx-auto bg-white rounded shadow-lg max-w-[25%] min-w-[300px] rounded-2xl">
-                  <div className="h-48 p-3 overflow-hidden bg-gray-200 animate-pulse" />
-                  <div className="p-3 h-">
-                    <div className="grid grid-cols-3 gap-4 mt-2">
-                      <div className="h-8 bg-gray-200 rounded animate-pulse" />
-                      <div className="h-8 bg-gray-200 rounded animate-pulse" />
-                      <div className="h-8 bg-gray-200 rounded animate-pulse" />
-                      <div className="h-8 col-span-2 bg-gray-200 rounded animate-pulse" />
-                      <div className="h-8 bg-gray-200 rounded  animate-pulse" />
-                      <div className="..." />
-                      <div className="col-span-2 ..." />
-                    </div>
+          {skeletonArr.map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-wrap flex-col max-w-[25%] min-w-[300px]"
+            >
+              <div className="mx-auto bg-white rounded shadow-lg max-w-[25%] min-w-[300px] rounded-2xl">
+                <div className="h-48 p-3 overflow-hidden bg-gray-200 animate-pulse" />
+                <div className="p-3 h-">
+                  <div className="grid grid-cols-3 gap-4 mt-2">
+                    <div className="h-8 bg-gray-200 rounded animate-pulse" />
+                    <div className="h-8 bg-gray-200 rounded animate-pulse" />
+                    <div className="h-8 bg-gray-200 rounded animate-pulse" />
+                    <div className="h-8 col-span-2 bg-gray-200 rounded animate-pulse" />
+                    <div className="h-8 bg-gray-200 rounded  animate-pulse" />
+                    <div className="..." />
+                    <div className="col-span-2 ..." />
                   </div>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       ) : (
         <div>
           <div className="flex flex-wrap gap-6 justife-between mt-7 max-w-7xl w-full">
-            {ads?.map((item, index): JSX.Element => {
-              return (
-                <>
-                  <AdCard item={item} key={index} />
-                </>
-              );
-            })}
+            {ads?.map((item, index): JSX.Element => (
+              <>
+                <AdCard item={item} key={index} />
+              </>
+            ))}
           </div>
           <div className="flex gap-2 justify-center flex-wrap my-4 mb-16">
             {pages &&
               pages?.map((e, index) => {
                 if (e > 0) {
-                  if (e === curPageNumb) {
+                  if (e == curPageNumb) {
                     return (
                       <div
                         id={`${index}`}
-                        onClick={() => {
+                        onClick={(): void => {
                           setCurPageNumb(e);
                           setReqBody({ pageNumber: e });
                         }}
@@ -116,7 +112,7 @@ const Ads = ({ setSelected }: any): JSX.Element => {
                     return (
                       <div
                         id={`${index}`}
-                        onClick={() => {
+                        onClick={(): void => {
                           setCurPageNumb(e);
                           setReqBody({ pageNumber: e });
                         }}
