@@ -1,5 +1,4 @@
 import React from "react";
-import { SearchBox } from "./SearchBox";
 
 export const Search = (props: {
   handleChange: React.ChangeEventHandler<HTMLInputElement> | undefined;

@@ -25,7 +25,7 @@ enum STEPS {
   DESCRIPTION = 6,
 }
 
-const RentModal = () => {
+const RentModal = (): JSX.Element => {
   const rentModal = useAllModal();
   const router = useRouter();
 

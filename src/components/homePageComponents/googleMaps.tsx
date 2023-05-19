@@ -7,7 +7,7 @@ import { useSearchParams } from 'next/navigation';
 import queryString from 'query-string';
 import Utils from '@/utils/Utils';
 
-export const Maps = ({ setSelected }: any) => {
+export const Maps = ({ setSelected }: any): JSX.Element => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.GOOGLE_MAP_API as string,
   });

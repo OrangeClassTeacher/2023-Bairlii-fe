@@ -6,7 +6,7 @@ import Menu from "@/components/Navbar/Menu";
 import React from "react";
 import Image from "next/image";
 
-export default function addlist() {
+export default function addlist(): JSX.Element {
   return (
     <div>
       <header>

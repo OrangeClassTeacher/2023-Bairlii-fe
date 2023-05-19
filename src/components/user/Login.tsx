@@ -5,24 +5,24 @@ import { LoginContext } from "../../Context/UserContext";
 import { BiShow, BiHide } from "react-icons/bi";
 import Image from "next/image";
 
-function Login(): any {
+function Login(): JSX.Element {
   const { Login, setLoginEmail, setLoginPassword } = useContext(LoginContext);
   const [passwordType, setPasswordType] = useState("password");
   const route = useRouter();
 
-  const onChangeEmail = (e: any) => {
+  const onChangeEmail = (e: any): void => {
     setLoginEmail(e.target.value);
   };
-  const onChangeLoginPass = (e: any) => {
+  const onChangeLoginPass = (e: any): void => {
     setLoginPassword(e.target.value);
   };
 
-  const onSubmit = () => {
+  const onSubmit = (): void => {
     Login();
   };
 
-  const togglePassword = (e: any) => {
-    e.preventDefault();
+  const togglePassword = (e: any): void => {
+    e.preventDefault()
     if (passwordType === "password") {
       setPasswordType("text");
       return;

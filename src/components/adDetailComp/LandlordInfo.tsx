@@ -3,7 +3,7 @@ import { BsHouses } from "react-icons/bs";
 import { TbUserCheck } from "react-icons/tb";
 import Image from "next/image";
 
-const LandlordInfo = ({ data }: any) => {
+const LandlordInfo = ({ data }: any): JSX.Element => {
   const userData = data?.userID;
 
   return (

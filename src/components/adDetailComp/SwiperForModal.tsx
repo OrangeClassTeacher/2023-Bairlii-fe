@@ -1,16 +1,15 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-creative";
-import styles from "../styles/modalSwiper.module.css";
 
 // import required modules
 import { Navigation, EffectCreative } from "swiper";
 
-export default function SwiperForModal({ data }: any) {
+export default function SwiperForModal({ data }: any): JSX.Element {
   return (
     <>
       <Swiper
@@ -37,7 +36,7 @@ export default function SwiperForModal({ data }: any) {
             <div key={index}>
               <SwiperSlide>
                 <div className="h-[900px]">
-                  <Image
+                  <img
                     src={item}
                     alt="haha"
                     className="object-fill w-[90%] h-[90%] rounded-lg drop-shadow-lg"

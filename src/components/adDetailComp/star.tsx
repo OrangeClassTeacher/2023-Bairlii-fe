@@ -4,7 +4,7 @@ import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import jwt from "jsonwebtoken";
 import Utils from "@/utils/Utils";
 
-const RatingStars = ({ data }: any) => {
+const RatingStars = ({ data }: any): JSX.Element => {
     const [rating, setRating] = useState<any>();
     const [loading, setLoading] = useState(true);
     const [decoded, setDecoded] = useState<any>();
@@ -15,7 +15,7 @@ const RatingStars = ({ data }: any) => {
         getUserData();
     }, [data]);
 
-    function getUserData() {
+    function getUserData(): void {
         axios
             .get(`${Utils.API_URL}/prorating/${data?.propertyID?._id}`)
             .then((res) => {
@@ -29,7 +29,7 @@ const RatingStars = ({ data }: any) => {
             });
     }
 
-    function updateRating(rating: number) {
+    function updateRating(rating: number): void {
         const reqBody = {
             propertyID: data?.propertyID?._id,
             rating: rating,
@@ -113,19 +113,19 @@ const RatingStars = ({ data }: any) => {
                         Rating count: {rating?.ratingCount}
                     </div>
                     <div className="hidden peer-hover:flex hover:flex w-[90px] flex-col bg-white drop-shadow-lg  text-yellow-400 items-center justify-center p-2 rounded-xl">
-                        <p className="flex hover:text-yellow-600" onClick={() => updateRating(1)}>
+                        <p className="flex hover:text-yellow-600" onClick={(): void => updateRating(1)}>
                             <AiFillStar /><AiOutlineStar /><AiOutlineStar /><AiOutlineStar /><AiOutlineStar />
                         </p>
-                        <p className="flex hover:text-yellow-600" onClick={() => updateRating(2)}>
+                        <p className="flex hover:text-yellow-600" onClick={(): void => updateRating(2)}>
                             <AiFillStar /><AiFillStar /><AiOutlineStar /><AiOutlineStar /><AiOutlineStar />
                         </p>
-                        <p className="flex hover:text-yellow-600" onClick={() => updateRating(3)}>
+                        <p className="flex hover:text-yellow-600" onClick={(): void => updateRating(3)}>
                             <AiFillStar /><AiFillStar /><AiFillStar /><AiOutlineStar /><AiOutlineStar />
                         </p>
-                        <p className="flex hover:text-yellow-600" onClick={() => updateRating(4)}>
+                        <p className="flex hover:text-yellow-600" onClick={(): void => updateRating(4)}>
                             <AiFillStar /><AiFillStar /><AiFillStar /><AiFillStar /><AiOutlineStar />
                         </p>
-                        <p className="flex hover:text-yellow-600" onClick={() => updateRating(5)}>
+                        <p className="flex hover:text-yellow-600" onClick={(): void => updateRating(5)}>
                             <AiFillStar /><AiFillStar /><AiFillStar /><AiFillStar /><AiFillStar />
                         </p>
                     </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { GoogleMap, MarkerF } from "@react-google-maps/api";
 
-export const Map = ({ data }: any) => {
+export const Map = ({ data }: any): JSX.Element => {
   console.log(data);
 
   return (

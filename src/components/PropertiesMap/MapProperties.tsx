@@ -8,7 +8,7 @@ interface ISaveCoordinates {
   x: any, y: any
 }
 
-const MapProperties: React.FC<MapPropertiesProps> = ({ setValue }: any) => {
+const MapProperties: React.FC<MapPropertiesProps> = ({ setValue }: any): JSX.Element => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.GOOGLE_MAP_API as string,
   });
@@ -44,7 +44,7 @@ const MapProperties: React.FC<MapPropertiesProps> = ({ setValue }: any) => {
 
       <GoogleMap
         options={{ draggableCursor: cursorType, scrollwheel: true }}
-        onClick={(e) => {
+        onClick={(e): void => {
           if (!choose) {
             setValue("coordinates", {
               lat: e.latLng?.lat(),

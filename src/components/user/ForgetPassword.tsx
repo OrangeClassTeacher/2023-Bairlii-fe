@@ -3,14 +3,14 @@ import { useContext } from "react";
 import { LoginContext } from "../../Context/UserContext";
 import Image from "next/image";
 
-function ForgetPassword(): any {
+function ForgetPassword(): JSX.Element {
   const { ForgetPass, setEmail } = useContext(LoginContext);
 
-  const onChangeEmail = (e: any) => {
+  const onChangeEmail = (e: any): void => {
     setEmail(e.target.value);
   };
 
-  const onSubmit = () => {
+  const onSubmit = (): void => {
     ForgetPass();
   };
 

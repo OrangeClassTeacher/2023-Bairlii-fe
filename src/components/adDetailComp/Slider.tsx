@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { AiFillCaretRight } from "react-icons/ai";
 import Image from "next/image";
 
-const Slider = ({ images }: any) => {
+const Slider = ({ images }: any): JSX.Element => {
   let [imageIndex, setImageIndex] = useState(0);
 
-  function increaseImageIndex() {
+  function increaseImageIndex(): void {
     if (imageIndex == images.length - 1) {
       setImageIndex(0);
     } else {
@@ -25,7 +25,7 @@ const Slider = ({ images }: any) => {
       <AiFillCaretRight
         className="absolute z-20 right-px top-1/2"
         width={60}
-        onClick={() => increaseImageIndex()}
+        onClick={(): void => increaseImageIndex()}
       />
     </div>
   );

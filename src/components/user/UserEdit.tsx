@@ -51,7 +51,7 @@ function UserEdit(): JSX.Element {
 
   const route = useRouter();
 
-  function updateUser() {
+  function updateUser(): void {
     const userID = decoded?.user._id;
     console.log("xaxaxaxa", userID, userEdit);
 
@@ -66,7 +66,7 @@ function UserEdit(): JSX.Element {
       .catch((error: any) => console.log("error", error));
   }
 
-  function getUsers() {
+  function getUsers(): void {
     const updateObj: IEdit = {
       firstName: decoded?.user.firstName,
       lastName: decoded?.user.lastName,
@@ -90,7 +90,7 @@ function UserEdit(): JSX.Element {
     }
   }, [decoded]);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = event.target;
 
     setUserEdit((prevState) => ({

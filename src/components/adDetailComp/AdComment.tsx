@@ -113,13 +113,11 @@ export const AdComment = ({ data }: any): JSX.Element => {
           postComment={postComment}
           commentBody={commentBody}
         />
-        {commentData?.map((e, index): any => {
-          return (
-            <div key={index}>
-              <CommentCard data={e} />
-            </div>
-          );
-        })}
+        {commentData?.map((e, index): any =>
+        (<div key={index}>
+          <CommentCard data={e} />
+        </div>)
+        )}
       </div>
     );
   }

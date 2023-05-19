@@ -3,20 +3,20 @@ import { useContext } from "react";
 import { LoginContext } from "../../Context/UserContext";
 import Image from "next/image";
 
-function ResetPassword(): any {
+function ResetPassword(): JSX.Element {
   const { ResetPass, setResetPassword, setResetPassword1 } =
     useContext(LoginContext);
 
   const route = useRouter();
 
-  const onChangeResetPass = (e: any) => {
+  const onChangeResetPass = (e: any): void => {
     setResetPassword(e.target.value);
   };
-  const onChangeResetPass1 = (e: any) => {
+  const onChangeResetPass1 = (e: any): void => {
     setResetPassword1(e.target.value);
   };
 
-  const onSubmit = () => {
+  const onSubmit = (): void => {
     ResetPass();
   };
 

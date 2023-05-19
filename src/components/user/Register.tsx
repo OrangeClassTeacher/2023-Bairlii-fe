@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import Image from "next/image";
 
-function Register() {
+function Register(): JSX.Element {
   const {
     register,
     handleSubmit,
@@ -30,7 +30,7 @@ function Register() {
   const [profile, setProfile] = useState<object>({ profilePicture: [] });
   const route = useRouter();
 
-  const sendFile = async (fieldName: any, files: any) => {
+  const sendFile = async (fieldName: any, files: any): Promise<void> => {
     setLoading(true);
 
     const url = `http://api.cloudinary.com/v1_1/dnowpv9qs/upload`;

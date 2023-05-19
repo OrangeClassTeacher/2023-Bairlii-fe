@@ -1,7 +1,7 @@
-import React, { useRef, useEffect } from "react";
-import PhotoSphereViewer from "photo-sphere-viewer";
+import React from "react";
 
-function PanoramaViewer() {
+
+function PanoramaViewer(): JSX.Element {
   // const container = useRef<HTMLDivElement>(null);
 
   // useEffect(() => {

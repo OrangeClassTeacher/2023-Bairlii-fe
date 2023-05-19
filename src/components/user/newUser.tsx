@@ -20,7 +20,7 @@ const NewUser = (): JSX.Element => {
     const secretToken: string | null = process.env.TOKEN_KEY || "";
   }, []);
 
-  const SignOut = () => {
+  const SignOut = (): void => {
     localStorage.removeItem("token");
     window.location.href = "/";
   };
@@ -51,9 +51,9 @@ const NewUser = (): JSX.Element => {
             <Dropdown.Item>My Advertisements</Dropdown.Item>
           </Link>
           <Link href="/userEdit">
-            <Dropdown.Item>Засварлах</Dropdown.Item>
+            <Dropdown.Item>Edit profile</Dropdown.Item>
           </Link>
-          <Dropdown.Item onClick={SignOut}>Гарах</Dropdown.Item>
+          <Dropdown.Item onClick={SignOut}>Log Out</Dropdown.Item>
         </Dropdown>
         <div>
           <Image
