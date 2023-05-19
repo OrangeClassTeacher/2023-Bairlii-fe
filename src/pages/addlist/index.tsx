@@ -4,6 +4,7 @@ import AddProHeader from "@/components/AddProperty/AddProHeader";
 import { Container } from "@/components/Container";
 import Menu from "@/components/Navbar/Menu";
 import React from "react";
+import Image from "next/image";
 
 export default function addlist() {
   return (
@@ -26,7 +27,7 @@ export default function addlist() {
                   </p>
                 </div>
                 <div>
-                  <img
+                  <Image
                     className="object-cover  w-96 rounded-sm"
                     src="https://assets-news.housing.com/news/wp-content/uploads/2018/11/09093208/Real-estate-basics-What-is-a-Freehold-property-FB-1200x700-compressed.jpg"
                     alt=""

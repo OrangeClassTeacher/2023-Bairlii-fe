@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken";
 import MapComponentForPropertyEdit from "@/components/PropertiesMap/MapComponentForPropertyEdit";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import Utils from "@/utils/Utils";
+import Image from "next/image";
 
 export interface IProperty {
   _id: string;
@@ -315,7 +316,7 @@ function EditProperties() {
                         className="absolute left-2 top-2 cursor-pointer text-gray-900  text-xl drop-shadow-lg"
                         onClick={() => removePhoto(index)}
                       />
-                      <img src={photo} width={300} height={150} alt="image" />
+                      <Image src={photo} width={300} height={150} alt="image" />
                     </div>
                   );
                 })
