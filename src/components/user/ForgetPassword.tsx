@@ -17,7 +17,7 @@ function ForgetPassword(): JSX.Element {
       .post(`http://localhost:9000/api/user/forgotPassword`, {
         email: email,
       })
-      .then((response: any) => {
+      .then(() => {
         alert("Имэйл хаяг зөв байна");
         route.push("/login/resetPass");
       })

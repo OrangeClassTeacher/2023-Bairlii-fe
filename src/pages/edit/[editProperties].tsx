@@ -245,7 +245,6 @@ function EditProperties(): JSX.Element {
               <div>
                 <MapComponentForPropertyEdit
                   setCoordinates={setCoordinate}
-                  coordinates={coordinate}
                   propertyData={propertyData}
                 />
               </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { GoogleMap, MarkerF, InfoWindow, InfoWindowF } from "@react-google-maps/api";
+import { GoogleMap, MarkerF, InfoWindowF } from "@react-google-maps/api";
 import { useState } from "react";
 import AdCard from "../AddProperty/AdCard";
 
@@ -23,16 +23,15 @@ export const MapForHome = ({ data }: any): JSX.Element => {
         mapContainerClassName="map-container-for-home"
       >
         {
-          data.map((item: any, index: any) => {
-            return <MarkerF
-              position={{
-                lat: item?.propertyID?.coordinates?.lat,
-                lng: item?.propertyID?.coordinates?.lng,
-              }}
-              key={index}
-              onClick={(): void => onSelect(item)}
-            />
-          })
+          data.map((item: any, index: any) => <MarkerF
+            position={{
+              lat: item?.propertyID?.coordinates?.lat,
+              lng: item?.propertyID?.coordinates?.lng,
+            }}
+            key={index}
+            onClick={(): void => onSelect(item)}
+          />
+          )
         }
         {
           selected?.propertyID

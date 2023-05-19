@@ -58,6 +58,7 @@ function UserPage(): JSX.Element {
         }
       })
       .catch((err) => {
+        console.log(err);
         toast.success("❌ unsuccessful", {
           position: toast.POSITION.TOP_CENTER,
           autoClose: 5000,
@@ -93,7 +94,7 @@ function UserPage(): JSX.Element {
                     rentModal.isOpen ? rentModal.onClose : rentModal.onOpen
                   }
                 >
-                  <FaPlus className="adlist" />
+                  <FaPlus className="text-[80px] hover:text-gray-800 transition" />
                 </button>
                 <p className="bg-gray-100 w-[270px] rounded-md text-2xl mt-[56px] text-center ">
                   If you want to enter your place, click here.

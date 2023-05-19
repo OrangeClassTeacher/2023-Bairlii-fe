@@ -19,7 +19,7 @@ function ResetPassword(): JSX.Element {
   const onChangeResetPass1 = (e: any): void => {
     setResetPassword1(e.target.value);
   };
-  const ResetPass = () => {
+  const ResetPass = (): void => {
     if (ResetPassword == ResetPassword1) {
 
       axios

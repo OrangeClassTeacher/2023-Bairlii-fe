@@ -6,7 +6,7 @@ const logo = (): JSX.Element => (
     height={60}
     width={230}
     src="/images/DevZoid.png"
-    onClick={() => (window.location.href = "/")}
+    onClick={(): string => (window.location.href = "/")}
   />
 )
 

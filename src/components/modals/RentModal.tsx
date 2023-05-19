@@ -74,11 +74,9 @@ const RentModal = (): JSX.Element => {
     });
   };
 
-  const onBack = () => {
-    return (
-      setStep((value) => value - 1)
-    );
-  };
+  const onBack = (): void => (
+    setStep((value) => value - 1)
+  );
 
   const [decoded, setDecoded] = useState<object | string | any>();
   const [token, setToken] = useState<string>();

@@ -13,17 +13,16 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
   label,
   selected,
   onClick,
-}) => {
-  return (
-    <div
-      onClick={(): void => onClick(label)}
-      className={`rounded-xl border-2 p-4 flex gap-3 hover:border-black transition cursor-pointer ${selected ? "border-black" : "border-neutral-200"
-        }`}
-    >
-      <Icon size={30} />
-      <div className="font-semibold">{label}</div>
-    </div>
-  );
-};
+}) => (
+  <div
+    onClick={(): void => onClick(label)}
+    className={`rounded-xl border-2 p-4 flex gap-3 hover:border-black transition cursor-pointer ${selected ? "border-black" : "border-neutral-200"
+      }`}
+  >
+    <Icon size={30} />
+    <div className="font-semibold">{label}</div>
+  </div>
+);
+
 
 export default CategoryBox;
