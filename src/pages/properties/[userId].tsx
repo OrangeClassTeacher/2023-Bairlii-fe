@@ -3,6 +3,7 @@ import UserPropertyCard from "@/components/user/UserPropertyCard";
 import useAllModal from "@/hooks/useAllModal";
 import axios from "axios";
 import { FaPlus } from "react-icons/fa";
+import Image from "next/image";
 
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -87,7 +88,7 @@ function UserPage() {
           <div className="flex gap-5 flex-wrap justify-between max-w-7xl w-full mt-7 ">
             <div className="cards ">
               <div className="card-inner  p-2 rounded-md">
-                <img
+                <Image
                   className="rounded-md h-40 w-[270px] object-cover"
                   src="https://files.realpython.com/media/How-to-Use-the-Python-append-Method_Watermarked.4e39826bc6f5.jpg"
                   alt=""

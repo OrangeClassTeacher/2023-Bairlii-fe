@@ -181,7 +181,7 @@ function UserEdit(): JSX.Element {
                     className="border border-gray-400 py-1 px-2 w-full"
                     value={userEdit?.address.district}
                   >
-                    <option value=""></option>
+                    <option value="" />
                     <option value="Баянзүрх дүүрэг">Баянзүрх дүүрэг</option>
                     <option value="Баянгол дүүрэг">Баянгол дүүрэг</option>
                     <option value="Сүхбаатар дүүрэг">Сүхбаатар дүүрэг</option>
@@ -208,7 +208,7 @@ function UserEdit(): JSX.Element {
                     className="border border-gray-400 py-1 px-2 w-full"
                     value={userEdit?.address.subdistrict}
                   >
-                    <option value=""></option>
+                    <option value="" />
                     <option value="1">1-р хороо</option>
                     <option value="2">2-р хороо</option>
                     <option value="3">3-р хороо</option>
