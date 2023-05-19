@@ -14,7 +14,7 @@ const Sort: React.FC<CategoryBoxProps> = ({
   icon: Icon,
   label,
   selected,
-}) => {
+}): JSX.Element => {
   const router = useRouter();
   const params = useSearchParams();
 

@@ -1,7 +1,7 @@
-import img from "../../public/images/logo.png";
+import Image from "next/image";
 import Link from "next/link";
 
-const Avatar = () => {
+const Avatar = (): JSX.Element => {
   return (
     <Link href="/login">
       <p>Login</p>

@@ -1,21 +1,22 @@
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import { LoginContext } from "../../Context/UserContext";
+import Image from "next/image";
 
-function ResetPassword(): any {
+function ResetPassword(): JSX.Element {
   const { ResetPass, setResetPassword, setResetPassword1 } =
     useContext(LoginContext);
 
   const route = useRouter();
 
-  const onChangeResetPass = (e: any) => {
+  const onChangeResetPass = (e: any): void => {
     setResetPassword(e.target.value);
   };
-  const onChangeResetPass1 = (e: any) => {
+  const onChangeResetPass1 = (e: any): void => {
     setResetPassword1(e.target.value);
   };
 
-  const onSubmit = () => {
+  const onSubmit = (): void => {
     ResetPass();
   };
 
@@ -24,7 +25,7 @@ function ResetPassword(): any {
       <div className="h-full">
         <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
           <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
-            <img
+            <Image
               src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
               className="w-full"
               alt="Sample image"
@@ -32,8 +33,8 @@ function ResetPassword(): any {
           </div>
           <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
             <div className="relative w-[380px] h-[420px]  rounded-lg overflow-hidden">
-              <div className="absolute w-[380px] h-[420px] bg-gradient-to-r from-blue-600 via-blue-600 to-transparent -top-[50%] -left-[50%] animate-spin-slow origin-bottom-right"></div>
-              <div className="absolute w-[380px] h-[420px] bg-gradient-to-r from-blue-600 via-blue-600 to-transparent -top-[50%] -left-[50%] animate-spin-delay origin-bottom-right"></div>
+              <div className="absolute w-[380px] h-[420px] bg-gradient-to-r from-blue-600 via-blue-600 to-transparent -top-[50%] -left-[50%] animate-spin-slow origin-bottom-right" />
+              <div className="absolute w-[380px] h-[420px] bg-gradient-to-r from-blue-600 via-blue-600 to-transparent -top-[50%] -left-[50%] animate-spin-delay origin-bottom-right" />
               <div className="absolute inset-1 bg-blue-200 rounded-lg z-10 p-5">
                 <form>
                   <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">

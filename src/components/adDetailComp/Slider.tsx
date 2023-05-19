@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { AiFillCaretRight } from "react-icons/ai";
+import Image from "next/image";
 
-const Slider = ({ images }: any) => {
-  let [imageIndex, setImageIndex] = useState(0);
+const Slider = ({ images }: any): JSX.Element => {
+  const [imageIndex, setImageIndex] = useState(0);
 
-  function increaseImageIndex() {
+  function increaseImageIndex(): void {
     if (imageIndex == images.length - 1) {
       setImageIndex(0);
     } else {
@@ -15,7 +16,7 @@ const Slider = ({ images }: any) => {
   return (
     <div className="relative flex align-middle h-48 w-full">
       <div className="sliderImgContainer z-10 w-full h-full">
-        <img
+        <Image
           src={images[imageIndex]}
           alt=""
           className="object-fill w-full h-full rounded-2xl"
@@ -24,7 +25,7 @@ const Slider = ({ images }: any) => {
       <AiFillCaretRight
         className="absolute z-20 right-px top-1/2"
         width={60}
-        onClick={() => increaseImageIndex()}
+        onClick={(): void => increaseImageIndex()}
       />
     </div>
   );

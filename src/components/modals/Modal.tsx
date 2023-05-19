@@ -31,7 +31,7 @@ const Modal: React.FC<ModalProps> = ({
   secondaryAction,
   secondaryLabel,
   secondaryActionLabel,
-}) => {
+}): JSX.Element | null => {
   const [showModal, setShowModal] = useState(isOpen);
   const rentModal = useAllModal();
 
@@ -49,19 +49,19 @@ const Modal: React.FC<ModalProps> = ({
   //     }, 300);
   //   }, [disabled, onClose]);
 
-  const handleClose = () => {
+  const handleClose = (): void => {
     // setShowModal(!isOpen);
     rentModal.onClose();
   };
 
-  const handleSubmit = useCallback(() => {
+  const handleSubmit = useCallback((): void => {
     if (disabled) {
       return;
     }
     onSubmit();
   }, [disabled, onSubmit]);
 
-  const handleSecondaryAction = useCallback(() => {
+  const handleSecondaryAction = useCallback((): void => {
     if (disabled || !secondaryAction) {
       return;
     }
@@ -75,7 +75,7 @@ const Modal: React.FC<ModalProps> = ({
   return (
     <>
       <div
-        onClick={(e) => e.stopPropagation()}
+        onClick={(e): void => e.stopPropagation()}
         className={`justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-neutral-800/70 
         ${showModal ? "block" : "hidden"}`}
       >

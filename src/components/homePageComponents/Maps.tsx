@@ -3,10 +3,10 @@ import { GoogleMap, MarkerF, InfoWindow, InfoWindowF } from "@react-google-maps/
 import { useState } from "react";
 import AdCard from "../AddProperty/AdCard";
 
-export const MapForHome = ({ data }: any) => {
+export const MapForHome = ({ data }: any): JSX.Element => {
   const [selected, setSelected] = useState<any>({});
 
-  const onSelect = (item: any) => {
+  const onSelect = (item: any): void => {
     setSelected(item);
   }
   console.log(data);
@@ -30,7 +30,7 @@ export const MapForHome = ({ data }: any) => {
                 lng: item?.propertyID?.coordinates?.lng,
               }}
               key={index}
-              onClick={() => onSelect(item)}
+              onClick={(): void => onSelect(item)}
             />
           })
         }
@@ -44,7 +44,7 @@ export const MapForHome = ({ data }: any) => {
                 lng: selected?.propertyID?.coordinates?.lng,
               }}
               // clickable={true}
-              onCloseClick={() => setSelected({})}
+              onCloseClick={(): void => setSelected({})}
             >
               <div className="w-[300px]">
                 <AdCard item={selected} />

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { TiArrowRightOutline, TiArrowLeftOutline } from "react-icons/ti";
+import Image from "next/image";
 
-export const AdDetailSmallSlider = ({ images }: any) => {
-  let [imageIndex, setImageIndex] = useState(0);
+export const AdDetailSmallSlider = ({ images }: any): JSX.Element => {
+  const [imageIndex, setImageIndex] = useState(0);
 
-  function increaseImageIndex() {
+  function increaseImageIndex(): void {
     if (imageIndex == images?.propertyID?.photos.length - 1) {
       setImageIndex(0);
     } else {
@@ -12,7 +13,7 @@ export const AdDetailSmallSlider = ({ images }: any) => {
     }
   }
 
-  function decreaseImageIndex() {
+  function decreaseImageIndex(): void {
     if (imageIndex == 0) {
       setImageIndex(images?.propertyID?.photos.length - 1);
     } else {
@@ -23,37 +24,37 @@ export const AdDetailSmallSlider = ({ images }: any) => {
   return (
     <div className="flex flex-col gap-y-5">
       <div className="w-full relative h-[600px] ">
-        <img
+        <Image
           src={images?.propertyID?.photos[imageIndex]}
           alt="picture"
           className="object-fill w-full h-full rounded-2xl"
         />
         <TiArrowLeftOutline
           className="absolute left-px top-1/2 text-4xl cursor-pointer"
-          onClick={() => increaseImageIndex()}
+          onClick={(): void => increaseImageIndex()}
         />
         <TiArrowRightOutline
           className="absolute right-px top-1/2 text-4xl cursor-pointer"
-          onClick={() => decreaseImageIndex()}
+          onClick={(): void => decreaseImageIndex()}
         />
       </div>
       <div className="flex h-40  rounded-2xl overflow-hidden">
-        <img
+        <Image
           src={images?.propertyID?.photos[0]}
           alt="picture"
           className="w-[20%]"
         />
-        <img
+        <Image
           src={images?.propertyID?.photos[1]}
           alt="picture"
           className="w-[20%]"
         />
-        <img
+        <Image
           src={images?.propertyID?.photos[2]}
           alt="picture"
           className="w-[20%]"
         />
-        <img
+        <Image
           src={images?.propertyID?.photos[3]}
           alt="picture"
           className="w-[20%]"

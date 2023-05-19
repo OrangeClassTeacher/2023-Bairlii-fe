@@ -1,5 +1,4 @@
-import React, { useRef, useState } from "react";
-// Import Swiper React components
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -9,8 +8,9 @@ import "swiper/css/pagination";
 
 // import required modules
 import { EffectCoverflow, Pagination } from "swiper";
+import Image from "next/image";
 
-export default function SwiperForDetail({ data }: any) {
+export default function SwiperForDetail({ data }: any): JSX.Element {
   return (
     <div className="shadow-lg bg-white rounded-lg border p-4">
       <Swiper
@@ -36,7 +36,7 @@ export default function SwiperForDetail({ data }: any) {
             <div key={index}>
               <SwiperSlide>
                 <div className="h-96">
-                  <img
+                  <Image
                     src={item}
                     alt="haha"
                     className="object-cover w-full h-full rounded-lg drop-shadow-lg"

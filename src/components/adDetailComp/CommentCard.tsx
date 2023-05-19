@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 
-export const CommentCard = ({ data }: any) => {
+export const CommentCard = ({ data }: any): JSX.Element => {
   const date = new Date(data?.createdAt).toLocaleDateString("en-us", {
     weekday: "long",
     year: "numeric",
@@ -15,7 +15,7 @@ export const CommentCard = ({ data }: any) => {
     getUserData();
   }, []);
 
-  function getUserData() {
+  function getUserData(): void {
     axios
       .get(`http://localhost:9000/api/user/${data?.userID}`)
       .then((res) => {

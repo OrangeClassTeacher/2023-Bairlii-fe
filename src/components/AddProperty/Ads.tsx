@@ -12,7 +12,7 @@ import Utils from "@/utils/Utils";
 
 const Ads = ({ setSelected }: any): JSX.Element => {
   const [ads, setAds] = useState<Array<any>>([]);
-  let pages = [];
+  const pages = [];
   const [pageNumb, setPageNumb] = useState<number>(1);
   const [curPageNumb, setCurPageNumb] = useState<number>(1);
   const [reqBody, setReqBody] = useState<object>({ pageNumber: 1 });
@@ -28,7 +28,7 @@ const Ads = ({ setSelected }: any): JSX.Element => {
     getData();
   }, [curPageNumb, params]);
 
-  function getData() {
+  function getData(): void {
     setLoading(true);
     axios
       .post(`${Utils.API_URL}/advertisements`, {
@@ -66,16 +66,16 @@ const Ads = ({ setSelected }: any): JSX.Element => {
                 className="flex flex-wrap flex-col max-w-[25%] min-w-[300px]"
               >
                 <div className="mx-auto bg-white rounded shadow-lg max-w-[25%] min-w-[300px] rounded-2xl">
-                  <div className="h-48 p-3 overflow-hidden bg-gray-200 animate-pulse"></div>
+                  <div className="h-48 p-3 overflow-hidden bg-gray-200 animate-pulse" />
                   <div className="p-3 h-">
                     <div className="grid grid-cols-3 gap-4 mt-2">
-                      <div className="h-8 bg-gray-200 rounded animate-pulse"></div>
-                      <div className="h-8 bg-gray-200 rounded animate-pulse"></div>
-                      <div className="h-8 bg-gray-200 rounded animate-pulse"></div>
-                      <div className="h-8 col-span-2 bg-gray-200 rounded animate-pulse"></div>
-                      <div className="h-8 bg-gray-200 rounded  animate-pulse"></div>
-                      <div className="..."></div>
-                      <div className="col-span-2 ..."></div>
+                      <div className="h-8 bg-gray-200 rounded animate-pulse" />
+                      <div className="h-8 bg-gray-200 rounded animate-pulse" />
+                      <div className="h-8 bg-gray-200 rounded animate-pulse" />
+                      <div className="h-8 col-span-2 bg-gray-200 rounded animate-pulse" />
+                      <div className="h-8 bg-gray-200 rounded  animate-pulse" />
+                      <div className="..." />
+                      <div className="col-span-2 ..." />
                     </div>
                   </div>
                 </div>
@@ -134,7 +134,7 @@ const Ads = ({ setSelected }: any): JSX.Element => {
       )}
       <span
         className="flex items-center gap-2 bg-black p-2 rounded-xl text-white fixed bottom-24 z-30 border-2 border-slate-600 cursor-pointer"
-        onClick={() => setSelected("Maps")}
+        onClick={(): void => setSelected("Maps")}
       >
         Show map <BsMap />
       </span>

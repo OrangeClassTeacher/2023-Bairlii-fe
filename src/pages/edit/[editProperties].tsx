@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import jwt from "jsonwebtoken";
 import MapComponentForPropertyEdit from "@/components/PropertiesMap/MapComponentForPropertyEdit";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import Utils from "@/utils/Utils";
+import Image from "next/image";
 
 export interface IProperty {
   _id: string;
@@ -31,7 +31,7 @@ export interface ICoordinates {
   lng: number;
 }
 
-function EditProperties() {
+function EditProperties(): JSX.Element {
   const route = useRouter();
   const editingPropertyId = route.query.editProperties;
   const [propertyData, setPropertyData] = useState<IProperty>({
@@ -55,7 +55,6 @@ function EditProperties() {
   });
   const [loading, setLoading] = useState(false);
   const [uploading, setUploading] = useState(false);
-  const [decoded, setDecoded] = useState<object | string | any>();
   const [token, setToken] = useState<string>("");
   const [coordinate, setCoordinate] = useState<ICoordinates>({
     lat: 0,
@@ -64,12 +63,11 @@ function EditProperties() {
 
   useEffect(() => {
     editProperty();
-    let localStorageValue: string = localStorage.getItem("token") || "";
-    setDecoded(jwt.decode(localStorageValue) || "");
+    const localStorageValue: string = localStorage.getItem("token") || "";
     setToken(localStorageValue);
   }, [editingPropertyId]);
 
-  function editProperty() {
+  function editProperty(): void {
     setLoading(true);
     axios
       .get(`${Utils.API_URL}/properties/${editingPropertyId}`)
@@ -85,8 +83,8 @@ function EditProperties() {
       });
   }
 
-  const onSave = () => {
-    let reqBody = { ...propertyData, coordinates: coordinate };
+  const onSave = (): void => {
+    const reqBody = { ...propertyData, coordinates: coordinate };
 
     axios
       .put(`${Utils.API_URL}/properties`, reqBody, {
@@ -103,13 +101,13 @@ function EditProperties() {
       });
   };
 
-  const removePhoto = (index: number) => {
+  const removePhoto = (index: number): void => {
     const { photos } = propertyData;
     photos.splice(index, 1);
     setPropertyData({ ...propertyData, photos });
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = event.target;
     setPropertyData((prevState) => ({
       ...prevState,
@@ -117,7 +115,7 @@ function EditProperties() {
     }));
   };
 
-  const sendFile = async (files: any) => {
+  const sendFile = async (files: any): Promise<void> => {
     setUploading(true);
     const url = `http://api.cloudinary.com/v1_1/dnowpv9qs/upload`;
     const newArr = [];
@@ -157,22 +155,22 @@ function EditProperties() {
           role="img"
           className="wheel-and-hamster"
         >
-          <div className="wheel"></div>
+          <div className="wheel" />
           <div className="hamster">
             <div className="hamster__body">
               <div className="hamster__head">
-                <div className="hamster__ear"></div>
-                <div className="hamster__eye"></div>
-                <div className="hamster__nose"></div>
+                <div className="hamster__ear" />
+                <div className="hamster__eye" />
+                <div className="hamster__nose" />
               </div>
-              <div className="hamster__limb hamster__limb--fr"></div>
-              <div className="hamster__limb hamster__limb--fl"></div>
-              <div className="hamster__limb hamster__limb--br"></div>
-              <div className="hamster__limb hamster__limb--bl"></div>
-              <div className="hamster__tail"></div>
+              <div className="hamster__limb hamster__limb--fr" />
+              <div className="hamster__limb hamster__limb--fl" />
+              <div className="hamster__limb hamster__limb--br" />
+              <div className="hamster__limb hamster__limb--bl" />
+              <div className="hamster__tail" />
             </div>
           </div>
-          <div className="spoke"></div>
+          <div className="spoke" />
         </div>
       </div>
     );
@@ -286,39 +284,37 @@ function EditProperties() {
                     role="img"
                     className="wheel-and-hamster"
                   >
-                    <div className="wheel"></div>
+                    <div className="wheel" />
                     <div className="hamster">
                       <div className="hamster__body">
                         <div className="hamster__head">
-                          <div className="hamster__ear"></div>
-                          <div className="hamster__eye"></div>
-                          <div className="hamster__nose"></div>
+                          <div className="hamster__ear" />
+                          <div className="hamster__eye" />
+                          <div className="hamster__nose" />
                         </div>
-                        <div className="hamster__limb hamster__limb--fr"></div>
-                        <div className="hamster__limb hamster__limb--fl"></div>
-                        <div className="hamster__limb hamster__limb--br"></div>
-                        <div className="hamster__limb hamster__limb--bl"></div>
-                        <div className="hamster__tail"></div>
+                        <div className="hamster__limb hamster__limb--fr" />
+                        <div className="hamster__limb hamster__limb--fl" />
+                        <div className="hamster__limb hamster__limb--br" />
+                        <div className="hamster__limb hamster__limb--bl" />
+                        <div className="hamster__tail" />
                       </div>
                     </div>
-                    <div className="spoke"></div>
+                    <div className="spoke" />
                   </div>
                 </div>
               ) : (
-                propertyData?.photos?.map((photo, index): JSX.Element => {
-                  return (
-                    <div
-                      className="relative flex w-[200px] h-[200px]"
-                      key={index}
-                    >
-                      <AiOutlineCloseCircle
-                        className="absolute left-2 top-2 cursor-pointer text-gray-900  text-xl drop-shadow-lg"
-                        onClick={() => removePhoto(index)}
-                      />
-                      <img src={photo} width={300} height={150} alt="image" />
-                    </div>
-                  );
-                })
+                propertyData?.photos?.map((photo, index): JSX.Element => (
+                  <div
+                    className="relative flex w-[200px] h-[200px]"
+                    key={index}
+                  >
+                    <AiOutlineCloseCircle
+                      className="absolute left-2 top-2 cursor-pointer text-gray-900  text-xl drop-shadow-lg"
+                      onClick={(): void => removePhoto(index)}
+                    />
+                    <Image src={photo} width={300} height={150} alt="image" />
+                  </div>
+                ))
               )}
             </div>
             <div>
@@ -326,7 +322,7 @@ function EditProperties() {
                 <input
                   type="file"
                   multiple
-                  onChange={(e) => {
+                  onChange={(e): void => {
                     sendFile(e.target.files);
                   }}
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

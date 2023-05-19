@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Image from "next/image";
 
 import "swiper/css";
 import "swiper/css/effect-cube";
@@ -34,7 +35,7 @@ export default function SwiperSlider({ data }: any): any {
               <div key={index}>
                 <SwiperSlide>
                   <div className="h-48 w-full">
-                    <img
+                    <Image
                       src={item}
                       alt="haha"
                       className="rounded-md object-cover w-full h-full"

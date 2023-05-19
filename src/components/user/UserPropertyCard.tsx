@@ -4,7 +4,7 @@ import Link from "next/link";
 import AddAdvertisement from "./AddAdvertisement";
 import axios from "axios";
 
-const UserPropertyCard = ({ propertyData, deleteProperties }: any) => {
+const UserPropertyCard = ({ propertyData, deleteProperties }: any): JSX.Element => {
   const [addingAdvertisement, setAddingAdvertisement] =
     useState<boolean>(false);
   const [advertisementId, setAdvertisementId] = useState<string>("");
@@ -24,7 +24,7 @@ const UserPropertyCard = ({ propertyData, deleteProperties }: any) => {
     checkActiveAdvertisement();
   }, []);
 
-  function checkActiveAdvertisement() {
+  function checkActiveAdvertisement(): void {
     axios
       .get(`http://localhost:9000/api/advertisement/check/${_id}`)
       .then((res) => {
@@ -47,14 +47,14 @@ const UserPropertyCard = ({ propertyData, deleteProperties }: any) => {
   }
   return (
     <div className="card ">
-      <div className="circle"></div>
-      <div className="circle"></div>
-      <div className="circle"></div>
-      <div className="circle"></div>
-      <div className="circle"></div>
-      <div className="circle"></div>
-      <div className="circle"></div>
-      <div className="circle"></div>
+      <div className="circle" />
+      <div className="circle" />
+      <div className="circle" />
+      <div className="circle" />
+      <div className="circle" />
+      <div className="circle" />
+      <div className="circle" />
+      <div className="circle" />
       <div className="card-inner">
         <div className="w-72 p-2 rounded-md ">
           <div className="">

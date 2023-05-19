@@ -6,10 +6,9 @@ import { AdComment } from "@/components/adDetailComp/AdComment";
 import LandlordInfo from "@/components/adDetailComp/LandlordInfo";
 import SwiperForDetail from "@/components/adDetailComp/SwiperForDetail";
 import RatingStars from "@/components/adDetailComp/star";
-import { log } from "console";
 import Utils from "@/utils/Utils";
 
-const AdDetail = () => {
+const AdDetail = (): JSX.Element => {
   const route = useRouter();
   const id = route.query.detail;
   const [adData, setAdData] = useState<Array<any>>([]);
@@ -19,7 +18,7 @@ const AdDetail = () => {
     getAdData();
   }, [id]);
 
-  function getAdData() {
+  function getAdData(): void {
     axios
       .get(`${Utils.API_URL}/advertisement/${id}`)
       .then((res) => {
@@ -38,22 +37,22 @@ const AdDetail = () => {
           role="img"
           className="wheel-and-hamster"
         >
-          <div className="wheel"></div>
+          <div className="wheel" />
           <div className="hamster">
             <div className="hamster__body">
               <div className="hamster__head">
-                <div className="hamster__ear"></div>
-                <div className="hamster__eye"></div>
-                <div className="hamster__nose"></div>
+                <div className="hamster__ear" />
+                <div className="hamster__eye" />
+                <div className="hamster__nose" />
               </div>
-              <div className="hamster__limb hamster__limb--fr"></div>
-              <div className="hamster__limb hamster__limb--fl"></div>
-              <div className="hamster__limb hamster__limb--br"></div>
-              <div className="hamster__limb hamster__limb--bl"></div>
-              <div className="hamster__tail"></div>
+              <div className="hamster__limb hamster__limb--fr" />
+              <div className="hamster__limb hamster__limb--fl" />
+              <div className="hamster__limb hamster__limb--br" />
+              <div className="hamster__limb hamster__limb--bl" />
+              <div className="hamster__tail" />
             </div>
           </div>
-          <div className="spoke"></div>
+          <div className="spoke" />
         </div>
       </div>
     );

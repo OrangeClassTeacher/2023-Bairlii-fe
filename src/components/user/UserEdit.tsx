@@ -6,6 +6,7 @@ import Link from "next/link";
 import { LoginContext } from "../../Context/UserContext";
 import { useContext } from "react";
 import Utils from "@/utils/Utils";
+import Image from "next/image";
 
 export interface IEdit {
   firstName: string;
@@ -44,13 +45,13 @@ function UserEdit(): JSX.Element {
   // console.log(setUserEdit1);
 
   useEffect(() => {
-    let localStorageValue: string = localStorage.getItem("token") || "";
+    const localStorageValue: string = localStorage.getItem("token") || "";
     setDecoded(jwt.decode(localStorageValue) || "");
   }, []);
 
   const route = useRouter();
 
-  function updateUser() {
+  function updateUser(): void {
     const userID = decoded?.user._id;
     console.log("xaxaxaxa", userID, userEdit);
 
@@ -65,7 +66,7 @@ function UserEdit(): JSX.Element {
       .catch((error: any) => console.log("error", error));
   }
 
-  function getUsers() {
+  function getUsers(): void {
     const updateObj: IEdit = {
       firstName: decoded?.user.firstName,
       lastName: decoded?.user.lastName,
@@ -89,7 +90,7 @@ function UserEdit(): JSX.Element {
     }
   }, [decoded]);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = event.target;
 
     setUserEdit((prevState) => ({
@@ -105,7 +106,7 @@ function UserEdit(): JSX.Element {
       <div className="h-full max-w-7xl">
         <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
           <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-7/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
-            <img
+            <Image
               src="/images/DevZoid.png"
               className="w-full"
               alt="Sample image"
@@ -180,7 +181,7 @@ function UserEdit(): JSX.Element {
                     className="border border-gray-400 py-1 px-2 w-full"
                     value={userEdit?.address.district}
                   >
-                    <option value=""></option>
+                    <option value="" />
                     <option value="Баянзүрх дүүрэг">Баянзүрх дүүрэг</option>
                     <option value="Баянгол дүүрэг">Баянгол дүүрэг</option>
                     <option value="Сүхбаатар дүүрэг">Сүхбаатар дүүрэг</option>
@@ -207,7 +208,7 @@ function UserEdit(): JSX.Element {
                     className="border border-gray-400 py-1 px-2 w-full"
                     value={userEdit?.address.subdistrict}
                   >
-                    <option value=""></option>
+                    <option value="" />
                     <option value="1">1-р хороо</option>
                     <option value="2">2-р хороо</option>
                     <option value="3">3-р хороо</option>

@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import SwiperSlider from "../SwiperForCard";
 
-const AdCard = ({ item, key }: any) => {
+const AdCard = ({ item, key }: any): JSX.Element => {
   const date1 = new Date(item?.createdAt).toLocaleDateString("en-us", {
     weekday: "long",
     year: "numeric",

@@ -2,7 +2,7 @@ import Ads from "@/components/AddProperty/Ads";
 import { Maps } from "@/components/homePageComponents/googleMaps";
 import { useState } from "react";
 
-export default function Home() {
+export default function Home(): JSX.Element {
   const [selected, setSelected] = useState<string>("Ads");
   return (
     <div className="flex w-full justify-center">
