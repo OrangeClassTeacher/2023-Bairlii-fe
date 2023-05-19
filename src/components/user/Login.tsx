@@ -136,7 +136,7 @@ function Login(): JSX.Element {
                     </div>
                     <Link href={"/login/forgetPass"}>
                       <span>
-                        <a href="#!">Нүүц үг мартсан?</a>
+                        Нүүц үг мартсан?
                       </span>
                     </Link>
                   </div>

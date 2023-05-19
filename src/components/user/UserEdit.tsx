@@ -12,12 +12,10 @@ export interface IEdit {
   firstName: string;
   lastName: string;
   email: string;
-  address: {
-    district: string;
-    subdistrict: string;
-    street: string;
-    block: number;
-  };
+  addressDistrict: string;
+  addressSubdistrict: string;
+  addressStreet: string;
+  addressBlock: number;
   password: string;
   profilePicture: string;
   phoneNumber: number;
@@ -28,12 +26,10 @@ function UserEdit(): JSX.Element {
     firstName: "",
     lastName: "",
     email: "",
-    address: {
-      district: "",
-      subdistrict: "",
-      street: "",
-      block: 0,
-    },
+    addressDistrict: "",
+    addressSubdistrict: "",
+    addressStreet: "",
+    addressBlock: 0,
     password: "",
     profilePicture: "",
     phoneNumber: 0,
@@ -49,11 +45,14 @@ function UserEdit(): JSX.Element {
     setDecoded(jwt.decode(localStorageValue) || "");
   }, []);
 
+  console.log(decoded);
+
+
   const route = useRouter();
 
   function updateUser(): void {
     const userID = decoded?.user._id;
-    console.log("xaxaxaxa", userID, userEdit);
+
 
     axios
       .put(`${Utils.API_URL}/user/${userID}`, userEdit)
@@ -71,12 +70,10 @@ function UserEdit(): JSX.Element {
       firstName: decoded?.user.firstName,
       lastName: decoded?.user.lastName,
       email: decoded?.user.email,
-      address: {
-        district: decoded?.user.address.district,
-        subdistrict: decoded?.user.address.subdistrict,
-        street: decoded?.user.address.street,
-        block: decoded?.user.address.block,
-      },
+      addressDistrict: decoded?.user.address.district,
+      subdistrict: decoded?.user.address.subdistrict,
+      street: decoded?.user.address.street,
+      block: decoded?.user.address.block,
       password: decoded?.user.password,
       profilePicture: decoded?.user.password,
       phoneNumber: decoded?.user.phoneNumber,
@@ -227,7 +224,7 @@ function UserEdit(): JSX.Element {
                   <input
                     onChange={handleChange}
                     value={userEdit?.address.street}
-                    name="{address.street}"
+                    name={address?.street}
                     className="border border-gray-400 py-1 px-2"
                   />
                 </div>
