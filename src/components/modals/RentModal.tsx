@@ -1,6 +1,6 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 import jwt from "jsonwebtoken";
-import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import useAllModal from "@/hooks/useAllModal";
 import { useEffect, useMemo, useState } from "react";
@@ -103,11 +103,19 @@ const RentModal = (): JSX.Element => {
           headers: { "x-access-token": token },
         })
         .then((res) => {
-          toast.success("Listing Created!");
-          router.refresh();
           reset();
           setStep(STEPS.CATEGORY);
           rentModal.onClose();
+          toast.success("🏠Your accommodation has been successfully created", {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
         })
         .catch(() => {
           toast.error("Something went wrong.");
@@ -115,7 +123,6 @@ const RentModal = (): JSX.Element => {
         .finally(() => {
           setIsLoading(false);
         });
-      alert("Та амжилттай хадгаллаа");
     }
   };
 
