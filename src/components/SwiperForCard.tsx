@@ -11,7 +11,7 @@ import { Autoplay, EffectCube, Pagination } from "swiper";
 export default function SwiperSlider({ data }: any): any {
   if (data) {
     return (
-      <div className="h-48 w-full">
+      <div className="h-48 w-full ">
         <Swiper
           effect={"cube"}
           grabCursor={true}
@@ -28,7 +28,7 @@ export default function SwiperSlider({ data }: any): any {
           loop={true}
           pagination={true}
           modules={[Autoplay, EffectCube, Pagination]}
-          className="mySwiper   "
+          className="mySwiper  "
         >
           {data?.propertyID?.photos?.map((item: string, index: number) => {
             return (
@@ -36,9 +36,11 @@ export default function SwiperSlider({ data }: any): any {
                 <SwiperSlide>
                   <div className="h-48 w-full">
                     <Image
+                      height={1000}
+                      width={1000}
                       src={item}
                       alt="haha"
-                      className="object-fill w-full h-full"
+                      className="rounded-md object-cover w-full h-full"
                     />
                   </div>
                 </SwiperSlide>

@@ -13,7 +13,10 @@ interface PanoramaProps {
   value: string;
 }
 
-const Panorama: React.FC<PanoramaProps> = ({ onChange, value }): JSX.Element => {
+const Panorama: React.FC<PanoramaProps> = ({
+  onChange,
+  value,
+}): JSX.Element => {
   const handleUpload = useCallback(
     (result: any): void => {
       onChange(result.info.secure_url);
@@ -37,6 +40,8 @@ const Panorama: React.FC<PanoramaProps> = ({ onChange, value }): JSX.Element => 
             {value && (
               <div className="absolute inset-0 w-full h-full">
                 <Image
+                  height={1000}
+                  width={1000}
                   alt="Upload"
                   fill
                   style={{ objectFit: "cover" }}

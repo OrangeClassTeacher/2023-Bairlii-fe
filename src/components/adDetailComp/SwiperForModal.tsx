@@ -1,12 +1,7 @@
 import React from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import Image from "next/image";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-creative";
-
-// import required modules
 import { Navigation, EffectCreative } from "swiper";
 
 export default function SwiperForModal({ data }: any): JSX.Element {

@@ -6,9 +6,9 @@ import jwt from "jsonwebtoken";
 import Utils from "@/utils/Utils";
 
 interface iComment {
-  propertyID: string,
-  userID: string,
-  comment: string[] | undefined[],
+  propertyID: string;
+  userID: string;
+  comment: string[] | undefined[];
 }
 
 export const AdComment = ({ data }: any): JSX.Element => {
@@ -25,7 +25,7 @@ export const AdComment = ({ data }: any): JSX.Element => {
     propertyID: "",
     userID: "",
     comment: [""],
-  }
+  };
 
   useEffect(() => {
     getCommentData(data?.propertyID?._id);
@@ -113,11 +113,11 @@ export const AdComment = ({ data }: any): JSX.Element => {
           postComment={postComment}
           commentBody={commentBody}
         />
-        {commentData?.map((e, index): any =>
-        (<div key={index}>
-          <CommentCard data={e} />
-        </div>)
-        )}
+        {commentData?.map((e, index): any => (
+          <div key={index}>
+            <CommentCard data={e} />
+          </div>
+        ))}
       </div>
     );
   }

@@ -58,7 +58,7 @@ const AdDetail = (): JSX.Element => {
     );
 
   return (
-    <div className="max-w-5xl w-full mt-7 mx-auto">
+    <div className="max-w-5xl w-full mt-7 mx-auto mb-32">
       <SwiperForDetail data={adData} />
       <Description data={adData} />
       <RatingStars data={adData} />
