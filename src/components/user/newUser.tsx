@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
 import { Dropdown } from "flowbite-react";
 import jwt from "jsonwebtoken";
 import Link from "next/link";
