@@ -9,7 +9,6 @@ import Image from "next/image";
 const NewUser = (): JSX.Element => {
   const [decoded, setDecoded] = useState<object | string | any>();
   const [loading, setLoading] = useState<boolean>(true);
-  const { userEdit1 } = useContext(LoginContext);
 
   useEffect(() => {
     const localStorageValue: string = localStorage.getItem("token") || "";
