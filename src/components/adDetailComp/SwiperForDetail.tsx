@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import Image from "next/image";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -36,7 +37,7 @@ export default function SwiperForDetail({ data }: any) {
             <div key={index}>
               <SwiperSlide>
                 <div className="h-96">
-                  <img
+                  <Image
                     src={item}
                     alt="haha"
                     className="object-cover w-full h-full rounded-lg drop-shadow-lg"

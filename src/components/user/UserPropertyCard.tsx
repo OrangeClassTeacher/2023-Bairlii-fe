@@ -47,14 +47,14 @@ const UserPropertyCard = ({ propertyData, deleteProperties }: any) => {
   }
   return (
     <div className="card ">
-      <div className="circle"></div>
-      <div className="circle"></div>
-      <div className="circle"></div>
-      <div className="circle"></div>
-      <div className="circle"></div>
-      <div className="circle"></div>
-      <div className="circle"></div>
-      <div className="circle"></div>
+      <div className="circle" />
+      <div className="circle" />
+      <div className="circle" />
+      <div className="circle" />
+      <div className="circle" />
+      <div className="circle" />
+      <div className="circle" />
+      <div className="circle" />
       <div className="card-inner">
         <div className="w-72 p-2 rounded-md ">
           <div className="">

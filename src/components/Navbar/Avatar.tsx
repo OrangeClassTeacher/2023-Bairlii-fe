@@ -1,10 +1,10 @@
-import img from "../../public/images/logo.png";
+import Image from "next/image";
 import Link from "next/link";
 
 const Avatar = () => {
   return (
     <Link href="/login">
-      <img
+      <Image
         className="rounded-full"
         height="60"
         width="60"
