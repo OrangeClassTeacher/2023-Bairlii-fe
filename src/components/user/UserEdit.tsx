@@ -45,7 +45,7 @@ function UserEdit(): JSX.Element {
   // console.log(setUserEdit1);
 
   useEffect(() => {
-    let localStorageValue: string = localStorage.getItem("token") || "";
+    const localStorageValue: string = localStorage.getItem("token") || "";
     setDecoded(jwt.decode(localStorageValue) || "");
   }, []);
 

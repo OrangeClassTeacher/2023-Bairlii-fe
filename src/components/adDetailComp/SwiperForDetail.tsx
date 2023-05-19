@@ -9,6 +9,7 @@ import "swiper/css/pagination";
 
 // import required modules
 import { EffectCoverflow, Pagination } from "swiper";
+import Image from "next/image";
 
 export default function SwiperForDetail({ data }: any): JSX.Element {
   return (

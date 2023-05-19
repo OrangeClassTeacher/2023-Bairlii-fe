@@ -82,7 +82,7 @@ const RentModal = (): JSX.Element => {
   const [token, setToken] = useState<string>();
 
   useEffect(() => {
-    let localStorageValue: string = localStorage.getItem("token") || "";
+    const localStorageValue: string = localStorage.getItem("token") || "";
     setDecoded(jwt.decode(localStorageValue) || "");
     if (localStorageValue.length > 1) {
       setToken(localStorageValue);

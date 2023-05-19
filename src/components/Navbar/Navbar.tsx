@@ -16,7 +16,7 @@ const Navbar = (): JSX.Element => {
 
   useEffect(() => {
     if (typeof window !== undefined) {
-      let localStorageValue: string | null = localStorage.getItem("token");
+      const localStorageValue: string | null = localStorage.getItem("token");
       setLocalUser(localStorageValue);
     }
   }, [Login]);

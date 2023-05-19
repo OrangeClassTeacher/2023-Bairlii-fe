@@ -12,7 +12,7 @@ const NewUser = (): JSX.Element => {
   const { userEdit1 } = useContext(LoginContext);
 
   useEffect(() => {
-    let localStorageValue: string = localStorage.getItem("token") || "";
+    const localStorageValue: string = localStorage.getItem("token") || "";
     setDecoded(jwt.decode(localStorageValue) || "");
     // console.log(".......data", userEdit1);
 
