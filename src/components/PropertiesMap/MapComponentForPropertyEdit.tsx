@@ -8,7 +8,7 @@ const MapComponentForPropertyEdit = ({ setCoordinates, coordinates, propertyData
         googleMapsApiKey: process.env.GOOGLE_MAP_API as string,
     });
     const [cursorType, setCursorType] = useState("");
-    const [saveCoordinates, setSaveCoordinates] = useState({ x: "", y: "" });
+    const [saveCoordinates, setSaveCoordinates] = useState<any>({ x: "", y: "" });
     const [choose, setChoose] = useState(false);
 
 
@@ -54,7 +54,7 @@ const MapComponentForPropertyEdit = ({ setCoordinates, coordinates, propertyData
                             lat: e.latLng?.lat(),
                             lng: e.latLng?.lng(),
                         });
-                        setSaveCoordinates({ x: e.latLng?.lat(), y: e.latLng?.lng() });
+                        setSaveCoordinates({ x: e.latLng?.lat() || "", y: e.latLng?.lng() || "" });
                     } else {
                         return;
                     }

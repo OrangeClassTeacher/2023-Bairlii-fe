@@ -7,7 +7,7 @@ import Utils from "@/utils/Utils";
 const RatingStars = ({ data }: any) => {
     const [rating, setRating] = useState<any>();
     const [loading, setLoading] = useState(true);
-    const [decoded, setDecoded] = useState<object | string>();
+    const [decoded, setDecoded] = useState<any>();
 
     useEffect(() => {
         let localStorageValue: string = localStorage.getItem("token") || "";

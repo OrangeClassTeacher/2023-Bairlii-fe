@@ -29,11 +29,7 @@ const NewUser = (): JSX.Element => {
     return (
       <div className="flex items-center">
         <Dropdown
-          label={
-            userEdit1.result
-              ? userEdit1.result?.firstName
-              : decoded.user.firstName
-          }
+          label={decoded.user.firstName}
         >
           <Link
             href={{

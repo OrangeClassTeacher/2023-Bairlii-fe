@@ -11,7 +11,7 @@ interface iComment {
   comment: string[] | undefined[],
 }
 
-export const AdComment = ({ data }: any) => {
+export const AdComment = ({ data }: any): JSX.Element => {
   const [commentData, setCommentData] = useState<Array<any>>([]);
   const [loading, setLoading] = useState(true);
   const [decoded, setDecoded] = useState<object | string>();
@@ -31,7 +31,7 @@ export const AdComment = ({ data }: any) => {
     getCommentData(data?.propertyID?._id);
   }, [data]);
 
-  function getCommentData(id: any) {
+  function getCommentData(id: any): void {
     if (id) {
       axios
         .get(`${Utils.API_URL}/api/procomments/${id}`)
@@ -48,14 +48,14 @@ export const AdComment = ({ data }: any) => {
   }
 
   useEffect(() => {
-    let localStorageValue: string = localStorage.getItem("token") || "";
+    const localStorageValue: string = localStorage.getItem("token") || "";
     setDecoded(jwt.decode(localStorageValue) || "");
     if (localStorageValue.length > 1) {
       setToken(localStorageValue);
     }
   }, []);
 
-  function postComment(e: any) {
+  function postComment(e: any): void {
     e.preventDefault();
     if (commentBody?.comment[0]) {
       axios
@@ -89,16 +89,16 @@ export const AdComment = ({ data }: any) => {
         />
         <div className="py-4 rounded shadow-md w-60 sm:w-80 animate-pulse dark:bg-gray-900">
           <div className="flex p-4 space-x-4 sm:px-8">
-            <div className="flex-shrink-0 w-16 h-16 rounded-full dark:bg-gray-700"></div>
+            <div className="flex-shrink-0 w-16 h-16 rounded-full dark:bg-gray-700" />
             <div className="flex-1 py-2 space-y-4">
-              <div className="w-full h-3 rounded dark:bg-gray-700"></div>
-              <div className="w-5/6 h-3 rounded dark:bg-gray-700"></div>
+              <div className="w-full h-3 rounded dark:bg-gray-700" />
+              <div className="w-5/6 h-3 rounded dark:bg-gray-700" />
             </div>
           </div>
           <div className="p-4 space-y-4 sm:px-8">
-            <div className="w-full h-4 rounded dark:bg-gray-700"></div>
-            <div className="w-full h-4 rounded dark:bg-gray-700"></div>
-            <div className="w-3/4 h-4 rounded dark:bg-gray-700"></div>
+            <div className="w-full h-4 rounded dark:bg-gray-700" />
+            <div className="w-full h-4 rounded dark:bg-gray-700" />
+            <div className="w-3/4 h-4 rounded dark:bg-gray-700" />
           </div>
         </div>
       </>

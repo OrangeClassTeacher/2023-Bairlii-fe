@@ -66,7 +66,7 @@ const RentModal = () => {
   const panoramaPhoto = watch("PanoramaPhoto");
   const coordinates = watch("coordinates");
 
-  const setCustomValue = (id: string, value: any) => {
+  const setCustomValue = (id: string, value: any): void => {
     setValue(id, value, {
       shouldValidate: true,
       shouldDirty: true,
