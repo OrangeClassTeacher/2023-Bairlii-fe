@@ -4,13 +4,7 @@ import Link from "next/link";
 const Avatar = (): JSX.Element => {
   return (
     <Link href="/login">
-      <Image
-        className="rounded-full"
-        height={60}
-        width={60}
-        alt="Avatar"
-        src="/DevZoid.png"
-      />
+      <p>Login</p>
     </Link>
   );
 };

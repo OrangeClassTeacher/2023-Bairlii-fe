@@ -51,8 +51,6 @@ function UserPage(): JSX.Element {
       });
   }
 
-  // console.log(userID);
-
   if (loading) {
     return (
       <div className="flex justify-center h-full pt-52">
@@ -88,6 +86,8 @@ function UserPage(): JSX.Element {
             <div className="cards ">
               <div className="card-inner  p-2 rounded-md">
                 <Image
+                  height={1000}
+                  width={1000}
                   className="rounded-md h-40 w-[270px] object-cover"
                   src="https://files.realpython.com/media/How-to-Use-the-Python-append-Method_Watermarked.4e39826bc6f5.jpg"
                   alt=""
@@ -105,8 +105,7 @@ function UserPage(): JSX.Element {
                 </p>
               </div>
             </div>
-            {propertiesData?.map((propertyData, i) =>
-            (
+            {propertiesData?.map((propertyData, i) => (
               <div key={i}>
                 <div className="">
                   <div className="blob">
@@ -117,8 +116,7 @@ function UserPage(): JSX.Element {
                   </div>
                 </div>
               </div>
-            )
-            )}
+            ))}
           </div>
         </div>
       </div>
