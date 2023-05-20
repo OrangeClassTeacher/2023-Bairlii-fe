@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import AddAdvertisement from "./AddAdvertisement";
 import axios from "axios";
+import Utils from "@/utils/Utils";
 
 const UserPropertyCard = ({ propertyData, deleteProperties }: any): JSX.Element => {
   const [addingAdvertisement, setAddingAdvertisement] =
@@ -26,7 +27,7 @@ const UserPropertyCard = ({ propertyData, deleteProperties }: any): JSX.Element 
 
   function checkActiveAdvertisement(): void {
     axios
-      .get(`http://localhost:9000/api/advertisement/check/${_id}`)
+      .get(`${Utils.API_URL}/advertisement/check/${_id}`)
       .then((res) => {
         console.log(res.data.result[0].propertyID);
         setAdvertisementId(res.data.result[0].propertyID);

@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import Image from "next/image";
+import Utils from "@/utils/Utils";
 
 function Register(): JSX.Element {
   const {
@@ -80,7 +81,7 @@ function Register(): JSX.Element {
     };
 
     axios
-      .post(`http://localhost:9000/api/users`, reqBody)
+      .post(`${Utils.API_URL}/users`, reqBody)
       .then((response: any) => {
         console.log(response);
         route.push("/login");

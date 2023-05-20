@@ -26,7 +26,7 @@ function UserPage(): JSX.Element {
     setLoading(true);
     if (userID) {
       axios
-        .get(`http://localhost:9000/api/propertiesbyuser/${userID}`)
+        .get(`${Utils.API_URL}/propertiesbyuser/${userID}`)
         .then((res) => {
           setPropertiesData(res.data.result);
         })

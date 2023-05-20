@@ -3,6 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import axios from "axios";
 import { useRouter } from "next/router";
+import Utils from "@/utils/Utils";
 
 function ForgetPassword(): JSX.Element {
   const [email, setEmail] = useState();
@@ -14,7 +15,7 @@ function ForgetPassword(): JSX.Element {
   };
   const ForgetPass = (): void => {
     axios
-      .post(`http://localhost:9000/api/user/forgotPassword`, {
+      .post(`${Utils.API_URL}/user/forgotPassword`, {
         email: email,
       })
       .then(() => {

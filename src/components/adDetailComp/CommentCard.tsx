@@ -1,3 +1,4 @@
+import Utils from "@/utils/Utils";
 import axios from "axios";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
@@ -18,7 +19,7 @@ export const CommentCard = ({ data }: any): JSX.Element => {
 
   function getUserData(): void {
     axios
-      .get(`http://localhost:9000/api/user/${data?.userID}`)
+      .get(`${Utils.API_URL}/user/${data?.userID}`)
       .then((res) => {
         setCommentedUser(res.data.result);
       })
