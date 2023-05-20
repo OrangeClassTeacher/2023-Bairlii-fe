@@ -101,7 +101,7 @@ function UserPage(): JSX.Element {
                 </p>
               </div>
             </div>
-            {propertiesData?.map((propertyData, i) => (
+            {propertiesData.map((propertyData, i) => (
               <div key={i}>
                 <div className="">
                   <div className="blob">

@@ -123,7 +123,7 @@ function Register(): JSX.Element {
             />
           </div>
           <form
-            onSubmit={handleSubmit(onSubmit)}
+            onSubmit={(event): Promise<void> => handleSubmit(onSubmit)(event)}
             className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12"
           >
             <div>
@@ -189,15 +189,15 @@ function Register(): JSX.Element {
                   <select
                     {...register("district", {
                       required: true,
-                      value:
-                        "Баянзүрх дүүрэг" ||
-                        "Баянгол дүүрэг" ||
-                        "Сүхбаатар дүүрэг" ||
-                        "Чингэлтэй дүүрэг" ||
-                        "Налайх дүүрэг" ||
-                        "Хан-Уул дүүрэг" ||
-                        "Хан-Уул дүүрэг" ||
-                        "Сонгинохайрхан дүүрэг",
+                      // value:
+                      //   "Баянзүрх дүүрэг" ||
+                      //   "Баянгол дүүрэг" ||
+                      //   "Сүхбаатар дүүрэг" ||
+                      //   "Чингэлтэй дүүрэг" ||
+                      //   "Налайх дүүрэг" ||
+                      //   "Хан-Уул дүүрэг" ||
+                      //   "Хан-Уул дүүрэг" ||
+                      //   "Сонгинохайрхан дүүрэг",
                     })}
                     className="border border-gray-400 py-1 px-2 w-full"
                   >
@@ -223,7 +223,7 @@ function Register(): JSX.Element {
                   <select
                     {...register("subdistrict", {
                       required: true,
-                      value: "1" || "2" || "3" || "4" || "5" || "6" || "7",
+                      // value: "1" || "2" || "3" || "4" || "5" || "6" || "7",
                     })}
                     className="border border-gray-400 py-1 px-2 w-full"
                   >

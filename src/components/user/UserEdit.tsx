@@ -82,7 +82,7 @@ function UserEdit(): JSX.Element {
       addressStreet: decoded?.user.address.street,
       addressBlock: decoded?.user.address.block,
       password: decoded?.user.password,
-      profilePicture: decoded?.user.password,
+      profilePicture: decoded?.user.profilePicture,
       phoneNumber: decoded?.user.phoneNumber,
     };
     setUserEdit(updateObj);
@@ -133,7 +133,7 @@ function UserEdit(): JSX.Element {
                     className="border border-gray-400 py-1 px-2 w-full"
                     type="text"
                     name="firstName"
-                    value={userEdit?.firstName}
+                    value={userEdit.firstName}
                     onChange={handleChange}
                   />
                 </div>
@@ -143,7 +143,7 @@ function UserEdit(): JSX.Element {
                     className="border border-gray-400 py-1 px-2 w-full"
                     type="text"
                     name="lastName"
-                    value={userEdit?.lastName}
+                    value={userEdit.lastName}
                     onChange={handleChange}
                   />
                 </div>
@@ -154,7 +154,7 @@ function UserEdit(): JSX.Element {
                   <input
                     type="text"
                     name="email"
-                    value={userEdit?.email}
+                    value={userEdit.email}
                     onChange={handleChange}
                     className="border border-gray-400 py-1 px-2 w-full"
                   />
@@ -162,7 +162,7 @@ function UserEdit(): JSX.Element {
                 <div className="flex flex-col">
                   <label>Утасны дугаар</label>
                   <input
-                    value={userEdit?.phoneNumber}
+                    value={userEdit.phoneNumber}
                     type="number"
                     name="phoneNumber"
                     onChange={handleChange}
@@ -182,7 +182,7 @@ function UserEdit(): JSX.Element {
                       });
                     }}
                     className="border border-gray-400 py-1 px-2 w-full"
-                    value={userEdit?.addressDistrict}
+                    value={userEdit.addressDistrict}
                   >
                     <option value="" />
                     <option value="Баянзүрх дүүрэг">Баянзүрх дүүрэг</option>
@@ -206,7 +206,7 @@ function UserEdit(): JSX.Element {
                       });
                     }}
                     className="border border-gray-400 py-1 px-2 w-full"
-                    value={userEdit?.addressSubdistrict}
+                    value={userEdit.addressSubdistrict}
                   >
                     <option value="" />
                     <option value="1">1-р хороо</option>
@@ -224,7 +224,7 @@ function UserEdit(): JSX.Element {
                   <label>Гудамж</label>
                   <input
                     onChange={handleChange}
-                    value={userEdit?.addressStreet}
+                    value={userEdit.addressStreet}
                     name="addressStreet"
                     className="border border-gray-400 py-1 px-2"
                   />
@@ -239,7 +239,7 @@ function UserEdit(): JSX.Element {
                       });
                     }}
                     type="number"
-                    value={userEdit?.addressBlock}
+                    value={userEdit.addressBlock}
                   />
                 </div>
               </div>

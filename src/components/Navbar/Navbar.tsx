@@ -3,19 +3,18 @@ import { Container } from "../Container";
 import Logo from "./Logo";
 import Menu from "./Menu";
 import Categories from "../CategoryFilter/Categories";
-
 import NewUser from "../user/newUser";
-import { LoginContext } from "../../Context/UserContext";
 import { useContext } from "react";
+import { TokenContext } from "@/Context/Context";
 
 const Navbar = (): JSX.Element => {
-  const { Login } = useContext(LoginContext);
+  const { message } = useContext(TokenContext);
   const [localUser, setLocalUser] = useState<string | null>();
 
   useEffect(() => {
     const token = typeof window !== undefined ? localStorage.getItem("token") : ""
     setLocalUser(token);
-  }, [Login]);
+  }, [message]);
 
   return (
     <div className="bg-white z-10 shadow-sm flex flex-col w-full">

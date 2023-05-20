@@ -11,6 +11,7 @@ const nextConfig = {
             "images.unsplash.com",
             "files.realpython.com",
             "tecdn.b-cdn.net",
+            "https://picsum.photos/536/354",
         ],
     },
     reactStrictMode: true,

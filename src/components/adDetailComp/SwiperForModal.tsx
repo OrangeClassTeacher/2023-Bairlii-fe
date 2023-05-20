@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-creative";
 import { Navigation, EffectCreative } from "swiper";
+import Image from "next/image";
 
 export default function SwiperForModal({ data }: any): JSX.Element {
   return (
@@ -27,18 +28,20 @@ export default function SwiperForModal({ data }: any): JSX.Element {
         className="mySwiper"
       >
         {data?.propertyID?.photos?.map((item: string, index: number) => (
-            <div key={index}>
-              <SwiperSlide>
-                <div className="h-[900px]">
-                  <img
-                    src={item}
-                    alt="haha"
-                    className="object-fill w-[90%] h-[90%] rounded-lg drop-shadow-lg"
-                  />
-                </div>
-              </SwiperSlide>
-            </div>
-          ))}
+          <div key={index}>
+            <SwiperSlide>
+              <div className="h-[900px]">
+                <Image
+                  src={item}
+                  alt="haha"
+                  height={500}
+                  width={500}
+                  className="object-fill w-[90%] h-[90%] rounded-lg drop-shadow-lg"
+                />
+              </div>
+            </SwiperSlide>
+          </div>
+        ))}
       </Swiper>
     </>
   );

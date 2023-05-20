@@ -41,7 +41,7 @@ export const Maps = ({ setSelected }: any): JSX.Element => {
   console.log(ads);
 
 
-  if (!isLoaded) return <div>Loading ... </div>;
+  if (!isLoaded || loading) return <div>Loading ... </div>;
   return (
     <>
       <MapForHome data={ads} />

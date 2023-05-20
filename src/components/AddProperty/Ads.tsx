@@ -84,47 +84,46 @@ const Ads = ({ setSelected }: any): JSX.Element => {
       ) : (
         <div>
           <div className="flex flex-wrap gap-6 justife-between mt-7 max-w-7xl w-full">
-            {ads?.map((item, index): JSX.Element => (
+            {ads.map((item, index): JSX.Element => (
               <>
                 <AdCard item={item} key={index} />
               </>
             ))}
           </div>
           <div className="flex gap-2 justify-center flex-wrap my-4 mb-16">
-            {pages &&
-              pages?.map((e, index) => {
-                if (e > 0) {
-                  if (e == curPageNumb) {
-                    return (
-                      <div
-                        id={`${index}`}
-                        onClick={(): void => {
-                          setCurPageNumb(e);
-                          setReqBody({ pageNumber: e });
-                        }}
-                        key={index}
-                        className="border-2	border-black rounded-2xl w-10 text-center bg-slate-600 text-white cursor-pointer "
-                      >
-                        {e}
-                      </div>
-                    );
-                  } else {
-                    return (
-                      <div
-                        id={`${index}`}
-                        onClick={(): void => {
-                          setCurPageNumb(e);
-                          setReqBody({ pageNumber: e });
-                        }}
-                        key={index}
-                        className="border-2	border-black rounded-2xl w-10 text-center cursor-pointer"
-                      >
-                        {e}
-                      </div>
-                    );
-                  }
+            {pages.map((e, index) => {
+              if (e > 0) {
+                if (e == curPageNumb) {
+                  return (
+                    <div
+                      id={`${index}`}
+                      onClick={(): void => {
+                        setCurPageNumb(e);
+                        setReqBody({ pageNumber: e });
+                      }}
+                      key={index}
+                      className="border-2	border-black rounded-2xl w-10 text-center bg-slate-600 text-white cursor-pointer "
+                    >
+                      {e}
+                    </div>
+                  );
+                } else {
+                  return (
+                    <div
+                      id={`${index}`}
+                      onClick={(): void => {
+                        setCurPageNumb(e);
+                        setReqBody({ pageNumber: e });
+                      }}
+                      key={index}
+                      className="border-2	border-black rounded-2xl w-10 text-center cursor-pointer"
+                    >
+                      {e}
+                    </div>
+                  );
                 }
-              })}
+              }
+            })}
           </div>
         </div>
       )}

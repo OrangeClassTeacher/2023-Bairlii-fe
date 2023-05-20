@@ -1,19 +1,19 @@
 import { Layout } from "@/components/Layout";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import { LoginProvider } from "../Context/UserContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import TokenContextProvider from "@/Context/Context";
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <div className="w-full">
-      <LoginProvider>
+      <TokenContextProvider>
         <Layout>
           <Component {...pageProps} />
         </Layout>
-      </LoginProvider>
-      <ToastContainer />
+        <ToastContainer />
+      </TokenContextProvider>
     </div>
   );
 }

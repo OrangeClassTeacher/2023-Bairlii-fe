@@ -76,7 +76,7 @@ function UserAdvertisements(): JSX.Element {
         </div>
       ) : (
         <div className="flex flex-wrap gap-6  mt-7 max-w-7xl w-full mb-20">
-          {ads?.map(
+          {ads.map(
             (item, index): JSX.Element => (
               <>
                 <AdCardForUser

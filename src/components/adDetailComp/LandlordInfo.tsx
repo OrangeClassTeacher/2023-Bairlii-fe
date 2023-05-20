@@ -1,6 +1,8 @@
+import Image from "next/image";
 import React from "react";
 import { BsHouses } from "react-icons/bs";
 import { TbUserCheck } from "react-icons/tb";
+
 
 const LandlordInfo = ({ data }: any): JSX.Element => {
   const userData = data?.userID;
@@ -9,9 +11,11 @@ const LandlordInfo = ({ data }: any): JSX.Element => {
     <div className="">
       <div className="flex justify-around card-inner">
         <div>
-          <img
+          <Image
             src={userData?.profilePicture}
             alt="propic"
+            width={500}
+            height={500}
             className="rounded-[22px]"
           />
         </div>

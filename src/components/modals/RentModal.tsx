@@ -102,7 +102,7 @@ const RentModal = (): JSX.Element => {
           headers: { "x-access-token": token },
         })
         .then(() => {
-          router.refresh();
+          router.refresh()
           reset();
           setStep(STEPS.CATEGORY);
           rentModal.onClose();
