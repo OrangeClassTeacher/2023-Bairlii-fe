@@ -36,5 +36,12 @@
         "arrow-body-style": ["error", "as-needed"]
       }
     }
-  ]
+  ],
+  "rules": {
+    "@typescript-eslint/no-misused-promises": [2, {
+      "checksVoidReturn": {
+        "attributes": false
+      }
+    }]
+  }
 }

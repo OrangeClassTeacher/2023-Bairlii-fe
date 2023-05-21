@@ -31,23 +31,21 @@ export default function SwiperForDetail({ data }: any): JSX.Element {
         modules={[EffectCoverflow, Pagination]}
         className="mySwiper"
       >
-        {data?.propertyID?.photos?.map((item: string, index: number) => {
-          return (
-            <div key={index}>
-              <SwiperSlide>
-                <div className="h-96">
-                  <Image
-                    height={1000}
-                    width={1000}
-                    src={item}
-                    alt="haha"
-                    className="object-cover w-full h-full rounded-lg drop-shadow-lg"
-                  />
-                </div>
-              </SwiperSlide>
-            </div>
-          );
-        })}
+        {data?.propertyID?.photos?.map((item: string, index: number) => (
+          <div key={index}>
+            <SwiperSlide>
+              <div className="h-96">
+                <Image
+                  height={1000}
+                  width={1000}
+                  src={item}
+                  alt="haha"
+                  className="object-cover w-full h-full rounded-lg drop-shadow-lg"
+                />
+              </div>
+            </SwiperSlide>
+          </div>
+        ))}
       </Swiper>
     </div>
   );

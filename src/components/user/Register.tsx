@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import Image from "next/image";
+import Utils from "@/utils/Utils";
 
 function Register(): JSX.Element {
   const {
@@ -26,7 +27,7 @@ function Register(): JSX.Element {
     },
   });
 
-  const [loading, setLoading] = useState<Boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const [profile, setProfile] = useState<object>({ profilePicture: [] });
   const route = useRouter();
 
@@ -63,7 +64,7 @@ function Register(): JSX.Element {
   };
   console.log(errors);
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: any): void => {
     const reqBody = {
       firstName: data.firstName,
       lastName: data.lastName,
@@ -80,7 +81,7 @@ function Register(): JSX.Element {
     };
 
     axios
-      .post(`http://localhost:9000/api/users`, reqBody)
+      .post(`${Utils.API_URL}/users`, reqBody)
       .then((response: any) => {
         console.log(response);
         route.push("/login");
@@ -95,7 +96,7 @@ function Register(): JSX.Element {
           theme: "light",
         });
       })
-      .catch((error: any) => {
+      .catch(() => {
         toast.error("🦄 Бүртгэл амжилтгүй боллоо", {
           position: "bottom-right",
           autoClose: 5000,
@@ -123,7 +124,7 @@ function Register(): JSX.Element {
             />
           </div>
           <form
-            onSubmit={handleSubmit(onSubmit)}
+            onSubmit={(event): Promise<void> => handleSubmit(onSubmit)(event)}
             className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12"
           >
             <div>
@@ -189,15 +190,15 @@ function Register(): JSX.Element {
                   <select
                     {...register("district", {
                       required: true,
-                      value:
-                        "Баянзүрх дүүрэг" ||
-                        "Баянгол дүүрэг" ||
-                        "Сүхбаатар дүүрэг" ||
-                        "Чингэлтэй дүүрэг" ||
-                        "Налайх дүүрэг" ||
-                        "Хан-Уул дүүрэг" ||
-                        "Хан-Уул дүүрэг" ||
-                        "Сонгинохайрхан дүүрэг",
+                      // value:
+                      //   "Баянзүрх дүүрэг" ||
+                      //   "Баянгол дүүрэг" ||
+                      //   "Сүхбаатар дүүрэг" ||
+                      //   "Чингэлтэй дүүрэг" ||
+                      //   "Налайх дүүрэг" ||
+                      //   "Хан-Уул дүүрэг" ||
+                      //   "Хан-Уул дүүрэг" ||
+                      //   "Сонгинохайрхан дүүрэг",
                     })}
                     className="border border-gray-400 py-1 px-2 w-full"
                   >
@@ -223,7 +224,7 @@ function Register(): JSX.Element {
                   <select
                     {...register("subdistrict", {
                       required: true,
-                      value: "1" || "2" || "3" || "4" || "5" || "6" || "7",
+                      // value: "1" || "2" || "3" || "4" || "5" || "6" || "7",
                     })}
                     className="border border-gray-400 py-1 px-2 w-full"
                   >
@@ -311,7 +312,7 @@ function Register(): JSX.Element {
               <div className="mt-5 mb-5">
                 <label>Профайл зураг</label>
                 <input
-                  onChange={(e) => {
+                  onChange={(e): void => {
                     sendFile("images", e.target.files);
                   }}
                   type="file"
@@ -341,7 +342,7 @@ function Register(): JSX.Element {
                   Бүртгүүлэх
                 </button>
                 <button
-                  onClick={() => reset()}
+                  onClick={(): void => reset()}
                   type="button"
                   className="inline-block rounded bg-primary px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
                   data-te-ripple-init

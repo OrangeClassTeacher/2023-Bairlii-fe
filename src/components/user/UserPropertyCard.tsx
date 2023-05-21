@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import AddAdvertisement from "./AddAdvertisement";
 import axios from "axios";
+import Utils from "@/utils/Utils";
 
 const UserPropertyCard = ({
   propertyData,
@@ -29,7 +30,7 @@ const UserPropertyCard = ({
 
   function checkActiveAdvertisement(): void {
     axios
-      .get(`http://localhost:9000/api/advertisement/check/${_id}`)
+      .get(`${Utils.API_URL}/advertisement/check/${_id}`)
       .then((res) => {
         console.log(res.data.result[0].propertyID);
         setAdvertisementId(res.data.result[0].propertyID);
@@ -120,7 +121,7 @@ const UserPropertyCard = ({
                 </button>
               </Link>
               <button className="bg-gray-700  rounded-md text-white">
-                <p className="p-2" onClick={() => deleteProperties(_id)}>
+                <p className="p-2" onClick={(): void => deleteProperties(_id)}>
                   Delete
                 </p>
               </button>
@@ -138,7 +139,7 @@ const UserPropertyCard = ({
               ) : (
                 <button
                   className="bg-gray-700  text-white rounded-md"
-                  onClick={() => setAddingAdvertisement(true)}
+                  onClick={(): void => setAddingAdvertisement(true)}
                 >
                   <p className="p-2">Send</p>
                 </button>

@@ -14,6 +14,7 @@ import { categories } from "../CategoryFilter/Categories";
 import Input from "../inputs.tsx/Input";
 import Heading from "../Navbar/Heading";
 import Modal from "./Modal";
+import Utils from "@/utils/Utils";
 
 enum STEPS {
   CATEGORY = 0,
@@ -65,7 +66,6 @@ const RentModal = (): JSX.Element => {
   const roomCount = watch("roomCount");
   const photos = watch("photos");
   const panoramaPhoto = watch("PanoramaPhoto");
-  const coordinates = watch("coordinates");
 
   const setCustomValue = (id: string, value: any): void => {
     setValue(id, value, {
@@ -75,9 +75,9 @@ const RentModal = (): JSX.Element => {
     });
   };
 
-  const onBack = () => {
-    setStep((value) => value - 1);
-  };
+  const onBack = (): void => (
+    setStep((value) => value - 1)
+  );
 
   const [decoded, setDecoded] = useState<object | string | any>();
   const [token, setToken] = useState<string>();
@@ -99,10 +99,11 @@ const RentModal = (): JSX.Element => {
 
     if (step >= 6) {
       axios
-        .post("http://localhost:9000/api/properties", data, {
+        .post(`${Utils.API_URL}/properties`, data, {
           headers: { "x-access-token": token },
         })
-        .then((res) => {
+        .then(() => {
+          router.refresh()
           reset();
           setStep(STEPS.CATEGORY);
           rentModal.onClose();
@@ -150,7 +151,7 @@ const RentModal = (): JSX.Element => {
         {categories.map((item) => (
           <div key={item.label} className="col-span-1">
             <CategoryInput
-              onClick={(category) => setCustomValue("category", category)}
+              onClick={(category): void => setCustomValue("category", category)}
               selected={category === item.label}
               label={item.label}
               icon={item.icon}
@@ -188,21 +189,21 @@ const RentModal = (): JSX.Element => {
           title="Хүний тоо"
           subtitle="Таны байрыг хэдэн хүн түрээслэх боломжтой вэ?"
           value={guestCount}
-          onChange={(value) => setCustomValue("guestCount", value)}
+          onChange={(value): void => setCustomValue("guestCount", value)}
         />
         <hr />
         <Counter
           title="Өрөө"
           subtitle="Таны байр хэдэн өрөөтэй вэ?"
           value={roomCount}
-          onChange={(value) => setCustomValue("roomCount", value)}
+          onChange={(value): void => setCustomValue("roomCount", value)}
         />
         <hr />
         <Counter
           title="Угаалгын өрөө"
           subtitle="Таны байр хэдэн угаалгын өрөөтэй вэ?"
           value={bathroomCount}
-          onChange={(value) => setCustomValue("bathroomCount", value)}
+          onChange={(value): void => setCustomValue("bathroomCount", value)}
         />
       </div>
     );
@@ -217,7 +218,7 @@ const RentModal = (): JSX.Element => {
         />
         <ImageUpload
           value={photos}
-          onChange={(value) => setCustomValue("photos", value)}
+          onChange={(value): void => setCustomValue("photos", value)}
         />
       </div>
     );
@@ -269,7 +270,7 @@ const RentModal = (): JSX.Element => {
         />
         <Panorama
           value={panoramaPhoto}
-          onChange={(value) => setCustomValue("PanoramaPhoto", value)}
+          onChange={(value): void => setCustomValue("PanoramaPhoto", value)}
         />
       </div>
     );

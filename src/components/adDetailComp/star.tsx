@@ -34,22 +34,23 @@ const RatingStars = ({ data }: any): JSX.Element => {
     const reqBody = {
       propertyID: data?.propertyID?._id,
       rating: rating,
-      userID: decoded?.user?._id,
-    };
-    if (reqBody && decoded) {
+      userID: decoded?.user?._id
+    }
+    if (decoded) {
       axios
         .put(`${Utils.API_URL}/prorating`, reqBody)
-        .then((res) => {
-          getUserData();
+        .then(() => {
+          getUserData()
         })
         .catch((err) => {
           console.log(err);
-        });
+        })
     } else {
-      alert("For giving rate you need to sign in");
-      window.location.href = "/login";
+      alert("For giving rate you need to sign in")
+      window.location.href = "/login"
     }
   }
+
 
   if (loading) {
     return <Loading />;

@@ -5,7 +5,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import Button from "../Navbar/Button";
 interface ModalProps {
-  isOpen?: Boolean;
+  isOpen?: boolean;
   //   onClose?: Boolean;
   onClose: () => void;
   onSubmit: () => void;
@@ -21,15 +21,12 @@ interface ModalProps {
 
 const Modal: React.FC<ModalProps> = ({
   isOpen,
-  onClose,
   onSubmit,
   title,
   body,
-  footer,
   actionLabel,
   disabled,
   secondaryAction,
-  secondaryLabel,
   secondaryActionLabel,
 }): JSX.Element | null => {
   const [showModal, setShowModal] = useState(isOpen);

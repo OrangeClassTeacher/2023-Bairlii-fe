@@ -163,7 +163,7 @@ function EditProperties(): JSX.Element {
                   </label>
                   <input
                     type="number"
-                    value={propertyData?.guestCount}
+                    value={propertyData.guestCount}
                     onChange={handleChange}
                     name="guestCount"
                     placeholder="Guest Count"
@@ -176,7 +176,7 @@ function EditProperties(): JSX.Element {
                   </label>
                   <input
                     type="number"
-                    value={propertyData?.area}
+                    value={propertyData.area}
                     onChange={handleChange}
                     placeholder="Area"
                     name="area"
@@ -191,7 +191,7 @@ function EditProperties(): JSX.Element {
                   </label>
                   <input
                     type="number"
-                    value={propertyData?.roomCount}
+                    value={propertyData.roomCount}
                     onChange={handleChange}
                     name="Room Count"
                     placeholder="Room Count"
@@ -204,7 +204,7 @@ function EditProperties(): JSX.Element {
                   </label>
                   <input
                     type="number"
-                    value={propertyData?.bathroomCount}
+                    value={propertyData.bathroomCount}
                     onChange={handleChange}
                     name="bathroomCount"
                     placeholder="Bathroom Count"
@@ -219,7 +219,7 @@ function EditProperties(): JSX.Element {
                   </label>
                   <input
                     type="text"
-                    value={propertyData?.locationName}
+                    value={propertyData.locationName}
                     onChange={handleChange}
                     name="locationName"
                     placeholder="Location"
@@ -233,7 +233,7 @@ function EditProperties(): JSX.Element {
                 </label>
                 <input
                   type="text"
-                  value={propertyData?.description}
+                  value={propertyData.description}
                   onChange={handleChange}
                   name="description"
                   placeholder="Desccription"
@@ -245,7 +245,6 @@ function EditProperties(): JSX.Element {
               <div>
                 <MapComponentForPropertyEdit
                   setCoordinates={setCoordinate}
-                  coordinates={coordinate}
                   propertyData={propertyData}
                 />
               </div>
@@ -256,7 +255,7 @@ function EditProperties(): JSX.Element {
               {uploading ? (
                 <Loading />
               ) : (
-                propertyData?.photos?.map(
+                propertyData.photos.map(
                   (photo, index): JSX.Element => (
                     <div
                       className="relative flex w-[200px] h-[200px]"

@@ -3,8 +3,6 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import jwt from "jsonwebtoken";
 import Link from "next/link";
-import { LoginContext } from "../../Context/UserContext";
-import { useContext } from "react";
 import Utils from "@/utils/Utils";
 import Image from "next/image";
 
@@ -12,12 +10,10 @@ export interface IEdit {
   firstName: string;
   lastName: string;
   email: string;
-  address: {
-    district: string;
-    subdistrict: string;
-    street: string;
-    block: number;
-  };
+  addressDistrict: string;
+  addressSubdistrict: string;
+  addressStreet: string;
+  addressBlock: number;
   password: string;
   profilePicture: string;
   phoneNumber: number;
@@ -28,12 +24,10 @@ function UserEdit(): JSX.Element {
     firstName: "",
     lastName: "",
     email: "",
-    address: {
-      district: "",
-      subdistrict: "",
-      street: "",
-      block: 0,
-    },
+    addressDistrict: "",
+    addressSubdistrict: "",
+    addressStreet: "",
+    addressBlock: 0,
     password: "",
     profilePicture: "",
     phoneNumber: 0,
@@ -41,7 +35,7 @@ function UserEdit(): JSX.Element {
 
   const [decoded, setDecoded] = useState<object | string | any>();
 
-  const { setUserEdit1 } = useContext(LoginContext);
+  // const { setUserEdit1 } = useContext(LoginContext);
   // console.log(setUserEdit1);
 
   useEffect(() => {
@@ -49,18 +43,30 @@ function UserEdit(): JSX.Element {
     setDecoded(jwt.decode(localStorageValue) || "");
   }, []);
 
+  console.log(decoded);
+
+
   const route = useRouter();
 
   function updateUser(): void {
     const userID = decoded?.user._id;
-    console.log("xaxaxaxa", userID, userEdit);
+    const reqBody = {
+      firstName: userEdit.firstName,
+      lastName: userEdit.lastName,
+      email: userEdit.email,
+      address: {
+        district: userEdit.addressDistrict,
+        subdistrict: userEdit.addressSubdistrict,
+        street: userEdit.addressStreet,
+        block: userEdit.addressBlock,
+      },
+      phoneNumber: userEdit.phoneNumber,
+    }
 
     axios
-      .put(`${Utils.API_URL}/user/${userID}`, userEdit)
+      .put(`${Utils.API_URL}/user/${userID}`, reqBody)
       .then((response: any) => {
         console.log("............", response);
-        alert("Таны бүртгэл амжилттай ХАДГАЛАГДЛАА");
-        setUserEdit1(response.data);
         route.push("/");
       })
       .catch((error: any) => console.log("error", error));
@@ -71,14 +77,12 @@ function UserEdit(): JSX.Element {
       firstName: decoded?.user.firstName,
       lastName: decoded?.user.lastName,
       email: decoded?.user.email,
-      address: {
-        district: decoded?.user.address.district,
-        subdistrict: decoded?.user.address.subdistrict,
-        street: decoded?.user.address.street,
-        block: decoded?.user.address.block,
-      },
+      addressDistrict: decoded?.user.address.district,
+      addressSubdistrict: decoded?.user.address.subdistrict,
+      addressStreet: decoded?.user.address.street,
+      addressBlock: decoded?.user.address.block,
       password: decoded?.user.password,
-      profilePicture: decoded?.user.password,
+      profilePicture: decoded?.user.profilePicture,
       phoneNumber: decoded?.user.phoneNumber,
     };
     setUserEdit(updateObj);
@@ -129,7 +133,7 @@ function UserEdit(): JSX.Element {
                     className="border border-gray-400 py-1 px-2 w-full"
                     type="text"
                     name="firstName"
-                    value={userEdit?.firstName}
+                    value={userEdit.firstName}
                     onChange={handleChange}
                   />
                 </div>
@@ -139,7 +143,7 @@ function UserEdit(): JSX.Element {
                     className="border border-gray-400 py-1 px-2 w-full"
                     type="text"
                     name="lastName"
-                    value={userEdit?.lastName}
+                    value={userEdit.lastName}
                     onChange={handleChange}
                   />
                 </div>
@@ -150,7 +154,7 @@ function UserEdit(): JSX.Element {
                   <input
                     type="text"
                     name="email"
-                    value={userEdit?.email}
+                    value={userEdit.email}
                     onChange={handleChange}
                     className="border border-gray-400 py-1 px-2 w-full"
                   />
@@ -158,7 +162,7 @@ function UserEdit(): JSX.Element {
                 <div className="flex flex-col">
                   <label>Утасны дугаар</label>
                   <input
-                    value={userEdit?.phoneNumber}
+                    value={userEdit.phoneNumber}
                     type="number"
                     name="phoneNumber"
                     onChange={handleChange}
@@ -171,17 +175,14 @@ function UserEdit(): JSX.Element {
                   <label>Дүүрэг</label>
                   <select
                     name="district"
-                    onChange={(e) => {
+                    onChange={(e): void => {
                       setUserEdit({
                         ...userEdit,
-                        address: {
-                          ...userEdit.address,
-                          district: e.target.value,
-                        },
+                        addressDistrict: e.target.value,
                       });
                     }}
                     className="border border-gray-400 py-1 px-2 w-full"
-                    value={userEdit?.address.district}
+                    value={userEdit.addressDistrict}
                   >
                     <option value="" />
                     <option value="Баянзүрх дүүрэг">Баянзүрх дүүрэг</option>
@@ -198,17 +199,14 @@ function UserEdit(): JSX.Element {
                 <div>
                   <label>Хороо</label>
                   <select
-                    onChange={(e) => {
+                    onChange={(e): void => {
                       setUserEdit({
                         ...userEdit,
-                        address: {
-                          ...userEdit.address,
-                          subdistrict: e.target.value,
-                        },
+                        addressSubdistrict: e.target.value,
                       });
                     }}
                     className="border border-gray-400 py-1 px-2 w-full"
-                    value={userEdit?.address.subdistrict}
+                    value={userEdit.addressSubdistrict}
                   >
                     <option value="" />
                     <option value="1">1-р хороо</option>
@@ -226,25 +224,22 @@ function UserEdit(): JSX.Element {
                   <label>Гудамж</label>
                   <input
                     onChange={handleChange}
-                    value={userEdit?.address.street}
-                    name="{address.street}"
+                    value={userEdit.addressStreet}
+                    name="addressStreet"
                     className="border border-gray-400 py-1 px-2"
                   />
                 </div>
                 <div className="flex flex-col">
                   <label>Байр</label>
                   <input
-                    onChange={(e) => {
+                    onChange={(e): void => {
                       setUserEdit({
                         ...userEdit,
-                        address: {
-                          ...userEdit.address,
-                          block: e.target.valueAsNumber,
-                        },
+                        addressBlock: e.target.valueAsNumber,
                       });
                     }}
                     type="number"
-                    value={userEdit?.address.block}
+                    value={userEdit.addressBlock}
                   />
                 </div>
               </div>
@@ -272,8 +267,8 @@ function UserEdit(): JSX.Element {
             </div>
           </form>
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
 

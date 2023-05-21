@@ -1,11 +1,15 @@
 import { useRouter } from "next/router";
-import { useContext } from "react";
-import { LoginContext } from "../../Context/UserContext";
+import { useState } from "react";
 import Image from "next/image";
+import { toast } from "react-toastify";
+import Utils from "@/utils/Utils";
+import axios from "axios";
 
 function ResetPassword(): JSX.Element {
-  const { ResetPass, setResetPassword, setResetPassword1 } =
-    useContext(LoginContext);
+  // const { ResetPass, setResetPassword, setResetPassword1 } =
+  //   useContext(LoginContext);
+  const [ResetPassword, setResetPassword] = useState("");
+  const [ResetPassword1, setResetPassword1] = useState("");
 
   const route = useRouter();
 
@@ -15,7 +19,47 @@ function ResetPassword(): JSX.Element {
   const onChangeResetPass1 = (e: any): void => {
     setResetPassword1(e.target.value);
   };
+  const ResetPass = (): void => {
+    if (ResetPassword == ResetPassword1) {
 
+      axios
+        .post(`${Utils.API_URL}/user/resetPassword`, {
+          // email: query geer mail ee damjuulaad avchii egchee,
+          password: ResetPassword,
+          ResetPassword1: ResetPassword1,
+        })
+        .then(() => {
+          //энд response оо шалгаад  хариугаа буцаана
+          // alert("бүртгэлтэй имэйл биш байна");
+
+          route.push("/login");
+          toast.success("🦄 Нууц үг амжилттай солигдлоо", {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        })
+        .catch(() => {
+          toast.error("🦄🦄  нууц үг таарахгүй байна", {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        });
+    } else {
+      alert("2 нууц үг таарахгүй байна");
+    }
+  };
   const onSubmit = (): void => {
     ResetPass();
   };

@@ -1,13 +1,30 @@
 import Link from "next/link";
-import { useContext } from "react";
-import { LoginContext } from "../../Context/UserContext";
+import { useState } from "react";
 import Image from "next/image";
+import axios from "axios";
+import { useRouter } from "next/router";
+import Utils from "@/utils/Utils";
 
 function ForgetPassword(): JSX.Element {
-  const { ForgetPass, setEmail } = useContext(LoginContext);
+  const [email, setEmail] = useState();
 
+
+  const route = useRouter();
   const onChangeEmail = (e: any): void => {
     setEmail(e.target.value);
+  };
+  const ForgetPass = (): void => {
+    axios
+      .post(`${Utils.API_URL}/user/forgotPassword`, {
+        email: email,
+      })
+      .then(() => {
+        alert("Имэйл хаяг зөв байна");
+        route.push("/login/resetPass");
+      })
+      .catch(() => {
+        alert("Бүртгэлгүй имэйл байна");
+      });
   };
 
   const onSubmit = (): void => {

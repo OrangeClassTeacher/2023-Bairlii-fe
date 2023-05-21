@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
-import { ICoordinates } from "@/pages/edit/[editProperties]";
 import Loading from "../loading/Loading";
 
 const MapComponentForPropertyEdit = ({
   setCoordinates,
-  coordinates,
   propertyData,
 }: {
   setCoordinates: any;
-  coordinates: ICoordinates;
   propertyData: any;
-}) => {
+}): JSX.Element => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.GOOGLE_MAP_API as string,
   });
@@ -40,7 +37,7 @@ const MapComponentForPropertyEdit = ({
         <input
           placeholder="x"
           value={saveCoordinates.x}
-          onFocus={() => {
+          onFocus={(): void => {
             setCursorType("crosshair");
             setChoose(false);
           }}
@@ -50,7 +47,7 @@ const MapComponentForPropertyEdit = ({
         <input
           placeholder="y"
           value={saveCoordinates.y}
-          onFocus={() => {
+          onFocus={(): void => {
             setCursorType("crosshair");
             setChoose(false);
           }}
@@ -60,7 +57,7 @@ const MapComponentForPropertyEdit = ({
 
       <GoogleMap
         options={{ draggableCursor: cursorType, scrollwheel: true }}
-        onClick={(e) => {
+        onClick={(e): void => {
           if (!choose) {
             setCoordinates({
               lat: e.latLng?.lat(),

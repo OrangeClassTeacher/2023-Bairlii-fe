@@ -57,7 +57,7 @@ export const AdComment = ({ data }: any): JSX.Element => {
 
   function postComment(e: any): void {
     e.preventDefault();
-    if (commentBody?.comment[0]) {
+    if (commentBody.comment[0]) {
       axios
         .post(`${Utils.API_URL}/procomment`, commentBody, {
           headers: {
@@ -113,7 +113,7 @@ export const AdComment = ({ data }: any): JSX.Element => {
           postComment={postComment}
           commentBody={commentBody}
         />
-        {commentData?.map((e, index): any => (
+        {commentData.map((e, index): any => (
           <div key={index}>
             <CommentCard data={e} />
           </div>

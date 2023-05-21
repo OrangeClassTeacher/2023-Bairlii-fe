@@ -1,24 +1,21 @@
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Container } from "../Container";
 import Logo from "./Logo";
 import Menu from "./Menu";
 import Categories from "../CategoryFilter/Categories";
-import useAllModal from "@/hooks/useAllModal";
 import NewUser from "../user/newUser";
-import { LoginContext } from "../../Context/UserContext";
 import { useContext } from "react";
+import { TokenContext } from "@/Context/Context";
 
 const Navbar = (): JSX.Element => {
-  const { Login } = useContext(LoginContext);
+  const { message } = useContext(TokenContext);
   const [localUser, setLocalUser] = useState<string | null>();
 
   useEffect(() => {
-    if (typeof window !== undefined) {
-      const localStorageValue: string | null = localStorage.getItem("token");
-      setLocalUser(localStorageValue);
-    }
-  }, [Login]);
+    const token = localStorage.getItem("token");
+    // const token = typeof window !== undefined ? localStorage.getItem("token") : ""
+    setLocalUser(token);
+  }, [message]);
 
   return (
     <div className="bg-white z-10 shadow-sm flex flex-col w-full">

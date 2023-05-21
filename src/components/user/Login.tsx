@@ -1,20 +1,60 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState, useContext } from "react";
-import { LoginContext } from "../../Context/UserContext";
+import { useContext, useState } from "react";
+import axios from "axios";
 import { BiShow, BiHide } from "react-icons/bi";
 import Image from "next/image";
+import { toast } from "react-toastify";
+import Utils from "@/utils/Utils";
+import { TokenContext } from "@/Context/Context";
 
 function Login(): JSX.Element {
-  const { Login, setLoginEmail, setLoginPassword } = useContext(LoginContext);
+  // const { Login, setLoginEmail, setLoginPassword } = useContext(LoginContext);
+  const [loginEmail, setLoginEmail] = useState<string | object>();
+  const [loginPassword, setLoginPassword] = useState("");
   const [passwordType, setPasswordType] = useState("password");
   const route = useRouter();
+  const { setMessage } = useContext(TokenContext);
 
   const onChangeEmail = (e: any): void => {
     setLoginEmail(e.target.value);
   };
   const onChangeLoginPass = (e: any): void => {
     setLoginPassword(e.target.value);
+  };
+  const Login = (): void => {
+    axios
+      .post(`${Utils.API_URL}/user/login`, {
+        email: loginEmail,
+        password: loginPassword,
+      })
+      .then(async (response: any) => {
+        localStorage.setItem("token", await response.data.token);
+        setMessage(response.data.token)
+        route.push("/", undefined, { shallow: false });
+        toast.success("🦄Та амжилттай нэвтэрлээ", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      })
+      .catch(() => {
+        toast.error("🦄 Нэвтрэх нэр, нууц үг буруу байна", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      });
   };
 
   const onSubmit = (): void => {
@@ -45,8 +85,8 @@ function Login(): JSX.Element {
           </div>
           <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
             <div className="relative w-[380px] h-[420px]  rounded-lg overflow-hidden">
-              <div className="absolute w-[380px] h-[420px] bg-gradient-to-r from-blue-600 via-blue-600 to-transparent -top-[50%] -left-[50%] animate-spin-slow origin-bottom-right"></div>
-              <div className="absolute w-[380px] h-[420px] bg-gradient-to-r from-blue-600 via-blue-600 to-transparent -top-[50%] -left-[50%] animate-spin-delay origin-bottom-right"></div>
+              <div className="absolute w-[380px] h-[420px] bg-gradient-to-r from-blue-600 via-blue-600 to-transparent -top-[50%] -left-[50%] animate-spin-slow origin-bottom-right" />
+              <div className="absolute w-[380px] h-[420px] bg-gradient-to-r from-blue-600 via-blue-600 to-transparent -top-[50%] -left-[50%] animate-spin-delay origin-bottom-right" />
               <div className="absolute inset-1 bg-blue-200 rounded-lg z-10 p-5">
                 <form>
                   <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
@@ -97,7 +137,7 @@ function Login(): JSX.Element {
                     </div>
                     <Link href={"/login/forgetPass"}>
                       <span>
-                        <a href="#!">Нүүц үг мартсан?</a>
+                        Нүүц үг мартсан?
                       </span>
                     </Link>
                   </div>

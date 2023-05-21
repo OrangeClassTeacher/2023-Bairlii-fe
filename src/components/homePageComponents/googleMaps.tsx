@@ -25,7 +25,7 @@ export const Maps = ({ setSelected }: any): JSX.Element => {
     getData();
   }, [params]);
 
-  function getData() {
+  function getData(): void {
     setLoading(true);
     axios
       .post(`${Utils.API_URL}/advertisementsformap`, { ...currentQuery })
@@ -41,11 +41,11 @@ export const Maps = ({ setSelected }: any): JSX.Element => {
   console.log(ads);
 
 
-  if (!isLoaded || !ads || loading) return <div>Loading ... </div>;
+  if (!isLoaded || loading) return <div>Loading ... </div>;
   return (
     <>
       <MapForHome data={ads} />
-      <span className="flex items-center gap-2 bg-black p-2 rounded-xl text-white fixed bottom-20 z-30 border-2 border-slate-600 cursor-pointer" onClick={() => setSelected("Ads")}>
+      <span className="flex items-center gap-2 bg-black p-2 rounded-xl text-white fixed bottom-20 z-30 border-2 border-slate-600 cursor-pointer" onClick={(): void => setSelected("Ads")}>
         Show list <BsListUl />
       </span>
     </>
