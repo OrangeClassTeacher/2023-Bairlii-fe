@@ -2,7 +2,11 @@ import React from "react";
 import Link from "next/link";
 import SwiperSlider from "../SwiperForCard";
 
-const AdCardForUser = ({ item, key, deleteAdvertisement }: any): JSX.Element => {
+const AdCardForUser = ({
+  item,
+  key,
+  deleteAdvertisement,
+}: any): JSX.Element => {
   const date = new Date(item?.createdAt);
 
   return (
@@ -36,7 +40,7 @@ const AdCardForUser = ({ item, key, deleteAdvertisement }: any): JSX.Element => 
                 {date.getFullYear()} {date.getMonth() + 1} {date.getDate()}
               </p>
             </div>
-            <div className="w-4/5 mt-4 flex flex-row-reverse text-gray-600 text-sm">
+            <div className="w-4/5 mt-4 flex flex-row-reverse text-gray-600 text-sm underline">
               <Link
                 href={{
                   pathname: `/[detail]`,

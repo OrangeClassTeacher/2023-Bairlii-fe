@@ -1,40 +1,50 @@
-import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { BsHouses } from "react-icons/bs";
 import { TbUserCheck } from "react-icons/tb";
-
 
 const LandlordInfo = ({ data }: any): JSX.Element => {
   const userData = data?.userID;
 
   return (
-    <div className="">
-      <div className="flex justify-around card-inner">
+    <div className="flex justify-around card-inner landlord-card ]">
+      <div className="landlord-card-info ">
+        <img
+          src={userData?.profilePicture}
+          alt="propic"
+          className="rounded-[22px] landlord-card-avatar"
+        />
+      </div>
+      <div className="text-emerald-600 text-3xl font-semibold justify-center  flex flex-col gap-6">
         <div>
-          <Image
-            src={userData?.profilePicture}
-            alt="propic"
-            width={500}
-            height={500}
-            className="rounded-[22px]"
-          />
+          <div>{userData?.firstName}</div> <div>{userData?.lastName}</div>
         </div>
-        <div className="text-emerald-600 text-3xl font-semibold justify-center  flex flex-col gap-6">
-          <div>
-            {userData?.firstName} {userData?.lastName}
-          </div>
-          <div>{userData?.email}</div>
-          <div>Phone: {userData?.phoneNumber}</div>
+        <div className="flex justify-between w-[400px]">
+          <p>Email:</p>
+          <Link
+            href={`mailto:${userData?.email}`}
+            className="landlord-card-email"
+          >
+            {userData?.email}
+          </Link>
         </div>
-        <div className="justify-center flex flex-col">
-          <div className="justify-center flex flex-col items-center">
-            <BsHouses className="text-emerald-600 text-8xl font-black" />2
-            houses
-          </div>
-          <div className="justify-center flex flex-col items-center">
-            <TbUserCheck className="text-emerald-600 text-8xl font-black" />
-            Member since April 2023
-          </div>
+        <div className="flex justify-between w-[270px]">
+          <p>Phone:</p>
+          <Link
+            href={`tel:${userData?.phoneNumber}`}
+            className="landlord-card-email"
+          >
+            {userData?.phoneNumber}
+          </Link>
+        </div>
+      </div>
+      <div className="justify-center flex flex-col">
+        <div className="justify-center flex flex-col items-center">
+          <BsHouses className="text-emerald-600 text-8xl font-black" />2 houses
+        </div>
+        <div className="justify-center flex flex-col items-center">
+          <TbUserCheck className="text-emerald-600 text-8xl font-black" />
+          Member since April 2023
         </div>
       </div>
     </div>

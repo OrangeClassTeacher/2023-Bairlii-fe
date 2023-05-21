@@ -47,7 +47,7 @@ const RentModal = (): JSX.Element => {
       guestCount: 0,
       roomCount: 0,
       bathroomCount: 0,
-      photos: "",
+      photos: [],
       description: "",
       area: 0,
       userID: "",

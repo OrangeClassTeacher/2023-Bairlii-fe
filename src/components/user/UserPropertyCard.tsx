@@ -5,7 +5,10 @@ import AddAdvertisement from "./AddAdvertisement";
 import axios from "axios";
 import Utils from "@/utils/Utils";
 
-const UserPropertyCard = ({ propertyData, deleteProperties }: any): JSX.Element => {
+const UserPropertyCard = ({
+  propertyData,
+  deleteProperties,
+}: any): JSX.Element => {
   const [addingAdvertisement, setAddingAdvertisement] =
     useState<boolean>(false);
   const [advertisementId, setAdvertisementId] = useState<string>("");
@@ -57,7 +60,7 @@ const UserPropertyCard = ({ propertyData, deleteProperties }: any): JSX.Element 
       <div className="circle" />
       <div className="circle" />
       <div className="card-inner">
-        <div className="w-72 p-2 rounded-md ">
+        <div className="w-[305px] p-2 rounded-md ">
           <div className="">
             <img
               className="rounded-md h-40 w-72 object-cover"

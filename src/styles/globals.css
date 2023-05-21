@@ -1,11 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 html,
 body,
 :root {
   height: 100%;
+}
+
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .leaflet-bottom,
@@ -610,4 +613,54 @@ body,
 
 .userbutton:hover::before {
   box-shadow: inset 0 0 0 10em rgb(154, 120, 239);
+}
+
+/* Landlord-card */
+
+.landlord-card {
+  background: #f5f5f5;
+  font-weight: 500;
+  padding: 2rem 1.5rem;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.landlord-card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/*Image*/
+.landlord-card-avatar {
+  --size: 150px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+  margin-bottom: 1rem;
+}
+
+/*Card footer*/
+.landlord-card-social {
+  transform: translateY(200%);
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  opacity: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/*Hover*/
+.landlord-card:hover {
+  box-shadow: 0 8px 50px #23232333;
+}
+
+.landlord-card-avatar:hover {
+  transform: scale(1.1);
+}
+
+.landlord-card-email:hover {
+  color: darkgrey;
 }
