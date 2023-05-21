@@ -1,10 +1,5 @@
-import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "./Avatar";
-import { useCallback, useState } from "react";
-import RentModal from "../modals/RentModal";
-import useAllModal from "@/hooks/useAllModal";
-import NewUser from "../user/newUser";
-
+import { useCallback, useEffect, useState } from "react";
 const Menu = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
 

@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Dropdown } from "flowbite-react";
 import jwt from "jsonwebtoken";
 import Link from "next/link";
+import Loading from "../loading/Loading";
+import Image from "next/image";
 
 const NewUser = (): JSX.Element => {
   const [decoded, setDecoded] = useState<object | string | any>();
@@ -21,10 +23,18 @@ const NewUser = (): JSX.Element => {
     window.location.href = "/";
   };
   if (loading) {
-    return <div>loading ...</div>;
+    return <Loading />;
   } else {
     return (
       <div className="flex items-center">
+        <div>
+          {" "}
+          <img
+            src={decoded?.user?.profilePicture}
+            alt="profilePicture"
+            className="rounded-full h-11 w-11 flex items-center justify-center me-2"
+          />
+        </div>
         <Dropdown label={decoded.user.firstName}>
           <Link
             href={{

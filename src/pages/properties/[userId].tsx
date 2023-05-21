@@ -77,13 +77,13 @@ function UserPage(): JSX.Element {
     return (
       <div className="flex w-full justify-center containerblur mb-20">
         <div className="">
-          <div className="flex gap-5 flex-wrap justify-between max-w-7xl w-full mt-7 ">
+          <div className="flex gap-5 flex-wrap  max-w-7xl w-full mt-7 ">
             <div className="cards ">
               <div className="card-inner  p-2 rounded-md">
                 <Image
                   height={1000}
                   width={1000}
-                  className="rounded-md h-40 w-[270px] object-cover"
+                  className="rounded-md h-40 w-[288px] object-cover"
                   src="https://files.realpython.com/media/How-to-Use-the-Python-append-Method_Watermarked.4e39826bc6f5.jpg"
                   alt=""
                 />
@@ -95,7 +95,7 @@ function UserPage(): JSX.Element {
                 >
                   <FaPlus className="adlist" />
                 </button>
-                <p className="bg-gray-100 w-[270px] rounded-md text-2xl mt-[56px] text-center ">
+                <p className="bg-gray-100 w-[289px] rounded-md text-2xl mt-[56px] text-center">
                   If you want to enter your place, click here.
                 </p>
               </div>
