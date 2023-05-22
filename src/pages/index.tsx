@@ -1,6 +1,5 @@
 import Ads from "@/components/AddProperty/Ads";
 import { Maps } from "@/components/homePageComponents/googleMaps";
-import Head from "next/head";
 import { useState } from "react";
 
 export default function Home(): JSX.Element {

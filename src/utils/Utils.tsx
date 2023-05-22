@@ -5,4 +5,4 @@ export const Utils = {
             : "https://bairliii-api.onrender.com/api",
 };
 
-export default Utils;
+export default Utils;   

@@ -3,7 +3,6 @@ import { Dropdown } from "flowbite-react";
 import jwt from "jsonwebtoken";
 import Link from "next/link";
 import Loading from "../loading/Loading";
-import Image from "next/image";
 
 const NewUser = (): JSX.Element => {
   const [decoded, setDecoded] = useState<object | string | any>();
