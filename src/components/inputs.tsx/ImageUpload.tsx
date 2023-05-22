@@ -1,30 +1,37 @@
 "use client";
 import { CldUploadWidget } from "next-cloudinary";
 import Image from "next/image";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { TbPhotoPlus } from "react-icons/tb";
 
 declare global {
-  var cloudinary: any;
+  let cloudinary: any;
 }
 
 interface ImageUploadProps {
-  onChange: (value: string) => void;
+  onChange: (value: any) => void;
   value: string;
 }
 
 const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value }) => {
+  let photos: string[] = []
   const handleUpload = useCallback(
     (result: any): void => {
-      onChange(result.info.secure_url);
+      photos.push(result.info.secure_url)
     },
     [onChange]
   );
+
+  function uploadPhotos() {
+    onChange(photos);
+  }
+
   return (
     <CldUploadWidget
       onUpload={handleUpload}
+      onClose={uploadPhotos}
       uploadPreset="bg1z9lt5"
-      options={{ maxFiles: 10 }}
+      options={{ maxFiles: 10, multiple: true }}
     >
       {({ open }): JSX.Element => (
         <div
@@ -37,6 +44,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value }) => {
             <div className="absolute inset-0 w-full h-full">
               <Image
                 alt="Upload"
+                hidden
                 fill
                 style={{ objectFit: "cover" }}
                 src={value}
