@@ -30,7 +30,7 @@ function Login(): JSX.Element {
       })
       .then(async (response: any) => {
         localStorage.setItem("token", await response.data.token);
-        setMessage(response.data.token)
+        setMessage(response.data.token);
         route.push("/", undefined, { shallow: false });
         toast.success("🦄Та амжилттай нэвтэрлээ", {
           position: "bottom-right",
@@ -76,8 +76,8 @@ function Login(): JSX.Element {
         <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
           <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
             <Image
-              height={100}
-              width={100}
+              height={1000}
+              width={1000}
               src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
               className="w-full"
               alt="Sample image"
@@ -136,9 +136,7 @@ function Login(): JSX.Element {
                       </label>
                     </div>
                     <Link href={"/login/forgetPass"}>
-                      <span>
-                        Нүүц үг мартсан?
-                      </span>
+                      <span>Нүүц үг мартсан?</span>
                     </Link>
                   </div>
                   <div className="text-center lg:text-left">

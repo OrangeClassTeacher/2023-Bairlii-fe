@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
+import Loading from "../loading/Loading";
 
 interface MapPropertiesProps {
   setValue: (id: string, value: any) => void;
@@ -9,7 +10,9 @@ interface ISaveCoordinates {
   y: any;
 }
 
-const MapProperties: React.FC<MapPropertiesProps> = ({ setValue }: any): JSX.Element => {
+const MapProperties: React.FC<MapPropertiesProps> = ({
+  setValue,
+}: any): JSX.Element => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.GOOGLE_MAP_API as string,
   });
@@ -20,33 +23,7 @@ const MapProperties: React.FC<MapPropertiesProps> = ({ setValue }: any): JSX.Ele
   });
   const [choose, setChoose] = useState(false);
 
-  if (!isLoaded)
-    return (
-      <div className="flex justify-center h-full pt-52">
-        <div
-          aria-label="Orange and tan hamster running in a metal wheel"
-          role="img"
-          className="wheel-and-hamster"
-        >
-          <div className="wheel" />
-          <div className="hamster">
-            <div className="hamster__body">
-              <div className="hamster__head">
-                <div className="hamster__ear" />
-                <div className="hamster__eye" />
-                <div className="hamster__nose" />
-              </div>
-              <div className="hamster__limb hamster__limb--fr" />
-              <div className="hamster__limb hamster__limb--fl" />
-              <div className="hamster__limb hamster__limb--br" />
-              <div className="hamster__limb hamster__limb--bl" />
-              <div className="hamster__tail" />
-            </div>
-          </div>
-          <div className="spoke" />
-        </div>
-      </div>
-    );
+  if (!isLoaded) return <Loading />;
   return (
     <div>
       <div>

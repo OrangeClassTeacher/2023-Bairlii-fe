@@ -6,6 +6,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import Utils from "@/utils/Utils";
 import Image from "next/image";
 import Loading from "@/components/loading/Loading";
+import { toast } from "react-toastify";
 
 export interface IProperty {
   _id: string;
@@ -93,12 +94,30 @@ function EditProperties(): JSX.Element {
       })
       .then((res) => {
         setPropertyData(res.data.result);
-        alert("Editted successfully");
+        toast.success("successfully edited", {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
         editProperty();
         route.push(`http://localhost:3000/user/${res.data.result.userID}`);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+        toast.success("❌ unsuccessful", {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       });
   };
 

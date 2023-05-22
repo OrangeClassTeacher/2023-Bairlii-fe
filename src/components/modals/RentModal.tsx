@@ -47,7 +47,7 @@ const RentModal = (): JSX.Element => {
       guestCount: 0,
       roomCount: 0,
       bathroomCount: 0,
-      photos: [],
+      photos: [""],
       description: "",
       area: 0,
       userID: "",
@@ -75,9 +75,7 @@ const RentModal = (): JSX.Element => {
     });
   };
 
-  const onBack = (): void => (
-    setStep((value) => value - 1)
-  );
+  const onBack = (): void => setStep((value) => value - 1);
 
   const [decoded, setDecoded] = useState<object | string | any>();
   const [token, setToken] = useState<string>();
@@ -103,7 +101,7 @@ const RentModal = (): JSX.Element => {
           headers: { "x-access-token": token },
         })
         .then(() => {
-          router.refresh()
+          router.refresh();
           reset();
           setStep(STEPS.CATEGORY);
           rentModal.onClose();
@@ -128,7 +126,7 @@ const RentModal = (): JSX.Element => {
   };
 
   const actionLabel = useMemo(() => {
-    if (step === STEPS.LOCATION) {
+    if (step === STEPS.DESCRIPTION) {
       return "Create";
     }
     return "Next";

@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import { BsListUl } from 'react-icons/bs'
+import React, { useEffect, useState } from "react";
+import { BsListUl } from "react-icons/bs";
 import { useLoadScript } from "@react-google-maps/api";
 import { MapForHome } from "./Maps";
-import axios from 'axios';
-import { useSearchParams } from 'next/navigation';
-import queryString from 'query-string';
-import Utils from '@/utils/Utils';
+import axios from "axios";
+import { useSearchParams } from "next/navigation";
+import queryString from "query-string";
+import Utils from "@/utils/Utils";
+import Loading from "../loading/Loading";
 
 export const Maps = ({ setSelected }: any): JSX.Element => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.GOOGLE_MAP_API as string,
   });
-
 
   const [loading, setLoading] = useState<boolean>(false);
   const [ads, setAds] = useState<Array<any>>([]);
@@ -40,14 +40,16 @@ export const Maps = ({ setSelected }: any): JSX.Element => {
 
   console.log(ads);
 
-
-  if (!isLoaded || loading) return <div>Loading ... </div>;
+  if (!isLoaded || loading) return <Loading />;
   return (
     <>
       <MapForHome data={ads} />
-      <span className="flex items-center gap-2 bg-black p-2 rounded-xl text-white fixed bottom-20 z-30 border-2 border-slate-600 cursor-pointer" onClick={(): void => setSelected("Ads")}>
+      <span
+        className="flex items-center gap-2 bg-black p-2 rounded-xl text-white fixed bottom-20 z-30 border-2 border-slate-600 cursor-pointer"
+        onClick={(): void => setSelected("Ads")}
+      >
         Show list <BsListUl />
       </span>
     </>
-  )
-}
+  );
+};
