@@ -4,757 +4,842 @@
 html,
 body,
 :root {
-  height: 100%;
+    height: 100%;
 }
 
 * {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .leaflet-bottom,
 .leaflet-control,
 .leaflet-pane,
 .leaflet-top {
-  z-index: 0 !important;
+    z-index: 0 !important;
 }
 
 .map-container {
-  height: 95vh;
-  width: 100%;
-  border-radius: 10px;
+    height: 95vh;
+    width: 100%;
+    border-radius: 10px;
 }
 
 .map-container-for-home {
-  height: 85vh;
-  width: 100%;
+    height: 85vh;
+    width: 100%;
 }
 
 #loginPassword,
 #loginEmail {
-  outline: none;
-  box-shadow: none;
+    outline: none;
+    box-shadow: none;
 }
 
 /* Flip */
 
 /* USer cardsssss */
 .card {
-  transition: all 0.2s;
-  position: relative;
+    transition: all 0.2s;
+    position: relative;
 }
 
 .card-inner {
-  width: inherit;
-  height: inherit;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(10px);
-  border-radius: 8px;
+    width: inherit;
+    height: inherit;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
 }
 
 .card:hover {
-  transform: scale(1.05) rotate(2deg);
+    transform: scale(1.05) rotate(2deg);
 }
 
 .circle {
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(#f6f1e9, #f7f7f7);
-  border-radius: 50%;
-  position: absolute;
-  animation: move-up6 2s ease-in infinite alternate-reverse;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(#f6f1e9, #f7f7f7);
+    border-radius: 50%;
+    position: absolute;
+    animation: move-up6 2s ease-in infinite alternate-reverse;
 }
 
 .circle:nth-child(1) {
-  top: 15px;
-  left: 15px;
+    top: 15px;
+    left: 15px;
 }
 
 .circle:nth-child(2) {
-  top: 25px;
-  right: 15px;
-  animation-name: move-down1;
+    top: 25px;
+    right: 15px;
+    animation-name: move-down1;
 }
 
 .circle:nth-child(3) {
-  top: 135px;
-  left: 95px;
-  animation-name: move-down2;
+    top: 135px;
+    left: 95px;
+    animation-name: move-down2;
 }
 .circle:nth-child(4) {
-  top: 225px;
-  left: 15px;
-  animation-name: move-down3;
+    top: 225px;
+    left: 15px;
+    animation-name: move-down3;
 }
 .circle:nth-child(5) {
-  bottom: 200px;
-  right: 15px;
-  animation-name: move-down4;
+    bottom: 200px;
+    right: 15px;
+    animation-name: move-down4;
 }
 .circle:nth-child(6) {
-  bottom: 105px;
-  right: 85px;
-  animation-name: move-down5;
+    bottom: 105px;
+    right: 85px;
+    animation-name: move-down5;
 }
 .circle:nth-child(7) {
-  bottom: 15px;
-  right: 10px;
-  animation-name: move-down6;
+    bottom: 15px;
+    right: 10px;
+    animation-name: move-down6;
 }
 .circle:nth-child(8) {
-  bottom: 15px;
-  right: 180px;
-  animation-name: move-down7;
+    bottom: 15px;
+    right: 180px;
+    animation-name: move-down7;
 }
 
 @keyframes move-up6 {
-  to {
-    transform: translateY(-10px);
-  }
+    to {
+        transform: translateY(-10px);
+    }
 }
 
 @keyframes move-down1 {
-  to {
-    transform: translateY(10px);
-  }
+    to {
+        transform: translateY(10px);
+    }
 }
 /* /////// user edit input */
 
 .input-container {
-  width: 220px;
-  position: relative;
+    width: 220px;
+    position: relative;
 }
 
 .icon {
-  position: absolute;
-  right: 10px;
-  top: calc(50% + 5px);
-  transform: translateY(calc(-50% - 5px));
+    position: absolute;
+    right: 10px;
+    top: calc(50% + 5px);
+    transform: translateY(calc(-50% - 5px));
 }
 
 .input {
-  width: 100%;
-  height: 40px;
-  padding: 10px;
-  transition: 0.2s linear;
-  border: 2.5px solid black;
-  font-size: 14px;
-  letter-spacing: 1px;
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    transition: 0.2s linear;
+    border: 2.5px solid black;
+    font-size: 14px;
+    letter-spacing: 1px;
 }
 
 .input:focus {
-  outline: none;
-  border: 0.5px solid black;
-  box-shadow: -5px -5px 0px black;
+    outline: none;
+    border: 0.5px solid black;
+    box-shadow: -5px -5px 0px black;
 }
 
 .input-container:hover > .icon {
-  animation: anim 1s linear infinite;
+    animation: anim 1s linear infinite;
 }
 
 .tailbar {
-  width: 513px;
-  height: 190px;
+    width: 513px;
+    height: 190px;
 }
 
 .bairshil {
-  width: 513px;
+    width: 513px;
 }
 
 @keyframes anim {
-  0%,
-  100% {
-    transform: translateY(calc(-50% - 5px)) scale(1);
-  }
+    0%,
+    100% {
+        transform: translateY(calc(-50% - 5px)) scale(1);
+    }
 
-  50% {
-    transform: translateY(calc(-50% - 5px)) scale(1.1);
-  }
+    50% {
+        transform: translateY(calc(-50% - 5px)) scale(1.1);
+    }
 }
 
 /* loading */
 .wheel-and-hamster {
-  --dur: 1s;
-  position: relative;
-  width: 12em;
-  height: 12em;
-  font-size: 14px;
+    --dur: 1s;
+    position: relative;
+    width: 12em;
+    height: 12em;
+    font-size: 14px;
 }
 
 .wheel,
 .hamster,
 .hamster div,
 .spoke {
-  position: absolute;
+    position: absolute;
 }
 
 .wheel,
 .spoke {
-  border-radius: 50%;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .wheel {
-  background: radial-gradient(
-    100% 100% at center,
-    hsla(0, 0%, 60%, 0) 47.8%,
-    hsl(0, 0%, 60%) 48%
-  );
-  z-index: 2;
+    background: radial-gradient(
+        100% 100% at center,
+        hsla(0, 0%, 60%, 0) 47.8%,
+        hsl(0, 0%, 60%) 48%
+    );
+    z-index: 2;
 }
 
 .hamster {
-  animation: hamster var(--dur) ease-in-out infinite;
-  top: 50%;
-  left: calc(50% - 3.5em);
-  width: 7em;
-  height: 3.75em;
-  transform: rotate(4deg) translate(-0.8em, 1.85em);
-  transform-origin: 50% 0;
-  z-index: 1;
+    animation: hamster var(--dur) ease-in-out infinite;
+    top: 50%;
+    left: calc(50% - 3.5em);
+    width: 7em;
+    height: 3.75em;
+    transform: rotate(4deg) translate(-0.8em, 1.85em);
+    transform-origin: 50% 0;
+    z-index: 1;
 }
 
 .hamster__head {
-  animation: hamsterHead var(--dur) ease-in-out infinite;
-  background: hsl(30, 90%, 55%);
-  border-radius: 70% 30% 0 100% / 40% 25% 25% 60%;
-  box-shadow: 0 -0.25em 0 hsl(30, 90%, 80%) inset,
-    0.75em -1.55em 0 hsl(30, 90%, 90%) inset;
-  top: 0;
-  left: -2em;
-  width: 2.75em;
-  height: 2.5em;
-  transform-origin: 100% 50%;
+    animation: hamsterHead var(--dur) ease-in-out infinite;
+    background: hsl(30, 90%, 55%);
+    border-radius: 70% 30% 0 100% / 40% 25% 25% 60%;
+    box-shadow: 0 -0.25em 0 hsl(30, 90%, 80%) inset,
+        0.75em -1.55em 0 hsl(30, 90%, 90%) inset;
+    top: 0;
+    left: -2em;
+    width: 2.75em;
+    height: 2.5em;
+    transform-origin: 100% 50%;
 }
 
 .hamster__ear {
-  animation: hamsterEar var(--dur) ease-in-out infinite;
-  background: hsl(0, 90%, 85%);
-  border-radius: 50%;
-  box-shadow: -0.25em 0 hsl(30, 90%, 55%) inset;
-  top: -0.25em;
-  right: -0.25em;
-  width: 0.75em;
-  height: 0.75em;
-  transform-origin: 50% 75%;
+    animation: hamsterEar var(--dur) ease-in-out infinite;
+    background: hsl(0, 90%, 85%);
+    border-radius: 50%;
+    box-shadow: -0.25em 0 hsl(30, 90%, 55%) inset;
+    top: -0.25em;
+    right: -0.25em;
+    width: 0.75em;
+    height: 0.75em;
+    transform-origin: 50% 75%;
 }
 
 .hamster__eye {
-  animation: hamsterEye var(--dur) linear infinite;
-  background-color: hsl(0, 0%, 0%);
-  border-radius: 50%;
-  top: 0.375em;
-  left: 1.25em;
-  width: 0.5em;
-  height: 0.5em;
+    animation: hamsterEye var(--dur) linear infinite;
+    background-color: hsl(0, 0%, 0%);
+    border-radius: 50%;
+    top: 0.375em;
+    left: 1.25em;
+    width: 0.5em;
+    height: 0.5em;
 }
 
 .hamster__nose {
-  background: hsl(0, 90%, 75%);
-  border-radius: 35% 65% 85% 15% / 70% 50% 50% 30%;
-  top: 0.75em;
-  left: 0;
-  width: 0.2em;
-  height: 0.25em;
+    background: hsl(0, 90%, 75%);
+    border-radius: 35% 65% 85% 15% / 70% 50% 50% 30%;
+    top: 0.75em;
+    left: 0;
+    width: 0.2em;
+    height: 0.25em;
 }
 
 .hamster__body {
-  animation: hamsterBody var(--dur) ease-in-out infinite;
-  background: hsl(30, 90%, 90%);
-  border-radius: 50% 30% 50% 30% / 15% 60% 40% 40%;
-  box-shadow: 0.1em 0.75em 0 hsl(30, 90%, 55%) inset,
-    0.15em -0.5em 0 hsl(30, 90%, 80%) inset;
-  top: 0.25em;
-  left: 2em;
-  width: 4.5em;
-  height: 3em;
-  transform-origin: 17% 50%;
-  transform-style: preserve-3d;
+    animation: hamsterBody var(--dur) ease-in-out infinite;
+    background: hsl(30, 90%, 90%);
+    border-radius: 50% 30% 50% 30% / 15% 60% 40% 40%;
+    box-shadow: 0.1em 0.75em 0 hsl(30, 90%, 55%) inset,
+        0.15em -0.5em 0 hsl(30, 90%, 80%) inset;
+    top: 0.25em;
+    left: 2em;
+    width: 4.5em;
+    height: 3em;
+    transform-origin: 17% 50%;
+    transform-style: preserve-3d;
 }
 
 .hamster__limb--fr,
 .hamster__limb--fl {
-  clip-path: polygon(0 0, 100% 0, 70% 80%, 60% 100%, 0% 100%, 40% 80%);
-  top: 2em;
-  left: 0.5em;
-  width: 1em;
-  height: 1.5em;
-  transform-origin: 50% 0;
+    clip-path: polygon(0 0, 100% 0, 70% 80%, 60% 100%, 0% 100%, 40% 80%);
+    top: 2em;
+    left: 0.5em;
+    width: 1em;
+    height: 1.5em;
+    transform-origin: 50% 0;
 }
 
 .hamster__limb--fr {
-  animation: hamsterFRLimb var(--dur) linear infinite;
-  background: linear-gradient(hsl(30, 90%, 80%) 80%, hsl(0, 90%, 75%) 80%);
-  transform: rotate(15deg) translateZ(-1px);
+    animation: hamsterFRLimb var(--dur) linear infinite;
+    background: linear-gradient(hsl(30, 90%, 80%) 80%, hsl(0, 90%, 75%) 80%);
+    transform: rotate(15deg) translateZ(-1px);
 }
 
 .hamster__limb--fl {
-  animation: hamsterFLLimb var(--dur) linear infinite;
-  background: linear-gradient(hsl(30, 90%, 90%) 80%, hsl(0, 90%, 85%) 80%);
-  transform: rotate(15deg);
+    animation: hamsterFLLimb var(--dur) linear infinite;
+    background: linear-gradient(hsl(30, 90%, 90%) 80%, hsl(0, 90%, 85%) 80%);
+    transform: rotate(15deg);
 }
 
 .hamster__limb--br,
 .hamster__limb--bl {
-  border-radius: 0.75em 0.75em 0 0;
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 30%,
-    70% 90%,
-    70% 100%,
-    30% 100%,
-    40% 90%,
-    0% 30%
-  );
-  top: 1em;
-  left: 2.8em;
-  width: 1.5em;
-  height: 2.5em;
-  transform-origin: 50% 30%;
+    border-radius: 0.75em 0.75em 0 0;
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 30%,
+        70% 90%,
+        70% 100%,
+        30% 100%,
+        40% 90%,
+        0% 30%
+    );
+    top: 1em;
+    left: 2.8em;
+    width: 1.5em;
+    height: 2.5em;
+    transform-origin: 50% 30%;
 }
 
 .hamster__limb--br {
-  animation: hamsterBRLimb var(--dur) linear infinite;
-  background: linear-gradient(hsl(30, 90%, 80%) 90%, hsl(0, 90%, 75%) 90%);
-  transform: rotate(-25deg) translateZ(-1px);
+    animation: hamsterBRLimb var(--dur) linear infinite;
+    background: linear-gradient(hsl(30, 90%, 80%) 90%, hsl(0, 90%, 75%) 90%);
+    transform: rotate(-25deg) translateZ(-1px);
 }
 
 .hamster__limb--bl {
-  animation: hamsterBLLimb var(--dur) linear infinite;
-  background: linear-gradient(hsl(30, 90%, 90%) 90%, hsl(0, 90%, 85%) 90%);
-  transform: rotate(-25deg);
+    animation: hamsterBLLimb var(--dur) linear infinite;
+    background: linear-gradient(hsl(30, 90%, 90%) 90%, hsl(0, 90%, 85%) 90%);
+    transform: rotate(-25deg);
 }
 
 .hamster__tail {
-  animation: hamsterTail var(--dur) linear infinite;
-  background: hsl(0, 90%, 85%);
-  border-radius: 0.25em 50% 50% 0.25em;
-  box-shadow: 0 -0.2em 0 hsl(0, 90%, 75%) inset;
-  top: 1.5em;
-  right: -0.5em;
-  width: 1em;
-  height: 0.5em;
-  transform: rotate(30deg) translateZ(-1px);
-  transform-origin: 0.25em 0.25em;
+    animation: hamsterTail var(--dur) linear infinite;
+    background: hsl(0, 90%, 85%);
+    border-radius: 0.25em 50% 50% 0.25em;
+    box-shadow: 0 -0.2em 0 hsl(0, 90%, 75%) inset;
+    top: 1.5em;
+    right: -0.5em;
+    width: 1em;
+    height: 0.5em;
+    transform: rotate(30deg) translateZ(-1px);
+    transform-origin: 0.25em 0.25em;
 }
 
 .spoke {
-  animation: spoke var(--dur) linear infinite;
-  background: radial-gradient(
-      100% 100% at center,
-      hsl(0, 0%, 60%) 4.8%,
-      hsla(0, 0%, 60%, 0) 5%
-    ),
-    linear-gradient(
-        hsla(0, 0%, 55%, 0) 46.9%,
-        hsl(0, 0%, 65%) 47% 52.9%,
-        hsla(0, 0%, 65%, 0) 53%
-      )
-      50% 50% / 99% 99% no-repeat;
+    animation: spoke var(--dur) linear infinite;
+    background: radial-gradient(
+            100% 100% at center,
+            hsl(0, 0%, 60%) 4.8%,
+            hsla(0, 0%, 60%, 0) 5%
+        ),
+        linear-gradient(
+                hsla(0, 0%, 55%, 0) 46.9%,
+                hsl(0, 0%, 65%) 47% 52.9%,
+                hsla(0, 0%, 65%, 0) 53%
+            )
+            50% 50% / 99% 99% no-repeat;
 }
 
 /* Animations */
 @keyframes hamster {
-  from,
-  to {
-    transform: rotate(4deg) translate(-0.8em, 1.85em);
-  }
+    from,
+    to {
+        transform: rotate(4deg) translate(-0.8em, 1.85em);
+    }
 
-  50% {
-    transform: rotate(0) translate(-0.8em, 1.85em);
-  }
+    50% {
+        transform: rotate(0) translate(-0.8em, 1.85em);
+    }
 }
 
 @keyframes hamsterHead {
-  from,
-  25%,
-  50%,
-  75%,
-  to {
-    transform: rotate(0);
-  }
+    from,
+    25%,
+    50%,
+    75%,
+    to {
+        transform: rotate(0);
+    }
 
-  12.5%,
-  37.5%,
-  62.5%,
-  87.5% {
-    transform: rotate(8deg);
-  }
+    12.5%,
+    37.5%,
+    62.5%,
+    87.5% {
+        transform: rotate(8deg);
+    }
 }
 
 @keyframes hamsterEye {
-  from,
-  90%,
-  to {
-    transform: scaleY(1);
-  }
+    from,
+    90%,
+    to {
+        transform: scaleY(1);
+    }
 
-  95% {
-    transform: scaleY(0);
-  }
+    95% {
+        transform: scaleY(0);
+    }
 }
 
 @keyframes hamsterEar {
-  from,
-  25%,
-  50%,
-  75%,
-  to {
-    transform: rotate(0);
-  }
+    from,
+    25%,
+    50%,
+    75%,
+    to {
+        transform: rotate(0);
+    }
 
-  12.5%,
-  37.5%,
-  62.5%,
-  87.5% {
-    transform: rotate(12deg);
-  }
+    12.5%,
+    37.5%,
+    62.5%,
+    87.5% {
+        transform: rotate(12deg);
+    }
 }
 
 @keyframes hamsterBody {
-  from,
-  25%,
-  50%,
-  75%,
-  to {
-    transform: rotate(0);
-  }
+    from,
+    25%,
+    50%,
+    75%,
+    to {
+        transform: rotate(0);
+    }
 
-  12.5%,
-  37.5%,
-  62.5%,
-  87.5% {
-    transform: rotate(-2deg);
-  }
+    12.5%,
+    37.5%,
+    62.5%,
+    87.5% {
+        transform: rotate(-2deg);
+    }
 }
 
 @keyframes hamsterFRLimb {
-  from,
-  25%,
-  50%,
-  75%,
-  to {
-    transform: rotate(50deg) translateZ(-1px);
-  }
+    from,
+    25%,
+    50%,
+    75%,
+    to {
+        transform: rotate(50deg) translateZ(-1px);
+    }
 
-  12.5%,
-  37.5%,
-  62.5%,
-  87.5% {
-    transform: rotate(-30deg) translateZ(-1px);
-  }
+    12.5%,
+    37.5%,
+    62.5%,
+    87.5% {
+        transform: rotate(-30deg) translateZ(-1px);
+    }
 }
 
 @keyframes hamsterFLLimb {
-  from,
-  25%,
-  50%,
-  75%,
-  to {
-    transform: rotate(-30deg);
-  }
+    from,
+    25%,
+    50%,
+    75%,
+    to {
+        transform: rotate(-30deg);
+    }
 
-  12.5%,
-  37.5%,
-  62.5%,
-  87.5% {
-    transform: rotate(50deg);
-  }
+    12.5%,
+    37.5%,
+    62.5%,
+    87.5% {
+        transform: rotate(50deg);
+    }
 }
 
 @keyframes hamsterBRLimb {
-  from,
-  25%,
-  50%,
-  75%,
-  to {
-    transform: rotate(-60deg) translateZ(-1px);
-  }
+    from,
+    25%,
+    50%,
+    75%,
+    to {
+        transform: rotate(-60deg) translateZ(-1px);
+    }
 
-  12.5%,
-  37.5%,
-  62.5%,
-  87.5% {
-    transform: rotate(20deg) translateZ(-1px);
-  }
+    12.5%,
+    37.5%,
+    62.5%,
+    87.5% {
+        transform: rotate(20deg) translateZ(-1px);
+    }
 }
 
 @keyframes hamsterBLLimb {
-  from,
-  25%,
-  50%,
-  75%,
-  to {
-    transform: rotate(20deg);
-  }
+    from,
+    25%,
+    50%,
+    75%,
+    to {
+        transform: rotate(20deg);
+    }
 
-  12.5%,
-  37.5%,
-  62.5%,
-  87.5% {
-    transform: rotate(-60deg);
-  }
+    12.5%,
+    37.5%,
+    62.5%,
+    87.5% {
+        transform: rotate(-60deg);
+    }
 }
 
 @keyframes hamsterTail {
-  from,
-  25%,
-  50%,
-  75%,
-  to {
-    transform: rotate(30deg) translateZ(-1px);
-  }
+    from,
+    25%,
+    50%,
+    75%,
+    to {
+        transform: rotate(30deg) translateZ(-1px);
+    }
 
-  12.5%,
-  37.5%,
-  62.5%,
-  87.5% {
-    transform: rotate(10deg) translateZ(-1px);
-  }
+    12.5%,
+    37.5%,
+    62.5%,
+    87.5% {
+        transform: rotate(10deg) translateZ(-1px);
+    }
 }
 
 @keyframes spoke {
-  from {
-    transform: rotate(0);
-  }
+    from {
+        transform: rotate(0);
+    }
 
-  to {
-    transform: rotate(-1turn);
-  }
+    to {
+        transform: rotate(-1turn);
+    }
 }
 
 /* scrolll */
 
 .scroll {
-  overflow-y: scroll;
+    overflow-y: scroll;
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 2px grey;
-  border-radius: 10px;
+    box-shadow: inset 0 0 2px grey;
+    border-radius: 10px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(211, 208, 208);
-  border-radius: 10px;
+    background: rgb(211, 208, 208);
+    border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+    background: #555;
 }
 
 /* adlist */
 .adlist:hover {
-  color: gray;
-  transition: 0.3s;
+    color: gray;
+    transition: 0.3s;
 }
 
 .adlist {
-  font-size: 80px;
+    font-size: 80px;
 }
 
 /* userbutton */
 
 .userbutton {
-  background: transparent;
-  position: relative;
-  padding: 5px 15px;
-  display: flex;
-  align-items: center;
-  font-size: 17px;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-  border: 1px solid rgb(154, 120, 239);
-  border-radius: 25px;
-  outline: none;
-  overflow: hidden;
-  color: rgb(154, 120, 239);
-  transition: color 0.3s 0.1s ease-out;
-  text-align: center;
+    background: transparent;
+    position: relative;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid rgb(154, 120, 239);
+    border-radius: 25px;
+    outline: none;
+    overflow: hidden;
+    color: rgb(154, 120, 239);
+    transition: color 0.3s 0.1s ease-out;
+    text-align: center;
 }
 
 .userbutton span {
-  margin: 10px;
+    margin: 10px;
 }
 
 .userbutton::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  content: "";
-  border-radius: 50%;
-  display: block;
-  width: 20em;
-  height: 20em;
-  left: -5.5em;
-  text-align: center;
-  transition: box-shadow 0.5s ease-out;
-  z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    content: "";
+    border-radius: 50%;
+    display: block;
+    width: 20em;
+    height: 20em;
+    left: -5.5em;
+    text-align: center;
+    transition: box-shadow 0.5s ease-out;
+    z-index: -1;
 }
 
 .userbutton:hover {
-  color: #fff;
-  border: 1px solid rgb(154, 120, 239);
+    color: #fff;
+    border: 1px solid rgb(154, 120, 239);
 }
 
 .userbutton:hover::before {
-  box-shadow: inset 0 0 0 10em rgb(154, 120, 239);
+    box-shadow: inset 0 0 0 10em rgb(154, 120, 239);
 }
 
 /* Landlord-card */
 
 .landlord-card {
-  background: #f5f5f5;
-  font-weight: 500;
-  padding: 2rem 1.5rem;
-  transition: box-shadow 0.3s ease, transform 0.2s ease;
+    background: #f5f5f5;
+    font-weight: 500;
+    padding: 2rem 1.5rem;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
 
 .landlord-card-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 /*Image*/
 .landlord-card-avatar {
-  --size: 150px;
-  width: var(--size);
-  height: var(--size);
-  border-radius: 50%;
-  transition: transform 0.2s ease;
-  margin-bottom: 1rem;
+    --size: 150px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+    margin-bottom: 1rem;
 }
 
 /*Card footer*/
 .landlord-card-social {
-  transform: translateY(200%);
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  opacity: 0;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+    transform: translateY(200%);
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    opacity: 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 /*Hover*/
 .landlord-card:hover {
-  box-shadow: 0 8px 50px #23232333;
+    box-shadow: 0 8px 50px #23232333;
 }
 
 .landlord-card-avatar:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .landlord-card-email:hover {
-  color: darkgrey;
+    color: darkgrey;
 }
 
 /* properties-=button// */
 
 /* From uiverse.io by @Ali-Tahmazi99 */
 .properties-button {
-  border: 1px solid black;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.6s ease-in;
-  z-index: 1;
+    border: 1px solid black;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.6s ease-in;
+    z-index: 1;
 }
 
 .properties-button::before,
 .properties-button::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 0;
-  height: 100%;
-  transform: skew(18deg);
-  transition: all 0.7s;
-  overflow: hidden;
-  z-index: -1;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transform: skew(18deg);
+    transition: all 0.7s;
+    overflow: hidden;
+    z-index: -1;
 }
 
 .properties-button-edit::before {
-  left: -5px;
-  background: #ffca03;
+    left: -5px;
+    background: #ffca03;
 }
 
 .properties-button-edit::after {
-  right: -5px;
-  background: #f6d860;
+    right: -5px;
+    background: #f6d860;
 }
 
 .properties-button-delete::before {
-  left: -5px;
-  background: #a20e0e;
+    left: -5px;
+    background: #a20e0e;
 }
 
 .properties-button-delete::after {
-  right: -5px;
-  background: #fa1e0e;
+    right: -5px;
+    background: #fa1e0e;
 }
 
 .properties-button-send::before {
-  left: -5px;
-  background: #38e54d;
+    left: -5px;
+    background: #38e54d;
 }
 
 .properties-button-send::after {
-  right: -5px;
-  background: #9cff2e;
+    right: -5px;
+    background: #9cff2e;
 }
 
 .properties-button-reset::before {
-  left: -5px;
-  background: #8294c4;
+    left: -5px;
+    background: #8294c4;
 }
 
 .properties-button-reset::after {
-  right: -5px;
-  background: #acb1d6;
+    right: -5px;
+    background: #acb1d6;
 }
 .properties-button-return::before {
-  left: -5px;
-  background: #8d7b68;
+    left: -5px;
+    background: #8d7b68;
 }
 
 .properties-button-return::after {
-  right: -5px;
-  background: #c8b6a6;
+    right: -5px;
+    background: #c8b6a6;
 }
 .properties-button-save::before {
-  left: -5px;
-  background: #38e54d;
+    left: -5px;
+    background: #38e54d;
 }
 
 .properties-button-save::after {
-  right: -5px;
-  background: #9cff2e;
+    right: -5px;
+    background: #9cff2e;
 }
 
 .properties-button-sent {
-  color: black;
-  border: 1px solid black;
+    color: black;
+    border: 1px solid black;
 }
 
 .properties-button:hover::before,
 .properties-button:hover::after {
-  width: 58%;
+    width: 58%;
+}
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 0.3rem;
+    --stroke: #666;
+    --fill: #ffc73a;
+}
+
+.rating input {
+    appearance: unset;
+}
+
+.rating label {
+    cursor: pointer;
+}
+
+.rating svg {
+    width: 3rem;
+    height: 3rem;
+    overflow: visible;
+    fill: transparent;
+    stroke: var(--stroke);
+    stroke-linejoin: bevel;
+    stroke-dasharray: 12;
+    animation: idle 4s linear infinite;
+    transition: stroke 0.2s, fill 0.5s;
+}
+
+@keyframes idle {
+    from {
+        stroke-dashoffset: 24;
+    }
+}
+
+.rating label:hover svg {
+    stroke: var(--fill);
+}
+
+.rating input:checked ~ label svg {
+    transition: 0s;
+    animation: idle 4s linear infinite, yippee 0.75s backwards;
+    fill: var(--fill);
+    stroke: var(--fill);
+    stroke-opacity: 0;
+    stroke-dasharray: 0;
+    stroke-linejoin: miter;
+    stroke-width: 8px;
+}
+
+@keyframes yippee {
+    0% {
+        transform: scale(1);
+        fill: var(--fill);
+        fill-opacity: 0;
+        stroke-opacity: 1;
+        stroke: var(--stroke);
+        stroke-dasharray: 10;
+        stroke-width: 1px;
+        stroke-linejoin: bevel;
+    }
+
+    30% {
+        transform: scale(0);
+        fill: var(--fill);
+        fill-opacity: 0;
+        stroke-opacity: 1;
+        stroke: var(--stroke);
+        stroke-dasharray: 10;
+        stroke-width: 1px;
+        stroke-linejoin: bevel;
+    }
+
+    30.1% {
+        stroke: var(--fill);
+        stroke-dasharray: 0;
+        stroke-linejoin: miter;
+        stroke-width: 8px;
+    }
+
+    60% {
+        transform: scale(1.2);
+        fill: var(--fill);
+    }
 }
 
 .dropdown {

@@ -106,7 +106,7 @@ function EditProperties(): JSX.Element {
         });
 
         editProperty();
-        route.push(`http://localhost:3000/user/${res.data.result.userID}`);
+        route.push(`${Utils.WEB_URL}/properties/${res.data.result.userID}`);
       })
       .catch(() => {
         toast.error("❌ unsuccessful", {
