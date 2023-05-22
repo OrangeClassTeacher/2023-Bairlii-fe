@@ -34,7 +34,7 @@ export const AdComment = ({ data }: any): JSX.Element => {
   function getCommentData(id: any): void {
     if (id) {
       axios
-        .get(`${Utils.API_URL}/api/procomments/${id}`)
+        .get(`${Utils.API_URL}/procomments/${id}`)
         .then((res) => {
           setCommentData(res.data.result.reverse());
         })

@@ -15,65 +15,65 @@ import Sort from "./Sort";
 
 export const categories = [
   {
-    label: "Баянзүрх дүүрэг",
+    label: "Bayanzurkh District",
     icon: FcDepartment,
     description: "This property is close to the beach!",
   },
   {
-    label: "Чингэлтэй дүүрэг",
+    label: "Chingeltei District",
     icon: FcNews,
     description: "This property is close to the beach!",
   },
   {
-    label: "ХанУул дүүрэг",
+    label: "Khan-Uul District",
     icon: FcOrganization,
     description: "This property is close to the beach!",
   },
   {
-    label: "Баянгол дүүрэг",
+    label: "Bayangol District",
     icon: FcHome,
     description: "This property is close to the beach!",
   },
   {
-    label: "Сүхбаатар дүүрэг",
+    label: "Sukhbaatar District",
     icon: FcFactory,
     description: "This property is close to the beach!",
   },
   {
-    label: "Налайх дүүрэг",
+    label: "Nalaikh District",
     icon: FcNeutralTrading,
     description: "This property is close to the beach!",
   },
   {
-    label: "Сонгинохайрхан дүүрэг",
+    label: "SonginoKhairkhan District",
     icon: FcPlanner,
     description: "This property is close to the beach!",
   },
-  {
-    label: "Хажуу өрөө",
-    icon: FcNews,
-    description: "This property is close to the beach!",
-  }
+  // {
+  //   label: "A Side room",
+  //   icon: FcNews,
+  //   description: "This property is close to the beach!",
+  // }
 ];
 
 export const room = [
   {
-    label: "1 өрөө",
+    label: "1 room",
     icon: FcHome,
     description: "This property is close to the beach!",
   },
   {
-    label: "2 өрөө",
+    label: "2 rooms",
     icon: FcHome,
     description: "This property is close to the beach!",
   },
   {
-    label: "3 өрөө",
+    label: "3 rooms",
     icon: FcHome,
     description: "This property is close to the beach!",
   },
   {
-    label: "4 өрөө",
+    label: "4 rooms",
     icon: FcHome,
     description: "This property is close to the beach!",
   },
@@ -81,17 +81,17 @@ export const room = [
 
 export const sorts = [
   {
-    label: "Үнээр шүүх",
+    label: "Sort by price",
     icon: FcNews,
     description: "This property is close to the beach!",
   },
   {
-    label: "Байршилаар шүүх",
+    label: "Sort by location",
     icon: FcNews,
     description: "This property is close to the beach!",
   },
   {
-    label: "Rating шүүх",
+    label: "Sort by rating",
     icon: FcNews,
     description: "This property is close to the beach!",
   },

@@ -9,22 +9,29 @@ declare global {
 }
 
 interface ImageUploadProps {
-  onChange: (value: string) => void;
+  onChange: (value: any) => void;
   value: string;
 }
 
 const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value }) => {
+  const photos: string[] = []
   const handleUpload = useCallback(
     (result: any): void => {
-      onChange(result.info.secure_url);
+      photos.push(result.info.secure_url)
     },
     [onChange]
   );
+
+  function uploadPhotos(): void {
+    onChange(photos);
+  }
+
   return (
     <CldUploadWidget
       onUpload={handleUpload}
+      onClose={uploadPhotos}
       uploadPreset="bg1z9lt5"
-      options={{ maxFiles: 10 }}
+      options={{ maxFiles: 10, multiple: true }}
     >
       {({ open }): JSX.Element => (
         <div
@@ -39,7 +46,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value }) => {
                 alt="Upload"
                 fill
                 style={{ objectFit: "cover" }}
-                src={value}
+                src={value[0]}
               />
             </div>
           )}

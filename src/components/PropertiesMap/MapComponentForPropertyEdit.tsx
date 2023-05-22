@@ -10,7 +10,7 @@ const MapComponentForPropertyEdit = ({
   propertyData: any;
 }): JSX.Element => {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.GOOGLE_MAP_API as string,
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API as string,
   });
   const [cursorType, setCursorType] = useState("");
   const [saveCoordinates, setSaveCoordinates] = useState<any>({ x: "", y: "" });
