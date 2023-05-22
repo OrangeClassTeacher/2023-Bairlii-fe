@@ -49,6 +49,8 @@ const AddAdvertisement = ({
                 headers: { "x-access-token": token },
             })
             .then((response: any) => {
+                console.log(response);
+
                 if (response)
                     toast.success("🏠Your placement is successful", {
                         position: toast.POSITION.TOP_CENTER,

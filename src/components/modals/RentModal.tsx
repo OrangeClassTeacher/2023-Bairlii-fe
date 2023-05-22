@@ -144,8 +144,8 @@ const RentModal = (): JSX.Element => {
   let bodyContent = (
     <div className="flex flex-col gap-8">
       <Heading
-        title="Таны байр аль дүүрэгт байрлалтай вэ?"
-        subtitle="Дүүрэг сонгоно уу."
+        title="Accommodation information"
+        subtitle="Select district"
       />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[50vh] overflow-y-auto">
         {categories.map((item) => (
@@ -165,7 +165,7 @@ const RentModal = (): JSX.Element => {
   if (step === STEPS.LOCATION) {
     bodyContent = (
       <div className="flex flex-col gap-8">
-        <Heading title="Танай газар хаана байрладаг вэ?" />
+        <Heading title="Accommodation location?" />
         <Input
           id="locationName"
           label="Location Name"
@@ -182,26 +182,26 @@ const RentModal = (): JSX.Element => {
     bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading
-          title="Байрныхаа талаар хуваалцах"
-          subtitle="Байрны мэдээлэл, тохь тух"
+          title="Accommodation information"
+          subtitle="Visitor count?, Room count?"
         />
         <Counter
-          title="Хүний тоо"
-          subtitle="Таны байрыг хэдэн хүн түрээслэх боломжтой вэ?"
+          title="Visitor count"
+          subtitle="How many poeple can stay?"
           value={guestCount}
           onChange={(value): void => setCustomValue("guestCount", value)}
         />
         <hr />
         <Counter
-          title="Өрөө"
-          subtitle="Таны байр хэдэн өрөөтэй вэ?"
+          title="Room"
+          subtitle="Room count?"
           value={roomCount}
           onChange={(value): void => setCustomValue("roomCount", value)}
         />
         <hr />
         <Counter
-          title="Угаалгын өрөө"
-          subtitle="Таны байр хэдэн угаалгын өрөөтэй вэ?"
+          title="Bathroom"
+          subtitle="Bathroom count?"
           value={bathroomCount}
           onChange={(value): void => setCustomValue("bathroomCount", value)}
         />
@@ -213,8 +213,8 @@ const RentModal = (): JSX.Element => {
     bodyContent = (
       <div>
         <Heading
-          title="Та байрныхаа үндсэн зургийг оруулна уу."
-          subtitle="Та 5-аас 10н зураг оруулна уу."
+          title="Upload your accommodation photos."
+          subtitle="Upload 5-10 photos."
         />
         <ImageUpload
           value={photos}
@@ -227,7 +227,7 @@ const RentModal = (): JSX.Element => {
   if (step === STEPS.DESCRIPTION) {
     bodyContent = (
       <div>
-        <Heading title="Та байраа хэрхэн тодорхойлох вэ?" subtitle="" />
+        <Heading title="Accommodation information" subtitle="" />
         <Input
           id="description"
           label="Description"
@@ -244,8 +244,8 @@ const RentModal = (): JSX.Element => {
     bodyContent = (
       <div className="flex flex-col gap-8">
         <Heading
-          title="Талбайн хэмжээ"
-          subtitle="Та байрныхаа талбайн хэмжээг оруулна уу."
+          title="Area of accommodation"
+          subtitle="Insert area of accommodation"
         />
         <Input
           id="area"
@@ -265,8 +265,8 @@ const RentModal = (): JSX.Element => {
     bodyContent = (
       <div>
         <Heading
-          title="Та байрныхаа 360 зураг болон 180аар авсан зургийг оруулна уу."
-          subtitle="Энэ нь хэрэглэгчидэд үнэхээр сайхан харагдах болно."
+          title="Upload your accommodation panaroma photos."
+          subtitle="It shows your accommodation form inside."
         />
         <Panorama
           value={panoramaPhoto}

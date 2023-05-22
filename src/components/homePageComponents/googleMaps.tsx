@@ -9,7 +9,7 @@ import Utils from '@/utils/Utils';
 
 export const Maps = ({ setSelected }: any): JSX.Element => {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.GOOGLE_MAP_API as string,
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API as string,
   });
 
 

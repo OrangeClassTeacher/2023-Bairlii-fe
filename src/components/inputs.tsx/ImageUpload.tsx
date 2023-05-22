@@ -5,7 +5,7 @@ import { useCallback } from "react";
 import { TbPhotoPlus } from "react-icons/tb";
 
 declare global {
-  let cloudinary: any;
+  var cloudinary: any;
 }
 
 interface ImageUploadProps {
