@@ -116,11 +116,11 @@ const UserPropertyCard = ({
                   },
                 }}
               >
-                <button className="bg-gray-700 text-white  rounded-md">
+                <button className="ps-3 pe-3 properties-button properties-button-edit bg-gray-100 rounded-lg  text-center">
                   <p className="p-2">Edit</p>
                 </button>
               </Link>
-              <button className="bg-gray-700  rounded-md text-white">
+              <button className="ps-2 pe-2  bg-gray-100 properties-button properties-button-delete rounded-md  text-center ">
                 <p className="p-2" onClick={(): void => deleteProperties(_id)}>
                   Delete
                 </p>
@@ -128,7 +128,7 @@ const UserPropertyCard = ({
               {advertisementId == _id ? (
                 <>
                   <button
-                    className="transititext-primary text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 bg-zinc-400 rounded-md"
+                    className="ps-2 pe-2  bg-gray-100  properties-butto properties-button-sent   rounded-md  text-center"
                     data-te-toggle="tooltip"
                     title="You have already placed advertisement"
                     disabled
@@ -138,7 +138,7 @@ const UserPropertyCard = ({
                 </>
               ) : (
                 <button
-                  className="bg-gray-700  text-white rounded-md"
+                  className="bg-gray-100 ps-2 pe-2 properties-button properties-button-send rounded-md"
                   onClick={(): void => setAddingAdvertisement(true)}
                 >
                   <p className="p-2">Send</p>

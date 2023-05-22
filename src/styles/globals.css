@@ -664,3 +664,95 @@ body,
 .landlord-card-email:hover {
   color: darkgrey;
 }
+
+/* properties-=button// */
+
+/* From uiverse.io by @Ali-Tahmazi99 */
+.properties-button {
+  border: 1px solid black;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.6s ease-in;
+  z-index: 1;
+}
+
+.properties-button::before,
+.properties-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 100%;
+  transform: skew(18deg);
+  transition: all 0.7s;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.properties-button-edit::before {
+  left: -5px;
+  background: #ffca03;
+}
+
+.properties-button-edit::after {
+  right: -5px;
+  background: #f6d860;
+}
+
+.properties-button-delete::before {
+  left: -5px;
+  background: #a20e0e;
+}
+
+.properties-button-delete::after {
+  right: -5px;
+  background: #fa1e0e;
+}
+
+.properties-button-send::before {
+  left: -5px;
+  background: #38e54d;
+}
+
+.properties-button-send::after {
+  right: -5px;
+  background: #9cff2e;
+}
+
+.properties-button-reset::before {
+  left: -5px;
+  background: #8294c4;
+}
+
+.properties-button-reset::after {
+  right: -5px;
+  background: #acb1d6;
+}
+.properties-button-return::before {
+  left: -5px;
+  background: #8d7b68;
+}
+
+.properties-button-return::after {
+  right: -5px;
+  background: #c8b6a6;
+}
+.properties-button-save::before {
+  left: -5px;
+  background: #38e54d;
+}
+
+.properties-button-save::after {
+  right: -5px;
+  background: #9cff2e;
+}
+
+.properties-button-sent {
+  color: black;
+  border: 1px solid black;
+}
+
+.properties-button:hover::before,
+.properties-button:hover::after {
+  width: 58%;
+}
