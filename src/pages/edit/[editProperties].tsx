@@ -105,7 +105,7 @@ function EditProperties(): JSX.Element {
           theme: "light",
         });
         editProperty();
-        route.push(`http://localhost:3000/user/${res.data.result.userID}`);
+        route.push(`${Utils.WEB_URL}/properties/${res.data.result.userID}`);
       })
       .catch(() => {
         toast.success("❌ unsuccessful", {
