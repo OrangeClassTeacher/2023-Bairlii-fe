@@ -33,7 +33,7 @@ const NewUser = (): JSX.Element => {
             className="rounded-full h-11 w-11 flex items-center justify-center me-2"
           />
         </div>
-        <Dropdown label={decoded.user.firstName}>
+        <Dropdown className="" label={decoded.user.firstName}>
           <Link
             href={{
               pathname: `/properties/[userId]`,

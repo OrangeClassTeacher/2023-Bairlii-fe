@@ -756,3 +756,6 @@ body,
 .properties-button:hover::after {
   width: 58%;
 }
+
+.dropdown {
+}

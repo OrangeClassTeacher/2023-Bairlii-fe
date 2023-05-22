@@ -130,12 +130,12 @@ function Register(): JSX.Element {
             <div>
               <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
                 <p className="mx-4 mb-0 text-center font-semibold text-2xl dark:text-white">
-                  Шинээр бүртгүүлэх
+                  New Register
                 </p>
               </div>
               <div className="mt-10 grid grid-cols-2 gap-5">
                 <div className="flex flex-col">
-                  <label>Нэр</label>
+                  <label>Name</label>
                   <input
                     className="border border-gray-400 py-1 px-2 w-full"
                     type="text"
@@ -152,7 +152,7 @@ function Register(): JSX.Element {
                   )}
                 </div>
                 <div className="flex flex-col">
-                  <label>Овог</label>
+                  <label>Lastname</label>
                   <input
                     className="border border-gray-400 py-1 px-2 w-full"
                     {...register("lastName", {
@@ -169,7 +169,7 @@ function Register(): JSX.Element {
                 </div>
               </div>
               <div className="mt-5">
-                <label>Имэйл</label>
+                <label>Email</label>
                 <input
                   {...register("email", {
                     required: true,
@@ -186,19 +186,10 @@ function Register(): JSX.Element {
               </div>
               <div className="mt-5 grid grid-cols-2 gap-5">
                 <div>
-                  <label>Дүүрэг</label>
+                  <label>District</label>
                   <select
                     {...register("district", {
                       required: true,
-                      // value:
-                      //   "Баянзүрх дүүрэг" ||
-                      //   "Баянгол дүүрэг" ||
-                      //   "Сүхбаатар дүүрэг" ||
-                      //   "Чингэлтэй дүүрэг" ||
-                      //   "Налайх дүүрэг" ||
-                      //   "Хан-Уул дүүрэг" ||
-                      //   "Хан-Уул дүүрэг" ||
-                      //   "Сонгинохайрхан дүүрэг",
                     })}
                     className="border border-gray-400 py-1 px-2 w-full"
                   >
@@ -220,7 +211,7 @@ function Register(): JSX.Element {
                   )}
                 </div>
                 <div>
-                  <label>Хороо</label>
+                  <label>Committee</label>
                   <select
                     {...register("subdistrict", {
                       required: true,
@@ -246,7 +237,7 @@ function Register(): JSX.Element {
               </div>
               <div className="mt-5 grid grid-cols-2 gap-5">
                 <div className="flex flex-col">
-                  <label>Гудамж</label>
+                  <label>Street</label>
                   <input
                     {...register("street", {
                       required: true,
@@ -261,7 +252,7 @@ function Register(): JSX.Element {
                   )}
                 </div>
                 <div className="flex flex-col">
-                  <label>Байр</label>
+                  <label>Place</label>
                   <input
                     {...register("block", { required: true })}
                     type="number"
@@ -276,7 +267,7 @@ function Register(): JSX.Element {
               </div>
               <div className="mt-5 grid grid-cols-2 gap-5">
                 <div className="flex flex-col">
-                  <label>Нууц үг</label>
+                  <label>Password</label>
                   <input
                     {...register("password", {
                       required: true,
@@ -292,7 +283,7 @@ function Register(): JSX.Element {
                   )}
                 </div>
                 <div className="flex flex-col">
-                  <label>Утасны дугаар</label>
+                  <label>Phone number</label>
                   <input
                     {...register("phoneNumber", {
                       required: true,
@@ -310,7 +301,7 @@ function Register(): JSX.Element {
                 </div>
               </div>
               <div className="mt-5 mb-5">
-                <label>Профайл зураг</label>
+                <label>Profile</label>
                 <input
                   onChange={(e): void => {
                     sendFile("images", e.target.files);
@@ -329,7 +320,7 @@ function Register(): JSX.Element {
                     data-te-ripple-init
                     data-te-ripple-color="dark"
                   >
-                    Нэвтрэх
+                    Login
                   </button>
                 </Link>
                 <button
@@ -339,7 +330,7 @@ function Register(): JSX.Element {
                   data-te-ripple-init
                   data-te-ripple-color="dark"
                 >
-                  Бүртгүүлэх
+                  Register
                 </button>
                 <button
                   onClick={(): void => reset()}

@@ -1,15 +1,12 @@
 import React from "react";
 
-
 export const AddCommentSection = ({
   propertyId,
   setCommentBody,
   decoded,
   postComment,
-  commentBody
+  commentBody,
 }: any): JSX.Element => {
-
-
   function handleCommentBody(data: any): void {
     setCommentBody({
       ...commentBody,
@@ -19,7 +16,6 @@ export const AddCommentSection = ({
     });
   }
   console.log(commentBody);
-
 
   return (
     <div>
@@ -32,7 +28,10 @@ export const AddCommentSection = ({
             value={commentBody?.comment[0]}
           />
         </div>
-        <div className="flex justify-end px-4" onClick={(e): void => postComment(e)}>
+        <div
+          className="flex justify-end px-4"
+          onClick={(e): void => postComment(e)}
+        >
           <input
             type="submit"
             className="px-2.5 py-1.5 rounded-md text-white text-sm bg-indigo-500"
