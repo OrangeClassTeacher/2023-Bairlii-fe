@@ -53,7 +53,7 @@ export const CommentCard = ({ data }: any): JSX.Element => {
   } else {
     return (
       <div className="flex justify-center relative w-full">
-        <div className="relative gap-4 p-4 mb-8 border rounded-lg bg-white shadow-lg w-full">
+        <div className="relative gap-4 p-4 mb-8  bg-white border-b border-t w-full">
           <div className="relative flex gap-4">
             <Image
               src={`${commentedUser?.profilePicture}`}
@@ -76,7 +76,7 @@ export const CommentCard = ({ data }: any): JSX.Element => {
             </div>
           </div>
           <div className="w-[400px] ms-8 mt-2 border rounded-md">
-            <p className=" text-gray-500 p-2 ">{data?.comment[0]}</p>
+            <p className=" text-gray-600 p-2 ">{data?.comment[0]}</p>
           </div>
         </div>
       </div>
