@@ -115,19 +115,23 @@ export const AdComment = ({ data }: any): JSX.Element => {
     );
   } else {
     return (
-      <div>
-        <AddCommentSection
-          propertyId={data?.propertyID?._id}
-          setCommentBody={setCommentBody}
-          decoded={decoded}
-          postComment={postComment}
-          commentBody={commentBody}
-        />
-        {commentData.map((e, index): any => (
-          <div key={index}>
-            <CommentCard data={e} />
+      <div className="card-inner comment-card">
+        <div className="">
+          <AddCommentSection
+            propertyId={data?.propertyID?._id}
+            setCommentBody={setCommentBody}
+            decoded={decoded}
+            postComment={postComment}
+            commentBody={commentBody}
+          />
+          <div className="scroll h-[250px]">
+            {commentData.map((e, index): any => (
+              <div key={index}>
+                <CommentCard data={e} />
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     );
   }

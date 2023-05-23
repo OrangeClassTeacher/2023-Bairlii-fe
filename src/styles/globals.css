@@ -845,3 +845,12 @@ body,
 
 .dropdown {
 }
+
+/* comment-card */
+.comment-card {
+  width: 500px;
+}
+
+.comment {
+  cursor: pointer;
+}
