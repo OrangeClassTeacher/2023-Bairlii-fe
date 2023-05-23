@@ -12,7 +12,7 @@ const LandlordInfo = ({ data }: any): JSX.Element => {
         <img
           src={userData?.profilePicture}
           alt="propic"
-          className="rounded-[22px] landlord-card-avatar"
+          className="rounded-[22px]  landlord-card-avatar"
         />
       </div>
       <div className="text-emerald-600 text-3xl  justify-center  flex flex-col gap-6">
