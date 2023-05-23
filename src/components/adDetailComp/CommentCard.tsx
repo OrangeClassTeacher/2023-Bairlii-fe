@@ -57,15 +57,15 @@ export const CommentCard = ({ data }: any): JSX.Element => {
           <div className="relative flex gap-4">
             <Image
               src={`${commentedUser?.profilePicture}`}
-              className="relative rounded-lg -top-8 -mb-4 bg-white border h-20 w-20"
+              className=" rounded-[50%]  bg-white border object-cover w-[50px] h-[50px]"
               alt=""
               loading="lazy"
-              width={500}
-              height={500}
+              width={1000}
+              height={1000}
             />
             <div className="flex flex-col w-full">
               <div className="flex flex-row justify-between">
-                <p className="relative text-xl whitespace-nowrap truncate overflow-hidden">
+                <p className=" text-xl whitespace-nowrap truncate overflow-hidden">
                   {commentedUser?.firstName} {commentedUser?.lastName}
                 </p>
                 <a className="text-gray-500 text-xl" href="#">
@@ -75,8 +75,8 @@ export const CommentCard = ({ data }: any): JSX.Element => {
               <p className="text-gray-400 text-sm">{date}</p>
             </div>
           </div>
-          <div>
-            <p className="-mt-4 text-gray-500">{data?.comment[0]}</p>
+          <div className="w-[400px] ms-8 mt-2 border rounded-md">
+            <p className=" text-gray-500 p-2 ">{data?.comment[0]}</p>
           </div>
         </div>
       </div>
