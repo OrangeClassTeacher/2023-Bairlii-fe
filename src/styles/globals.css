@@ -719,7 +719,9 @@ body,
   right: -5px;
   background: #9cff2e;
 }
-
+.properties-button-sent {
+  cursor: not-allowed;
+}
 .properties-button-reset::before {
   left: -5px;
   background: #8294c4;
@@ -844,4 +846,13 @@ body,
 }
 
 .dropdown {
+}
+
+/* comment-card */
+.comment-card {
+  width: 500px;
+}
+
+.comment {
+  cursor: pointer;
 }

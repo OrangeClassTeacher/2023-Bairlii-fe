@@ -128,7 +128,7 @@ const UserPropertyCard = ({
               {advertisementId == _id ? (
                 <>
                   <button
-                    className="ps-2 pe-2  bg-gray-100  properties-butto properties-button-sent   rounded-md  text-center"
+                    className="ps-2 pe-2  bg-gray-100  properties-button properties-button-sent   rounded-md  text-center"
                     data-te-toggle="tooltip"
                     title="You have already placed advertisement"
                     disabled
