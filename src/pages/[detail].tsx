@@ -35,9 +35,14 @@ const AdDetail = (): JSX.Element => {
   return (
     <div className="max-w-5xl w-full mt-7 mx-auto mb-32">
       <SwiperForDetail data={adData} />
-      <Description data={adData} />
-      <RatingStars data={adData} />
-      <AdComment data={adData} />
+      <div className="flex justify-between mt-10">
+        <div>
+          <Description data={adData} />
+          <RatingStars data={adData} />
+        </div>
+        <AdComment data={adData} />
+      </div>
+
       <LandlordInfo data={adData} />
     </div>
   );

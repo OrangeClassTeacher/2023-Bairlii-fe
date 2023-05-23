@@ -28,7 +28,7 @@ export default function SwiperSlider({ data }: any): any {
           loop={true}
           pagination={true}
           modules={[Autoplay, EffectCube, Pagination]}
-          className="mySwiper  "
+          className="mySwiper"
         >
           {data?.propertyID?.photos?.map((item: string, index: number) => (
             <div key={index}>

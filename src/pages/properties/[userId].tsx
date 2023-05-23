@@ -59,7 +59,7 @@ function UserPage(): JSX.Element {
       })
       .catch((err) => {
         console.log(err);
-        toast.success("❌ unsuccessful", {
+        toast.error("❌ unsuccessful", {
           position: toast.POSITION.TOP_CENTER,
           autoClose: 5000,
           hideProgressBar: false,

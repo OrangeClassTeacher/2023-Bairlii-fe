@@ -19,7 +19,7 @@ export const AddCommentSection = ({
 
   return (
     <div>
-      <form className="max-w-full shadow-lg bg-white rounded-lg border p-2 mx-auto my-10">
+      <form className="max-w-full p-2 mx-auto ">
         <div className="px-3 mb-2 mt-2">
           <textarea
             placeholder="comment"
@@ -34,7 +34,7 @@ export const AddCommentSection = ({
         >
           <input
             type="submit"
-            className="px-2.5 py-1.5 rounded-md text-white text-sm bg-indigo-500"
+            className="px-2.5 py-1.5 rounded-md text-white text-sm bg-indigo-500 comment"
             value="Comment"
           />
         </div>
