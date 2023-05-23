@@ -719,7 +719,9 @@ body,
   right: -5px;
   background: #9cff2e;
 }
-
+.properties-button-sent {
+  cursor: not-allowed;
+}
 .properties-button-reset::before {
   left: -5px;
   background: #8294c4;
