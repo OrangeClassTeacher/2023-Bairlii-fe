@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import jwt from "jsonwebtoken";
 import Utils from "@/utils/Utils";
 import Loading from "../loading/Loading";
@@ -86,7 +85,7 @@ const RatingStars = ({ data }: any): JSX.Element => {
                 <path
                   d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"
                   pathLength="360"
-                ></path>
+                />
               </svg>
             </label>
             {Math.floor(rating?.rating[0].avg_val) == 4 ? (
@@ -112,7 +111,7 @@ const RatingStars = ({ data }: any): JSX.Element => {
                 <path
                   d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"
                   pathLength="360"
-                ></path>
+                />
               </svg>
             </label>
             {Math.floor(rating?.rating[0].avg_val) == 3 ? (
@@ -138,7 +137,7 @@ const RatingStars = ({ data }: any): JSX.Element => {
                 <path
                   d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"
                   pathLength="360"
-                ></path>
+                />
               </svg>
             </label>
             {Math.floor(rating?.rating[0].avg_val) == 2 ? (
@@ -164,7 +163,7 @@ const RatingStars = ({ data }: any): JSX.Element => {
                 <path
                   d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"
                   pathLength="360"
-                ></path>
+                />
               </svg>
             </label>
             {Math.floor(rating?.rating[0].avg_val) == 1 ? (
@@ -190,7 +189,7 @@ const RatingStars = ({ data }: any): JSX.Element => {
                 <path
                   d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"
                   pathLength="360"
-                ></path>
+                />
               </svg>
             </label>
           </div>
@@ -201,7 +200,7 @@ const RatingStars = ({ data }: any): JSX.Element => {
                 <path
                   d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"
                   pathLength="360"
-                ></path>
+                />
               </svg>
             </label>
             <label htmlFor="star-2" onClick={(): void => updateRating(4)}>
@@ -209,7 +208,7 @@ const RatingStars = ({ data }: any): JSX.Element => {
                 <path
                   d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"
                   pathLength="360"
-                ></path>
+                />
               </svg>
             </label>
             <label htmlFor="star-3" onClick={(): void => updateRating(3)}>
@@ -217,7 +216,7 @@ const RatingStars = ({ data }: any): JSX.Element => {
                 <path
                   d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"
                   pathLength="360"
-                ></path>
+                />
               </svg>
             </label>
             <label htmlFor="star-4" onClick={(): void => updateRating(2)}>
@@ -225,7 +224,7 @@ const RatingStars = ({ data }: any): JSX.Element => {
                 <path
                   d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"
                   pathLength="360"
-                ></path>
+                />
               </svg>
             </label>
             <label htmlFor="star-5" onClick={(): void => updateRating(1)}>
@@ -233,7 +232,7 @@ const RatingStars = ({ data }: any): JSX.Element => {
                 <path
                   d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"
                   pathLength="360"
-                ></path>
+                />
               </svg>
             </label>
           </div>
