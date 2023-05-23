@@ -3,11 +3,14 @@ import React, { useEffect, useState } from "react";
 import jwt from "jsonwebtoken";
 import Utils from "@/utils/Utils";
 import Loading from "../loading/Loading";
+import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 const RatingStars = ({ data }: any): JSX.Element => {
   const [rating, setRating] = useState<any>();
   const [loading, setLoading] = useState(true);
   const [decoded, setDecoded] = useState<any>();
+  const route = useRouter();
 
   useEffect(() => {
     const localStorageValue: string = localStorage.getItem("token") || "";
@@ -46,8 +49,17 @@ const RatingStars = ({ data }: any): JSX.Element => {
           console.log(err);
         });
     } else {
-      alert("For giving rate you need to sign in");
-      window.location.href = "/login";
+      route.push("/login", undefined, { shallow: false });
+      toast.warning("For giving rate you need to sign in", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   }
   console.log(Math.floor(rating?.rating[0]?.avg_val) == 4);
