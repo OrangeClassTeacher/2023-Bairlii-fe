@@ -66,8 +66,7 @@ export const CommentCard = ({ data }: any): JSX.Element => {
             <div className="flex flex-col w-full">
               <div className="flex flex-row justify-between">
                 <p className="relative text-xl whitespace-nowrap truncate overflow-hidden">
-                  {commentedUser?.firstName}{" "}
-                  {commentedUser?.lastName}
+                  {commentedUser?.firstName} {commentedUser?.lastName}
                 </p>
                 <a className="text-gray-500 text-xl" href="#">
                   <i className="fa-solid fa-trash" />
@@ -76,7 +75,9 @@ export const CommentCard = ({ data }: any): JSX.Element => {
               <p className="text-gray-400 text-sm">{date}</p>
             </div>
           </div>
-          <p className="-mt-4 text-gray-500">{data?.comment[0]}</p>
+          <div>
+            <p className="-mt-4 text-gray-500">{data?.comment[0]}</p>
+          </div>
         </div>
       </div>
     );

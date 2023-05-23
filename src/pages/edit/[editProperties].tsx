@@ -104,11 +104,12 @@ function EditProperties(): JSX.Element {
           progress: undefined,
           theme: "light",
         });
+
         editProperty();
         route.push(`${Utils.WEB_URL}/properties/${res.data.result.userID}`);
       })
       .catch(() => {
-        toast.success("❌ unsuccessful", {
+        toast.error("❌ unsuccessful", {
           position: toast.POSITION.TOP_CENTER,
           autoClose: 5000,
           hideProgressBar: false,
@@ -305,7 +306,7 @@ function EditProperties(): JSX.Element {
           </div>
           <div className="pt-3">
             <button
-              className=" bg-gray-800 text-gray-200 rounded-md"
+              className=" properties-button properties-button-save ps-3 pe-3 rounded-md"
               onClick={onSave}
             >
               <p className="p-2">Save</p>

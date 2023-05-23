@@ -71,9 +71,9 @@ function Login(): JSX.Element {
   };
 
   return (
-    <section className="h-screen">
-      <div className="h-full">
-        <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
+    <section className="">
+      <div className="flex justify-center">
+        <div className="flex flex-wrap gap-6  mt-7 max-w-7xl w-full mb-20  justify-between mt-28">
           <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
             <Image
               height={1000}
@@ -83,7 +83,7 @@ function Login(): JSX.Element {
               alt="Sample image"
             />
           </div>
-          <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
+          <div className="">
             <div className="relative w-[380px] h-[420px]  rounded-lg overflow-hidden">
               <div className="absolute w-[380px] h-[420px] bg-gradient-to-r from-blue-600 via-blue-600 to-transparent -top-[50%] -left-[50%] animate-spin-slow origin-bottom-right" />
               <div className="absolute w-[380px] h-[420px] bg-gradient-to-r from-blue-600 via-blue-600 to-transparent -top-[50%] -left-[50%] animate-spin-delay origin-bottom-right" />
@@ -91,12 +91,12 @@ function Login(): JSX.Element {
                 <form>
                   <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
                     <p className="mx-4 mb-0 text-center font-semibold text-2xl dark:text-white">
-                      Нэвтрэх
+                      Login
                     </p>
                   </div>
 
                   <div className="mt-5">
-                    <label>Имэйл</label>
+                    <label>Email</label>
 
                     <input
                       onChange={onChangeEmail}
@@ -106,7 +106,7 @@ function Login(): JSX.Element {
                     />
                   </div>
                   <div className="mt-5">
-                    <label>Нууц үг</label>
+                    <label>Password</label>
                     <div className="border border-gray-400 w-full bg-white flex justify-between">
                       <input
                         onChange={onChangeLoginPass}
@@ -132,11 +132,11 @@ function Login(): JSX.Element {
                         className="inline-block pl-[0.15rem] hover:cursor-pointer"
                         form="exampleCheck2"
                       >
-                        Намайг сана
+                        Remind
                       </label>
                     </div>
                     <Link href={"/login/forgetPass"}>
-                      <span>Нүүц үг мартсан?</span>
+                      <span>Forgot your password?</span>
                     </Link>
                   </div>
                   <div className="text-center lg:text-left">
@@ -147,7 +147,7 @@ function Login(): JSX.Element {
                       data-te-ripple-init
                       data-te-ripple-color="dark"
                     >
-                      Нэвтрэх
+                      Login
                     </button>
                     <Link href="/login/register">
                       <button
@@ -156,7 +156,7 @@ function Login(): JSX.Element {
                         data-te-ripple-init
                         data-te-ripple-color="dark"
                       >
-                        Бүртгүүлэх
+                        Register
                       </button>
                     </Link>
                   </div>

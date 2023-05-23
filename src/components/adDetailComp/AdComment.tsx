@@ -4,6 +4,7 @@ import { CommentCard } from "./CommentCard";
 import { AddCommentSection } from "./AddCommentSection";
 import jwt from "jsonwebtoken";
 import Utils from "@/utils/Utils";
+import { toast } from "react-toastify";
 
 interface iComment {
   propertyID: string;
@@ -73,7 +74,16 @@ export const AdComment = ({ data }: any): JSX.Element => {
           console.log(err);
         });
     } else {
-      alert("Write comment");
+      toast.warning(" Please write a comment", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     }
   }
 
