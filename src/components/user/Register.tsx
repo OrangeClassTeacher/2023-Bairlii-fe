@@ -111,9 +111,9 @@ function Register(): JSX.Element {
   };
 
   return (
-    <div className="h-screen">
-      <div className="h-full max-w-7xl">
-        <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
+    <div>
+      <div className="flex justify-center">
+        <div className="flex flex-wrap gap-6  mt-7 max-w-7xl w-full mb-20  justify-between mt-28">
           <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
             <Image
               height={1000}

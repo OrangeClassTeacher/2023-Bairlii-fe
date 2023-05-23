@@ -71,7 +71,7 @@ function Login(): JSX.Element {
   };
 
   return (
-    <section className="">
+    <section>
       <div className="flex justify-center">
         <div className="flex flex-wrap gap-6  mt-7 max-w-7xl w-full mb-20  justify-between mt-28">
           <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
@@ -132,7 +132,7 @@ function Login(): JSX.Element {
                         className="inline-block pl-[0.15rem] hover:cursor-pointer"
                         form="exampleCheck2"
                       >
-                        Remind
+                        Remember me
                       </label>
                     </div>
                     <Link href={"/login/forgetPass"}>
