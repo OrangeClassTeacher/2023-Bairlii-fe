@@ -17,7 +17,7 @@ const AddAdvertisement = ({
     formState: { errors },
   } = useForm({
     defaultValues: {
-      price: 100000,
+      price: 100,
       rentingDuration: 3,
       paymentCondition: "",
       adDuration: 1,
@@ -97,7 +97,7 @@ const AddAdvertisement = ({
             Price per month
           </label>
           <input
-            {...register("price", { required: true, min: 100000 })}
+            {...register("price", { required: true, min: 100 })}
             type="number"
             id="price"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
