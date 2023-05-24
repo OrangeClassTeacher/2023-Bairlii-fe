@@ -37,7 +37,7 @@ const AdCard = ({ item, key }: any): JSX.Element => {
                   <p className="text-gray-900 font-bold text-md">
                     Bathroom Count:{" "}
                   </p>
-                  {item?.propertyID?.Bathroom}
+                  {item?.propertyID?.bathroomCount}
                 </p>
                 <p className=" justify-between w-2xl text-gray-900  leading-8">
                   <p className="text-gray-900 font-bold text-md ">
