@@ -18,12 +18,12 @@ export const AddCommentSection = ({
   console.log(commentBody);
 
   return (
-    <div>
+    <div className="">
       <form className="max-w-full p-2 mx-auto ">
         <div className="px-3 mb-2 mt-2">
           <textarea
             placeholder="comment"
-            className="w-full bg-gray-100 rounded border border-gray-400 leading-normal resize-none h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"
+            className="w-full  bg-gray-100 rounded border border-gray-400 leading-normal resize-none h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"
             onChange={(e): void => handleCommentBody(e.target.value)}
             value={commentBody?.comment[0]}
           />

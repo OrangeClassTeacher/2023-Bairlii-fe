@@ -115,7 +115,7 @@ export const AdComment = ({ data }: any): JSX.Element => {
     );
   } else {
     return (
-      <div className="card-inner comment-card">
+      <div className="card-inner comment-card ">
         <div className="">
           <AddCommentSection
             propertyId={data?.propertyID?._id}

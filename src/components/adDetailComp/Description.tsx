@@ -29,7 +29,7 @@ export const Description = ({ data }: any): JSX.Element => {
     "flex fixed top-0 w-full h-full bg-gray-900 p-6 text-white text-xl z-10 inset-0 ";
 
   return (
-    <div className="flex flex-col justify-between ">
+    <div className="flex justify-between ">
       <div className={`${modalCSS1} ${mapModal ? "block" : "hidden"}`}>
         <ImCross
           className="fixed right-20 top-20 text-3xl z-10 drop-shadow-xl font-black"
