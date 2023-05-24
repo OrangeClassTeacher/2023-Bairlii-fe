@@ -37,10 +37,16 @@ const AdDetail = (): JSX.Element => {
       <SwiperForDetail data={adData} />
       <div className="flex justify-between mt-10">
         <div>
-          <Description data={adData} />
-          <RatingStars data={adData} />
+          <div className="w-[500px]">
+            <Description data={adData} />
+          </div>
+          <div className="w-[500px]">
+            <RatingStars data={adData} />
+          </div>
         </div>
-        <AdComment data={adData} />
+        <div>
+          <AdComment data={adData} />
+        </div>
       </div>
 
       <LandlordInfo data={adData} />
