@@ -1,9 +1,10 @@
 import Image from "next/image";
+import { AiFillGithub } from "react-icons/ai";
 
 function AboutUs(): JSX.Element {
   return (
     <>
-      <div className="flex max-w-full mx-auto gap-8">
+      <div className="flex max-w-full mx-auto gap-8 overflow-hidden">
         <section id="section">
           <div className="aboutUsCard">
             <div id="imgBox">
@@ -16,12 +17,15 @@ function AboutUs(): JSX.Element {
               />
             </div>
             <div id="content">
-              <h2 className="text-black-700">Hello I`m Narandorj</h2>
+              <h2 className="text-black-700">Hello I`m Narandorj </h2>
               <p className="mt-5">
                 Welcome to my web developer portfolio! I'm Narandorj, a skilled
                 and creative web developer with a passion for creating
                 beautiful, responsive, and user-friendly websites.
               </p>
+              <div>
+                <AiFillGithub size={50} />
+              </div>
             </div>
           </div>
         </section>

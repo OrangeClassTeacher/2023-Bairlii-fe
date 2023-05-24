@@ -863,6 +863,7 @@ body,
   justify-content: center;
   align-items: center;
 }
+
 .aboutUsCard{
   position: relative;
   width: 380px;
@@ -873,6 +874,7 @@ body,
   padding: 50px 50px;
   background: #fff;
   cursor: pointer;
+  /* overflow: hidden; */
 }
 .aboutUsCard:hover{
   height: 550px;
