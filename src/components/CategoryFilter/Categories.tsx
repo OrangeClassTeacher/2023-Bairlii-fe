@@ -12,6 +12,8 @@ import {
 } from "react-icons/fc";
 import RoomsNumbers from "./RoomsNumbers";
 import Sort from "./Sort";
+import { useContext } from "react";
+import { TokenContext } from "@/Context/Context";
 
 export const categories = [
   {
@@ -104,6 +106,7 @@ const Categories = (): JSX.Element | null => {
   const sort = params?.get("sort");
   const pathname = usePathname();
   const isMainPage = pathname === "/";
+  const { selected } = useContext(TokenContext);
 
   if (!isMainPage) {
     return null;
@@ -137,14 +140,15 @@ const Categories = (): JSX.Element | null => {
             selected={rooms === item.label}
           />
         ))}
-        {sorts.map((item) => (
+        {selected === "Ads" ? (sorts.map((item) => (
           <Sort
             key={item.label}
             label={item.label}
             icon={item.icon}
             selected={sort === item.label}
           />
-        ))}
+        ))) : ("")
+        }
       </div>
     </Container>
   );
