@@ -56,49 +56,56 @@ function UserAdvertisements(): JSX.Element {
   }
 
   return (
-    <div className="flex justify-center">
-      {loading ? (
-        <div>
-          <Loading />
-          <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-7xl w-full">
-            {skeletonArr.map((item, index) => (
-              <div
-                key={index}
-                className="flex flex-wrap flex-col max-w-[25%] min-w-[300px]"
-              >
-                <div className="mx-auto bg-white rounded shadow-lg max-w-[25%] min-w-[300px] rounded-2xl">
-                  <div className="h-48 p-3 overflow-hidden bg-gray-200 animate-pulse" />
-                  <div className="p-3 h-">
-                    <div className="grid grid-cols-3 gap-4 mt-2">
-                      <div className="h-8 bg-gray-200 rounded animate-pulse" />
-                      <div className="h-8 bg-gray-200 rounded animate-pulse" />
-                      <div className="h-8 bg-gray-200 rounded animate-pulse" />
-                      <div className="h-8 col-span-2 bg-gray-200 rounded animate-pulse" />
-                      <div className="h-8 bg-gray-200 rounded  animate-pulse" />
-                      <div className="..." />
-                      <div className="col-span-2 ..." />
+    <div>
+      <div className="max-w-full text-center">
+        <h2 className="text-purple-900 text-4xl">
+          Hello, It`s your advertisements
+        </h2>
+      </div>
+      <div className="flex justify-center">
+        {loading ? (
+          <div>
+            <Loading />
+            <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-7xl w-full">
+              {skeletonArr.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex flex-wrap flex-col max-w-[25%] min-w-[300px]"
+                >
+                  <div className="mx-auto bg-white rounded shadow-lg max-w-[25%] min-w-[300px] rounded-2xl">
+                    <div className="h-48 p-3 overflow-hidden bg-gray-200 animate-pulse" />
+                    <div className="p-3 h-">
+                      <div className="grid grid-cols-3 gap-4 mt-2">
+                        <div className="h-8 bg-gray-200 rounded animate-pulse" />
+                        <div className="h-8 bg-gray-200 rounded animate-pulse" />
+                        <div className="h-8 bg-gray-200 rounded animate-pulse" />
+                        <div className="h-8 col-span-2 bg-gray-200 rounded animate-pulse" />
+                        <div className="h-8 bg-gray-200 rounded  animate-pulse" />
+                        <div className="..." />
+                        <div className="col-span-2 ..." />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      ) : (
-        <div className="flex flex-wrap gap-6  mt-7 max-w-7xl w-full mb-20">
-          {ads.map(
-            (item, index): JSX.Element => (
-              <>
-                <AdCardForUser
-                  item={item}
-                  key={index}
-                  deleteAdvertisement={deleteAdvertisement}
-                />
-              </>
-            )
-          )}
-        </div>
-      )}
+        ) : (
+          <div className="flex flex-wrap gap-6  mt-7 max-w-7xl w-full mb-20">
+            {ads.map(
+              (item, index): JSX.Element => (
+                <>
+                  <AdCardForUser
+                    item={item}
+                    key={index}
+                    deleteAdvertisement={deleteAdvertisement}
+                  />
+                </>
+              )
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
