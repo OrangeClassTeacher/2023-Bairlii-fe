@@ -8,7 +8,7 @@ const Footer = (): JSX.Element => {
     Siteman: "Siteman",
     Privacy: "Privacy",
     YourPrivacyChoices: "Your Privacy Choices",
-    neg: "Asdaad",
+    neg: "About Us",
     hoyr: "Hoyr",
     guraw: "Guraaw",
   };
@@ -37,7 +37,7 @@ const Footer = (): JSX.Element => {
           </div>
           <div>
             <ul className="flex gap-4">
-              <Link href={""}>
+              <Link href="/aboutUs">
                 <li>{footerData.neg}</li>
               </Link>
               <Link href={""}>

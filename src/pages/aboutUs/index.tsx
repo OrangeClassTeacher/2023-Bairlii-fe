@@ -23,9 +23,11 @@ function AboutUs(): JSX.Element {
                 and creative web developer with a passion for creating
                 beautiful, responsive, and user-friendly websites.
               </p>
-              <div>
-                <AiFillGithub size={50} />
-              </div>
+              <a target="_blank" href="https://github.com/NaDo2383">
+                <div>
+                  <AiFillGithub size={30} />
+                </div>
+              </a>
             </div>
           </div>
         </section>
@@ -47,6 +49,11 @@ function AboutUs(): JSX.Element {
                 skilled and creative web developer with a passion for creating
                 beautiful, responsive, and user-friendly websites.
               </p>
+              <a target="_blank" href="https://github.com/hedystrong">
+                <div>
+                  <AiFillGithub size={30} />
+                </div>
+              </a>
             </div>
           </div>
         </section>
@@ -68,6 +75,11 @@ function AboutUs(): JSX.Element {
                 and creative web developer with a passion for creating
                 beautiful, responsive, and user-friendly websites.
               </p>
+              <a target="_blank" href="https://github.com/Bymbajaw">
+                <div>
+                  <AiFillGithub size={30} />
+                </div>
+              </a>
             </div>
           </div>
         </section>
