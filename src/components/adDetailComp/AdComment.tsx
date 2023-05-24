@@ -5,6 +5,7 @@ import { AddCommentSection } from "./AddCommentSection";
 import jwt from "jsonwebtoken";
 import Utils from "@/utils/Utils";
 import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 interface iComment {
   propertyID: string;
@@ -27,6 +28,7 @@ export const AdComment = ({ data }: any): JSX.Element => {
     userID: "",
     comment: [""],
   };
+  const route = useRouter();
 
   useEffect(() => {
     getCommentData(data?.propertyID?._id);
@@ -58,23 +60,37 @@ export const AdComment = ({ data }: any): JSX.Element => {
 
   function postComment(e: any): void {
     e.preventDefault();
-    if (commentBody.comment[0]) {
-      axios
-        .post(`${Utils.API_URL}/procomment`, commentBody, {
-          headers: {
-            "x-access-token": token,
-          },
-        })
-        .then((res) => {
-          console.log(res);
-          setCommentBody(commentBodyInit);
-          getCommentData(data?.propertyID?._id);
-        })
-        .catch((err) => {
-          console.log(err);
+    if (decoded) {
+      if (commentBody.comment[0]) {
+        axios
+          .post(`${Utils.API_URL}/procomment`, commentBody, {
+            headers: {
+              "x-access-token": token,
+            },
+          })
+          .then((res) => {
+            console.log(res);
+            setCommentBody(commentBodyInit);
+            getCommentData(data?.propertyID?._id);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } else {
+        toast.warning(" Please write a comment", {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
         });
+      }
     } else {
-      toast.warning(" Please write a comment", {
+      route.push("/login", undefined, { shallow: false });
+      toast.warning("For write comment you need to sign in", {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 5000,
         hideProgressBar: false,
@@ -82,7 +98,7 @@ export const AdComment = ({ data }: any): JSX.Element => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "dark",
+        theme: "light",
       });
     }
   }
@@ -115,7 +131,7 @@ export const AdComment = ({ data }: any): JSX.Element => {
     );
   } else {
     return (
-      <div className="card-inner comment-card">
+      <div className="card-inner comment-card ">
         <div className="">
           <AddCommentSection
             propertyId={data?.propertyID?._id}
