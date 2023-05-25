@@ -8,7 +8,9 @@ import {
   FcHome,
   FcFactory,
   FcNeutralTrading,
-  FcPlanner,
+  FcShop,
+  FcLibrary,
+  FcFactoryBreakdown,
 } from "react-icons/fc";
 import RoomsNumbers from "./RoomsNumbers";
 import Sort from "./Sort";
@@ -23,7 +25,7 @@ export const categories = [
   },
   {
     label: "Chingeltei District",
-    icon: FcNews,
+    icon: FcLibrary,
     description: "This property is close to the beach!",
   },
   {
@@ -33,7 +35,7 @@ export const categories = [
   },
   {
     label: "Bayangol District",
-    icon: FcHome,
+    icon: FcFactoryBreakdown,
     description: "This property is close to the beach!",
   },
   {
@@ -48,7 +50,7 @@ export const categories = [
   },
   {
     label: "SonginoKhairkhan District",
-    icon: FcPlanner,
+    icon: FcShop,
     description: "This property is close to the beach!",
   },
   // {
@@ -132,6 +134,7 @@ const Categories = (): JSX.Element | null => {
             selected={category === item.label}
           />
         ))}
+
         {room.map((item) => (
           <RoomsNumbers
             key={item.label}
@@ -140,15 +143,16 @@ const Categories = (): JSX.Element | null => {
             selected={rooms === item.label}
           />
         ))}
-        {selected === "Ads" ? (sorts.map((item) => (
-          <Sort
-            key={item.label}
-            label={item.label}
-            icon={item.icon}
-            selected={sort === item.label}
-          />
-        ))) : ("")
-        }
+        {selected === "Ads"
+          ? sorts.map((item) => (
+              <Sort
+                key={item.label}
+                label={item.label}
+                icon={item.icon}
+                selected={sort === item.label}
+              />
+            ))
+          : ""}
       </div>
     </Container>
   );

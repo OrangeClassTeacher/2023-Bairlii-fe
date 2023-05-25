@@ -70,11 +70,11 @@ function AboutUs(): JSX.Element {
               />
             </div>
             <div id="content">
-              <h2>Hello I`m Byambajav</h2>
+              <h2>Сайн байна уу, Бямбажав байна.</h2>
               <p className="mt-5">
-                Welcome to my web developer portfolio! I&#39;m Byambajav, a
-                skilled and creative web developer with a passion for creating
-                beautiful, responsive, and user-friendly websites.
+                2022 оны 9 сараас Pinecone academy-д Fullstack-р суралцаж,
+                мэдсэн сурсан зүйлээ ашиглан энэхүү төсөлийг 2 хамтрагчтайгаа
+                амжилттай дуусгасан болно.{" "}
               </p>
               <a target="_blank" href="https://github.com/Bymbajaw">
                 <div>
