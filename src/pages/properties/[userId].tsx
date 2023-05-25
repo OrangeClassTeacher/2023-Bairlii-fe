@@ -112,7 +112,19 @@ function UserPage(): JSX.Element {
                   </div>
                 </div>
               </div>
-            ))}
+              {propertiesData.map((propertyData, i) => (
+                <div key={i}>
+                  <div className="">
+                    <div className="blob">
+                      <UserPropertyCard
+                        propertyData={propertyData}
+                        deleteProperties={deleteProperties}
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

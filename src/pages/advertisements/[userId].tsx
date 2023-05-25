@@ -80,9 +80,10 @@ function UserAdvertisements(): JSX.Element {
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
+<<<<<<< HEAD
         </div>
       ) : (
         <div className="flex justify-center flex-wrap gap-6  mt-7 max-w-7xl w-full xl:mb-20 mb-36 md:mb-20 sm:mb-20">
@@ -90,17 +91,33 @@ function UserAdvertisements(): JSX.Element {
             (item, index): JSX.Element => (
               <>
                 <div className="">
+=======
+        ) : (
+          <div className="flex flex-wrap gap-6  mt-7 max-w-7xl w-full mb-20">
+            {ads.map(
+              (item, index): JSX.Element => (
+                <>
+>>>>>>> 5179a84c35e12cc1ccecb64d05e1e4b207a0b574
                   <AdCardForUser
                     item={item}
                     key={index}
                     deleteAdvertisement={deleteAdvertisement}
                   />
+<<<<<<< HEAD
                 </div>
               </>
             )
           )}
         </div>
       )}
+=======
+                </>
+              )
+            )}
+          </div>
+        )}
+      </div>
+>>>>>>> 5179a84c35e12cc1ccecb64d05e1e4b207a0b574
     </div>
   );
 }
