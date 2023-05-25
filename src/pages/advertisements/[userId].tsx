@@ -85,20 +85,27 @@ function UserAdvertisements(): JSX.Element {
           </div>
         </div>
       ) : (
-        <div className="flex justify-center flex-wrap gap-6  mt-7 max-w-7xl w-full xl:mb-20 mb-36 md:mb-20 sm:mb-20">
-          {ads.map(
-            (item, index): JSX.Element => (
-              <>
-                <div className="">
-                  <AdCardForUser
-                    item={item}
-                    key={index}
-                    deleteAdvertisement={deleteAdvertisement}
-                  />
-                </div>
-              </>
-            )
-          )}
+        <div>
+          <div className="max-w-full text-center">
+            <h2 className="text-purple-900 text-4xl">
+              Hello, It`s your advertisements
+            </h2>
+          </div>
+          <div className="flex justify-center flex-wrap gap-6  mt-7 max-w-7xl w-full xl:mb-20 mb-36 md:mb-20 sm:mb-20">
+            {ads.map(
+              (item, index): JSX.Element => (
+                <>
+                  <div className="">
+                    <AdCardForUser
+                      item={item}
+                      key={index}
+                      deleteAdvertisement={deleteAdvertisement}
+                    />
+                  </div>
+                </>
+              )
+            )}
+          </div>
         </div>
       )}
     </div>

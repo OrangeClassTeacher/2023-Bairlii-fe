@@ -32,7 +32,7 @@ export default function SwiperForDetail({ data }: any): JSX.Element {
         className="mySwiper"
         breakpoints={{
           320: { slidesPerView: 1 },
-          480: { slidesPerView: 2 },
+          480: { slidesPerView: 1 },
           768: { slidesPerView: 3 },
         }}
       >
