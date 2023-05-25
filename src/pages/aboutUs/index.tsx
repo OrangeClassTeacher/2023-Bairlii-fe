@@ -10,10 +10,11 @@ function AboutUs(): JSX.Element {
             <div id="imgBox">
               <Image
                 id="aboutImg"
-                src="/images/nado.jpg"
+                src="https://i.postimg.cc/sDXv1gNy/DSC09575.jpg"
                 width={300}
                 height={200}
                 alt="aboutUs"
+                className="object-fill  "
               />
             </div>
             <div id="content">
@@ -36,7 +37,7 @@ function AboutUs(): JSX.Element {
             <div id="imgBox">
               <Image
                 id="aboutImg"
-                src="/images/3.png"
+                src="https://i.postimg.cc/ZnjB29ss/DSC09609.jpg"
                 width={300}
                 height={200}
                 alt="aboutUs"
@@ -62,7 +63,7 @@ function AboutUs(): JSX.Element {
             <div id="imgBox">
               <Image
                 id="aboutImg"
-                src="/images/bebe.jpg"
+                src="https://i.postimg.cc/yx6Wm16m/DSC09545.jpg"
                 width={300}
                 height={200}
                 alt="aboutUs"
