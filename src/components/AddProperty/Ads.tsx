@@ -37,7 +37,7 @@ const Ads = ({ setSelected }: any): JSX.Element => {
         ...currentQuery,
       })
       .then((res) => {
-        setAds(res.data.result.reverse());
+        setAds(res.data.result);
         setPageNumb(Math.ceil(res.data.rowCount / 12));
         setLoading(false);
       })
