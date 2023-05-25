@@ -68,7 +68,7 @@ const RatingStars = ({ data }: any): JSX.Element => {
     return <Loading />;
   } else {
     return (
-      <div className="ratingBox flex gap-6 ps-12 mt-14">
+      <div className="ratingBox flex  ps-3 mt-14  ">
         <div className="peer flex items-center text-3xl">
           <p className="">Rating:</p>
           <p className="">{rating?.ratingCount}</p>
@@ -207,7 +207,7 @@ const RatingStars = ({ data }: any): JSX.Element => {
             </label>
           </div>
         ) : (
-          <div className="rating w-[500px]">
+          <div className="rating w-[270px]">
             <label htmlFor="star-1" onClick={(): void => updateRating(5)}>
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path

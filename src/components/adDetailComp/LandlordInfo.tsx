@@ -7,7 +7,7 @@ const LandlordInfo = ({ data }: any): JSX.Element => {
   const userData = data?.userID;
 
   return (
-    <div className="flex justify-around card-inner landlord-card mt-10">
+    <div className="xl:flex lg:flex md:flex sm:flex  justify-around card-inner landlord-card mt-10 w-[350px] xl:w-full lg:w-[1024px] md:w-[80%]">
       <div className="landlord-card-info ">
         <img
           src={userData?.profilePicture}
