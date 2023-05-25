@@ -40,7 +40,7 @@ const AdCardForUser = ({
                 {date.getFullYear()}.{date.getMonth() + 1}.{date.getDate()}
               </p>
             </div>
-            <div className="w-4/5 mt-4 flex flex-row-reverse text-gray-600 text-sm underline">
+            <div className="w-4/5 mt-4 flex flex-row-reverse text-cyan-600 text-sm underline">
               <Link
                 href={{
                   pathname: `/[detail]`,
