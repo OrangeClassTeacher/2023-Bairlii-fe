@@ -36,23 +36,23 @@ const AdDetail = (): JSX.Element => {
     <div className="max-w-5xl w-full mt-7 mx-auto mb-32 md:h-[100px]">
       <SwiperForDetail data={adData} />
       <div className="xl:flex lg:flex  md:justify-between  mt-10 ">
-        <div className=" md:flex md:flex-wrap md:justify-center">
-          <div className="sm:flex sm:flex-wrap sm:justify-center md:flex md:flex-wrap md:justify-center w-[500px]">
-            <div className=" w-[500px] ">
+        <div className="  md:flex md:flex-wrap md:justify-center sm:flex sm:flex-wrap sm:justify-center ">
+          <div className="sm:flex sm:flex-wrap md:flex   md:w-[500px]">
+            <div className=" md:w-[500px] sm:w-[400px]   ">
               <Description data={adData} />
             </div>
-            <div className=" mb-12 w-[500px] ">
+            <div className=" mb-12 md:w-[500px] flex justify-center ">
               <RatingStars data={adData} />
             </div>
           </div>
         </div>
         <div className="flex justify-center ">
-          <div className="flex   xl:w-[470px]  sm:w-[470px] md:w-[470px]">
+          <div className="flex   xl:w-[500px] lg:w-[500px] sm:w-[470px] md:w-[350px]">
             <AdComment data={adData} />
           </div>
         </div>
       </div>
-      <div>
+      <div className=" flex justify-center">
         <LandlordInfo data={adData} />
       </div>
     </div>
