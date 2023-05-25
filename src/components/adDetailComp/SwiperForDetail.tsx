@@ -17,7 +17,7 @@ export default function SwiperForDetail({ data }: any): JSX.Element {
         effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
-        slidesPerView={3}
+        // slidesPerView={3}
         initialSlide={2}
         coverflowEffect={{
           rotate: 44,
@@ -30,6 +30,11 @@ export default function SwiperForDetail({ data }: any): JSX.Element {
         navigation={true}
         modules={[EffectCoverflow, Pagination]}
         className="mySwiper"
+        breakpoints={{
+          320: { slidesPerView: 1 },
+          480: { slidesPerView: 2 },
+          768: { slidesPerView: 3 },
+        }}
       >
         {data?.propertyID?.photos?.map((item: string, index: number) => (
           <div key={index}>
