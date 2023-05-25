@@ -13,17 +13,24 @@ const Footer = (): JSX.Element => {
     guraw: "Guraaw",
   };
   return (
-    <div className=" z-30 shadow-sm flex flex-col w-full bg-neutral-100  shadow-inner fixed bottom-0">
+    <div className=" z-30 shadow-sm flex flex-col w-full bg-neutral-100  shadow-inner fixed bottom-0 ">
       <Container>
-        <div className="flex flex-row items-center justify-between gap-3 md:gap-0 max-w-7xl w-full">
+        <div className="flex flex-row items-center sm:flex-wrap flex-wrap sm:justify-between lg:justify-between xl:justify-between md:justify-between  gap-3 md:gap-0 max-w-7xl w-full underline xl:pt-2 xl:pb-2 lg:pb-2 lg:pt-2 md:pt-2 md:pb-2">
           <div>
-            <ul className="flex gap-4 p-4">
+            <ul className="flex gap-4  flex-wrap">
+              <Link href="/aboutUs">
+                <li>{footerData.neg}</li>
+              </Link>
               <Link href="/">
                 <li>{footerData.Bairlii}</li>
               </Link>
               <Link href={"/"}>
                 <li>{footerData.Terms}</li>
               </Link>
+            </ul>
+          </div>
+          <div>
+            <ul className="flex gap-4">
               <Link href={"#"}>
                 <li>{footerData.Siteman}</li>
               </Link>
@@ -32,19 +39,6 @@ const Footer = (): JSX.Element => {
               </Link>
               <Link href={""}>
                 <li>{footerData.YourPrivacyChoices}</li>
-              </Link>
-            </ul>
-          </div>
-          <div>
-            <ul className="flex gap-4">
-              <Link href="/aboutUs">
-                <li>{footerData.neg}</li>
-              </Link>
-              <Link href={""}>
-                <li>{footerData.hoyr}</li>
-              </Link>
-              <Link href={""}>
-                <li>{footerData.guraw}</li>
               </Link>
             </ul>
           </div>

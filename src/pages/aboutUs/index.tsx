@@ -10,16 +10,17 @@ function AboutUs(): JSX.Element {
             <div id="imgBox">
               <Image
                 id="aboutImg"
-                src="/images/nado.jpg"
+                src="https://i.postimg.cc/sDXv1gNy/DSC09575.jpg"
                 width={300}
                 height={200}
                 alt="aboutUs"
+                className="object-fill  "
               />
             </div>
             <div id="content">
               <h2 className="text-black-700">Hello I`m Narandorj </h2>
               <p className="mt-5">
-                Welcome to my web developer portfolio! I'm Narandorj, a skilled
+                Welcome to my web developer portfolio! I&#39;m Narandorj, a skilled
                 and creative web developer with a passion for creating
                 beautiful, responsive, and user-friendly websites.
               </p>
@@ -36,7 +37,7 @@ function AboutUs(): JSX.Element {
             <div id="imgBox">
               <Image
                 id="aboutImg"
-                src="/images/3.png"
+                src="https://i.postimg.cc/ZnjB29ss/DSC09609.jpg"
                 width={300}
                 height={200}
                 alt="aboutUs"
@@ -45,7 +46,7 @@ function AboutUs(): JSX.Element {
             <div id="content">
               <h2>Hello I`m Byambasuren</h2>
               <p className="mt-5">
-                Welcome to my web developer portfolio! I'm Byambasuren, a
+                Welcome to my web developer portfolio! I&#39;m Byambasuren, a
                 skilled and creative web developer with a passion for creating
                 beautiful, responsive, and user-friendly websites.
               </p>
@@ -62,7 +63,7 @@ function AboutUs(): JSX.Element {
             <div id="imgBox">
               <Image
                 id="aboutImg"
-                src="/images/bebe.jpg"
+                src="https://i.postimg.cc/yx6Wm16m/DSC09545.jpg"
                 width={300}
                 height={200}
                 alt="aboutUs"
@@ -71,7 +72,7 @@ function AboutUs(): JSX.Element {
             <div id="content">
               <h2>Hello I`m Byambajav</h2>
               <p className="mt-5">
-                Welcome to my web developer portfolio! I'm Byambajav, a skilled
+                Welcome to my web developer portfolio! I&#39;m Byambajav, a skilled
                 and creative web developer with a passion for creating
                 beautiful, responsive, and user-friendly websites.
               </p>

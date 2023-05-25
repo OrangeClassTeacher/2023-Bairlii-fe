@@ -76,7 +76,7 @@ export const Description = ({ data }: any): JSX.Element => {
           )}
         </div>
       </div>
-      <div className="shadow-lg bg-white rounded-lg border p-4 mx-auto  w-[500px]">
+      <div className="shadow-lg bg-white rounded-lg border p-4 mx-auto  w-[350px] xl:w-[500px] lg:w-[500px]">
         <div className="flex flex-wrap justify-center">
           <div className="flex  justify-between  w-[400px] ">
             <div className="font-bold text-2xl items-center">

@@ -12,6 +12,7 @@ const nextConfig = {
             "files.realpython.com",
             "tecdn.b-cdn.net",
             "https://picsum.photos/536/354",
+            "i.postimg.cc",
         ],
     },
     reactStrictMode: true,
