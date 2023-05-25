@@ -2,7 +2,7 @@ import Image from "next/image";
 const logo = (): JSX.Element => (
   <Image
     alt="logo"
-    className="hidden md:block cursor-pointer -ms-10"
+    className=" md:block cursor-pointer -ms-8"
     height={50}
     width={190}
     src="/images/DevZoid.png"

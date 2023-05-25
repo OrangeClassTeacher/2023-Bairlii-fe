@@ -111,9 +111,9 @@ function Register(): JSX.Element {
   };
 
   return (
-    <div>
-      <div className="flex justify-center">
-        <div className="flex flex-wrap gap-6  mt-7 max-w-7xl w-full mb-20  justify-between mt-28">
+    <div className="flex justify-center sm:justify-center md:justify-center sm:justify-center xl:justify-center lg:justify-center ps-2 pe-2">
+      <div className=" gap-6  mt-7 max-w-7xl w-full mb-20  justify-between lg::justify-center md:justify-center xl:justify-center sm:justify-center mt-28">
+        <div className="g-6 flex h-full flex-wrap items-center lg:imems-center md:imems-center sm:imems-center xl:justify-between sm:justify-center  ">
           <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
             <Image
               height={1000}
@@ -129,7 +129,7 @@ function Register(): JSX.Element {
           >
             <div>
               <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
-                <p className="mx-4 mb-0 text-center font-semibold text-2xl dark:text-white">
+                <p className="mx-4 mb-0 text-center  text-2xl dark:text-white">
                   New Register
                 </p>
               </div>
@@ -313,6 +313,15 @@ function Register(): JSX.Element {
               </div>
 
               <div className="text-center lg:text-left">
+                <button
+                  // onClick={onSubmit}
+                  type="submit"
+                  className="inline-block rounded bg-primary px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                  data-te-ripple-init
+                  data-te-ripple-color="dark"
+                >
+                  Create Account
+                </button>
                 <Link href="/login">
                   <button
                     type="button"
@@ -323,15 +332,7 @@ function Register(): JSX.Element {
                     Login
                   </button>
                 </Link>
-                <button
-                  // onClick={onSubmit}
-                  type="submit"
-                  className="inline-block rounded bg-primary px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                  data-te-ripple-init
-                  data-te-ripple-color="dark"
-                >
-                  Register
-                </button>
+
                 <button
                   onClick={(): void => reset()}
                   type="button"

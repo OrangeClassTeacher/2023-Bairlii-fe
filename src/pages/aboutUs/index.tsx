@@ -36,7 +36,7 @@ function AboutUs(): JSX.Element {
             <div id="imgBox">
               <Image
                 id="aboutImg"
-                src="/images/z2.jpg"
+                src="/images/3.png"
                 width={300}
                 height={200}
                 alt="aboutUs"

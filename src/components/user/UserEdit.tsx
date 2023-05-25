@@ -105,8 +105,8 @@ function UserEdit(): JSX.Element {
   // console.log(userEdit);
   // console.log(test);
   return (
-    <div className=" flex justify-center ">
-      <div className="flex flex-wrap gap-6  mt-7 max-w-7xl w-full mb-20  justify-between">
+    <div className=" flex justify-center lg:justify-center xl:justify-center ps-2 pe-2 mb-20 xl:mb-0 sm:mb-0 lg:mb-0">
+      <div className="flex flex-wrap gap-6  mt-7 max-w-7xl w-full mb-20  justify-center  xl:justify-between">
         <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-7/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
           <Image
             height={2000}
