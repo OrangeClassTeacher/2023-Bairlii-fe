@@ -18,11 +18,9 @@ function AboutUs(): JSX.Element {
               />
             </div>
             <div id="content">
-              <h2 className="text-black-700">Hello I`m Narandorj </h2>
+              <h2 className="text-black-700">Сайн уу, Би бол Нарандорж </h2>
               <p className="mt-5">
-                Welcome to my web developer portfolio! I&#39;m Narandorj, a skilled
-                and creative web developer with a passion for creating
-                beautiful, responsive, and user-friendly websites.
+                2022 оны 9 сараас эхлэн Pinecone academy-д суралцаж амжилттай төгсөх гэж байгаа. Уг вебсайтыг хийхэд өөрийн сурч мэдсэн бүхий л зүйлсийг ашиглан Full stack-аар ажилласан болно.
               </p>
               <a target="_blank" href="https://github.com/NaDo2383">
                 <div>
