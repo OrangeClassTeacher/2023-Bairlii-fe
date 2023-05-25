@@ -19,7 +19,7 @@ function AboutUs(): JSX.Element {
             <div id="content">
               <h2 className="text-black-700">Hello I`m Narandorj </h2>
               <p className="mt-5">
-                Welcome to my web developer portfolio! I'm Narandorj, a skilled
+                Welcome to my web developer portfolio! I&#39;m Narandorj, a skilled
                 and creative web developer with a passion for creating
                 beautiful, responsive, and user-friendly websites.
               </p>
@@ -45,7 +45,7 @@ function AboutUs(): JSX.Element {
             <div id="content">
               <h2>Hello I`m Byambasuren</h2>
               <p className="mt-5">
-                Welcome to my web developer portfolio! I'm Byambasuren, a
+                Welcome to my web developer portfolio! I&#39;m Byambasuren, a
                 skilled and creative web developer with a passion for creating
                 beautiful, responsive, and user-friendly websites.
               </p>
@@ -71,7 +71,7 @@ function AboutUs(): JSX.Element {
             <div id="content">
               <h2>Hello I`m Byambajav</h2>
               <p className="mt-5">
-                Welcome to my web developer portfolio! I'm Byambajav, a skilled
+                Welcome to my web developer portfolio! I&#39;m Byambajav, a skilled
                 and creative web developer with a passion for creating
                 beautiful, responsive, and user-friendly websites.
               </p>
