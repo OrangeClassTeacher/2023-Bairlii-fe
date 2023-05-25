@@ -11,7 +11,6 @@ const NewUser = (): JSX.Element => {
   useEffect(() => {
     const localStorageValue: string = localStorage.getItem("token") || "";
     setDecoded(jwt.decode(localStorageValue) || "");
-    // console.log(".......data", userEdit1);
 
     setLoading(false);
   }, []);
@@ -33,6 +32,7 @@ const NewUser = (): JSX.Element => {
             className="rounded-full h-11 w-11 flex items-center justify-center me-2"
           />
         </div>
+
         <Dropdown className="" label={decoded.user.firstName}>
           <Link
             href={{

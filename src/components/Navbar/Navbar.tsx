@@ -6,6 +6,7 @@ import Categories from "../CategoryFilter/Categories";
 import NewUser from "../user/newUser";
 import { useContext } from "react";
 import { TokenContext } from "@/Context/Context";
+import Link from "next/link";
 
 const Navbar = (): JSX.Element => {
   const { message } = useContext(TokenContext);
@@ -13,7 +14,7 @@ const Navbar = (): JSX.Element => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    // const token = typeof window !== undefined ? localStorage.getItem("token") : ""
+
     setLocalUser(token);
   }, [message]);
 
@@ -22,8 +23,17 @@ const Navbar = (): JSX.Element => {
       <div className="">
         <Container>
           <div className="flex justify-between ps-2 pe-2 sm:justify-between lg:justify-between items-center xl:justify-between gap-3 md:gap-0 max-w-7xl w-full ">
-            <Logo />
-            {localUser ? <NewUser /> : <Menu />}
+            <div>
+              <Logo />
+            </div>
+            <div className="flex justify-between w-[250px]">
+              <div className="leading-10">
+                <Link href={"/"} className="home">
+                  <span className="hover-underline-animation">HOME</span>
+                </Link>
+              </div>
+              <div>{localUser ? <NewUser /> : <Menu />}</div>
+            </div>
           </div>
         </Container>
       </div>
