@@ -10,14 +10,14 @@ const AdCardForUser = ({
   const date = new Date(item?.createdAt);
 
   return (
-    <div className="card">
-      <div className="card-inner ">
+    <div className="card h-[500px] ">
+      <div className="card-inner justify-center h-[500px]">
         <div
-          className="  flex flex-wrap flex-col max-w-[10px] min-w-[300px] "
+          className="  flex flex-wrap flex-col max-w-[10px] min-w-[300px]  "
           key={key}
         >
           <SwiperSlider data={item} />
-          <div className=" bg-gray-100  z-20 flex flex-wrap justify-center ">
+          <div className=" bg-gray-100  z-20 flex flex-wrap justify-center h-[310px]  ">
             <div className="flex justify-between w-4/5 mt-2  ">
               <p className="font-bold">Area:</p>
               <p>{item?.propertyID?.area}.m.k</p>
@@ -32,12 +32,12 @@ const AdCardForUser = ({
             </div>
             <div className="flex justify-between w-4/5 mt-2 ">
               <p className="font-bold">Price:</p>
-              <p>{item?.price}</p>
+              <p>{item?.price}$</p>
             </div>
             <div className="flex justify-between w-4/5 mt-2">
               <p className="font-bold"> From:</p>{" "}
               <p>
-                {date.getFullYear()} {date.getMonth() + 1} {date.getDate()}
+                {date.getFullYear()}.{date.getMonth() + 1}.{date.getDate()}
               </p>
             </div>
             <div className="w-4/5 mt-4 flex flex-row-reverse text-gray-600 text-sm underline">

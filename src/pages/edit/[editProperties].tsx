@@ -172,12 +172,12 @@ function EditProperties(): JSX.Element {
     return <Loading />;
   } else {
     return (
-      <div className=" flex gap-5 flex-wrap justify-center mb-20">
+      <div className=" flex gap-5 flex-wrap justify-center md:justify-center mb-20 ps-2 pe-2">
         <div className=" max-w-7xl w-full mt-7 ">
-          <div className="flex justify-between">
+          <div className="xl:flex lg:flex xl:justify-between lg:justify-center lg:justify-between  md:justify-between ">
             <div className="w-2/5">
-              <div className="flex justify-between w-full">
-                <div className="input-container">
+              <div className="xl:flex xl:justify-between lg:justify-between">
+                <div className="input-container md:w-[510px] sm:w-[510px]  xl:w-[250px]">
                   <label className="block text-gray-700 text-sm font-bold mb-2">
                     Guest Count
                   </label>
@@ -190,7 +190,7 @@ function EditProperties(): JSX.Element {
                     className="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   />
                 </div>
-                <div className="input-container">
+                <div className="input-container md:w-[510px] sm:w-[510px] w-[400px] xl:w-[250px]">
                   <label className="block text-gray-700 text-sm font-bold mb-2">
                     Area
                   </label>
@@ -204,9 +204,9 @@ function EditProperties(): JSX.Element {
                   />
                 </div>
               </div>
-              <div className="flex justify-between">
-                <div className="input-container">
-                  <label className="block text-gray-700 text-sm font-bold mb-2">
+              <div className="xl:flex xl:justify-between">
+                <div className="input-container md:w-[510px] sm:w-[510px] w-[400px] xl:w-[250px]">
+                  <label className="block text-gray-700 text-sm font-bold mb-2 ">
                     Room Count
                   </label>
                   <input
@@ -218,7 +218,7 @@ function EditProperties(): JSX.Element {
                     className="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   />
                 </div>
-                <div className="input-container">
+                <div className="input-container justify-between md:w-[510px] sm:w-[510px] w-[400px] xl:w-[250px]">
                   <label className="block text-gray-700 text-sm font-bold mb-2">
                     Bathroom Count
                   </label>
@@ -228,12 +228,12 @@ function EditProperties(): JSX.Element {
                     onChange={handleChange}
                     name="bathroomCount"
                     placeholder="Bathroom Count"
-                    className="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    className="input w-[370px] shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   />
                 </div>
               </div>
-              <div className="flex justify-between">
-                <div className="input-container">
+              <div className="flex ">
+                <div className="input-container ">
                   <label className="block text-gray-700 text-sm font-bold mb-2">
                     Location
                   </label>
@@ -243,7 +243,7 @@ function EditProperties(): JSX.Element {
                     onChange={handleChange}
                     name="locationName"
                     placeholder="Location"
-                    className="bairshil input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    className=" w-[370px] sm:w-[510px] input shadow appearance-none  rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   />
                 </div>
               </div>
@@ -257,11 +257,11 @@ function EditProperties(): JSX.Element {
                   onChange={handleChange}
                   name="description"
                   placeholder="Desccription"
-                  className="tailbar input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="tailbar sm:w-[510px] input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
               </div>
             </div>
-            <div className="w-6/12">
+            <div className="xl:w-6/12 md:w-6/12 lg:w-6/12">
               <div>
                 <MapComponentForPropertyEdit
                   setCoordinates={setCoordinate}
