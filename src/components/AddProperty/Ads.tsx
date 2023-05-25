@@ -38,7 +38,7 @@ const Ads = ({ setSelected }: any): JSX.Element => {
       })
       .then((res) => {
         setAds(res.data.result);
-        setPageNumb(Math.ceil(res.data.rowCount / 12));
+        setPageNumb(Math.ceil(res.data.rowCount[0].rowCount / 12));
         setLoading(false);
       })
       .catch((err) => {
