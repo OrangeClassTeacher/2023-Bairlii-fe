@@ -76,9 +76,9 @@ function UserPage(): JSX.Element {
     return <Loading />;
   } else {
     return (
-      <div className="flex w-full justify-center containerblur mb-20">
+      <div className="flex  xl:justify-center lg:justify-center md:justify-center sm:justify-center justify-center containerblur xl:mb-20  lg:mb-24 md:mb-32 sm:mb-32 mb-36">
         <div className="">
-          <div className="flex gap-5 flex-wrap  max-w-7xl w-full mt-7 ">
+          <div className="flex gap-5 flex-wrap  max-w-7xl w-full mt-7 justify-center ">
             <div className="cards ">
               <div className="card-inner  p-2 rounded-md">
                 <Image

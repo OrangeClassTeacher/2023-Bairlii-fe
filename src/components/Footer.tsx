@@ -13,11 +13,11 @@ const Footer = (): JSX.Element => {
     guraw: "Guraaw",
   };
   return (
-    <div className=" z-30 shadow-sm flex flex-col w-full bg-neutral-100  shadow-inner fixed bottom-0">
+    <div className=" z-30 shadow-sm flex flex-col w-full bg-neutral-100  shadow-inner fixed bottom-0 ">
       <Container>
-        <div className="flex flex-row items-center justify-between gap-3 md:gap-0 max-w-7xl w-full">
+        <div className="flex flex-row items-center sm:flex-wrap flex-wrap sm:justify-between lg:justify-between xl:justify-between md:justify-between  gap-3 md:gap-0 max-w-7xl w-full">
           <div>
-            <ul className="flex gap-4 p-4">
+            <ul className="flex gap-4 pt-2 ps-2 flex-wrap">
               <Link href="/">
                 <li>{footerData.Bairlii}</li>
               </Link>
@@ -36,7 +36,7 @@ const Footer = (): JSX.Element => {
             </ul>
           </div>
           <div>
-            <ul className="flex gap-4">
+            <ul className="flex gap-4 ps-2 pt-2">
               <Link href={""}>
                 <li>{footerData.neg}</li>
               </Link>

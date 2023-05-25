@@ -57,7 +57,7 @@ const Ads = ({ setSelected }: any): JSX.Element => {
   }
 
   return (
-    <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-7xl w-full">
+    <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-7xl w-full mb-32 xl:mb-0 lg:mb-0 ">
       {loading ? (
         <>
           <Loading />
@@ -87,7 +87,7 @@ const Ads = ({ setSelected }: any): JSX.Element => {
         </>
       ) : (
         <div>
-          <div className="flex flex-wrap gap-6 justife-between mt-7 max-w-7xl w-full">
+          <div className="flex flex-wrap gap-6 justife-between mt-7 max-w-7xl w-full lg:justify-center md:justify-center sm:justify-center  justify-center">
             {ads.map(
               (item, index): JSX.Element => (
                 <>
@@ -96,7 +96,7 @@ const Ads = ({ setSelected }: any): JSX.Element => {
               )
             )}
           </div>
-          <div className="flex gap-2 justify-center flex-wrap my-4 mb-16">
+          <div className="flex gap-2 justify-center sm:justify-center flex-wrap my-4 mb-16">
             {pages.map((e, index) => {
               if (e > 0) {
                 if (e == curPageNumb) {
@@ -134,7 +134,7 @@ const Ads = ({ setSelected }: any): JSX.Element => {
         </div>
       )}
       <span
-        className="flex items-center gap-2 bg-black p-2 rounded-xl text-white fixed bottom-24 z-30 border-2 border-slate-600 cursor-pointer"
+        className="flex items-center gap-2 bg-black p-2 rounded-xl text-white fixed bottom-32 xl:bottom-27 z-30 border-2 border-slate-600 cursor-pointer"
         onClick={(): void => setSelected("Maps")}
       >
         Show map <BsMap />

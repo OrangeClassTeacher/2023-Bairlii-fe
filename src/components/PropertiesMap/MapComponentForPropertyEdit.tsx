@@ -32,27 +32,31 @@ const MapComponentForPropertyEdit = ({
   if (!isLoaded) return <Loading />;
   return (
     <div>
-      <div>
-        X:
-        <input
-          placeholder="x"
-          value={saveCoordinates.x}
-          onFocus={(): void => {
-            setCursorType("crosshair");
-            setChoose(false);
-          }}
-          className="form-input"
-        />
-        Y:
-        <input
-          placeholder="y"
-          value={saveCoordinates.y}
-          onFocus={(): void => {
-            setCursorType("crosshair");
-            setChoose(false);
-          }}
-          className="form-input"
-        />
+      <div className="flex justify-between  ">
+        <div className="border-dashed border-2 border-black p-2 mb-2 mt-4 xl:mt-0 rounded  ">
+          X:
+          <input
+            placeholder="x"
+            value={saveCoordinates.x}
+            onFocus={(): void => {
+              setCursorType("crosshair");
+              setChoose(false);
+            }}
+            className="form-input"
+          />
+        </div>
+        <div className=" border-dashed border-2 border-black p-2 mb-2 mt-4 xl:mt-0 rounded">
+          Y:
+          <input
+            placeholder="y"
+            value={saveCoordinates.y}
+            onFocus={(): void => {
+              setCursorType("crosshair");
+              setChoose(false);
+            }}
+            className="form-input"
+          />
+        </div>
       </div>
 
       <GoogleMap

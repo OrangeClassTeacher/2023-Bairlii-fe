@@ -56,11 +56,11 @@ function UserAdvertisements(): JSX.Element {
   }
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center ">
       {loading ? (
         <div>
           <Loading />
-          <div className="flex flex-wrap gap-6 justify-center mt-7 max-w-7xl w-full">
+          <div className="flex flex-wrap gap-6 justify-center md:justify-center lg:justify-center sm:justify-center xl:justify-center mt-7 max-w-7xl w-full">
             {skeletonArr.map((item, index) => (
               <div
                 key={index}
@@ -85,15 +85,17 @@ function UserAdvertisements(): JSX.Element {
           </div>
         </div>
       ) : (
-        <div className="flex flex-wrap gap-6  mt-7 max-w-7xl w-full mb-20">
+        <div className="flex justify-center flex-wrap gap-6  mt-7 max-w-7xl w-full xl:mb-20 mb-36 md:mb-20 sm:mb-20">
           {ads.map(
             (item, index): JSX.Element => (
               <>
-                <AdCardForUser
-                  item={item}
-                  key={index}
-                  deleteAdvertisement={deleteAdvertisement}
-                />
+                <div className="">
+                  <AdCardForUser
+                    item={item}
+                    key={index}
+                    deleteAdvertisement={deleteAdvertisement}
+                  />
+                </div>
               </>
             )
           )}

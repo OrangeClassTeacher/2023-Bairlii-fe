@@ -73,7 +73,7 @@ function Login(): JSX.Element {
   return (
     <section className="">
       <div className="flex justify-center">
-        <div className="flex flex-wrap gap-6  mt-7 max-w-7xl w-full mb-20  justify-between mt-28">
+        <div className="flex flex-wrap gap-6  max-w-7xl w-full mb-32  xl:justify-between mt-28 sm:justify-center justify-center">
           <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
             <Image
               height={1000}
@@ -90,7 +90,7 @@ function Login(): JSX.Element {
               <div className="absolute inset-1 bg-blue-200 rounded-lg z-10 p-5">
                 <form>
                   <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
-                    <p className="mx-4 mb-0 text-center font-semibold text-2xl dark:text-white">
+                    <p className="mx-4 mb-0 text-center  text-2xl dark:text-white">
                       Login
                     </p>
                   </div>
@@ -156,7 +156,7 @@ function Login(): JSX.Element {
                         data-te-ripple-init
                         data-te-ripple-color="dark"
                       >
-                        Register
+                        Create Account
                       </button>
                     </Link>
                   </div>
