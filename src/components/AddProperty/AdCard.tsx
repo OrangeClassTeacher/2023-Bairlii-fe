@@ -54,7 +54,7 @@ const AdCard = ({ item, key }: any): JSX.Element => {
                   {date1}
                 </p>
 
-                <p className="flex justify-between w-2xl  text-gray-500 underline leading-8 ms-40 mt-3  ps-6">
+                <p className="flex justify-between w-2xl  text-cyan-600 underline leading-8 ms-40 mt-3  ps-6">
                   <Link
                     href={{
                       pathname: `/[detail]`,

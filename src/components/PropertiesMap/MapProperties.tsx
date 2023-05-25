@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 import Loading from "../loading/Loading";
 
@@ -22,7 +22,7 @@ const MapProperties: React.FC<MapPropertiesProps> = ({
     y: "",
   });
   const [choose, setChoose] = useState(false);
-
+  const mapCenter = useMemo(() => ({ lat: 47.92123, lng: 106.918556 }), []);
   if (!isLoaded) return <Loading />;
   return (
     <div>
@@ -66,7 +66,7 @@ const MapProperties: React.FC<MapPropertiesProps> = ({
           }
         }}
         zoom={14}
-        center={{ lat: 47.92123, lng: 106.918556 }}
+        center={mapCenter}
         mapContainerStyle={{ height: "400px" }}
       >
         <MarkerF
