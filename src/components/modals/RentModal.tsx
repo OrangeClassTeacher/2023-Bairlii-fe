@@ -103,8 +103,8 @@ const RentModal = (): JSX.Element => {
         .then(() => {
           router.refresh();
           reset();
-          setStep(STEPS.CATEGORY);
           rentModal.onClose();
+          setStep(STEPS.CATEGORY);
           toast.success("🏠Your accommodation has been successfully created", {
             position: toast.POSITION.TOP_CENTER,
             autoClose: 5000,
